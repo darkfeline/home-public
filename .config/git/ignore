@@ -1,0 +1,12 @@
+# Emacs lock files
+.#*
+# Emacs autosave files
+\#*#
+# Emacs backup files
+*~
+
+*.elc
+.dir-locals.el
+TAGS
+go.work
+go.work.sum

@@ -1,0 +1,68 @@
+# -*- indent-tabs-mode: t; -*-
+[include]
+	path = config-user
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[alias]
+	a = add
+	ap = add -p
+	b = branch
+	bm = branch --merged
+	branch-age = for-each-ref --sort=-committerdate --format='%(committerdate:relative) %(refname:short)' refs/heads/
+	c = commit
+	ca = commit --amend
+	cfg = config
+	ch = checkout
+	cd = checkout --detach
+	cp = cherry-pick
+	cu = cl upload
+	cue = config user.email
+	cun = cl upload --no-squash
+	d = diff
+	dc = diff --cached
+	f = fetch
+	fa = fetch --all
+	first = rev-list --max-parents=0 HEAD
+	l = log
+	l1 = log -1
+	ll = log --all --graph --decorate --stat
+	m = merge
+	r = reset
+	rfo = rebase --force
+	rfu = rebase --fixup
+	rh = reset --hard
+	rhh = reset --hard HEAD
+	ru = rebase-update
+	rmc = rm --cached
+	s = status
+	sm = submodule
+	smagd = submodule absorbgitdirs
+	smfe = submodule foreach
+	smi = submodule init
+	sms = submodule sync
+	smu = submodule update
+	smun = submodule update --no-fetch
+	smur = submodule-update-reset
+	wt = worktree
+[advice]
+	detachedHead = false
+[help]
+	autoCorrect = prompt
+[color]
+	ui = auto
+	diff = auto
+[init]
+	defaultBranch = master
+[log]
+	date = rfc-local
+[merge]
+	conflictStyle = diff3
+[rerere]
+	enabled = true
+[push]
+	default = current
+	recurseSubmodules = check
