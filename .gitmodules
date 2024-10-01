@@ -1,0 +1,4 @@
+[submodule ".config/emacs"]
+	path = .config/emacs
+	url = https://github.com/darkfeline/home-emacs-public.git
+	update = rebase
