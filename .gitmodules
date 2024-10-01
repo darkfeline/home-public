@@ -1,0 +1,151 @@
+[submodule "bazel"]
+	path = lib/bazel
+	url = https://github.com/bazelbuild/emacs-bazel-mode.git
+[submodule "borg"]
+	path = lib/borg
+	url = https://github.com/emacscollective/borg.git
+[submodule "closql"]
+	path = lib/closql
+	url = https://github.com/emacscollective/closql.git
+[submodule "dash"]
+	path = lib/dash
+	url = https://github.com/magnars/dash.el.git
+[submodule "ddskk"]
+	path = lib/ddskk
+	url = https://github.com/skk-dev/ddskk.git
+        ignore = untracked
+[submodule "dumb-jump"]
+	path = lib/dumb-jump
+	url = https://github.com/jacktasia/dumb-jump.git
+[submodule "easydraw"]
+	path = lib/easydraw
+	url = https://github.com/misohena/el-easydraw.git
+[submodule "elgrep"]
+	path = lib/elgrep
+	url = https://github.com/TobiasZawada/elgrep
+[submodule "elisp-refs"]
+	path = lib/elisp-refs
+	url = https://github.com/Wilfred/elisp-refs.git
+[submodule "emacsql"]
+	path = lib/emacsql
+	url = https://github.com/skeeto/emacsql.git
+	no-byte-compile = emacsql-pg.el
+[submodule "emmet-mode"]
+	path = lib/emmet-mode
+	url = https://github.com/smihica/emmet-mode.git
+[submodule "epkg"]
+	path = lib/epkg
+	url = https://github.com/emacscollective/epkg.git
+[submodule "f"]
+	path = lib/f
+	url = https://github.com/rejeep/f.el.git
+[submodule "flymake-shellcheck"]
+	path = lib/flymake-shellcheck
+	url = https://github.com/federicotdn/flymake-shellcheck.git
+[submodule "ghub"]
+	path = lib/ghub
+	url = https://github.com/magit/ghub.git
+[submodule "git-timemachine"]
+	path = lib/git-timemachine
+	url = https://codeberg.org/pidu/git-timemachine.git
+[submodule "gn-mode"]
+	path = lib/gn-mode
+	url = https://github.com/lashtear/gn-mode.git
+[submodule "go-dlv"]
+	path = lib/go-dlv
+	url = https://github.com/benma/go-dlv.el.git
+[submodule "go-mode"]
+	path = lib/go-mode
+	url = https://github.com/darkfeline/go-mode.el.git
+	remote = "upstream https://github.com/dominikh/go-mode.el"
+[submodule "graphviz-dot-mode"]
+	path = lib/graphviz-dot-mode
+	url = https://github.com/ppareit/graphviz-dot-mode.git
+[submodule "helpful"]
+	path = lib/helpful
+	url = https://github.com/Wilfred/helpful.git
+[submodule "ialign"]
+	path = lib/ialign
+	url = https://github.com/mkcms/interactive-align.git
+[submodule "imenu-list"]
+	path = lib/imenu-list
+	url = https://github.com/bmag/imenu-list.git
+[submodule "ipcalc"]
+	path = lib/ipcalc
+	url = https://github.com/dotemacs/ipcalc.el.git
+[submodule "jq-mode"]
+	path = lib/jq-mode
+	url = https://github.com/ljos/jq-mode.git
+[submodule "json-mode"]
+	path = lib/json-mode
+	url = https://github.com/json-emacs/json-mode.git
+[submodule "json-snatcher"]
+	path = lib/json-snatcher
+	url = https://github.com/Sterlingg/json-snatcher.git
+[submodule "libgit"]
+	path = lib/libgit
+	url = https://github.com/magit/libegit2.git
+[submodule "llama"]
+	path = lib/llama
+	url = https://github.com/tarsius/llama.git
+[submodule "lua-mode"]
+	path = lib/lua-mode
+	url = https://github.com/immerrr/lua-mode.git
+[submodule "magit"]
+	path = lib/magit
+	url = https://github.com/darkfeline/magit.git
+        remote = "upstream https://github.com/magit/magit"
+[submodule "markdown-mode"]
+	path = lib/markdown-mode
+	url = https://github.com/jrblevin/markdown-mode.git
+[submodule "minions"]
+	path = lib/minions
+	url = https://github.com/tarsius/minions.git
+[submodule "obsidian"]
+	path = lib/obsidian
+	url = https://github.com/licht1stein/obsidian.el.git
+[submodule "popup"]
+	path = lib/popup
+	url = https://github.com/auto-complete/popup-el.git
+[submodule "protobuf-mode"]
+	path = lib/protobuf-mode
+	url = https://github.com/emacsmirror/protobuf-mode.git
+[submodule "puppet-mode"]
+	path = lib/puppet-mode
+	url = https://github.com/voxpupuli/puppet-mode.git
+[submodule "reintegrate"]
+	path = lib/reintegrate
+	url = https://github.com/darkfeline/emacs-reintegrate.git
+[submodule "s"]
+	path = lib/s
+	url = https://github.com/magnars/s.el.git
+[submodule "string-inflection"]
+	path = lib/string-inflection
+	url = https://github.com/akicho8/string-inflection.git
+[submodule "toml-mode"]
+	path = lib/toml-mode
+	url = https://github.com/dryman/toml-mode.el.git
+[submodule "tree-sitter"]
+	path = lib/tree-sitter
+	url = https://github.com/emacs-tree-sitter/elisp-tree-sitter.git
+        load-path = core
+        load-path = lisp
+        load-path = langs
+[submodule "tree-sitter-langs"]
+	path = lib/tree-sitter-langs
+	url = https://github.com/emacs-tree-sitter/tree-sitter-langs.git
+[submodule "treepy"]
+	path = lib/treepy
+	url = https://github.com/volrath/treepy.el.git
+[submodule "verb"]
+	path = lib/verb
+	url = https://github.com/federicotdn/verb.git
+[submodule "xterm-color"]
+	path = lib/xterm-color
+	url = https://github.com/atomontage/xterm-color.git
+[submodule "yaml"]
+	path = lib/yaml
+	url = https://github.com/zkry/yaml.el
+[submodule "yaml-mode"]
+	path = lib/yaml-mode
+	url = https://github.com/yoshiki/yaml-mode.git
