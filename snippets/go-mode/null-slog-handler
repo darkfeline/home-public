@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: null slog handler
+# key: nsh
+# --
+type ${1:nullHandler} struct{}
+
+var _ slog.Handler = $1{}
+
+func ($1) Enabled(context.Context, slog.Level) bool  { return false }
+func ($1) Handle(context.Context, slog.Record) error { return nil }
+func (h $1) WithAttrs([]slog.Attr) slog.Handler      { return h }
+func (h $1) WithGroup(string) slog.Handler           { return h }

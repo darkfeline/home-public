@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: test-cases
+# key: tc
+# --
+cases := []struct{
+	desc string
+}{}
+for _, c := range cases {
+	c := c
+        t.Run(c.desc, func(t *testing.T) {
+        	$0
+	})
+}

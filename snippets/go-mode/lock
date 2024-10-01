@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: lock
+# key: lock
+# --
+${1:foo}.Lock()
+$1.Unlock()$0

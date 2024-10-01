@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: anonymous func call
+# key: fn
+# --
+func() {
+	$0
+}()
