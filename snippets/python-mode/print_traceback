@@ -1,0 +1,6 @@
+# -*- mode: snippet; -*-
+# name: print traceback
+# key: ptb
+# --
+import traceback
+print('@@@@@@@@@@ We are here:\n%s' % ''.join(traceback.format_stack()))

@@ -1,0 +1,5 @@
+# -*- mode: snippet; -*-
+# name: module level logger instance
+# key: logger
+# --
+logger = logging.getLogger(__name__)

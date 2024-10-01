@@ -1,0 +1,9 @@
+# -*- mode: snippet; -*-
+# name: comparator method
+# key: cmp
+# --
+def __${1:eq}__(self, other):
+    if isinstance(other, type(self)):
+        $0
+    else:
+        return NotImplemented
