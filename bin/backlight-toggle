@@ -1,0 +1,18 @@
+#!/bin/bash -x
+
+setbl() {
+    notify-send --app-name=xbacklight --expire-time=1000 "xbacklight $1"
+    xbacklight -set $1
+}
+
+# Strip decimal since shell can only do ints
+cur=$(xbacklight | sed 's/\.[0-9]\+$//')
+if [[ $cur -lt 21 ]]; then
+    setbl 40
+elif [[ $cur -lt 41 ]]; then
+    setbl 60
+elif [[ $cur -lt 61 ]]; then
+    setbl 80
+else
+    setbl 20
+fi
