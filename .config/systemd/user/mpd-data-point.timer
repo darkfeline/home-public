@@ -1,0 +1,10 @@
+[Unit]
+Description=Collect mpd data timer
+
+[Timer]
+OnCalendar=*-*-* *:00/2:00
+Persistent=true
+AccuracySec=1m
+
+[Install]
+WantedBy=timers.target

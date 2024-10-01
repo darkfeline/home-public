@@ -1,0 +1,6 @@
+[Unit]
+Description=Emacs remote integration service
+Requires=emacs-integration.socket
+
+[Service]
+ExecStart=%h/go/bin/emacs-integration

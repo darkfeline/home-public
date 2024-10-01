@@ -1,0 +1,10 @@
+[Unit]
+Description=Collect volume data
+ConditionACPower=true
+
+[Service]
+Type=oneshot
+ExecStart=%h/bin/volume-data-point
+Nice=19
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7

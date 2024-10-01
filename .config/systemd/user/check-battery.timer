@@ -1,0 +1,9 @@
+[Unit]
+Description=Check battery level
+
+[Timer]
+OnActiveSec=120
+AccuracySec=60
+
+[Install]
+WantedBy=timers.target

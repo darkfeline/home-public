@@ -1,0 +1,10 @@
+[Unit]
+Description=Collect mpd data
+ConditionACPower=true
+
+[Service]
+Type=oneshot
+ExecStart=%h/bin/mpd-data-point
+Nice=19
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7

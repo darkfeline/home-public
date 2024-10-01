@@ -1,0 +1,10 @@
+[Unit]
+Description=Check battery level
+ConditionACPower=false
+
+[Service]
+Type=oneshot
+ExecStart=%h/bin/check-battery
+Nice=19
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
