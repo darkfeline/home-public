@@ -1,0 +1,16 @@
+# GNU Readline config.
+# Re-read config with C-x C-r.
+$include /etc/inputrc
+
+set bell-style visible
+set blink-matching-paren on
+set colored-completion-prefix on
+set colored-stats on
+set completion-display-width 80
+set show-all-if-ambiguous on
+set skip-completed-text on
+set visible-stats on
+
+$if term=dumb
+set enable-bracketed-paste off
+$endif
