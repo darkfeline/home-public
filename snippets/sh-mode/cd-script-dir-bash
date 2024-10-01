@@ -1,0 +1,5 @@
+# -*- mode: snippet; -*-
+# name: Change to script directory (Bash)
+# key: cdb
+# --
+cd -- "$(dirname -- "${BASH_SOURCE[0]}")"

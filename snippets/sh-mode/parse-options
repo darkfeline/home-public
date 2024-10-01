@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: parse options
+# key: po
+# --
+while [ $# -gt 0 ]; do
+    case "\$1" in
+        --)
+            shift
+            break
+            ;;
+        $0
+        -*)
+            printf "Unknown option %s" "\$1"
+            exit 1
+            ;;
+        *) break ;;
+    esac
+done

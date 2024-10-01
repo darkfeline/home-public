@@ -1,0 +1,5 @@
+# -*- mode: snippet; -*-
+# name: Get script directory
+# key: dir
+# --
+dir=$(cd -- "$(dirname -- "$0")" && pwd -P)

@@ -1,0 +1,17 @@
+# -*- mode: snippet; -*-
+# name: getopts
+# key: getopts
+# --
+usage() {
+        printf "Usage: %s: [-a] [-b value] [-h] args\n" "\$0"
+}
+
+while getopts ab:h opt; do
+    case "\${opt}" in
+        a) aflag=1;;
+        b) bflag=1; bval="$OPTARG";;
+        h) usage; exit 0;;
+        ?) usage >&2; exit 2;;
+    esac
+done
+shift $(($OPTIND - 1))
