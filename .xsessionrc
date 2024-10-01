@@ -1,0 +1,5 @@
+#!/bin/bash
+# This file is evaluated by /etc/X11/Xsession scripts before the startup command.
+# The startup command is the supplied argument, or .xsession if missing.
+# It may also be used by other things, who knows?
+. ~/.profile
