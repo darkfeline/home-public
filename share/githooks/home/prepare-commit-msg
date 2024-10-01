@@ -1,0 +1,15 @@
+#!/bin/sh
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+SHA1=$3
+
+print_staged() {
+    git diff --name-only --staged
+}
+
+[ -z "$COMMIT_SOURCE" ] || exit 0
+
+staged=$(print_staged)
+if echo "${staged}" | grep '\.config/emacs'; then
+    sed -i "1i Uprev emacs" "$COMMIT_MSG_FILE"
+fi

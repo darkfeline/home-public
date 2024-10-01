@@ -1,0 +1,15 @@
+#!/bin/sh
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+SHA1=$3
+
+print_staged() {
+    git diff --name-only --staged
+}
+
+[ -z "$COMMIT_SOURCE" ] || exit 0
+if print_staged | grep lib; then
+    sed -i "1i Uprev lib" "$COMMIT_MSG_FILE"
+elif print_staged | grep elpa; then
+    sed -i "1i Uprev elpa" "$COMMIT_MSG_FILE"
+fi

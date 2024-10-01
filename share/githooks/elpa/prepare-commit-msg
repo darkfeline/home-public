@@ -1,0 +1,26 @@
+#!/bin/sh
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+SHA1=$3
+
+print_staged() {
+    git diff --name-only --staged --no-renames
+}
+
+[ -z "$COMMIT_SOURCE" ] || exit 0
+
+lines=( $(print_staged | sed 's/\/.*$//' | sed 's/\.signed$//' | uniq) )
+pkg=$(echo "${lines[0]}" | sed 's/-[^-]*$//')
+ver1=$(echo "${lines[0]}" | sed 's/^.*-//')
+ver2=$(echo "${lines[1]}" | sed 's/^.*-//')
+
+lines=( $(printf "%s\n" "${ver1}" "${ver2}" | sort -V) )
+ver1=${lines[0]}
+ver2=${lines[1]}
+
+if [ -n "${pkg}" ] \
+       && [ -n "${ver1}" ] \
+       && [ -n "${ver2}" ]
+then
+    sed -i "1iUpdate ${pkg} ${ver1} -> ${ver2}" "$COMMIT_MSG_FILE"
+fi
