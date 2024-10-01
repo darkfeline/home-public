@@ -1,0 +1,5 @@
+#!/bin/bash
+. flatpak-alt.bash
+flatpak_exec_name=io.mpv.Mpv
+flatpak_native_path=/usr/bin/mpv
+flatpak_exec_alt "$@"

@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+"""Diceware generator."""
+
+import argparse
+from pathlib import Path
+import secrets
+
+WORD_LIST = Path.home() / 'share' / 'diceware.txt'
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('length', type=int)
+    args = parser.parse_args()
+    words = tuple(_get_words())
+    print(' '.join(secrets.choice(words) for _ in range(args.length)))
+
+
+def _get_words():
+    with open(WORD_LIST) as file:
+        for line in file:
+            yield line.strip()
+
+
+if __name__ == '__main__':
+    main()

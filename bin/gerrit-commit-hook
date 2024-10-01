@@ -1,0 +1,4 @@
+#!/bin/sh
+gitdir=$(git rev-parse --git-dir)
+curl -Lo "${gitdir}/hooks/commit-msg" http://gerrit-review.googlesource.com/tools/hooks/commit-msg
+chmod u+x "${gitdir}/hooks/commit-msg"

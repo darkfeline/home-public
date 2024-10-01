@@ -1,0 +1,69 @@
+#!/bin/bash
+# This script mostly sets up a new Arch Linux install.
+set -eu
+
+readonly packages=(
+    base-devel
+    ed
+    emacs-nativecomp
+    git
+    github-cli
+    gtk2 # for graphical pinentry
+    go
+    ibus
+    inetutils
+    netctl
+    openssh
+    parallel
+    redshift
+    rofi
+    scrot
+    syncthing
+    vi
+    x11-ssh-askpass
+
+    # X
+    alacritty
+    arandr
+    autorandr
+    awesome
+    xbindkeys
+    xdm-archlinux
+    xorg-server
+    xorg-xinput
+    xorg-xkbcomp
+    xorg-xrdb
+    xorg-xset
+    xsecurelock
+    xss-lock
+
+    # Wayland
+    dunst
+    hyprland
+    polkit-kde-agent
+    waybar
+)
+
+readonly laptop=(
+    acpi
+    acpid
+    dialog  # for wifi-menu
+    tlp
+    wpa_supplicant
+)
+
+main() {
+    sudo pacman -S --noconfirm "${packages[@]}"
+    sudo systemctl enable xdm-archlinux.service
+
+    sudo pacman -S --noconfirm "${laptop[@]}"
+    sudo systemctl enable tlp.service
+    systemctl --user enable --now check-battery.timer
+}
+
+# TODO: install aurutils:
+# inputplug
+# kmonad-bin
+# repoctl
+
+main "$@"

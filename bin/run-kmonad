@@ -1,0 +1,12 @@
+#!/bin/sh
+# Auto-detect kmonad binary and config for current host
+if [ -x ~/.local/bin/kmonad ]; then
+    KMONAD=~/.local/bin/kmonad
+elif [ -x /usr/bin/kmonad ]; then
+    KMONAD=/usr/bin/kmonad
+else
+    printf "kmonad not found\n" >&2
+    exit 1
+fi
+
+exec "${KMONAD}" ~/.config/kmonad/thinkpad.kbd

@@ -1,0 +1,5 @@
+#!/bin/sh
+trap "echo TERM" TERM
+trap "echo HUP" HUP
+trap "echo INT" INT
+sleep 600 & wait $!

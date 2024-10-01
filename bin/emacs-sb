@@ -1,0 +1,5 @@
+#!/bin/sh
+dir=/tmp/emacs-sb
+mkdir -p "${dir}"
+touch "${dir}/init.el"
+exec emacs --init-directory="${dir}"

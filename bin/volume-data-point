@@ -1,0 +1,6 @@
+#!/bin/bash
+set -u
+f=${XDG_STATE_HOME:-$HOME/.local/state}/datapoints/$(hostname -s)-volume
+mkdir -p "$(dirname "$f")"
+pactl list sinks | grep Volume: | head -n 1 | cut -c 10- |
+    gawk '{ print strftime("[%Y-%m-%d %H:%M:%S] %s"), $4, $6, "dB" }' >>"$f"

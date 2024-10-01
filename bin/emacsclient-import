@@ -1,0 +1,9 @@
+#!/bin/bash
+# Import environment variable into Emacs server session
+if ! emacsclient -a false -e t >/dev/null; then
+    printf "no emacs server\n" >&2
+    exit 1
+fi
+for x in "$@"; do
+    emacsclient -e "(let* ((k \"${x}\") (v \"${!x}\") (v2 (getenv k))) (setenv k v) (princ (format \"emacsclient-import: %s: %S -> %S\" k v2 v)))"
+done

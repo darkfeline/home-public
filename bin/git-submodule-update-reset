@@ -1,0 +1,4 @@
+#!/bin/sh
+# Implements a '--reset' strategy for git submodule update.
+# See git-submodule(1).
+git submodule foreach 'git reset --hard $sha1'

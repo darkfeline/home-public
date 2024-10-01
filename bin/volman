@@ -1,0 +1,34 @@
+#!/bin/sh
+set -eu
+
+readonly sink='@DEFAULT_SINK@'
+
+getvol() {
+    wpctl get-volume "${sink}" | awk "\$1 == \"Volume:\" {printf \"%s%\", \$2 * 100; exit 0}"
+}
+
+vol_up() {
+    wpctl set-volume -l 1 "${sink}" 2.5%+
+    notify-send --app-name=volman --expire-time=1000 "up $(getvol)"
+}
+
+vol_down() {
+    wpctl set-volume "${sink}" 2.5%-
+    notify-send --app-name=volman --expire-time=1000 "down $(getvol)"
+}
+
+vol_mute() {
+    wpctl set-mute "${sink}" toggle
+}
+
+while getopts udmg name; do
+    case $name in
+        u) vol_up;;
+        d) vol_down;;
+        m) vol_mute;;
+        g) printf "%s\n" "$(getvol)";;
+        *)
+            printf 'Usage: %s: [-u|-d|-m]...\n' "$0"
+            exit 1;;
+    esac
+done

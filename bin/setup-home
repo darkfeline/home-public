@@ -1,0 +1,82 @@
+#!/bin/bash
+# This script sets up the home environment repository.
+set -eu
+
+main() {
+    do_slow=
+    while getopts "ahs" opt; do
+        case "$opt" in
+            a)
+                do_slow=1
+                ;;
+            h)
+                printf "Usage: $0 [OPTIONS]
+
+	-a	Do all steps
+	-h	Print help
+	-s	Do slow steps
+"
+                exit 0
+                ;;
+            s) do_slow=1;;
+        esac
+    done
+
+    cd "$HOME"
+    ensure_dirs
+    fix_perms
+    setup_git_config
+    setup_git_hooks
+    [[ -n $do_slow ]] && install_deps
+    compile_terminfo
+}
+
+ensure_dirs() {
+    mkdir -p ~/.local/state/erc
+    mkdir -p ~/.local/state/logrotate
+    mkdir -p ~/.local/state/mpd/playlists
+    mkdir -p ~/.local/state/org
+    mkdir -p ~/.local/state/org/timestamps
+    mkdir -p ~/.mpd
+    mkdir -p ~/.ssh/ctrl
+}
+
+fix_perms() {
+    chmod 600 ~/.ssh/config
+}
+
+setup_git_config() {
+    git config status.showUntrackedFiles no
+}
+
+setup_git_hooks() {
+    copy_git_hooks home
+    copy_git_hooks emacs .config/emacs
+    copy_git_hooks elpa .config/emacs elpa
+}
+
+copy_git_hooks() {
+    local src=$1
+    shift 1
+    local dst=
+    local hookdir=share/githooks
+    for m in $@; do
+        dst="${dst}/modules/${m}"
+    done
+    dst=".git${dst}/hooks"
+    [[ -d $dst ]] || return 0
+    for x in "${hookdir}/${src}"/*; do
+        cp "${x}" "${dst}"
+    done
+}
+
+install_deps() {
+    go install go.felesatra.moe/anaclock@latest
+    (cd src/mir && go install ./cmd/mirion)
+}
+
+compile_terminfo() {
+    find ~/.terminfo -type f -name "*.ti" -print0 | xargs -0 -n 1 tic -x
+}
+
+main "$@"

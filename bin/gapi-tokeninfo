@@ -1,0 +1,4 @@
+#!/bin/sh
+# Print googleapi OAuth token info
+tok=$1
+curl "https://oauth2.googleapis.com/tokeninfo?access_token=${tok}"

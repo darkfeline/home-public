@@ -1,0 +1,5 @@
+#!/bin/sh
+# Reload systemd dynamic fstab
+sudo systemctl daemon-reload
+sudo systemctl restart remote-fs.target
+sudo systemctl restart local-fs.target

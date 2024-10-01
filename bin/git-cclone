@@ -1,0 +1,11 @@
+#!/bin/bash
+# Clone a Git repo using cache
+#
+# arg 1: URL
+# arg 2: (optional) dir name
+set -eu
+readonly CACHE=~/src/irminsul
+repo=$1
+dirname=${2-${repo##*/}}
+git-cache "${repo}"
+git clone --reference "${CACHE}" "${repo}" "${dirname}"

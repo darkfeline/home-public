@@ -1,0 +1,5 @@
+#!/bin/sh
+. flatpak-alt.bash
+flatpak_exec_name=net.sourceforge.mcomix
+flatpak_native_path=/usr/bin/mcomix
+flatpak_exec_alt "$@"

@@ -1,0 +1,7 @@
+#!/bin/bash
+set -eu
+. pyvenv-setup.bash
+pyvenv_setup_name=flexget
+pyvenv_setup
+pyvenv_setup_install_command flexget flexget
+exec ${pyvenv_setup_dir}/bin/flexget "$@"

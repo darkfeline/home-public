@@ -1,0 +1,35 @@
+#!/bin/bash
+readonly event_type=$1
+readonly device_id=$2
+readonly device_type=$3
+readonly device_name=$4
+readonly config_dir=~/share/xkb
+case $event_type in
+    XIDeviceEnabled)
+        case $device_type in
+            XISlaveKeyboard)
+                xset r rate 200 40
+                ;;
+            XISlavePointer)
+                case $device_name in
+                    "SynPS/2 Synaptics TouchPad")
+                        if [[ ! -f ~/.local/state/mir-flags/enable-touchpad ]]; then
+                            xinput disable $device_id
+                        fi
+                        ;;
+                    "TPPS/2 IBM TrackPoint")
+                        xinput set-prop $device_id "Coordinate Transformation Matrix" 1 0 0 0 1 0 0 0 1
+                        ;;
+                    "Kensington Expert Mouse")
+                        xinput set-button-map $device_id 1 8 3 4 5 6 7 2 9 10 11 12
+                        xinput set-prop $device_id "Coordinate Transformation Matrix" 1.7 0 0 0 1.7 0 0 0 1
+                        ;;
+                    "Kensington Slimblade Trackball")
+                        xinput set-button-map $device_id 1 8 3 4 5 6 7 2 9 10 11 12
+                        xinput set-prop $device_id "Coordinate Transformation Matrix" 1.7 0 0 0 1.7 0 0 0 1
+                        ;;
+                esac
+                ;;
+        esac
+        ;;
+esac

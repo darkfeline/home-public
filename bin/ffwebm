@@ -1,0 +1,26 @@
+#!/bin/sh
+# Make WebM
+set -eu
+
+usage() {
+    printf "Usage: %s: [-a] [-f] IN OUT\\n" "$0"
+}
+
+audio="-an"
+scale="-filter:v scale=w=iw/2:h=ih/2"
+
+while getopts af name; do
+    case $name in
+    a) audio="-c:a libvorbis" ;;
+    f) scale="" ;;
+    *) usage; exit 1;;
+    esac
+done
+shift $((OPTIND - 1))
+
+if [ $# -ne 2 ]; then
+    usage
+    exit 1
+fi
+
+exec ffmpeg -i "$1" $audio -c:v libvpx -crf 15 -b:v 0 $scale "$2"

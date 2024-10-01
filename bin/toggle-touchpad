@@ -1,0 +1,13 @@
+#!/bin/bash
+set -eu
+flagdir=~/.local/state/mir-flags
+mkdir -p "${flagdir}"
+flag=$flagdir/enable-touchpad
+id=$(xinput | grep -i touchpad | gawk 'match($0, /id=([0-9]+)/, a) {print a[1]}')
+if [[ -f $flag ]]; then
+    xinput disable $id
+    rm -f "${flag}"
+else
+    xinput enable $id
+    touch "${flag}"
+fi

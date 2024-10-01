@@ -1,0 +1,4 @@
+#!/bin/sh
+# Disable screensaver
+xset -dpms
+xset s off

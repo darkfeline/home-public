@@ -1,0 +1,135 @@
+#!/usr/bin/python3
+
+import atexit
+import os
+import subprocess
+
+
+def _getout(*args):
+    return subprocess.run(args, capture_output=True).stdout
+
+BOLD = _getout("tput", "bold")
+RESET = _getout("tput", "sgr0")
+
+BLACK_FG = _getout("tput", "setaf", "0")
+RED_FG = _getout("tput", "setaf", "1")
+GREEN_FG = _getout("tput", "setaf", "2")
+YELLOW_FG = _getout("tput", "setaf", "3")
+BLUE_FG = _getout("tput", "setaf", "4")
+MAGENTA_FG = _getout("tput", "setaf", "5")
+CYAN_FG = _getout("tput", "setaf", "6")
+WHITE_FG = _getout("tput", "setaf", "7")
+BBLACK_FG = _getout("tput", "setaf", "8")
+BRED_FG = _getout("tput", "setaf", "9")
+BGREEN_FG = _getout("tput", "setaf", "10")
+BYELLOW_FG = _getout("tput", "setaf", "11")
+BBLUE_FG = _getout("tput", "setaf", "12")
+BMAGENTA_FG = _getout("tput", "setaf", "13")
+BCYAN_FG = _getout("tput", "setaf", "14")
+BWHITE_FG = _getout("tput", "setaf", "15")
+COLORS_FG = [BLACK_FG, RED_FG, GREEN_FG, YELLOW_FG, BLUE_FG, MAGENTA_FG, CYAN_FG, WHITE_FG]
+BCOLORS_FG = [BBLACK_FG, BRED_FG, BGREEN_FG, BYELLOW_FG, BBLUE_FG, BMAGENTA_FG, BCYAN_FG, BWHITE_FG]
+ACOLORS_FG = COLORS_FG + BCOLORS_FG
+
+BLACK_BG = _getout("tput", "setab", "0")
+RED_BG = _getout("tput", "setab", "1")
+GREEN_BG = _getout("tput", "setab", "2")
+YELLOW_BG = _getout("tput", "setab", "3")
+BLUE_BG = _getout("tput", "setab", "4")
+MAGENTA_BG = _getout("tput", "setab", "5")
+CYAN_BG = _getout("tput", "setab", "6")
+WHITE_BG = _getout("tput", "setab", "7")
+BBLACK_BG = _getout("tput", "setab", "8")
+BRED_BG = _getout("tput", "setab", "9")
+BGREEN_BG = _getout("tput", "setab", "10")
+BYELLOW_BG = _getout("tput", "setab", "11")
+BBLUE_BG = _getout("tput", "setab", "12")
+BMAGENTA_BG = _getout("tput", "setab", "13")
+BCYAN_BG = _getout("tput", "setab", "14")
+BWHITE_BG = _getout("tput", "setab", "15")
+COLORS_BG = [BLACK_BG, RED_BG, GREEN_BG, YELLOW_BG, BLUE_BG, MAGENTA_BG, CYAN_BG, WHITE_BG]
+BCOLORS_BG = [BBLACK_BG, BRED_BG, BGREEN_BG, BYELLOW_BG, BBLUE_BG, BMAGENTA_BG, BCYAN_BG, BWHITE_BG]
+ACOLORS_BG = COLORS_BG + BCOLORS_BG
+
+_out = os.fdopen(0, 'bw')
+atexit.register(_out.close)
+
+
+def main():
+    _reset()
+    _print_color_block()
+    _print_color_test()
+
+
+def _print_color_block():
+    _header()
+    _print(b'Color pallette:\n')
+    for c in COLORS_BG:
+        _print(c)
+        _print(b' ' * 8)
+    _reset()
+    _newline()
+    for c in BCOLORS_BG:
+        _print(c)
+        _print(b' ' * 8)
+    _reset()
+    _newline(2)
+
+
+def _print_color_test():
+    _print_color_test_single(-8, b'')
+    for i, c in enumerate(ACOLORS_BG):
+        _print_color_test_single(i, c)
+
+
+def _print_color_test_single(ib: 'int', cb: 'bytes'):
+    _header()
+    _print(bytes(f'Color {ib}:\n', 'utf-8'))
+
+    def test_single(i, c):
+        _print(cb)
+        _print(c)
+        _print(b'  ion  ')
+        _bold()
+        _print(b'  ion  ')
+        _reset()
+        if ib == i:
+            _bold()
+            _print(b' ***')
+            _reset()
+        elif ib % 8 == i % 8:
+            _print(b' ---')
+        _newline()
+
+    test_single(-1, b'')
+    for i, c in enumerate(ACOLORS_FG):
+        test_single(i, c)
+    _reset()
+    _newline()
+
+
+def _bold():
+    _print(BOLD)
+
+
+def _reset():
+    _print(RESET)
+
+
+def _newline(n=1):
+    _print(b'\n' * n)
+
+
+def _header():
+    _bold()
+    _print(b'=' * 79)
+    _reset()
+    _newline()
+
+
+def _print(s):
+    _out.write(s)
+
+
+if __name__ == '__main__':
+    main()

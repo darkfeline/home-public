@@ -1,0 +1,14 @@
+#!/bin/bash
+# Fix mp3 with wrong duration
+set -eu
+
+dir=${1:-.}
+readonly dir
+
+if find "${dir}" -name "new*.mp3" | grep -q new; then
+    printf "mp3fix: there are files starting with new\n"
+    printf "mp3fix: downflac cannot handle this case\n"
+    exit 1
+fi
+find "${dir}" -name "*.mp3" |
+    parallel ffmpeg -i {} -acodec copy '{//}/new{/}' '&&' mv '{//}/new{/}' {}

@@ -1,0 +1,27 @@
+#!/bin/bash
+# Convert flac files to 16/48k
+set -eu
+
+rate=48000
+while getopts l f; do
+    case $f in
+        l) rate=44100;;
+        *)
+            printf "Usage: %s [-l] DIR\n" "$0"
+            exit 1
+            ;;
+    esac
+done
+readonly rate
+shift $((OPTIND-1))
+
+dir=${1:-.}
+readonly dir
+
+if find "${dir}" -name "new*.flac" | grep -q new; then
+    printf "downflac: there are files starting with new\n"
+    printf "downflac: downflac cannot handle this case\n"
+    exit 1
+fi
+find "${dir}" -name "*.flac" |
+    parallel ffmpeg -i {} -sample_fmt s16 -ar "${rate}" '{//}/new{/}' '&&' mv '{//}/new{/}' {}

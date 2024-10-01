@@ -1,0 +1,15 @@
+#!/usr/bin/emacs --script
+;; Convert file to UTF-8
+(let (select-safe-coding-system-function)
+  (dolist (file command-line-args-left)
+    (message "Converting %s" file)
+    (unless (file-exists-p file)
+      (error "File %s is missing" file))
+    (save-current-buffer
+      (find-file file)
+      (set-buffer-file-coding-system 'utf-8-unix)
+      (save-buffer 0))))
+
+;; Local Variables:
+;; mode: emacs-lisp
+;; End:

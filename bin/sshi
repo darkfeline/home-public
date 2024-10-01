@@ -1,0 +1,3 @@
+#!/bin/sh
+# Isolated SSH (i.e., no control master)
+exec ssh -o ControlMaster=no -o ControlPath=none "$@"

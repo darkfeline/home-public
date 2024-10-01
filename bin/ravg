@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+
+"""Exponential moving average."""
+
+import argparse
+import sys
+
+parser = argparse.ArgumentParser()
+parser.add_argument('weight', type=float)
+args = parser.parse_args()
+
+ALPHA = args.weight
+
+lines = iter(sys.stdin)
+avg = float(next(lines))
+print(avg)
+for line in lines:
+    i = float(line)
+    avg = (ALPHA * i) + (1 - ALPHA) * avg
+    print(avg)

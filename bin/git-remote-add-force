@@ -1,0 +1,11 @@
+#!/bin/sh
+# Implements git remote add, but updates if same name remote exists.
+set -eu
+name=$1
+url=$2
+if git remote get-url "${name}" >/dev/null; then
+    git remote set-url "${name}" "${url}"
+    git fetch "${name}"
+else
+    git remote add "${name}" "${url}"
+fi

@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# Make flat WebM (simulate WebP)
+set -eu
+input=$(shift)
+exec ffmpeg -loop 1 -i "$input" -an -c:v libvpx -qmin 16 -qmax 16 -crf 16 -quality best -threads 4 -t 2 -r 1 "$@"

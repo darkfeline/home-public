@@ -1,0 +1,5 @@
+#!/bin/sh
+# chmod for a group setgid directory
+set -eu
+find "$@" -print0 | xargs -0 chmod g+rwX
+find "$@" -type d -print0 | xargs -0 chmod g+s

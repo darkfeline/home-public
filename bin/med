@@ -1,0 +1,28 @@
+#!/bin/bash
+# EDITOR dispatch script
+set -u
+
+inpath() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+server_running() {
+    [[ -e /tmp/emacs$UID/server ]]
+}
+
+if [[ -n ${INSIDE_EMACS:-} ]]; then
+    exec emacsclient "$@"
+fi
+if [[ ${TERM:-dumb} = *dumb* ]]; then
+    inpath ed && printf "Using ed as editor\n" && exec ed "$@"
+fi
+if inpath emacsclient && server_running; then
+    exec emacsclient -nw "$@"
+fi
+# http://emacshorrors.com/posts/come-in-and-find-out.html
+inpath emacs && exec emacs -Q -nw --eval "(setq frame-background-mode 'dark)" "$@"
+for e in vi nvi vim; do
+    inpath $e && exec $e "$@"
+done
+printf '%s: No editor available\n' "$0" >&2
+exit 1

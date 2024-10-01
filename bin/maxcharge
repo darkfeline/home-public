@@ -1,0 +1,5 @@
+#!/bin/sh
+# Max charge on Thinkpads with battery limited
+sudo systemctl stop tlp.service
+sudo sh -c 'for x in /sys/class/power_supply/BAT*/charge_stop_threshold; do echo 100 >$x; done'
+sudo sh -c 'for x in /sys/class/power_supply/BAT*/charge_start_threshold; do echo 99 >$x; done'

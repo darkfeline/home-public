@@ -1,0 +1,16 @@
+#!/bin/bash
+# PAGER dispatch script
+set -eu
+
+inpath() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+if [[ ${TERM:-dumb} = *dumb* ]]; then
+    inpath more && exec more "$@"
+    inpath ed && printf "Using ed as pager\n" && exec ed "$@"
+fi
+
+inpath less && exec less "$@"
+printf '%s: No pager available\n' "$0" >&2
+exit 1

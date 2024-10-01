@@ -1,0 +1,8 @@
+#!/bin/bash
+# List files not owned by packages
+set -eu
+comm -23 \
+     <(find /bin /etc /sbin /usr \
+            ! -name lost+found \
+            \( -type d -printf '%p/\n' -o -print \) | sort) \
+     <(pacman -Qlq | sort -u)

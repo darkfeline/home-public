@@ -1,0 +1,25 @@
+#!/bin/bash
+
+. color.sh
+
+hrule() {
+    printf "${BOLD}==============================================================================${RESET}\\n"
+}
+
+header() {
+    printf "${GREEN}${BOLD}=== %s${RESET}\\n" "$1"
+}
+
+hrule
+header "system"
+header "failed"
+systemctl --failed
+header "logs"
+journalctl -p err -S -4d --no-pager
+
+hrule
+header "user"
+header "failed"
+systemctl --user --failed
+header "logs"
+journalctl --user -p err -S -4d --no-pager

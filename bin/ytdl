@@ -1,0 +1,7 @@
+#!/bin/bash
+set -eu
+. pyvenv-setup.bash
+pyvenv_setup_name=yt-dlp
+pyvenv_setup
+pyvenv_setup_install_command yt-dlp -e ~/src/yt-dlp
+exec ${pyvenv_setup_dir}/bin/yt-dlp "$@"

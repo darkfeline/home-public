@@ -1,0 +1,9 @@
+#!/bin/sh
+# List pacman packages by size.
+pacman -Qi |
+    grep -E '^Name|Size' |
+    sed 's/^.*: //' |
+    paste - - |
+    sed 's/\(\d*\) \([KM]\)iB/\1\2/' |
+    sed 's/\(\d*\) B/\1B/' |
+    sort -k 2 -h

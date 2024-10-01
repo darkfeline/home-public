@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Get fields from mpc, split by tabs.
+IFS=$'\t' read album artist title \
+   <<< "$(mpc --format="%album%\t%artist%\t%title%")"
+
+output=$(mpc)
+flags=
+if [[ $output == *"repeat: on"* ]]; then
+    flags="${flags}r"
+fi
+if [[ $output == *"random: on"* ]]; then
+    flags="${flags}z"
+fi
+if [[ $output == *"single: on"* ]]; then
+    flags="${flags}s"
+fi
+if [[ $output == *"consume: on"* ]]; then
+    flags="${flags}c"
+fi
+notify-send --urgency=low --expire-time=8000 --app-name=ncmpcpp -i ~/share/audio-x-generic.svg \
+            "${flags:+[$flags] }$title" "$artist - $album"

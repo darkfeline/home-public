@@ -1,0 +1,7 @@
+#!/bin/bash
+set -eu
+. pyvenv-setup.bash
+pyvenv_setup_name=pyright
+pyvenv_setup
+pyvenv_setup_install_command pyright pyright
+exec ${pyvenv_setup_dir}/bin/pyright "$@"

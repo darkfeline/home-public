@@ -1,0 +1,37 @@
+#!/bin/bash
+debugf() {
+    : # printf "$@"
+}
+
+bats=(/sys/class/power_supply/BAT*)
+if [[ ${#bats[@]} -lt 1 ]]; then
+    printf "No batteries found\n" >&2
+    exit 2
+fi
+caps=()
+energies=()
+total=0
+for b in "${bats[@]}"; do
+    caps+=("$(cat "$b/capacity")")
+    e=$(cat "$b/energy_full")
+    energies+=("$e")
+    total=$(( total + e ))
+    debugf "C %s E %s T %s\n" "${caps[*]}" "${energies[*]}" "${total}"
+done
+cap=$(
+    (
+        printf "("
+        for i in $(seq 1 ${#caps[@]}); do
+            if [[ $i -gt 1 ]]; then
+                printf " + "
+            fi
+            printf "%s * %s" "${energies[i-1]}" "${caps[i-1]}"
+        done
+        printf ") / %s\n" "${total}"
+    ) | bc)
+debugf "CC %s\n" "${cap}"
+if [[ cap -gt 25 ]]; then
+    notify-send --urgency=low --expire-time=4000 "Battery level: ${cap}%"
+else
+    notify-send --urgency=critical --expire-time=8000 "!!! Battery level: ${cap}% !!!"
+fi
