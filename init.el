@@ -280,6 +280,10 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
 (when (locate-library "org")
   (require 'org-protocol))
 
+(when (locate-library "reintegrate")
+  (when (getenv "SSH_TTY")
+    (reintegrate)))
+
 (when (locate-library "systemd")
   (add-to-list 'auto-mode-alist '("/systemd/.+.path\\'" . systemd-mode)))
 
@@ -294,7 +298,3 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
     "Wrap `shell' with `with-editor'."
     (with-editor
       (apply old args))))
-
-(when (locate-library "reintegrate")
-  (when (getenv "SSH_TTY")
-    (reintegrate)))
