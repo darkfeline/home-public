@@ -1,3 +1,6 @@
+[submodule "elpa"]
+	path = elpa
+	url = https://github.com/darkfeline/home-emacs-elpa-public.git
 [submodule "jakuri"]
 	path = lib/jakuri
 	url = https://github.com/darkfeline/jakuri-elisp.git
