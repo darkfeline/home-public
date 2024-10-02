@@ -2,3 +2,6 @@
 	path = .config/emacs
 	url = https://github.com/darkfeline/home-emacs-public.git
 	update = rebase
+[submodule "src/yt-dlp"]
+	path = src/yt-dlp
+	url = https://github.com/yt-dlp/yt-dlp.git
