@@ -1,9 +1,6 @@
 [submodule "elpa"]
 	path = elpa
 	url = https://github.com/darkfeline/home-emacs-elpa-public.git
-[submodule "jakuri"]
-	path = lib/jakuri
-	url = https://github.com/darkfeline/jakuri-elisp.git
 [submodule "bazel"]
 	path = lib/bazel
 	url = https://github.com/bazelbuild/emacs-bazel-mode.git
@@ -63,7 +60,7 @@
 [submodule "go-mode"]
 	path = lib/go-mode
 	url = https://github.com/darkfeline/go-mode.el.git
-	remote = "upstream https://github.com/dominikh/go-mode.el"
+	remote = "upstream https://github.com/dominikh/go-mode.el.git"
 [submodule "graphviz-dot-mode"]
 	path = lib/graphviz-dot-mode
 	url = https://github.com/ppareit/graphviz-dot-mode.git
@@ -79,6 +76,9 @@
 [submodule "ipcalc"]
 	path = lib/ipcalc
 	url = https://github.com/dotemacs/ipcalc.el.git
+[submodule "jakuri"]
+	path = lib/jakuri
+	url = https://github.com/darkfeline/jakuri-elisp.git
 [submodule "jq-mode"]
 	path = lib/jq-mode
 	url = https://github.com/ljos/jq-mode.git
@@ -100,7 +100,7 @@
 [submodule "magit"]
 	path = lib/magit
 	url = https://github.com/darkfeline/magit.git
-        remote = "upstream https://github.com/magit/magit"
+        remote = "upstream https://github.com/magit/magit.git"
 [submodule "markdown-mode"]
 	path = lib/markdown-mode
 	url = https://github.com/jrblevin/markdown-mode.git
@@ -151,7 +151,7 @@
 	url = https://github.com/atomontage/xterm-color.git
 [submodule "yaml"]
 	path = lib/yaml
-	url = https://github.com/zkry/yaml.el
+	url = https://github.com/zkry/yaml.el.git
 [submodule "yaml-mode"]
 	path = lib/yaml-mode
 	url = https://github.com/yoshiki/yaml-mode.git
