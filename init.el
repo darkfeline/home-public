@@ -46,8 +46,7 @@
 
   (mir-init-bind-keys emacs-lisp-mode-map
     ([?\C-c ?\C-e] #'emacs-lisp-macroexpand)
-    ([?\C-c ?\C-q] #'sp-indent-defun)
-    ([?\C-c ?\C-c] #'mir-custom-eval-set-variable)))
+    ([?\C-c ?\C-q] #'sp-indent-defun)))
 
 (with-eval-after-load 'go-mode
   (mir-init-bind-keys go-mode-map
@@ -227,10 +226,7 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
   ([?\C-c ?y] #'tiny-expand)
 
   ([remap async-shell-command] 'with-editor-async-shell-command)
-  ([remap shell-command] 'with-editor-shell-command)
-
-  ;; Personal
-  ([?\C-c ?s] #'mir-shell))
+  ([remap shell-command] 'with-editor-shell-command))
 
 (mir-init-bind-keys minibuffer-local-map
   ([?\C-r] #'consult-history))
