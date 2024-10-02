@@ -226,7 +226,10 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
   ([?\C-c ?y] #'tiny-expand)
 
   ([remap async-shell-command] 'with-editor-async-shell-command)
-  ([remap shell-command] 'with-editor-shell-command))
+  ([remap shell-command] 'with-editor-shell-command)
+
+  ;; Personal
+  ([?\C-c ?o] #'gttap-dwim))
 
 (mir-init-bind-keys minibuffer-local-map
   ([?\C-r] #'consult-history))
