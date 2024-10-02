@@ -229,6 +229,7 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
   ([remap shell-command] 'with-editor-shell-command)
 
   ;; Personal
+  ([?\C-c ?s] #'jakuri-shell)
   ([?\C-c ?o] #'gttap-dwim))
 
 (mir-init-bind-keys minibuffer-local-map
