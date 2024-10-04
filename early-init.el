@@ -18,3 +18,7 @@
 ;; asynchronously by default, so we need to set this before loading
 ;; any files.
 (setq native-comp-async-report-warnings-errors 'silent)
+
+;; Load extra init files
+(let ((f (expand-file-name "~/share/emacs/early-init.el")))
+  (when (file-exists-p f) (load f)))
