@@ -1,0 +1,6 @@
+# -*- mode: gitconfig; -*-
+[user]
+	name = Allen Li
+	email = darkfeline@felesatra.moe
+	useConfigOnly = true
+	signingKey = 04071A8DB2C1F22D7483AC6C710B8286F1880D24
