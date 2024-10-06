@@ -5,5 +5,5 @@ if [ $# != 1 ]; then
     exit 1
 fi
 readonly d=$1
-find "$d" -name "*.wav" | parallel ffmpeg -i {} -c:a flac '{.}.flac'
+find "$d" -name "*.wav" | parallel ffmpeg -i {} -c:a flac -sample_fmt s16 '{.}.flac'
 find "$d" -name "*.wav" -delete
