@@ -23,9 +23,6 @@
 [submodule "epkg"]
 	path = lib/epkg
 	url = https://github.com/emacscollective/epkg.git
-[submodule "flymake-shellcheck"]
-	path = lib/flymake-shellcheck
-	url = https://github.com/federicotdn/flymake-shellcheck.git
 [submodule "ghub"]
 	path = lib/ghub
 	url = https://github.com/magit/ghub.git
