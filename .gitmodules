@@ -143,9 +143,6 @@
 [submodule "verb"]
 	path = lib/verb
 	url = https://github.com/federicotdn/verb.git
-[submodule "xterm-color"]
-	path = lib/xterm-color
-	url = https://github.com/atomontage/xterm-color.git
 [submodule "yaml"]
 	path = lib/yaml
 	url = https://github.com/zkry/yaml.el.git
