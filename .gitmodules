@@ -82,9 +82,6 @@
 [submodule "markdown-mode"]
 	path = lib/markdown-mode
 	url = https://github.com/jrblevin/markdown-mode.git
-[submodule "minions"]
-	path = lib/minions
-	url = https://github.com/tarsius/minions.git
 [submodule "obsidian"]
 	path = lib/obsidian
 	url = https://github.com/licht1stein/obsidian.el.git
