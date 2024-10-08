@@ -1,9 +1,6 @@
 [submodule "elpa"]
 	path = elpa
 	url = https://github.com/darkfeline/home-emacs-elpa-public.git
-[submodule "bazel"]
-	path = lib/bazel
-	url = https://github.com/bazelbuild/emacs-bazel-mode.git
 [submodule "borg"]
 	path = lib/borg
 	url = https://github.com/emacscollective/borg.git
