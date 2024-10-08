@@ -259,11 +259,17 @@
       (looking-back "^**"))))
  '(org-use-sub-superscripts '{})
  '(org-yank-folded-subtrees nil)
+ '(package-archives
+   '(("gnu" . "https://elpa.gnu.org/packages/")
+     ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+     ("melpa" . "https://melpa.org/packages/")
+     ("melpa-stable" . "https://stable.melpa.org/packages/")))
  '(package-check-signature t)
  '(package-install-upgrade-built-in t)
  '(package-quickstart t)
  '(package-selected-packages
    '(gptel bash-completion systemd dockerfile-mode smartparens dash bluetooth diff-hl tiny keycast aggressive-indent project expand-region htmlize rainbow-mode ws-butler wgrep csv-mode async with-editor yasnippet seq gnu-elpa-keyring-update pinentry marginalia valign vlf vundo orderless consult vertico org flymake eglot))
+ '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(project-list-file "~/.local/state/emacs/projects")
  '(project-switch-commands
    '((project-find-file "Find file" nil)
