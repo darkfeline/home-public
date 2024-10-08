@@ -1,6 +1,5 @@
 #!/bin/bash
 DOCKER=podman
-UID=${UID-:$(id -u)}
 mkdir -p ~/{.local/share,.cache}/mympd
 "${DOCKER}" start mympd || "${DOCKER}" run -d \
        --name=mympd \
