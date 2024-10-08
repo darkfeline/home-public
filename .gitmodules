@@ -36,9 +36,6 @@
 [submodule "epkg"]
 	path = lib/epkg
 	url = https://github.com/emacscollective/epkg.git
-[submodule "f"]
-	path = lib/f
-	url = https://github.com/rejeep/f.el.git
 [submodule "flymake-shellcheck"]
 	path = lib/flymake-shellcheck
 	url = https://github.com/federicotdn/flymake-shellcheck.git
@@ -119,9 +116,6 @@
 [submodule "reintegrate"]
 	path = lib/reintegrate
 	url = https://github.com/darkfeline/emacs-reintegrate.git
-[submodule "s"]
-	path = lib/s
-	url = https://github.com/magnars/s.el.git
 [submodule "string-inflection"]
 	path = lib/string-inflection
 	url = https://github.com/akicho8/string-inflection.git
