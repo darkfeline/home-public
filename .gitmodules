@@ -7,9 +7,6 @@
 [submodule "closql"]
 	path = lib/closql
 	url = https://github.com/emacscollective/closql.git
-[submodule "dash"]
-	path = lib/dash
-	url = https://github.com/magnars/dash.el.git
 [submodule "ddskk"]
 	path = lib/ddskk
 	url = https://github.com/skk-dev/ddskk.git
