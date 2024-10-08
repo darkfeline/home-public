@@ -76,9 +76,6 @@
 	path = lib/magit
 	url = https://github.com/darkfeline/magit.git
         remote = "upstream https://github.com/magit/magit.git"
-[submodule "markdown-mode"]
-	path = lib/markdown-mode
-	url = https://github.com/jrblevin/markdown-mode.git
 [submodule "obsidian"]
 	path = lib/obsidian
 	url = https://github.com/licht1stein/obsidian.el.git

@@ -266,9 +266,10 @@
      ("melpa-stable" . "https://stable.melpa.org/packages/")))
  '(package-check-signature t)
  '(package-install-upgrade-built-in t)
+ '(package-pinned-packages '((markdown-mode . "nongnu")))
  '(package-quickstart t)
  '(package-selected-packages
-   '(string-inflection flymake-shellcheck minions ddskk dumb-jump helpful xterm-color bazel gptel bash-completion systemd dockerfile-mode smartparens bluetooth diff-hl tiny keycast aggressive-indent project expand-region htmlize rainbow-mode ws-butler wgrep csv-mode async with-editor yasnippet seq gnu-elpa-keyring-update pinentry marginalia valign vlf vundo orderless consult vertico org flymake eglot))
+   '(markdown-mode string-inflection flymake-shellcheck minions ddskk dumb-jump helpful xterm-color bazel gptel bash-completion systemd dockerfile-mode smartparens bluetooth diff-hl tiny keycast aggressive-indent project expand-region htmlize rainbow-mode ws-butler wgrep csv-mode async with-editor yasnippet seq gnu-elpa-keyring-update pinentry marginalia valign vlf vundo orderless consult vertico org flymake eglot))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(project-list-file "~/.local/state/emacs/projects")
  '(project-switch-commands
