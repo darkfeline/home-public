@@ -91,9 +91,6 @@
 [submodule "reintegrate"]
 	path = lib/reintegrate
 	url = https://github.com/darkfeline/emacs-reintegrate.git
-[submodule "string-inflection"]
-	path = lib/string-inflection
-	url = https://github.com/akicho8/string-inflection.git
 [submodule "toml-mode"]
 	path = lib/toml-mode
 	url = https://github.com/dryman/toml-mode.el.git
