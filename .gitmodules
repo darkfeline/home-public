@@ -70,9 +70,6 @@
 	path = lib/magit
 	url = https://github.com/darkfeline/magit.git
         remote = "upstream https://github.com/magit/magit.git"
-[submodule "obsidian"]
-	path = lib/obsidian
-	url = https://github.com/licht1stein/obsidian.el.git
 [submodule "protobuf-mode"]
 	path = lib/protobuf-mode
 	url = https://github.com/emacsmirror/protobuf-mode.git
