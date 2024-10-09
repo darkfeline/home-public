@@ -45,9 +45,6 @@
 [submodule "ialign"]
 	path = lib/ialign
 	url = https://github.com/mkcms/interactive-align.git
-[submodule "imenu-list"]
-	path = lib/imenu-list
-	url = https://github.com/bmag/imenu-list.git
 [submodule "ipcalc"]
 	path = lib/ipcalc
 	url = https://github.com/dotemacs/ipcalc.el.git
