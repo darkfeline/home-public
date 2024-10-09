@@ -381,8 +381,7 @@
  '(yas-alias-to-yas/prefix-p nil)
  '(yas-expand-only-for-last-commands '(self-insert-command))
  '(yas-global-mode t)
- '(yas-good-grace nil)
- '(yas-snippet-dirs '("~/.config/emacs/snippets" "~/share/emacs/snippets")))
+ '(yas-good-grace nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
