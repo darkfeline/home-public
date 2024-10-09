@@ -19,11 +19,6 @@
 ;; any files.
 (setq native-comp-async-report-warnings-errors 'silent)
 
-;; Allow overriding package directory.
-(let ((dir (expand-file-name "~/src/home-emacs-elpa")))
-  (when (file-directory-p dir)
-    (setq package-user-dir dir)))
-
 ;; Load extra init files
 (let ((f (expand-file-name "~/share/emacs/early-init.el")))
   (when (file-exists-p f) (load f)))
