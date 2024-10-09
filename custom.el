@@ -266,7 +266,7 @@
      ("melpa-stable" . "https://stable.melpa.org/packages/")))
  '(package-check-signature t)
  '(package-install-upgrade-built-in t)
- '(package-pinned-packages '((markdown-mode . "nongnu")))
+ '(package-pinned-packages '((markdown-mode . "nongnu") (dash . "gnu")))
  '(package-quickstart t)
  '(package-selected-packages
    '(yaml-mode markdown-mode string-inflection flymake-shellcheck minions ddskk dumb-jump helpful xterm-color bazel gptel bash-completion systemd dockerfile-mode smartparens bluetooth diff-hl tiny keycast aggressive-indent project expand-region htmlize rainbow-mode ws-butler wgrep csv-mode async with-editor yasnippet seq gnu-elpa-keyring-update pinentry marginalia valign vlf vundo orderless consult vertico org flymake eglot))
