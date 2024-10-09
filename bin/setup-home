@@ -72,7 +72,6 @@ copy_git_hooks() {
 
 install_deps() {
     go install go.felesatra.moe/anaclock@latest
-    (cd src/mir && go install ./cmd/mirion)
 }
 
 compile_terminfo() {
