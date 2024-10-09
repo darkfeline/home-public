@@ -85,9 +85,6 @@
 [submodule "reintegrate"]
 	path = lib/reintegrate
 	url = https://github.com/darkfeline/emacs-reintegrate.git
-[submodule "toml-mode"]
-	path = lib/toml-mode
-	url = https://github.com/dryman/toml-mode.el.git
 [submodule "treepy"]
 	path = lib/treepy
 	url = https://github.com/volrath/treepy.el.git
