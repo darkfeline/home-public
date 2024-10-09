@@ -69,7 +69,7 @@
  '(ediff-window-setup-function 'ediff-setup-windows-plain)
  '(eglot-menu-string "egl")
  '(eldoc-minor-mode-string nil)
- '(elgrep-data-file "~/.local/state/emacs/elgrep-data.el")
+ '(elgrep-data-file nil)
  '(emmet-indentation 2)
  '(enable-recursive-minibuffers t)
  '(epg-pinentry-mode 'loopback)
