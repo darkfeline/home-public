@@ -1,19 +1,9 @@
-alias a="animanager"
-alias aa="animanager add"
-aar() {
-    animanager add "$@"
-    animanager register "$@"
-}
-alias areg="animanager register"
-alias as="animanager search"
 at() (
     x=$1
     shift 1
     systemd-run --user --on-active="${x}" --timer-property=AccuracySec=100ms "${@}"
 )
 alias auc="autorandr -c"
-alias aw="animanager watch"
-alias awb="animanager watchable"
 alias ec="emacsclient"
 alias ecnw="emacsclient -nw"
 alias engi="env | grep -i"
