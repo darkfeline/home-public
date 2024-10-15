@@ -34,6 +34,7 @@ main() {
 ensure_dirs() {
     mkdir -p ~/.local/state/erc
     mkdir -p ~/.local/state/logrotate
+    mkdir -p ~/.local/state/mir-flags
     mkdir -p ~/.local/state/mpd/playlists
     mkdir -p ~/.local/state/org
     mkdir -p ~/.local/state/org/timestamps
