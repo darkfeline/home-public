@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+infile=$1
+outfile=${2:-$infile.bak}
+sqlite3 "$1" ".dump ${outfile}"
