@@ -2,4 +2,8 @@
 set -eu
 infile=$1
 outfile=${2:-$infile.bak}
-sqlite3 "$1" ".dump ${outfile}"
+if [ -e "${outfile}" ]; then
+    printf "%s: %s exists\n" "$0" "${outfile}" >&2
+    exit 1
+fi
+sqlite3 "$1" ".backup ${outfile}"
