@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 setbl() {
     notify-send --app-name=xbacklight --expire-time=1000 "xbacklight $1"
