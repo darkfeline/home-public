@@ -1,9 +1,0 @@
-#!/bin/sh
-set -eu
-infile=$1
-outfile=${2:-$infile.bak}
-if [ -e "${outfile}" ]; then
-    printf "%s: %s exists\n" "$0" "${outfile}" >&2
-    exit 1
-fi
-sqlite3 "$1" ".backup ${outfile}"
