@@ -354,6 +354,7 @@
  '(tab-bar-tab-hints t)
  '(text-scale-mode-step 1.1)
  '(tls-checktrust t)
+ '(tool-bar-mode nil)
  '(tooltip-mode nil)
  '(tooltip-resize-echo-area t)
  '(tramp-histfile-override t)
