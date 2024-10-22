@@ -16,7 +16,6 @@ readonly packages=(
     openssh
     parallel
     redshift
-    rofi
     scrot
     syncthing
     vi
@@ -27,6 +26,7 @@ readonly packages=(
     arandr
     autorandr
     awesome
+    rofi
     xbindkeys
     xdm-archlinux
     xorg-server
