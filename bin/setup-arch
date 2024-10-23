@@ -41,6 +41,7 @@ readonly packages=(
     dunst
     hyprland
     polkit-kde-agent
+    swaylock
     waybar
     wlsunset
     wofi
