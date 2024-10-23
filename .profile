@@ -1,6 +1,9 @@
 # This file should be read for login sessions,
 # but there is no standard way of doing so in POSIX or X11.
 # Supposedly, Bourne shells will read this for login invocations.
+#
+# This should be kept somewhat up to date with
+# ~/.config/environment.d/
 
 # POSIX
 export ENV=$HOME/.shrc
