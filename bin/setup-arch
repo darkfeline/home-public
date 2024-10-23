@@ -42,6 +42,7 @@ readonly packages=(
     hyprland
     polkit-kde-agent
     waybar
+    wlsunset
     wofi
 )
 
