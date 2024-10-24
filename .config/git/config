@@ -1,12 +1,9 @@
 # -*- indent-tabs-mode: t; -*-
 [include]
 	path = config-user
-[credential "https://github.com"]
-	helper =
-	helper = !/usr/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper =
-	helper = !/usr/bin/gh auth git-credential
+
+[advice]
+	detachedHead = false
 [alias]
 	a = add
 	ap = add -p
@@ -48,23 +45,28 @@
 	smun = submodule update --no-fetch
 	smur = submodule-update-reset
 	wt = worktree
-[advice]
-	detachedHead = false
-[help]
-	autoCorrect = prompt
 [color]
 	ui = auto
 	diff = auto
+[help]
+	autoCorrect = prompt
 [init]
 	defaultBranch = master
 [log]
 	date = rfc-local
 [merge]
 	conflictStyle = diff3
-[rerere]
-	enabled = true
+[pull]
+	rebase = false
 [push]
 	default = current
 	recurseSubmodules = check
-[pull]
-	rebase = false
+[rerere]
+	enabled = true
+
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
