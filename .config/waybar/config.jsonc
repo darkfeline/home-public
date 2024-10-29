@@ -1,0 +1,67 @@
+// -*- mode: jsonc -*-
+{
+  "spacing": 0, // Gaps between modules (4px)
+  // Choose the order of the modules
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+  ],
+  "modules-right": [
+    "mpd",
+    "battery",
+    "tray",
+    "clock"
+  ],
+  // Modules configuration
+  "hyprland/workspaces": {
+    "format": "{name}{icon}{windows}",
+    "format-icons": {
+      "persistent": "P",
+      "special": "S",
+
+      "default": ""
+    },
+    "window-rewrite": {},
+    "window-rewrite-default": "▪",
+    "format-window-separator": ""
+  },
+  "hyprland/window": {
+    "format": "{title}",
+    "icon": true,
+    "separate-outputs": true
+  },
+  "mpd": {
+    "format": "{stateIcon} [{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}] {artist} - {title}",
+    "unknown-tag": "N/A",
+    "interval": 5,
+    "consume-icons": {
+      "on": "C"
+    },
+    "random-icons": {
+      "on": "Z"
+    },
+    "repeat-icons": {
+      "on": "R"
+    },
+    "single-icons": {
+      "on": "S"
+    },
+    "state-icons": {
+      "paused": "⏸",
+      "playing": "⏵"
+    },
+  },
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 10
+  },
+  "clock": {
+    "format": "{:%a %F %T}",
+    "interval": 1
+  },
+  "battery": {
+    "format": "{capacity}% 🔋",
+  }
+}

@@ -1,0 +1,7 @@
+#!/bin/sh
+# Start running crucial Wayland utilities.
+dunst &
+swaybg -m center -i ~/share/exa-pico3.png -c "#000000" &
+swayidle -w before-sleep swaylock &
+waybar &
+wlsunset &

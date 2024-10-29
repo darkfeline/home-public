@@ -72,6 +72,7 @@ copy_git_hooks() {
 }
 
 install_deps() {
+    printf "Installing deps...\n" >&2
     go install go.felesatra.moe/anaclock@latest
 }
 

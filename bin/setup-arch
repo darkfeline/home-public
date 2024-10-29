@@ -15,18 +15,18 @@ readonly packages=(
     netctl
     openssh
     parallel
-    redshift
-    scrot
     syncthing
     vi
-    x11-ssh-askpass
 
     # X
     alacritty
     arandr
     autorandr
     awesome
+    redshift
     rofi
+    scrot
+    x11-ssh-askpass
     xbindkeys
     xdm-archlinux
     xorg-server
@@ -39,8 +39,12 @@ readonly packages=(
 
     # Wayland
     dunst
+    grim
     hyprland
     polkit-kde-agent
+    slurp
+    swaybg
+    swayidle
     swaylock
     waybar
     wlsunset

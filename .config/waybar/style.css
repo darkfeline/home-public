@@ -1,0 +1,53 @@
+* {
+  min-height: 0px;
+}
+
+#waybar {
+  font-family: "Source Code Pro";
+  font-size: 14px;
+  background: #444444;
+  color: #ffffff;
+}
+
+#workspaces {
+  border-radius: 5px;
+  background: #dddddd;
+  color: #000000;
+}
+
+#workspaces button.active {
+  background: #aa88ff;
+}
+
+#workspaces button.urgent {
+  background: #ffaaaa;
+}
+
+#window {
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+#tags button {
+  background: #666666;
+  color: #000000;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 0px;
+}
+
+#tags button.occupied {
+  background: #dddddd;
+}
+
+#tags button.urgent {
+  background: #ffaaaa;
+}
+
+#tags button.focused {
+  background: #aa88ff;
+}
+
+#clock, #tray, #battery, #mpd {
+  padding: 0px 5px;
+}
