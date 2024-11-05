@@ -295,7 +295,7 @@
      (use-package . "gnu")))
  '(package-quickstart t)
  '(package-selected-packages
-   '(erc emmet-mode obsidian toml-mode yaml-mode markdown-mode string-inflection flymake-shellcheck minions ddskk dumb-jump helpful xterm-color bazel gptel bash-completion systemd dockerfile-mode smartparens bluetooth diff-hl tiny keycast aggressive-indent project expand-region htmlize rainbow-mode ws-butler wgrep csv-mode async with-editor yasnippet seq gnu-elpa-keyring-update pinentry marginalia valign vlf vundo orderless consult vertico org flymake eglot))
+   '(json-mode verb erc emmet-mode obsidian toml-mode yaml-mode markdown-mode string-inflection flymake-shellcheck minions ddskk dumb-jump helpful xterm-color bazel gptel bash-completion systemd dockerfile-mode smartparens bluetooth diff-hl tiny keycast aggressive-indent project expand-region htmlize rainbow-mode ws-butler wgrep csv-mode async with-editor yasnippet seq gnu-elpa-keyring-update pinentry marginalia valign vlf vundo orderless consult vertico org flymake eglot))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(project-list-file "~/.local/state/emacs/projects")
  '(project-switch-commands
@@ -357,7 +357,6 @@
  '(tool-bar-mode nil)
  '(tooltip-mode nil)
  '(tooltip-resize-echo-area t)
- '(tramp-histfile-override t)
  '(tramp-persistency-file-name "~/.local/state/emacs/tramp")
  '(transient-history-file "~/.local/state/emacs/transient/history.el")
  '(underline-minimum-offset 15)
