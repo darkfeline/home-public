@@ -39,6 +39,7 @@ readonly packages=(
 
     # Wayland
     dunst
+    gammastep
     grim
     hyprland
     polkit-kde-agent
@@ -47,7 +48,7 @@ readonly packages=(
     swayidle
     swaylock
     waybar
-    wlsunset
+    wl-clipboard
     wofi
 )
 

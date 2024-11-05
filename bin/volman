@@ -8,12 +8,12 @@ getvol() {
 }
 
 vol_up() {
-    wpctl set-volume -l 1 "${sink}" 2.5%+
+    wpctl set-volume -l 1 "${sink}" 1%+
     notify-send --app-name=volman --expire-time=1000 "up $(getvol)"
 }
 
 vol_down() {
-    wpctl set-volume "${sink}" 2.5%-
+    wpctl set-volume "${sink}" 1%-
     notify-send --app-name=volman --expire-time=1000 "down $(getvol)"
 }
 

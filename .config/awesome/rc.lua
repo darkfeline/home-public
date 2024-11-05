@@ -525,7 +525,7 @@ awful.rules.rules = {
       properties = { tag = "3" } },
 
     { rule = { class = "obsidian" },
-      properties = { tag = "4" } },
+      properties = { tag = "7" } },
 
     { rule = { class = "calfjackhost" },
       properties = { tag = "8" } },
@@ -533,8 +533,9 @@ awful.rules.rules = {
       properties = { tag = "8", floating = true } },
     { rule = { class = "Pavucontrol" },
       properties = { tag = "8" } },
+
     { rule = { class = "qpwgraph" },
-      properties = { tag = "8" } },
+      properties = { tag = "9" } },
 }
 -- }}}
 
