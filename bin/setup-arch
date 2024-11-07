@@ -42,6 +42,7 @@ readonly packages=(
     gammastep
     grim
     hyprland
+    kanshi
     polkit-kde-agent
     slurp
     swaybg
