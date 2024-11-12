@@ -2,6 +2,9 @@
 	path = .config/emacs
 	url = https://github.com/darkfeline/home-emacs-public.git
 	update = rebase
+[submodule "src/protorg"]
+	path = src/protorg
+	url = https://github.com/darkfeline/protorg.git
 [submodule "src/yt-dlp"]
 	path = src/yt-dlp
 	url = https://github.com/yt-dlp/yt-dlp.git
