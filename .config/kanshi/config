@@ -1,0 +1,7 @@
+profile {
+	output eDP-1 mode 2560x1440 0,0 scale 1
+}
+
+# Local Variables:
+# indent-tabs-mode: t
+# End:

@@ -4,14 +4,14 @@
 . color.sh
 PS1="${RESET}${GREEN}$USER${RESET}@${GREEN}$(uname -n)${RESET} $ "
 
-# TTY settings
+[ -n "${INSIDE_EMACS:-}" ] && PS2=
+
 if tty >/dev/null 2>&1; then
     stty tostop
     # This is used by gpg-agent to pass ttyname to pinentry.
     export GPG_TTY=$(tty)
 fi
 
-# Colors
 if command -v dircolors >/dev/null 2>&1; then
     if [ -r ~/.dircolors ]; then
         eval "$(dircolors -b ~/.dircolors)"
