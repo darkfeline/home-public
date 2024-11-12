@@ -1,0 +1,12 @@
+[Unit]
+Description=ashuffle
+Requires=mpd.socket
+After=mpd.socket
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ashuffle --exclude-from %h/.config/ashuffle/excludes.yaml
+Restart=on-failure
+
+[Install]
+WantedBy=mpd.service
