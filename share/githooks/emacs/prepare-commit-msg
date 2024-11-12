@@ -8,8 +8,10 @@ print_staged() {
 }
 
 [ -z "$COMMIT_SOURCE" ] || exit 0
-if print_staged | grep lib; then
-    sed -i "1i Uprev lib" "$COMMIT_MSG_FILE"
-elif print_staged | grep elpa; then
+
+staged=$(print_staged)
+if echo "${staged}" | grep elpa; then
     sed -i "1i Uprev elpa" "$COMMIT_MSG_FILE"
+elif echo "${staged}" | grep lib; then
+    sed -i "1i Uprev lib" "$COMMIT_MSG_FILE"
 fi
