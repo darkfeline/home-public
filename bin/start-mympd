@@ -1,18 +1,16 @@
 #!/bin/bash
 DOCKER=podman
-mkdir -p ~/{.local/share,.cache}/mympd
+mkdir -p ~/{.local/state,.cache}/mympd
 GID=$(id -g)
 "${DOCKER}" start mympd || "${DOCKER}" run -d \
        --name=mympd \
-       --net="host" \
+       --net=host \
        -u $UID:$GID \
        -e UMASK_SET=022 \
        -e MYMPD_SSL=false \
        -e MYMPD_HTTP_PORT=8080 \
        -v ~/.mpd/socket:/run/mpd/socket \
-       -v ~/.local/share/mympd:/var/lib/mympd/ \
-       -v ~/.cache/mympd:/var/cache/mympd/ \
-       -v ~/library/music:/music/:ro \
-       -v ~/.config/mpd/playlists:/playlists/:ro \
+       -v ~/.local/state/mympd:/var/lib/mympd \
+       -v ~/.cache/mympd:/var/cache/mympd \
        --restart unless-stopped \
        ghcr.io/jcorporation/mympd/mympd
