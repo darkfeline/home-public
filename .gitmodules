@@ -14,12 +14,6 @@
 [submodule "epkg"]
 	path = lib/epkg
 	url = https://github.com/emacscollective/epkg.git
-[submodule "ialign"]
-	path = lib/ialign
-	url = https://github.com/mkcms/interactive-align.git
-[submodule "ipcalc"]
-	path = lib/ipcalc
-	url = https://github.com/dotemacs/ipcalc.el.git
 [submodule "llama"]
 	path = lib/llama
 	url = https://github.com/tarsius/llama.git
