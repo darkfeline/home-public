@@ -7,6 +7,7 @@
 
 (mir-init-bootstrap-package-vc '(easydraw
                                  magit
+                                 reintegrate
                                  jakuri))
 
 ;; lilypond-mode is packaged with lilypond.
