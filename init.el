@@ -16,11 +16,6 @@
 (when (locate-library "lilypond-init")
   (load "lilypond-init"))
 
-;; Borg setup
-(add-to-list 'load-path (expand-file-name "lib/borg" user-emacs-directory))
-(require 'borg)
-(borg-initialize)
-
 ;; Loading customizations needs to happen after loading all autoloads
 ;; so customizable variables with setters run correctly.
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))

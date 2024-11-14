@@ -1,22 +1,6 @@
 [submodule "elpa"]
 	path = elpa
 	url = https://github.com/darkfeline/home-emacs-elpa-public.git
-[submodule "borg"]
-	path = lib/borg
-	url = https://github.com/emacscollective/borg.git
-[submodule "closql"]
-	path = lib/closql
-	url = https://github.com/emacscollective/closql.git
-[submodule "emacsql"]
-	path = lib/emacsql
-	url = https://github.com/skeeto/emacsql.git
-	no-byte-compile = emacsql-pg.el
-[submodule "epkg"]
-	path = lib/epkg
-	url = https://github.com/emacscollective/epkg.git
-[submodule "llama"]
-	path = lib/llama
-	url = https://github.com/tarsius/llama.git
 [submodule "vc/jakuri"]
 	path = vc/jakuri
 	url = https://github.com/darkfeline/jakuri-elisp.git
