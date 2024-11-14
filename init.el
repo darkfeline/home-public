@@ -5,7 +5,7 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'mir-init)
 
-(mir-init-bootstrap-package-vc)
+(mir-init-bootstrap-package-vc '(jakuri))
 
 ;; lilypond-mode is packaged with lilypond.
 ;; `lilypond-init' only sets up autoloads and `auto-mode-alist'.
