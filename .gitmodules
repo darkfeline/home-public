@@ -20,9 +20,6 @@
 [submodule "ghub"]
 	path = lib/ghub
 	url = https://github.com/magit/ghub.git
-[submodule "git-timemachine"]
-	path = lib/git-timemachine
-	url = https://codeberg.org/pidu/git-timemachine.git
 [submodule "gn-mode"]
 	path = lib/gn-mode
 	url = https://github.com/lashtear/gn-mode.git
