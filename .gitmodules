@@ -14,10 +14,6 @@
 [submodule "epkg"]
 	path = lib/epkg
 	url = https://github.com/emacscollective/epkg.git
-[submodule "go-mode"]
-	path = lib/go-mode
-	url = https://github.com/darkfeline/go-mode.el.git
-	remote = "upstream https://github.com/dominikh/go-mode.el.git"
 [submodule "ialign"]
 	path = lib/ialign
 	url = https://github.com/mkcms/interactive-align.git
@@ -39,3 +35,6 @@
 [submodule "vc/reintegrate"]
 	path = vc/reintegrate
 	url = https://github.com/darkfeline/emacs-reintegrate.git
+[submodule "vc/go-mode"]
+	path = vc/go-mode
+	url = https://github.com/darkfeline/go-mode.el.git

@@ -6,6 +6,7 @@
 (require 'mir-init)
 
 (mir-init-bootstrap-package-vc '(easydraw
+                                 go-mode
                                  magit
                                  reintegrate
                                  jakuri))
