@@ -54,10 +54,6 @@
 [submodule "lua-mode"]
 	path = lib/lua-mode
 	url = https://github.com/immerrr/lua-mode.git
-[submodule "magit"]
-	path = lib/magit
-	url = https://github.com/darkfeline/magit.git
-        remote = "upstream https://github.com/magit/magit.git"
 [submodule "protobuf-mode"]
 	path = lib/protobuf-mode
 	url = https://github.com/emacsmirror/protobuf-mode.git
@@ -73,3 +69,6 @@
 [submodule "vc/jakuri"]
 	path = vc/jakuri
 	url = https://github.com/darkfeline/jakuri-elisp.git
+[submodule "vc/magit"]
+	path = vc/magit
+	url = https://github.com/darkfeline/magit.git
