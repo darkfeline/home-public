@@ -5,6 +5,8 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'mir-init)
 
+(mir-init-bootstrap-package-vc)
+
 ;; lilypond-mode is packaged with lilypond.
 ;; `lilypond-init' only sets up autoloads and `auto-mode-alist'.
 (when (locate-library "lilypond-init")

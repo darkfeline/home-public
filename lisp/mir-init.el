@@ -68,5 +68,19 @@
      (dolist (d (list ,@dirs))
        (dir-locals-set-directory-class d ',class))))
 
+(defun mir-init-bootstrap-package-vc ()
+  "Bootstrap package-vc packages."
+  (require 'cl-lib)
+  (let ((vc-dir (expand-file-name "vc" user-emacs-directory)))
+    (cl-flet ((install (package)
+		(let ((pkgname (symbol-name package)))
+                  (unless (package-installed-p package)
+                    (let ((pkg-dir (expand-file-name pkgname package-user-dir)))
+                      (when (file-exists-p pkg-dir)
+			;; This is a symbolic link to the checkout.
+			(delete-file pkg-dir)))
+                    (package-vc-install-from-checkout (expand-file-name pkgname vc-dir) pkgname)))))
+	      (install 'jakuri))))
+
 (provide 'mir-init)
 ;;; mir-init.el ends here
