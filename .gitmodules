@@ -45,9 +45,6 @@
 [submodule "llama"]
 	path = lib/llama
 	url = https://github.com/tarsius/llama.git
-[submodule "protobuf-mode"]
-	path = lib/protobuf-mode
-	url = https://github.com/emacsmirror/protobuf-mode.git
 [submodule "puppet-mode"]
 	path = lib/puppet-mode
 	url = https://github.com/voxpupuli/puppet-mode.git
