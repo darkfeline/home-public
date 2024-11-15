@@ -3,6 +3,14 @@
 [global]
 max_icon_size = 64
 
-mouse_left_click=do_action, close_current
-mouse_middle_click=context
-mouse_right_click=close_current
+mouse_left_click = do_action, close_current
+mouse_middle_click = context
+mouse_right_click = close_current
+
+follow = mouse
+
+origin = top-center
+
+gap_size = 2
+
+font = "Source Code Pro 10"
