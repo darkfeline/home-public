@@ -28,10 +28,8 @@
       "8": "8",
       "9": "9",
       "10": "0",
-      "special:special": "S",
       "default": "W?"
     },
-    "show-special": true,
     "window-rewrite": {},
     "window-rewrite-default": "▪",
     "format-window-separator": ""
