@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: subbench
+# key: br
+# --
+b.Run("$1", func(b *testing.B) {
+	$0
+})

@@ -1,0 +1,6 @@
+# -*- mode: snippet; -*-
+# name: __repr__ for Python 2
+# key: repr
+# --
+def __repr__(self):
+    return '{cls}($0)'.format(cls=type(self).__name__, this=self)

@@ -1,0 +1,5 @@
+# -*- mode: snippet; -*-
+# name: Trap kill children
+# key: trap
+# --
+trap "kill -9 0" EXIT

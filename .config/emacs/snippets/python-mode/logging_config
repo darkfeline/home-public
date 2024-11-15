@@ -1,0 +1,23 @@
+# -*- mode: snippet; -*-
+# name: logging configuration
+# key: logc
+# --
+def _configure_logging():
+    logging.config.dictConfig({
+        'version': 1,
+        'formatters': {
+            'default': {'format': '%(levelname)s:%(name)s:%(message)s'},
+        },
+        'handlers': {
+            'console': {
+                'class': 'logging.StreamHandler',
+                'formatter': 'default',
+                'stream': 'ext://sys.stderr',
+            },
+        },
+        'root': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+        },
+        'disable_existing_loggers': False,
+    })

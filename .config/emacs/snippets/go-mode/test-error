@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: test.Errorf
+# key: te
+# --
+t.Errorf("$1 = %#v; want %#v", ${2:got}, ${3:want})$0

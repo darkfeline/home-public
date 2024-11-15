@@ -1,0 +1,14 @@
+# -*- mode: snippet; -*-
+# name: descriptor methods (__get__)
+# key: get
+# --
+def __get__(self, instance, owner):
+    if instance is None:
+        return self
+    ...
+
+def __set__(self, instance, value):
+    ...
+
+def __delete__(self, instance):
+    ...

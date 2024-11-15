@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: test.Fatal err
+# key: tfe
+# --
+if err != nil {
+	t.Fatal(err)
+}

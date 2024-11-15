@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: cmp.Diff
+# key: cmp
+# --
+if diff := cmp.Diff(${1:want}, ${2:got}); diff != "" {
+    t.Errorf("${3:foo()} mismatch (-want +got):\n%s", diff)
+}

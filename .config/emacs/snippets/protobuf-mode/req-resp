@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: rpc request/response messages
+# key: rpcm
+# --
+message $1Request {}
+message $1Response {}

@@ -1,0 +1,7 @@
+# -*- mode: snippet; -*-
+# name: __repr__ for Python 3
+# key: repr
+# --
+def __repr__(self):
+    cls = type(self).__qualname__
+    return f'{cls}()'

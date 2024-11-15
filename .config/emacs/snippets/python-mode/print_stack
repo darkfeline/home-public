@@ -1,0 +1,5 @@
+# -*- mode: snippet; -*-
+# name: print stack
+# key: ps
+# --
+import traceback; traceback.print_stack()

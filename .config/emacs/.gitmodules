@@ -1,0 +1,18 @@
+[submodule "elpa"]
+	path = elpa
+	url = https://github.com/darkfeline/home-emacs-elpa-public.git
+[submodule "vc/jakuri"]
+	path = vc/jakuri
+	url = https://github.com/darkfeline/jakuri-elisp.git
+[submodule "vc/magit"]
+	path = vc/magit
+	url = https://github.com/darkfeline/magit.git
+[submodule "vc/easydraw"]
+	path = vc/easydraw
+	url = https://github.com/misohena/el-easydraw.git
+[submodule "vc/reintegrate"]
+	path = vc/reintegrate
+	url = https://github.com/darkfeline/emacs-reintegrate.git
+[submodule "vc/go-mode"]
+	path = vc/go-mode
+	url = https://github.com/darkfeline/go-mode.el.git
