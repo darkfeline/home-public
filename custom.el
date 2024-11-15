@@ -155,7 +155,7 @@
    '(("~" . 0)
      ("~/.config/emacs" . 0)
      ("~/.config/emacs/elpa" . 0)
-     ("~/.config/emacs/lib" . 1)
+     ("~/.config/emacs/vc" . 1)
      ("~/src" . 1)))
  '(magit-save-repository-buffers nil)
  '(magit-wip-mode nil)
