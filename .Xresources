@@ -10,13 +10,3 @@ XTerm.vt100.faceSize: 11
 
 ! Xcursor
 Xcursor.theme: Breeze-Contrast
-
-! Emacs frame config
-! This is set here so it applies before the initial frame is created.
-emacs.menuBar: false
-emacs.toolBar: false
-emacs.verticalScrollBars: false
-! The default font size will get reset by the default face in custom.el.
-! Use (set-frame-font "blah" nil t) to set the right height value for
-! the default face.
-emacs.font: Source Code Pro-11
