@@ -1,3 +1,21 @@
+[submodule ".config/emacs/elpa"]
+	path = .config/emacs/elpa
+	url = https://github.com/darkfeline/home-emacs-elpa-public.git
+[submodule ".config/emacs/vc/jakuri"]
+	path = .config/emacs/vc/jakuri
+	url = https://github.com/darkfeline/jakuri-elisp.git
+[submodule ".config/emacs/vc/magit"]
+	path = .config/emacs/vc/magit
+	url = https://github.com/darkfeline/magit.git
+[submodule ".config/emacs/vc/easydraw"]
+	path = .config/emacs/vc/easydraw
+	url = https://github.com/misohena/el-easydraw.git
+[submodule ".config/emacs/vc/reintegrate"]
+	path = .config/emacs/vc/reintegrate
+	url = https://github.com/darkfeline/emacs-reintegrate.git
+[submodule ".config/emacs/vc/go-mode"]
+	path = .config/emacs/vc/go-mode
+	url = https://github.com/darkfeline/go-mode.el.git
 [submodule "src/protorg"]
 	path = src/protorg
 	url = https://github.com/darkfeline/protorg.git
