@@ -87,7 +87,11 @@
                         ;; will still prompt to overwrite the existing symbolic
                         ;; link.
 			(delete-file pkg-dir)))
-                    (package-vc-install-from-checkout (expand-file-name pkgname vc-dir) pkgname)))))
+                    (let* ((checkout (expand-file-name pkgname vc-dir))
+                           (gitfile (expand-file-name ".git" checkout)))
+                      (unless (file-exists-p gitfile)
+                        (error "%S missing (check submodules)" gitfile))
+                      (package-vc-install-from-checkout checkout pkgname))))))
       (dolist (package packages)
         (install package)))))
 
