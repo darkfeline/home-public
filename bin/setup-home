@@ -52,8 +52,7 @@ setup_git_config() {
 
 setup_git_hooks() {
     copy_git_hooks home
-    copy_git_hooks emacs .config/emacs
-    copy_git_hooks elpa .config/emacs elpa
+    copy_git_hooks elpa .config/emacs/elpa
 }
 
 copy_git_hooks() {
