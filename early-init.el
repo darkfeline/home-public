@@ -19,6 +19,14 @@
 ;; any files.
 (setq native-comp-async-report-warnings-errors 'silent)
 
+;; Configure options affecting frames so they take effect for the initial frame.
+;; These should be set with `custom.el' also for consistency.
+(setq menu-bar-mode nil
+      tool-bar-mode nil
+      scroll-bar-mode nil)
+(custom-set-faces
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "gray20" :foreground "white smoke" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "ADBO" :family "Source Code Pro")))))
+
 ;; Load extra init files
 (let ((f (expand-file-name "~/share/emacs/early-init.el")))
   (when (file-exists-p f) (load f)))

@@ -162,7 +162,7 @@
  '(mailcap-download-directory "/tmp")
  '(marginalia-mode t)
  '(max-lisp-eval-depth 10000)
- '(menu-bar-mode nil nil nil "Needed in addition to Xresources for terminal")
+ '(menu-bar-mode nil)
  '(message-log-max 5000)
  '(message-sendmail-envelope-from 'header)
  '(minibuffer-depth-indicate-mode t)
