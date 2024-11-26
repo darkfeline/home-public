@@ -24,7 +24,7 @@ redshift -ox
 # redshift forks itself
 redshift &
 (
-    # xbindkeys will spawn interactive programs that need SSH agent.
+    # Double fork
     xbindkeys &
 ) &
 
