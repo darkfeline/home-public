@@ -29,6 +29,8 @@
 	ll = log --all --graph --decorate --stat
 	m = merge
 	r = reset
+	ra = rebase --abort
+	rc = rebase --continue
 	rfo = rebase --force
 	rfu = rebase --fixup
 	rh = reset --hard
