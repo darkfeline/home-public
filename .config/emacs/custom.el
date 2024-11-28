@@ -233,7 +233,7 @@
  '(org-pretty-entities nil)
  '(org-protocol-protocol-alist
    '(("goto-heading" :protocol "goto-heading" :function goto-heading)))
- '(org-publish-timestamp-directory "~/.local/state/emacs/org/timestamps/")
+ '(org-publish-timestamp-directory "~/.local/state/emacs/org-timestamps/")
  '(org-refile-allow-creating-parent-nodes 'confirm)
  '(org-refile-targets '((nil :maxlevel . 3) (org-agenda-files :maxlevel . 2)))
  '(org-refile-use-outline-path 'file)
