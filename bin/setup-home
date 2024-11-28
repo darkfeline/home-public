@@ -60,7 +60,10 @@ copy_git_hooks() {
         dst="${dst}/modules/${m}"
     done
     dst=".git${dst}/hooks"
-    [[ -d $dst ]] || return 0
+    if [[ ! -d $dst ]]; then
+        printf "Skipping %s because %s is missing\n" "${hookdir}/${src}" "${dst}" >&2
+        return 0
+    fi
     for x in "${hookdir}/${src}"/*; do
         cp "${x}" "${dst}"
     done
