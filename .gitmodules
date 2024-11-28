@@ -16,9 +16,6 @@
 [submodule ".config/emacs/vc/go-mode"]
 	path = .config/emacs/vc/go-mode
 	url = https://github.com/darkfeline/go-mode.el.git
-[submodule "src/protorg"]
-	path = src/protorg
-	url = https://github.com/darkfeline/protorg.git
 [submodule "src/yt-dlp"]
 	path = src/yt-dlp
 	url = https://github.com/yt-dlp/yt-dlp.git
