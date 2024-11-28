@@ -10,6 +10,6 @@ print_staged() {
 [ -z "$COMMIT_SOURCE" ] || exit 0
 
 staged=$(print_staged)
-if echo "${staged}" | grep '\.config/emacs'; then
-    sed -i "1i Uprev emacs" "$COMMIT_MSG_FILE"
+if echo "${staged}" | grep '\.config/emacs/elpa'; then
+    sed -i "1i Uprev elpa" "$COMMIT_MSG_FILE"
 fi
