@@ -43,7 +43,7 @@ fix_perms() {
 }
 
 setup_git_config() {
-    git config status.showUntrackedFiles no
+    git config --unset status.showUntrackedFiles
 }
 
 setup_git_hooks() {
