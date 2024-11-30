@@ -2,3 +2,5 @@
 !.git*
 !profile*
 !*.txt
+
+local.txt

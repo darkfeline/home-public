@@ -1,4 +1,18 @@
 /*
 
+!/alacritty/
+!/awesome/
+!/dunst/
+!/dconf/
 !/emacs/
+!/environment.d/
+!/fontconfig/
+!/gammastep/
+!/git/
+!/hypr/
+!/logrotate/
+!/mpd/
+!/redshift/
+!/swaylock/
 !/systemd/
+!/waybar/
