@@ -16,9 +16,7 @@
 	ch = checkout
 	cd = checkout --detach
 	cp = cherry-pick
-	cu = cl upload
 	cue = config user.email
-	cun = cl upload --no-squash
 	d = diff
 	dc = diff --cached
 	f = fetch
