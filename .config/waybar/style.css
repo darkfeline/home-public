@@ -9,6 +9,11 @@
   color: #ffffff;
 }
 
+#clock, #tray, #battery, #mpd {
+  padding: 0px 5px;
+}
+
+/* Hyprland */
 #workspaces {
   border-radius: 5px;
   background: #dddddd;
@@ -32,6 +37,7 @@
   border-radius: 5px;
 }
 
+/* DWL */
 #tags button {
   background: #666666;
   color: #000000;
@@ -50,8 +56,4 @@
 
 #tags button.focused {
   background: #aa88ff;
-}
-
-#clock, #tray, #battery, #mpd {
-  padding: 0px 5px;
 }
