@@ -18,9 +18,7 @@
   "dwl/window": {
     "format": "{layout} {title}",
     "icon": true,
-    "tooltip": false,
-    "all-outputs": true,
-    "offscreen-css": true
+    "tooltip": false
   },
   "hyprland/workspaces": {
     "format": "{icon}{windows}",
