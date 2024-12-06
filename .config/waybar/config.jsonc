@@ -15,6 +15,13 @@
     "clock"
   ],
   // Modules configuration
+  "dwl/window": {
+    "format": "{layout} {title}",
+    "icon": true,
+    "tooltip": false,
+    "all-outputs": true,
+    "offscreen-css": true
+  },
   "hyprland/workspaces": {
     "format": "{icon}{windows}",
     "format-icons": {
