@@ -1,9 +1,0 @@
-#!/bin/bash
-# Cache a Git repo
-set -eu
-readonly CACHE=~/src/irminsul
-repo=$1
-hash=$(echo "${repo}" | basenc --base64url | cut -f1 -d' ' | tr -d '\n')
-[[ -d $CACHE ]] || git init --bare "${CACHE}"
-export GIT_DIR="${CACHE}"
-git -C "${CACHE}" fetch --no-tags "${repo}" "+refs/heads/*:refs/remotes/${hash}/*"
