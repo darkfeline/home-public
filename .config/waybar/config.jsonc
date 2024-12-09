@@ -3,6 +3,8 @@
   "spacing": 0, // Gaps between modules (px)
   // Choose the order of the modules
   "modules-left": [
+    // "dwl/tags",
+    // "dwl/window",
     "hyprland/workspaces",
     "hyprland/window"
   ],
