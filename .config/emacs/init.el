@@ -300,7 +300,3 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
     "Wrap `shell' with `with-editor'."
     (with-editor
       (apply old args))))
-
-;; Load extra init files
-(let ((f (expand-file-name "~/share/emacs/init.el")))
-  (when (file-exists-p f) (load f)))
