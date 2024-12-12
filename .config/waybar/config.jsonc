@@ -43,8 +43,7 @@
   },
   "hyprland/window": {
     "format": "{title}",
-    "icon": true,
-    "separate-outputs": true
+    "icon": true
   },
   "mpd": {
     "format": "{stateIcon} [{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}] {artist} - {title}",
