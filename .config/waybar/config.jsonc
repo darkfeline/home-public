@@ -89,6 +89,7 @@
     }
   },
   "battery": {
-    "format": "{capacity}% 🔋",
+    "format": "{capacity}% (-{power}W)",
+    "interval": 1
   }
 }
