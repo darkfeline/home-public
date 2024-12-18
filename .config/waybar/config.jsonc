@@ -46,7 +46,7 @@
     "icon": true
   },
   "mpd": {
-    "format": "{stateIcon} [{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}] {artist} - {title}",
+    "format": "[{stateIcon}{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}] {artist} - {title}",
     "unknown-tag": "N/A",
     "interval": 5,
     "consume-icons": {
@@ -65,6 +65,7 @@
       "paused": "⏸",
       "playing": "⏵"
     },
+    "max-length": 30
   },
   "tray": {
     // "icon-size": 21,
