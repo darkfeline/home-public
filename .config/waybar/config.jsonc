@@ -90,6 +90,9 @@
   },
   "battery": {
     "format": "{capacity}% (-{power}W)",
-    "interval": 1
+    "interval": 60,
+    "states": {
+        "warning": 30
+    },
   }
 }
