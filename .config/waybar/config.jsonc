@@ -12,7 +12,7 @@
   ],
   "modules-right": [
     "mpd",
-    "battery",
+    "group/sys",
     "tray",
     "clock"
   ],
@@ -95,5 +95,21 @@
     "states": {
         "warning": 30
     },
+  },
+  "load": {
+    "format": "{load1} {load5} {load15}",
+    "tooltip": false
+  },
+  "backlight": {
+    "tooltip": false
+  },
+  "group/sys": {
+    "orientation": "horizontal",
+    "modules": [
+      "battery",
+      "load",
+      "backlight"
+    ],
+    "drawer": {}
   }
 }

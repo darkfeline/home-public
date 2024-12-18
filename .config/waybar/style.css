@@ -9,8 +9,16 @@
   color: #ffffff;
 }
 
-#clock, #tray, #battery, #mpd {
-  padding: 0px 5px;
+#clock, #tray, #battery, #mpd, #load, #disk, #backlight {
+  padding: 0px 4px;
+  border-radius: 5px;
+  background: #666666;
+  margin: 0px 2px;
+}
+
+
+#battery.warning {
+  background: #ffaaaa;
 }
 
 /* Hyprland */
