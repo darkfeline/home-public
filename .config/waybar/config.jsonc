@@ -101,13 +101,18 @@
     "tooltip": false
   },
   "backlight": {
-    "tooltip": false
+    "tooltip-format": "backlight"
+  },
+  "memory": {
+    "format": "-{avail:0.1f}GiB"
   },
   "group/sys": {
     "orientation": "horizontal",
     "modules": [
       "battery",
       "load",
+      "cpu",
+      "memory",
       "backlight"
     ],
     "drawer": {}
