@@ -68,8 +68,8 @@
     "max-length": 30
   },
   "tray": {
-    // "icon-size": 21,
-    "spacing": 10
+    "icon-size": 22,
+    "spacing": 4
   },
   "clock": {
     "format": "{:%a %F %T}",
