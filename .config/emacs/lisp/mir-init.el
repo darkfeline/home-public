@@ -81,7 +81,7 @@
             (when (file-exists-p pkg-dir)
 	      ;; This is a symbolic link to the checkout.
               ;; This is likely because the -pkg.el file is missing so
-              ;; Emacs does treat the symbolically linked directory as
+              ;; Emacs does not treat the symbolically linked directory as
               ;; a package, but `package-vc-install-from-checkout'
               ;; will still prompt to overwrite the existing symbolic
               ;; link.
