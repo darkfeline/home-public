@@ -100,9 +100,6 @@
     "format": "{load1} {load5} {load15}",
     "tooltip": false
   },
-  "backlight": {
-    "tooltip-format": "backlight"
-  },
   "memory": {
     "format": "-{avail:0.1f}GiB"
   },
@@ -112,8 +109,7 @@
       "battery",
       "load",
       "cpu",
-      "memory",
-      "backlight"
+      "memory"
     ],
     "drawer": {}
   }

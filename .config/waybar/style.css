@@ -9,7 +9,7 @@
   color: #ffffff;
 }
 
-#clock, #tray, #battery, #mpd, #load, #cpu, #memory, #backlight {
+#clock, #tray, #battery, #mpd, #load, #cpu, #memory {
   padding: 0px 4px;
   border-radius: 5px;
   background: #666666;
