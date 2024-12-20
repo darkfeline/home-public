@@ -35,9 +35,9 @@ case "$TERM" in
         ;;
     ''|dumb*)
         # Disable pagers
-        export PAGER=
-        export GIT_PAGER=
-        export SYSTEMD_PAGER=
+        export PAGER=cat
+        export GIT_PAGER=cat
+        export SYSTEMD_PAGER=cat
         ;;
 esac
 
