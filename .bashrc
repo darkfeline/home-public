@@ -37,3 +37,22 @@ HISTSIZE=10000
 HISTFILESIZE=-1
 HISTTIMEFORMAT='[%F %T %z] '
 HISTCONTROL=ignorespace
+
+if shopt -q progcomp; then
+    # Load standard completions if available and not already loaded.
+    # This would usually be sourced by /etc/profile and/or
+    # /etc/bash.bashrc, which means it may not be loaded for login
+    # sessions that don't start a login shell, like graphical
+    # sessions.
+    #
+    # This should also load everything under /etc/bash_completion.d.
+    #
+    # I don't know about /etc/bash_completion, but at least on Debian
+    # it seems to only source the same file as below, so it's probably
+    # just an alias for convenience.
+    if [[ ! -v BASH_COMPLETION_VERSINFO \
+              && -f /usr/share/bash-completion/bash_completion ]]
+    then
+        . /usr/share/bash-completion/bash_completion
+    fi
+fi
