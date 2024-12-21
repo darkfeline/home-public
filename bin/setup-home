@@ -25,7 +25,6 @@ main() {
     cd "$HOME"
     ensure_dirs
     fix_perms
-    setup_git_config
     setup_git_hooks
     [[ -n $do_slow ]] && install_deps
     compile_terminfo
@@ -40,10 +39,6 @@ ensure_dirs() {
 
 fix_perms() {
     chmod 600 ~/.ssh/config ~/.ssh/config.d/*
-}
-
-setup_git_config() {
-    git config --unset status.showUntrackedFiles
 }
 
 setup_git_hooks() {
