@@ -134,7 +134,6 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
 
 ;; Mode hooks
 (mir-init-add-hooks go-mode-hook
-  #'tree-sitter-hl-mode
   (mir-init-setter adaptive-fill-regexp "[ \t]*\\(//\\)?[ \t]*")
   (lambda ()
     (when (fboundp 'gofmt-before-save)
