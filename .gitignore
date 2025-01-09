@@ -2,4 +2,5 @@
 
 !/.config/
 !/.ssh/
+!/bin/
 !/src/
