@@ -11,6 +11,6 @@ if [[ ${TERM:-dumb} = *dumb* ]]; then
     inpath ed && printf "Using ed as pager\n" && exec ed "$@"
 fi
 
-inpath less && exec less "$@"
+inpath less && exec less -FRX "$@"
 printf '%s: No pager available\n' "$0" >&2
 exit 1
