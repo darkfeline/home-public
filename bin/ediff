@@ -1,8 +1,0 @@
-#!/bin/bash
-set -eux
-readonly diff_args=(--eval "(ediff \"$1\" \"$2\")")
-if [[ -n ${INSIDE_EMACS:-} ]]; then
-    exec emacsclient "${diff_args[@]}"
-fi
-# http://emacshorrors.com/posts/come-in-and-find-out.html
-exec emacs -Q -nw --eval "(setq frame-background-mode 'dark)" "${diff_args[@]}"
