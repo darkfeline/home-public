@@ -1,3 +1,6 @@
 [user]
 name = "Allen Li"
 email = "darkfeline@feleatra.moe"
+
+[ui]
+diff-editor = "ediff"
