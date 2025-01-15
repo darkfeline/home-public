@@ -39,6 +39,7 @@
 	sm = submodule
 	smagd = submodule absorbgitdirs
 	smfe = submodule foreach
+	smfer = submodule foreach --recursive
 	smi = submodule init
 	sms = submodule sync
 	smu = submodule update
