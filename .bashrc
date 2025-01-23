@@ -8,7 +8,12 @@
 
 . ~/.shrc
 
-PROMPT_COMMAND=__prompt_command
+# Support bash-preexec
+if [[ -n ${bash_preexec_imported:-} ]]; then
+    precmd_functions+=(__prompt_command)
+else
+    PROMPT_COMMAND=__prompt_command
+fi
 
 __prompt_command() {
     local -r exit=$?
