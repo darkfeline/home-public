@@ -9,7 +9,7 @@
 . ~/.shrc
 
 # Support bash-preexec
-if [[ -n ${bash_preexec_imported:-} ]]; then
+if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
     precmd_functions+=(__prompt_command)
 else
     PROMPT_COMMAND=__prompt_command
