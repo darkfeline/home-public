@@ -18,7 +18,7 @@
 	url = https://github.com/darkfeline/emacs-reintegrate.git
 [submodule ".config/emacs/vc/vc-jj"]
 	path = .config/emacs/vc/vc-jj
-	url = https://github.com/darkfeline/jujutsushi
+	url = https://github.com/darkfeline/jujutsushi.git
 [submodule "src/yt-dlp"]
 	path = src/yt-dlp
 	url = https://github.com/yt-dlp/yt-dlp.git
