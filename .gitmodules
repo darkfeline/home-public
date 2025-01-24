@@ -19,6 +19,7 @@
 [submodule ".config/emacs/vc/vc-jj"]
 	path = .config/emacs/vc/vc-jj
 	url = https://github.com/darkfeline/jujutsushi.git
+	branch = vc-jj
 [submodule "src/yt-dlp"]
 	path = src/yt-dlp
 	url = https://github.com/yt-dlp/yt-dlp.git
