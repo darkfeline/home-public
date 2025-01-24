@@ -16,6 +16,9 @@
 [submodule ".config/emacs/vc/go-mode"]
 	path = .config/emacs/vc/go-mode
 	url = https://github.com/darkfeline/go-mode.el.git
+[submodule ".config/emacs/vc/vc-jj"]
+	path = .config/emacs/vc/vc-jj
+	url = https://github.com/darkfeline/jujutsushi
 [submodule "src/yt-dlp"]
 	path = src/yt-dlp
 	url = https://github.com/yt-dlp/yt-dlp.git
