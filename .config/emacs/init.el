@@ -9,7 +9,6 @@
                                  go-mode
                                  magit
                                  reintegrate
-                                 vc-jj
                                  jakuri))
 
 ;; lilypond-mode is packaged with lilypond.
