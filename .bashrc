@@ -17,7 +17,7 @@ fi
 
 __prompt_command() {
     local -r exit=$?
-    local exit_color=
+    local exit_color="\[${CYAN}\]"
     if [ "$exit" != 0 ]; then
         exit_color="\[${RED}\]"
     fi
