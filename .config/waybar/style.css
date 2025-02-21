@@ -41,22 +41,27 @@
 }
 
 /* DWL */
-#tags button {
-  background: #666666;
+#tags {
+  background: #dddddd;
   color: #000000;
+}
+
+#tags button {
   padding: 0px;
-  margin: 0px;
+  margin: 3px;
   border-radius: 0px;
+  background: #dddddd;
+  color: #000000;
 }
 
 #tags button.occupied {
-  background: #dddddd;
-}
-
-#tags button.urgent {
-  background: #ffaaaa;
+  border: 2px solid;
 }
 
 #tags button.focused {
   background: #aa88ff;
+}
+
+#tags button.urgent {
+  background: #ffaaaa;
 }
