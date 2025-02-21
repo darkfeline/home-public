@@ -18,7 +18,7 @@
   ],
   // Modules configuration
   "dwl/window": {
-    "format": "{layout} {title}",
+    "format": "{title}",
     "icon": true,
     "tooltip": false
   },
