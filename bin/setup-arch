@@ -5,7 +5,7 @@ set -eu
 readonly packages=(
     base-devel
     ed
-    emacs-nativecomp
+    emacs-wayland
     git
     github-cli
     gtk2 # for graphical pinentry
@@ -52,6 +52,7 @@ readonly packages=(
     waybar
     wl-clipboard
     wofi
+    xdg-desktop-portal-wlr
 )
 
 readonly laptop=(
