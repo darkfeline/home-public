@@ -19,8 +19,11 @@ readonly packages=(
     texinfo
     vi
 
-    # X
+    # X/Wayland
     alacritty
+    xdg-desktop-portal-gtk
+
+    # X
     arandr
     autorandr
     awesome
@@ -52,7 +55,7 @@ readonly packages=(
     waybar
     wl-clipboard
     wofi
-    xdg-desktop-portal-wlr
+    xdg-desktop-portal-hyprland
 )
 
 readonly laptop=(
