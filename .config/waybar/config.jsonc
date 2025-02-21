@@ -94,7 +94,7 @@
     "interval": 60,
     "states": {
         "warning": 30
-    },
+    }
   },
   "load": {
     "format": "{load1} {load5} {load15}",
