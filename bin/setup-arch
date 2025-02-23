@@ -21,6 +21,7 @@ readonly packages=(
 
     # X/Wayland
     alacritty
+    rofi-wayland
     xdg-desktop-portal-gtk
 
     # X
@@ -28,7 +29,6 @@ readonly packages=(
     autorandr
     awesome
     redshift
-    rofi
     scrot
     x11-ssh-askpass
     xbindkeys
