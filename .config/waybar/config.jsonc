@@ -65,7 +65,8 @@
       "paused": "⏸",
       "playing": "⏵"
     },
-    "max-length": 30
+    "max-length": 50,
+    "artist-len": 20
   },
   "tray": {
     "icon-size": 22,
