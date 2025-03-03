@@ -13,6 +13,7 @@
   "modules-right": [
     "mpd",
     "group/sys",
+    "battery",
     "tray",
     "clock"
   ],
@@ -98,8 +99,7 @@
     }
   },
   "load": {
-    "format": "{load1} {load5} {load15}",
-    "tooltip": false
+    "format": "{load1}"
   },
   "memory": {
     "format": "-{avail:0.1f}GiB"
@@ -107,7 +107,6 @@
   "group/sys": {
     "orientation": "horizontal",
     "modules": [
-      "battery",
       "load",
       "cpu",
       "memory"
