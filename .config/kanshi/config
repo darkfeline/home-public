@@ -1,6 +1,6 @@
 profile {
 	# T470
-	output "LG Display 0x0521 Unknown" mode 1920x1080 0,0 scale 1
+	output "LG Display 0x0521 Unknown" mode 1920x1080 position 0,0 scale 1
 }
 
 # Local Variables:
