@@ -1,6 +1,24 @@
 /*
 
-!/.config/
-!/.ssh/
 !/bin/
 !/src/
+
+!/.config/
+!/.gnupg/
+!/.icons/
+!/.ssh/
+
+!/.bash_profile
+!/.bashrc
+!/.calfrc
+!/.gitignore
+!/.gitmodules
+!/.gtkrc-2.0
+!/.inputrc
+!/.profile
+!/.shrc
+!/.xbindkeysrc.scm
+!/.xinitrc
+!/.Xresources
+!/.xsession
+!/.xsessionrc
