@@ -104,12 +104,17 @@
   "memory": {
     "format": "-{avail:0.1f}GiB"
   },
+  "network": {
+    "format": "↑{bandwidthUpBits} ↓{bandwidthDownBits}"
+  },
   "group/sys": {
     "orientation": "horizontal",
     "modules": [
       "load",
       "cpu",
-      "memory"
+      "memory",
+      "temperature",
+      "network"
     ],
     "drawer": {}
   }
