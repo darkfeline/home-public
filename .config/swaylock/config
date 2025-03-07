@@ -1,8 +1,6 @@
 color=000000
 image=~/share/exa-pico3.png
 scaling=center
-indicator-radius=100
-indicator-thickness=20
 indicator-idle-visible
 indicator-caps-lock
 show-keyboard-layout
