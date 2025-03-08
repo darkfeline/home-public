@@ -292,7 +292,8 @@
      (orderless . "gnu")
      (marginalia . "gnu")
      (bind-key . "gnu")
-     (use-package . "gnu")))
+     (use-package . "gnu")
+     (faceup . "gnu")))
  '(package-quickstart t)
  '(package-selected-packages
    '(easydraw go-mode jakuri magit reintegrate vc-jj tramp ipcalc ialign jq-mode ghub protobuf-mode lua-mode graphviz-dot-mode git-timemachine json-mode verb erc emmet-mode obsidian toml-mode yaml-mode markdown-mode string-inflection flymake-shellcheck minions ddskk dumb-jump helpful xterm-color bazel gptel bash-completion systemd dockerfile-mode smartparens bluetooth diff-hl tiny keycast aggressive-indent project expand-region htmlize rainbow-mode ws-butler wgrep csv-mode async with-editor yasnippet seq gnu-elpa-keyring-update pinentry marginalia valign vlf vundo orderless consult vertico org flymake eglot))
