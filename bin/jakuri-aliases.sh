@@ -19,11 +19,11 @@ alias jrn="journalctl"
 alias jrnu="journalctl --user"
 alias la="ls -A"
 alias ll="ls -Al"
-alias mkd="mkdir -pv"
-mkdc() {
+mkc() {
     mkdir -pv $1
     cd $1
 }
+alias mkd="mkdir -pv"
 alias netctl="sudo netctl"
 alias pac="sudo pacman"
 alias path='printf "%s\n" "$PATH" | sed "s/:/\n/g"'
