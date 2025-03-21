@@ -11,7 +11,7 @@
 	bm = branch --merged
 	branch-age = for-each-ref --sort=-committerdate --format='%(committerdate:relative) %(refname:short)' refs/heads/
 	c = commit
-	ca = commit --amend
+	ca = commit --amend --no-edit
 	cfg = config
 	ch = checkout
 	cd = checkout --detach
