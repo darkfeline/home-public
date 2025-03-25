@@ -6,12 +6,13 @@
 	detachedHead = false
 [alias]
 	a = add
-	ap = add -p
+	ap = add --patch
 	b = branch
 	bm = branch --merged
 	branch-age = for-each-ref --sort=-committerdate --format='%(committerdate:relative) %(refname:short)' refs/heads/
 	c = commit
 	ca = commit --amend --no-edit
+	cm = commit --message
 	cfg = config
 	ch = checkout
 	cd = checkout --detach
@@ -24,7 +25,9 @@
 	first = rev-list --max-parents=0 HEAD
 	l = log
 	l1 = log -1
-	ll = log --all --graph --decorate --stat
+	la = log --all --graph --decorate --stat
+	lg = log --graph
+	lo = log --pretty=oneline
 	m = merge
 	ra = rebase --abort
 	rb = rebase
