@@ -6,4 +6,5 @@ kanshi &
 swaybg -m center -i ~/share/exa-pico3.png -c "#000000" &
 swayidle -w before-sleep swaylock &
 waybar &
+
 start-mympd
