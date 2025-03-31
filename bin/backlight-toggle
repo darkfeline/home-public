@@ -6,7 +6,7 @@ setbl() {
 }
 
 # Strip decimal since shell can only do ints
-cur=$(xbacklight | sed 's/\.[0-9]\+$//')
+cur=$(xbacklight -get | sed 's/\.[0-9]\+$//')
 if [[ $cur -lt 21 ]]; then
     setbl 40
 elif [[ $cur -lt 41 ]]; then
