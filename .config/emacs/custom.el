@@ -26,13 +26,10 @@
      (format "%2d"
              (car
               (calendar-iso-from-absolute
-               (calendar-absolute-from-gregorian
-                (list month day year)))))
+               (calendar-absolute-from-gregorian (list month day year)))))
      'font-lock-face 'font-lock-function-name-face))
  '(calendar-time-display-form
-   '(24-hours ":" minutes
-              (if time-zone " (")
-              time-zone
+   '(24-hours ":" minutes (if time-zone " (") time-zone
               (if time-zone ")")))
  '(calendar-week-start-day 1)
  '(checkdoc-verb-check-experimental-flag nil)
@@ -56,9 +53,9 @@
    '(("\\.ipynb\\'" "jupyter-notebook")
      ("\\.\\(png\\|jpg\\|bmp\\)\\'" "sxiv")
      ("\\.\\(7z\\|zip\\|rar\\)\\'" "7z x" "7z l"
-      (format "7z x -o\"%s\""
-              (file-name-sans-extension file)))
-     ("\\.\\(avi\\|flac\\|ogg\\|m4a\\|mkv\\|mp[34]\\|wav\\|webm\\|wmv\\)\\'" "mpv")))
+      (format "7z x -o\"%s\"" (file-name-sans-extension file)))
+     ("\\.\\(avi\\|flac\\|ogg\\|m4a\\|mkv\\|mp[34]\\|wav\\|webm\\|wmv\\)\\'"
+      "mpv")))
  '(dired-isearch-filenames 'dwim)
  '(dired-vc-rename-file t)
  '(display-battery-mode t)
@@ -88,8 +85,7 @@
  '(global-so-long-mode t)
  '(global-tree-sitter-mode t)
  '(glyphless-char-display-control
-   '((c1-control . acronym)
-     (format-control . acronym)
+   '((c1-control . acronym) (format-control . acronym)
      (no-font . acronym)))
  '(gnutls-algorithm-priority
    "SECURE192:+SECURE128:-VERS-ALL:+VERS-TLS1.2:%PROFILE_MEDIUM")
@@ -98,42 +94,22 @@
  '(gofmt-command "goimports")
  '(history-length 4000)
  '(ibuffer-formats
-   '((mark modified read-only locked " "
-           (name 36 36 :left :elide)
-           " "
-           (size 9 -1 :right)
-           " "
-           (mode 16 16 :left :elide)
-           " " filename-and-process)
-     (mark " "
-           (name 32 -1)
-           " " filename-and-process)))
+   '((mark modified read-only locked " " (name 36 36 :left :elide) " "
+           (size 9 -1 :right) " " (mode 16 16 :left :elide) " "
+           filename-and-process)
+     (mark " " (name 32 -1) " " filename-and-process)))
  '(ibuffer-movement-cycle nil)
  '(ibuffer-saved-filter-groups
-   '(("default"
-      ("Shell"
-       (used-mode . shell-mode)
-       (process))
-      ("Dead Shell"
-       (used-mode . shell-mode))
-      ("ERC"
-       (used-mode . erc-mode))
+   '(("default" ("Shell" (used-mode . shell-mode) (process))
+      ("Dead Shell" (used-mode . shell-mode))
+      ("ERC" (used-mode . erc-mode))
       ("Tramp"
-       (or
-        (filename . "^/scp:")
-        (filename . "^/ssh:")
-        (filename . "^/sudo:")))
-      ("Emacs"
-       (not name . "^magit[:-]")
-       (filename . "/.emacs.d/"))
-      ("Src"
-       (not derived-mode . comint-mode)
-       (not derived-mode . special-mode)
-       (filename . "/src/"))
-      ("Special"
-       (starred-name))
-      ("Magit"
-       (name . "^magit[:-]")))))
+       (or (filename . "^/scp:") (filename . "^/ssh:")
+           (filename . "^/sudo:")))
+      ("Emacs" (not name . "^magit[:-]") (filename . "/.emacs.d/"))
+      ("Src" (not derived-mode . comint-mode)
+       (not derived-mode . special-mode) (filename . "/src/"))
+      ("Special" (starred-name)) ("Magit" (name . "^magit[:-]")))))
  '(image-dired-dir "~/.cache/emacs/image-dired/")
  '(image-dired-thumb-size 200)
  '(image-use-external-converter t)
@@ -152,11 +128,8 @@
  '(magit-diff-refine-hunk 'all)
  '(magit-remote-add-set-remote.pushDefault nil)
  '(magit-repository-directories
-   '(("~" . 0)
-     ("~/.config/emacs" . 0)
-     ("~/.config/emacs/elpa" . 0)
-     ("~/.config/emacs/vc" . 1)
-     ("~/src" . 1)))
+   '(("~" . 0) ("~/.config/emacs" . 0) ("~/.config/emacs/elpa" . 0)
+     ("~/.config/emacs/vc" . 1) ("~/src" . 1)))
  '(magit-save-repository-buffers nil)
  '(magit-wip-mode nil)
  '(mailcap-download-directory "/tmp")
@@ -171,7 +144,9 @@
  '(minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
  '(minions-mode t)
  '(minions-prominent-modes
-   '(auto-revert-mode defining-kbd-macro dired-async--modeline-mode flymake-mode follow-mode view-mode clipmag-mode comint-reaper-mode))
+   '(auto-revert-mode defining-kbd-macro dired-async--modeline-mode
+                      flymake-mode follow-mode view-mode clipmag-mode
+                      comint-reaper-mode))
  '(mm-automatic-display '("text/plain"))
  '(mm-discouraged-alternatives '("text/html" "text/richtext" "text/enriched" "image/.*"))
  '(mm-enable-external 'ask)
@@ -200,8 +175,7 @@
  '(org-attach-use-inheritance t)
  '(org-babel-load-languages '((emacs-lisp . t) (python . t) (shell . t) (dot . t)))
  '(org-capture-templates
-   '(("Z" "org-protocol capture" entry
-      (file "notes.org")
+   '(("Z" "org-protocol capture" entry (file "notes.org")
       "* TODO %?org-protocol capture :capture:\12%(let ((x \"%:annotation\")) (if (string= x \"\") \"\" (concat x \"\\n\")))%(quote \"%i\")")))
  '(org-checkbox-hierarchical-statistics nil)
  '(org-columns-default-format "%60ITEM %TODO %Effort{:} %CLOCKSUM")
@@ -217,8 +191,9 @@
  '(org-fast-tag-selection-single-key t)
  '(org-fold-catch-invisible-edits 'smart)
  '(org-format-latex-options
-   '(:foreground default :background default :scale 2.0 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
-                 ("begin" "$1" "$" "$$" "\\(" "\\[")))
+   '(:foreground default :background default :scale 2.0 :html-foreground
+                 "Black" :html-background "Transparent" :html-scale
+                 1.0 :matchers ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-goto-interface 'outline-path-completion)
  '(org-habit-graph-column 50)
  '(org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
@@ -240,23 +215,12 @@
  '(org-special-ctrl-a/e t)
  '(org-special-ctrl-k t)
  '(org-structure-template-alist
-   '(("a" . "export ascii")
-     ("b" . "src bash")
-     ("c" . "center")
-     ("C" . "comment")
-     ("e" . "example")
-     ("E" . "export")
-     ("h" . "export html")
-     ("l" . "export latex")
-     ("p" . "src python")
-     ("q" . "quote")
-     ("s" . "src")
-     ("v" . "verse")))
+   '(("a" . "export ascii") ("b" . "src bash") ("c" . "center")
+     ("C" . "comment") ("e" . "example") ("E" . "export")
+     ("h" . "export html") ("l" . "export latex") ("p" . "src python")
+     ("q" . "quote") ("s" . "src") ("v" . "verse")))
  '(org-use-speed-commands
-   (lambda nil
-     (and
-      (looking-at org-outline-regexp)
-      (looking-back "^**"))))
+   (lambda nil (and (looking-at org-outline-regexp) (looking-back "^**"))))
  '(org-use-sub-superscripts '{})
  '(org-yank-folded-subtrees nil)
  '(package-archives
@@ -267,50 +231,48 @@
  '(package-check-signature t)
  '(package-install-upgrade-built-in t)
  '(package-pinned-packages
-   '((markdown-mode . "nongnu")
-     (dash . "gnu")
-     (transient . "gnu")
-     (yasnippet . "gnu")
-     (ws-butler . "nongnu")
-     (with-editor . "nongnu")
-     (wgrep . "nongnu")
-     (vlf . "nongnu")
-     (vertico . "gnu")
-     (tiny . "gnu")
-     (systemd . "nongnu")
-     (smartparens . "nongnu")
-     (keycast . "nongnu")
-     (htmlize . "nongnu")
-     (gptel . "nongnu")
-     (expand-region . "gnu")
-     (dockerfile-mode . "nongnu")
-     (diff-hl . "gnu")
-     (consult . "gnu")
-     (bash-completion . "nongnu")
-     (async . "gnu")
-     (aggressive-indent . "gnu")
-     (orderless . "gnu")
-     (marginalia . "gnu")
-     (bind-key . "gnu")
-     (use-package . "gnu")
+   '((markdown-mode . "nongnu") (dash . "gnu") (transient . "gnu")
+     (yasnippet . "gnu") (ws-butler . "nongnu")
+     (with-editor . "nongnu") (wgrep . "nongnu") (vlf . "nongnu")
+     (vertico . "gnu") (tiny . "gnu") (systemd . "nongnu")
+     (smartparens . "nongnu") (keycast . "nongnu")
+     (htmlize . "nongnu") (gptel . "nongnu") (expand-region . "gnu")
+     (dockerfile-mode . "nongnu") (diff-hl . "gnu") (consult . "gnu")
+     (bash-completion . "nongnu") (async . "gnu")
+     (aggressive-indent . "gnu") (orderless . "gnu")
+     (marginalia . "gnu") (bind-key . "gnu") (use-package . "gnu")
      (faceup . "gnu")))
  '(package-quickstart t)
  '(package-selected-packages
-   '(easydraw go-mode jakuri magit reintegrate vc-jj tramp ipcalc ialign jq-mode ghub protobuf-mode lua-mode graphviz-dot-mode git-timemachine json-mode verb erc emmet-mode obsidian toml-mode yaml-mode markdown-mode string-inflection flymake-shellcheck minions ddskk dumb-jump helpful xterm-color bazel gptel bash-completion systemd dockerfile-mode smartparens bluetooth diff-hl tiny keycast aggressive-indent project expand-region htmlize rainbow-mode ws-butler wgrep csv-mode async with-editor yasnippet seq gnu-elpa-keyring-update pinentry marginalia valign vlf vundo orderless consult vertico org flymake eglot))
+   '(aggressive-indent async bash-completion bazel bluetooth consult
+                       csv-mode ddskk diff-hl dockerfile-mode
+                       dumb-jump easydraw editorconfig eglot
+                       emmet-mode erc expand-region flymake
+                       flymake-shellcheck ghub git-timemachine
+                       gnu-elpa-keyring-update go-mode gptel
+                       graphviz-dot-mode helpful htmlize ialign
+                       idlwave ipcalc jakuri jq-mode json-mode keycast
+                       lua-mode magit marginalia markdown-mode minions
+                       obsidian orderless org pinentry project
+                       protobuf-mode python rainbow-mode reintegrate
+                       seq smartparens string-inflection systemd tiny
+                       toml-mode tramp valign vc-jj verb verilog-mode
+                       vertico vlf vundo wgrep with-editor ws-butler
+                       xterm-color yaml-mode yasnippet))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(project-list-file "~/.local/state/emacs/projects")
  '(project-switch-commands
    '((project-find-file "Find file" nil)
      (project-find-regexp "Find regexp" nil)
-     (project-dired "Dired" nil)
-     (project-vc-dir "VC-Dir" nil)
-     (project-eshell "Eshell" nil)
-     (project-shell "Shell" nil)))
+     (project-dired "Dired" nil) (project-vc-dir "VC-Dir" nil)
+     (project-eshell "Eshell" nil) (project-shell "Shell" nil)))
  '(project-vc-merge-submodules nil)
  '(python-fill-docstring-style 'pep-257-nn)
  '(recentf-auto-cleanup 'never)
  '(recentf-exclude
-   '("/\\(\\(\\(COMMIT\\|NOTES\\|PULLREQ\\|MERGEREQ\\|TAG\\)_EDIT\\|MERGE_\\|\\)MSG\\|\\(BRANCH\\|EDIT\\)_DESCRIPTION\\)\\'" "/\\.cache/emacs/filesets-cache\\.el\\'" "\\`/sudo:" "\\.\\(jpg\\|png\\)\\'" "/ionasal/src/home/"))
+   '("/\\(\\(\\(COMMIT\\|NOTES\\|PULLREQ\\|MERGEREQ\\|TAG\\)_EDIT\\|MERGE_\\|\\)MSG\\|\\(BRANCH\\|EDIT\\)_DESCRIPTION\\)\\'"
+     "/\\.cache/emacs/filesets-cache\\.el\\'" "\\`/sudo:"
+     "\\.\\(jpg\\|png\\)\\'" "/ionasal/src/home/"))
  '(recentf-max-saved-items 8000)
  '(recentf-mode t)
  '(recentf-save-file "~/.local/state/emacs/recentf")
@@ -319,8 +281,7 @@
  '(require-final-newline 'ask)
  '(rmail-file-name "~/.local/state/emacs/RMAIL")
  '(safe-local-variable-values
-   '((org-num-max-level . 2)
-     (make-backup-files)
+   '((org-num-max-level . 2) (make-backup-files)
      (git-commit-major-mode . git-commit-elisp-text-mode)
      (create-lockfiles)
      (bug-reference-bug-regexp . "#\\(?2:[0-9]+\\)")))
