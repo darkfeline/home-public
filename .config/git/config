@@ -13,6 +13,7 @@
 	c = commit
 	ca = commit --amend --no-edit
 	cm = commit --message
+	cw = commit --amend
 	cfg = config
 	ch = checkout
 	cd = checkout --detach
