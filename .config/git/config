@@ -32,6 +32,7 @@
 	m = merge
 	ra = rebase --abort
 	rb = rebase
+	rbo = rebase --onto
 	rc = rebase --continue
 	rfo = rebase --force
 	rfu = rebase --fixup
