@@ -51,6 +51,7 @@
 	smu = submodule update
 	smun = submodule update --no-fetch
 	smur = submodule-update-reset
+	st = subtree
 	wt = worktree
 [color]
 	ui = auto
