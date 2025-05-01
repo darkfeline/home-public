@@ -244,21 +244,7 @@
      (faceup . "gnu")))
  '(package-quickstart t)
  '(package-selected-packages
-   '(aggressive-indent async bash-completion bazel bluetooth consult
-                       csv-mode ddskk diff-hl dockerfile-mode
-                       dumb-jump easydraw editorconfig eglot
-                       emmet-mode erc expand-region flymake
-                       flymake-shellcheck ghub git-timemachine
-                       gnu-elpa-keyring-update go-mode gptel
-                       graphviz-dot-mode helpful htmlize ialign
-                       idlwave ipcalc jakuri jq-mode json-mode keycast
-                       lua-mode magit marginalia markdown-mode minions
-                       obsidian orderless org pinentry project
-                       protobuf-mode python rainbow-mode reintegrate
-                       seq smartparens string-inflection systemd tiny
-                       toml-mode tramp valign vc-jj verb verilog-mode
-                       vertico vlf vundo wgrep with-editor ws-butler
-                       xterm-color yaml-mode yasnippet))
+   '(tj3-mode aggressive-indent async bash-completion bazel bluetooth consult csv-mode ddskk diff-hl dockerfile-mode dumb-jump easydraw editorconfig eglot emmet-mode erc expand-region flymake flymake-shellcheck ghub git-timemachine gnu-elpa-keyring-update go-mode gptel graphviz-dot-mode helpful htmlize ialign idlwave ipcalc jakuri jq-mode json-mode keycast lua-mode magit marginalia markdown-mode minions obsidian orderless org pinentry project protobuf-mode python rainbow-mode reintegrate seq smartparens string-inflection systemd tiny toml-mode tramp valign vc-jj verb verilog-mode vertico vlf vundo wgrep with-editor ws-butler xterm-color yaml-mode yasnippet))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(project-list-file "~/.local/state/emacs/projects")
  '(project-switch-commands
