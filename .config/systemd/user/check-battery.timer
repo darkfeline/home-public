@@ -2,7 +2,7 @@
 Description=Check battery level
 
 [Timer]
-OnActiveSec=120
+OnCalendar=*:0/2
 AccuracySec=60
 
 [Install]
