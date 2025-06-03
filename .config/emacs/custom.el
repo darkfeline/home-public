@@ -112,10 +112,14 @@
  '(ibuffer-saved-filter-groups
    '(("default"
       ("Shell"
-       (used-mode . shell-mode)
+       (or
+        (used-mode . shell-command-mode)
+        (used-mode . shell-mode))
        (process))
       ("Dead Shell"
-       (used-mode . shell-mode))
+       (or
+        (used-mode . shell-command-mode)
+        (used-mode . shell-mode)))
       ("ERC"
        (used-mode . erc-mode))
       ("Tramp"
