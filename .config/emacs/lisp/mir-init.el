@@ -75,7 +75,8 @@
   ;; the source.
   (let ((vc-dir (expand-file-name "vc" user-emacs-directory)))
     (dolist (package packages)
-      (let ((pkgname (symbol-name package)))
+      (let* ((pkgname (symbol-name package))
+             (reporter (make-progress-reporter (format-message "Bootstrapping %S..." pkgname))))
         (unless (package-installed-p package)
           (let ((pkg-dir (expand-file-name pkgname package-user-dir)))
             (when (file-exists-p pkg-dir)
@@ -90,7 +91,8 @@
                  (gitfile (expand-file-name ".git" checkout)))
             (unless (file-exists-p gitfile)
               (error "%S missing (check submodules)" gitfile))
-            (package-vc-install-from-checkout checkout pkgname)))))))
+            (package-vc-install-from-checkout checkout pkgname)))
+        (progress-reporter-done reporter)))))
 
 (provide 'mir-init)
 ;;; mir-init.el ends here
