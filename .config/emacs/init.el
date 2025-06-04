@@ -133,12 +133,17 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
   #'xterm-color-filter)
 
 ;; Mode hooks
+(defface mir-neq-face '((t :foreground "indian red"))
+  "Face to highlight \"not equals\" symbols.")
+(defvar mir-neq-face 'mir-neq-face)
 (mir-init-add-hooks go-mode-hook
   (mir-init-setter adaptive-fill-regexp "[ \t]*\\(//\\)?[ \t]*")
   (lambda ()
     (when (fboundp 'gofmt-before-save)
       (add-hook 'before-save-hook
-                #'gofmt-before-save t t))))
+                #'gofmt-before-save t t)))
+  (lambda ()
+    (font-lock-add-keywords nil '(("!=" . mir-neq-face)))))
 
 (mir-init-add-hooks ibuffer-mode-hook
   (lambda () (ibuffer-switch-to-saved-filter-groups "default")))
