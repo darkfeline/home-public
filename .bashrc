@@ -8,6 +8,8 @@
 
 . ~/.shrc
 
+[[ -f ~/.bash-preexec.sh ]] && . ~/.bash-preexec.sh
+
 # Support bash-preexec
 if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
     precmd_functions+=(__prompt_command)
