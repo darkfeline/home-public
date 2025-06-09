@@ -13,6 +13,7 @@
 # Support bash-preexec
 if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
     precmd_functions+=(__prompt_command)
+    command -v atuin &>/dev/null && eval "$(atuin init bash)"
 else
     PROMPT_COMMAND=__prompt_command
 fi
