@@ -44,6 +44,8 @@ shopt -s histappend
 HISTSIZE=10000
 HISTFILESIZE=-1
 HISTTIMEFORMAT='[%F %T %z] '
+# NOTE: bash-preexec overrides ignorespace
+# https://github.com/rcaloras/bash-preexec/issues/115
 HISTCONTROL=ignorespace
 
 if shopt -q progcomp; then
