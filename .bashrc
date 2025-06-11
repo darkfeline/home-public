@@ -13,10 +13,8 @@ shopt -s histappend
 
 [[ -f ~/.bash-preexec.sh ]] && . ~/.bash-preexec.sh
 
-# Support bash-preexec
 if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
     precmd_functions+=(__prompt_command)
-    command -v atuin &>/dev/null && eval "$(atuin init bash)"
 else
     PROMPT_COMMAND=__prompt_command
 fi
@@ -49,6 +47,10 @@ HISTTIMEFORMAT='[%F %T %z] '
 # NOTE: bash-preexec overrides ignorespace
 # https://github.com/rcaloras/bash-preexec/issues/115
 HISTCONTROL=ignorespace
+
+if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
+    command -v atuin &>/dev/null && eval "$(atuin init bash)"
+fi
 
 if shopt -q progcomp; then
     # Load standard completions if available and not already loaded.
