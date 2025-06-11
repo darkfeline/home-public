@@ -6,6 +6,9 @@
 # even if it is being invoked non-interactively.
 [[ $- != *i* ]] && return
 
+# Set this as early as possible to avoid losing history.
+shopt -s histappend
+
 . ~/.shrc
 
 [[ -f ~/.bash-preexec.sh ]] && . ~/.bash-preexec.sh
@@ -40,7 +43,6 @@ __prompt_command() {
 }
 
 shopt -s globstar
-shopt -s histappend
 HISTSIZE=10000
 HISTFILESIZE=-1
 HISTTIMEFORMAT='[%F %T %z] '
