@@ -13,8 +13,12 @@ shopt -s histappend
 
 [[ -f ~/.bash-preexec.sh ]] && . ~/.bash-preexec.sh
 
+__prompt_indicators=
 if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
     precmd_functions+=(__prompt_command)
+    # bash-preexec overrides ignorespace
+    # https://github.com/rcaloras/bash-preexec/issues/115
+    __prompt_indicators="\[${BOLD}${RED}\]IS\[${RESET}\] ${__prompt_indicators}"
 else
     PROMPT_COMMAND=__prompt_command
 fi
@@ -26,6 +30,7 @@ __prompt_command() {
         exit_color="\[${RED}\]"
     fi
     PS1="\[${RESET}\]\
+${__prompt_indicators}\
 ↪ ${exit_color}${exit}\[${RESET}\]\
  \D{%Y-%m-%d %H:%M:%S}\
  ${TOOLBOX_PATH+⬢}\
@@ -44,8 +49,6 @@ shopt -s globstar
 HISTSIZE=10000
 HISTFILESIZE=-1
 HISTTIMEFORMAT='[%F %T %z] '
-# NOTE: bash-preexec overrides ignorespace
-# https://github.com/rcaloras/bash-preexec/issues/115
 HISTCONTROL=ignorespace
 
 if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
