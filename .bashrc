@@ -52,7 +52,10 @@ HISTTIMEFORMAT='[%F %T %z] '
 HISTCONTROL=ignorespace
 
 if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
-    command -v atuin &>/dev/null && eval "$(atuin init bash)"
+    if command -v atuin &>/dev/null; then
+        eval "$(atuin init bash)"
+        __prompt_indicators="\[${BOLD}${GREEN}\]AT\[${RESET}\] ${__prompt_indicators}"
+    fi
 fi
 
 if shopt -q progcomp; then
