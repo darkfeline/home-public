@@ -1,5 +1,6 @@
 /eln-cache/
-/epkgs/
+/eshell/
+
 /elgrep-data.el
 /package-quickstart.el
 /tramp
