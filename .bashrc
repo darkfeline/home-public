@@ -18,7 +18,7 @@ if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
     precmd_functions+=(__prompt_command)
     # bash-preexec overrides ignorespace
     # https://github.com/rcaloras/bash-preexec/issues/115
-    __prompt_indicators="\[${BOLD}${RED}\]IS\[${RESET}\] ${__prompt_indicators}"
+    __prompt_indicators="\[${BOLD}${YELLOW}\]I\[${RESET}\]${__prompt_indicators:- }"
 else
     PROMPT_COMMAND=__prompt_command
 fi
@@ -59,7 +59,7 @@ if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
                 # Disable bind warnings when line editing is not available
                 eval "$(atuin init bash --disable-ctrl-r --disable-up-arrow)"
         fi
-        __prompt_indicators="\[${BOLD}${GREEN}\]AT\[${RESET}\] ${__prompt_indicators}"
+        __prompt_indicators="\[${BOLD}${GREEN}\]A\[${RESET}\]${__prompt_indicators:- }"
     fi
 fi
 
