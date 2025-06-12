@@ -53,7 +53,15 @@ HISTCONTROL=ignorespace
 
 if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
     if command -v atuin &>/dev/null; then
-        eval "$(atuin init bash)"
+        case "$TERM" in
+            ''|dumb*)
+                # Disable bind warnings when line editing is not available
+                eval "$(atuin init bash --disable-ctrl-r --disable-up-arrow)"
+                ;;
+            *)
+                eval "$(atuin init bash)"
+                ;;
+        esac
         __prompt_indicators="\[${BOLD}${GREEN}\]AT\[${RESET}\] ${__prompt_indicators}"
     fi
 fi
