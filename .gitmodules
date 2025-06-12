@@ -16,6 +16,9 @@
 [submodule ".config/emacs/vc/reintegrate"]
 	path = .config/emacs/vc/reintegrate
 	url = https://github.com/darkfeline/emacs-reintegrate.git
+[submodule "src/bash-preexec"]
+	path = src/bash-preexec
+	url = https://github.com/rcaloras/bash-preexec.git
 [submodule "src/yt-dlp"]
 	path = src/yt-dlp
 	url = https://github.com/yt-dlp/yt-dlp.git
