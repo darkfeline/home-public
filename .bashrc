@@ -11,7 +11,7 @@ shopt -s histappend
 
 . ~/.shrc
 
-[[ -f ~/.bash-preexec.sh ]] && . ~/.bash-preexec.sh
+[[ -f ~/src/bash-preexec/bash-preexec.sh ]] && . ~/src/bash-preexec/bash-preexec.sh
 
 __prompt_indicators=
 if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
