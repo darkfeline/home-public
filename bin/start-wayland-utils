@@ -7,6 +7,5 @@ swayidle -w before-sleep swaylock &
 kanshi &
 
 gammastep-indicator &
-ibus start --type wayland
 
 start-mympd
