@@ -1,10 +1,12 @@
 #!/bin/sh
 # Start running crucial Wayland utilities.
-dunst &
-gammastep-indicator &
-kanshi &
 swaybg -m center -i ~/share/exa-pico3.png -c "#000000" &
-swayidle -w before-sleep swaylock &
 waybar &
+dunst &
+swayidle -w before-sleep swaylock &
+kanshi &
+
+gammastep-indicator &
+ibus start --type wayland
 
 start-mympd
