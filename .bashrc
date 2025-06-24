@@ -19,7 +19,13 @@ HISTCONTROL=ignorespace
 
 [[ -f ~/src/bash-preexec/bash-preexec.sh ]] && . ~/src/bash-preexec/bash-preexec.sh
 
+__prompt_indicators=
 if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
+    # bash-preexec overrides ignorespace
+    # https://github.com/rcaloras/bash-preexec/issues/115
+    __prompt_indicators="\[${BOLD}${YELLOW}\]I\[${RESET}\]${__prompt_indicators:- }"
+
+    # atuin setup
     atuin_args=("--disable-up-arrow")
     if command -v atuin &>/dev/null; then
         if [[ ! :$SHELLOPTS: =~ :(vi|emacs): ]]; then
@@ -30,14 +36,8 @@ if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
         __prompt_indicators="\[${BOLD}${GREEN}\]A\[${RESET}\]${__prompt_indicators:- }"
     fi
     unset atuin_args
-fi
 
-__prompt_indicators=
-if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
     precmd_functions+=(__prompt_command)
-    # bash-preexec overrides ignorespace
-    # https://github.com/rcaloras/bash-preexec/issues/115
-    __prompt_indicators="\[${BOLD}${YELLOW}\]I\[${RESET}\]${__prompt_indicators:- }"
 else
     PROMPT_COMMAND=__prompt_command
 fi
