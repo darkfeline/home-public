@@ -11,7 +11,26 @@ shopt -s histappend
 
 . ~/.shrc
 
+shopt -s globstar
+HISTSIZE=10000
+HISTFILESIZE=-1
+HISTTIMEFORMAT='[%F %T %z] '
+HISTCONTROL=ignorespace
+
 [[ -f ~/src/bash-preexec/bash-preexec.sh ]] && . ~/src/bash-preexec/bash-preexec.sh
+
+if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
+    atuin_args=("--disable-up-arrow")
+    if command -v atuin &>/dev/null; then
+        if [[ ! :$SHELLOPTS: =~ :(vi|emacs): ]]; then
+            # Disable bind warnings when line editing is not available
+            atuin_args+=("--disable-ctrl-r")
+        fi
+        eval "$(atuin init bash "${atuin_args[@]}")"
+        __prompt_indicators="\[${BOLD}${GREEN}\]A\[${RESET}\]${__prompt_indicators:- }"
+    fi
+    unset atuin_args
+fi
 
 __prompt_indicators=
 if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
@@ -44,25 +63,6 @@ ${__prompt_indicators}\
     # Update history file.
     history -a
 }
-
-shopt -s globstar
-HISTSIZE=10000
-HISTFILESIZE=-1
-HISTTIMEFORMAT='[%F %T %z] '
-HISTCONTROL=ignorespace
-
-if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
-    atuin_args=("--disable-up-arrow")
-    if command -v atuin &>/dev/null; then
-        if [[ ! :$SHELLOPTS: =~ :(vi|emacs): ]]; then
-            # Disable bind warnings when line editing is not available
-            atuin_args+=("--disable-ctrl-r")
-        fi
-        eval "$(atuin init bash "${atuin_args[@]}")"
-        __prompt_indicators="\[${BOLD}${GREEN}\]A\[${RESET}\]${__prompt_indicators:- }"
-    fi
-    unset atuin_args
-fi
 
 if shopt -q progcomp; then
     # Load standard completions if available and not already loaded.
