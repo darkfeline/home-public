@@ -52,15 +52,16 @@ HISTTIMEFORMAT='[%F %T %z] '
 HISTCONTROL=ignorespace
 
 if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
+    atuin_args=("--disable-up-arrow")
     if command -v atuin &>/dev/null; then
-        if [[ :$SHELLOPTS: =~ :(vi|emacs): ]]; then
-                eval "$(atuin init bash)"
-        else
-                # Disable bind warnings when line editing is not available
-                eval "$(atuin init bash --disable-ctrl-r --disable-up-arrow)"
+        if [[ ! :$SHELLOPTS: =~ :(vi|emacs): ]]; then
+            # Disable bind warnings when line editing is not available
+            atuin_args+=("--disable-ctrl-r")
         fi
+        eval "$(atuin init bash "${atuin_args[@]}")"
         __prompt_indicators="\[${BOLD}${GREEN}\]A\[${RESET}\]${__prompt_indicators:- }"
     fi
+    unset atuin_args
 fi
 
 if shopt -q progcomp; then
