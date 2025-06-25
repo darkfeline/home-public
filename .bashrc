@@ -56,9 +56,9 @@ __mir_prompt_command() {
     PS1="\[${RESET}\]\
 ${__mir_prompt_prefix}\
 ${__mir_start_time:+$(( EPOCHSECONDS - __mir_start_time ))s }\
-↪ ${exit_color}${exit}\[${RESET}\]\
- \D{%Y-%m-%d %H:%M:%S}\
- ${TOOLBOX_PATH+⬢}\
+↪ ${exit_color}${exit}\[${RESET}\] \
+\D{%Y-%m-%d %H:%M:%S} \
+${TOOLBOX_PATH+⬢}\
 \[${GREEN}\]\u\[${RESET}\]\
 @\[${GREEN}\]\h\[${RESET}\]\
 :\[${GREEN}\]\w\[${RESET}\] \$ "
