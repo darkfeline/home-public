@@ -19,23 +19,23 @@ HISTCONTROL=ignorespace
 
 [[ -f ~/src/bash-preexec/bash-preexec.sh ]] && . ~/src/bash-preexec/bash-preexec.sh
 
-__prompt_indicators=
+__mir_prompt_prefix=
 if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
     # bash-preexec overrides ignorespace
     # https://github.com/rcaloras/bash-preexec/issues/115
-    __prompt_indicators="\[${BOLD}${YELLOW}\]I\[${RESET}\]${__prompt_indicators:- }"
+    __mir_prompt_prefix="\[${BOLD}${YELLOW}\]I\[${RESET}\]${__mir_prompt_prefix:- }"
 
     # atuin setup
-    atuin_args=("--disable-up-arrow")
+    __mir_atuin_args=("--disable-up-arrow")
     if command -v atuin &>/dev/null; then
         if [[ ! :$SHELLOPTS: =~ :(vi|emacs): ]]; then
             # Disable bind warnings when line editing is not available
-            atuin_args+=("--disable-ctrl-r")
+            __mir_atuin_args+=("--disable-ctrl-r")
         fi
-        eval "$(atuin init bash "${atuin_args[@]}")"
-        __prompt_indicators="\[${BOLD}${GREEN}\]A\[${RESET}\]${__prompt_indicators:- }"
+        eval "$(atuin init bash "${__mir_atuin_args[@]}")"
+        __mir_prompt_prefix="\[${BOLD}${GREEN}\]A\[${RESET}\]${__mir_prompt_prefix:- }"
     fi
-    unset atuin_args
+    unset __mir_atuin_args
 
     precmd_functions+=(__prompt_command)
 else
@@ -49,7 +49,7 @@ __prompt_command() {
         exit_color="\[${RED}\]"
     fi
     PS1="\[${RESET}\]\
-${__prompt_indicators}\
+${__mir_prompt_prefix}\
 ↪ ${exit_color}${exit}\[${RESET}\]\
  \D{%Y-%m-%d %H:%M:%S}\
  ${TOOLBOX_PATH+⬢}\
