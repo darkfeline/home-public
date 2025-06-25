@@ -37,12 +37,17 @@ if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
     fi
     unset __mir_atuin_args
 
-    precmd_functions+=(__prompt_command)
+    preexec_functions+=(__mir_set_start_time)
+    precmd_functions+=(__mir_prompt_command)
 else
-    PROMPT_COMMAND=__prompt_command
+    PROMPT_COMMAND=__mir_prompt_command
 fi
 
-__prompt_command() {
+__mir_set_start_time() {
+    __mir_start_time=$EPOCHSECONDS
+}
+
+__mir_prompt_command() {
     local -r exit=$?
     local exit_color="\[${CYAN}\]"
     if [ "$exit" != 0 ]; then
@@ -50,6 +55,7 @@ __prompt_command() {
     fi
     PS1="\[${RESET}\]\
 ${__mir_prompt_prefix}\
+${__mir_start_time:+$(( EPOCHSECONDS - __mir_start_time ))s }\
 ↪ ${exit_color}${exit}\[${RESET}\]\
  \D{%Y-%m-%d %H:%M:%S}\
  ${TOOLBOX_PATH+⬢}\
