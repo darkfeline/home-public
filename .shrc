@@ -12,14 +12,6 @@ if tty >/dev/null 2>&1; then
     export GPG_TTY=$(tty)
 fi
 
-if command -v dircolors >/dev/null 2>&1; then
-    eval "$(dircolors -b ~/.dircolors)"
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
 case "$TERM" in
     'xterm')
         # xterm always sets TERM=xterm even if it was compiled with
@@ -36,6 +28,25 @@ case "$TERM" in
         export SYSTEMD_PAGER=cat
         ;;
 esac
+
+if command -v dircolors >/dev/null 2>&1; then
+    eval "$(dircolors -b ~/.dircolors)"
+
+    # If dircolors exists, then we likely have the GNU versions of ls
+    # and grep that support color.
+    #
+    # --color=auto only checks whether stdout is a terminal, so we
+    # still want to check whether the terminal supports color.
+    case "$TERM" in
+        ''|dumb) ;;
+        *)
+            alias ls='ls --color=auto'
+            alias grep='grep --color=auto'
+            alias fgrep='fgrep --color=auto'
+            alias egrep='egrep --color=auto'
+            ;;
+    esac
+fi
 
 # Set up SSH_AUTH_SOCK unless it's already set.
 [ -z "${SSH_AUTH_SOCK}" ] && export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
