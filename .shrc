@@ -31,21 +31,16 @@ esac
 
 if command -v dircolors >/dev/null 2>&1; then
     eval "$(dircolors -b ~/.dircolors)"
-
     # If dircolors exists, then we likely have the GNU versions of ls
     # and grep that support color.
     #
-    # --color=auto only checks whether stdout is a terminal, so we
-    # still want to check whether the terminal supports color.
-    case "$TERM" in
-        ''|dumb) ;;
-        *)
-            alias ls='ls --color=auto'
-            alias grep='grep --color=auto'
-            alias fgrep='fgrep --color=auto'
-            alias egrep='egrep --color=auto'
-            ;;
-    esac
+    # --color=auto only checks whether stdout is a terminal, and not
+    # whether the terminal supports color.  Terminal checking is done
+    # in the dircolors config.
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
 # Set up SSH_AUTH_SOCK unless it's already set.
