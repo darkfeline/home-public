@@ -21,5 +21,5 @@ export AUR_PAGER=$HOME/bin/dired
 export DCONF_PROFILE=$HOME/.config/dconf/profile
 export EDITOR=$HOME/bin/med
 export GOPROXY=https://proxy.golang.org
-export LESSHISTFILE=/dev/null
+export LESSHISTFILE=$HOME/.local/state/lesshst
 export PAGER=$HOME/bin/mpager
