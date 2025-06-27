@@ -15,17 +15,12 @@ shopt -s globstar
 HISTSIZE=10000
 HISTFILESIZE=-1
 HISTTIMEFORMAT='[%F %T %z] '
-HISTCONTROL=ignorespace
+HISTCONTROL=
 
 [[ -f ~/src/bash-preexec/bash-preexec.sh ]] && . ~/src/bash-preexec/bash-preexec.sh
 
 __mir_prompt_prefix=
 if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
-    # bash-preexec overrides ignorespace
-    # https://github.com/rcaloras/bash-preexec/issues/115
-    __mir_prompt_prefix="\[${BOLD}${YELLOW}\]I\[${RESET}\]${__mir_prompt_prefix:- }"
-
-    # atuin setup
     __mir_atuin_args=("--disable-up-arrow")
     if command -v atuin &>/dev/null; then
         if [[ ! :$SHELLOPTS: =~ :(vi|emacs): ]]; then
