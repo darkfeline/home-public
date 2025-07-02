@@ -90,6 +90,11 @@
   (mir-init-bind-keys vertico-map
     ([?\M-a] #'marginalia-cycle)))
 
+(with-eval-after-load 'vterm
+  (mir-init-bind-keys vterm-mode-map
+    ([?\C-c ?\C-q] #'vterm-send-next-key)
+    ([?\C-c ?\C-e] #'vterm-send-escape)))
+
 (with-eval-after-load 'wdired
   (mir-init-bind-keys wdired-mode-map
     ([?\C-a] (lambda ()
