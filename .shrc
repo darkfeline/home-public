@@ -2,7 +2,7 @@
 # (assuming ENV is set to this file).
 
 . color.sh
-PS1="${RESET}${GREEN}$USER${RESET}@${GREEN}$(uname -n)${RESET} $ "
+PS1="${RESET}${GREEN}$USER${RESET}@${GREEN}$(uname -n)${RESET} ! $ "
 
 [ -n "${INSIDE_EMACS:-}" ] && PS2=
 
