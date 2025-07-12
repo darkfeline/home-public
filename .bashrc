@@ -35,7 +35,7 @@ if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
     preexec_functions+=(__mir_set_start_time)
     precmd_functions+=(__mir_prompt_command)
 else
-    PS0="┌── \D{%Y-%m-%d %H:%M:%S}\n"
+    PS0="╭── \D{%Y-%m-%d %H:%M:%S}\n"
     PROMPT_COMMAND=__mir_prompt_command
 fi
 
