@@ -151,7 +151,8 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
       (add-hook 'before-save-hook
                 #'gofmt-before-save t t)))
   (lambda ()
-    (font-lock-add-keywords nil '(("!=" . mir-neq-face)))))
+    (font-lock-add-keywords nil '(("!=" . mir-neq-face)))
+    (font-lock-add-keywords nil '(("!" . mir-neq-face)))))
 
 (mir-init-add-hooks ibuffer-mode-hook
   (lambda () (ibuffer-switch-to-saved-filter-groups "default")))
