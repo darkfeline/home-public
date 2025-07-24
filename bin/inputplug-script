@@ -8,7 +8,7 @@ case $event_type in
     XIDeviceEnabled)
         case $device_type in
             XISlaveKeyboard)
-                xset r rate 200 40
+                xset r rate 240 80
                 ;;
             XISlavePointer)
                 case $device_name in
