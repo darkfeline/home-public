@@ -54,6 +54,7 @@
 	smun = submodule update --no-fetch
 	smur = submodule-update-reset
 	st = subtree
+	steal = commit --amend --no-edit --reset-author
 	wt = worktree
 [color]
 	ui = auto
