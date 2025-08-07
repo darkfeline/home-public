@@ -5,4 +5,4 @@ rules:
   - title: ミニドラマ
   - title: オリジナルドラマ
   - album: オリジナルドラマ
-  - artist: [dialogue]
+  - artist: "[dialogue]"
