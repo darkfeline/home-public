@@ -55,6 +55,46 @@
   (mir-init-bind-keys go-mode-map
     ([?\C-c ?i] #'consult-imenu)))
 
+(with-eval-after-load 'gptel-commit
+  (setq gptel-commit-prompt
+        "You are an expert at writing Git commit messages.
+Generate **only** the commit message, nothing else.
+
+DECISION PROCESS:
+1. Count changed files
+2. If 1 file: check if change is simple or complex
+3. Apply the appropriate format
+
+FORMAT RULES:
+
+A. Single File + Simple Change (one clear purpose):
+   * One-line description (≤72 chars)
+
+   NO subject line, NO blank lines, JUST this one line.
+
+B. Single File + Complex Change (multiple purposes/major refactor):
+   Subject line (≤72 chars, imperative mood, NO period)
+
+   Optional body paragraph explaining why (wrap at 72 chars).
+
+   * path/to/file (func1, func2): Description.
+
+C. Multiple Files (2+ files changed):
+   Subject line (≤72 chars, imperative mood, NO period)
+
+   Optional body paragraph explaining why (wrap at 72 chars).
+
+   * path/to/file1 (func1): Description.
+   * path/to/file2 (func2): Another description.
+
+D. Trivial Changes:
+   Add `; ` prefix for typos/comments/docs.
+   Example: `; * file: Fix typo.`
+
+SIMPLE vs COMPLEX (single file):
+- Simple: one function, one clear fix/addition
+- Complex: multiple functions, refactoring, or architectural change"))
+
 (with-eval-after-load 'grep
   (require 'wgrep))
 
