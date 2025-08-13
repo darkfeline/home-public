@@ -96,6 +96,7 @@
  '(gnutls-min-prime-bits 2048)
  '(gnutls-verify-error t)
  '(gofmt-command "goimports")
+ '(gptel-include-reasoning nil)
  '(history-length 4000)
  '(ibuffer-formats
    '((mark modified read-only locked " "
