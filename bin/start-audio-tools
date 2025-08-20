@@ -1,0 +1,3 @@
+#!/bin/sh
+start-calf
+exec qpwgraph

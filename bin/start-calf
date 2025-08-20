@@ -1,0 +1,2 @@
+#!/bin/sh
+exec calfjackhost --load ~/share/calf.xml
