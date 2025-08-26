@@ -166,6 +166,7 @@
  '(magit-wip-mode nil)
  '(mailcap-download-directory "/tmp")
  '(marginalia-mode t)
+ '(markdown-enable-wiki-links t)
  '(max-lisp-eval-depth 10000)
  '(menu-bar-mode nil)
  '(message-log-max 5000)
