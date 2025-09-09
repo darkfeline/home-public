@@ -21,6 +21,7 @@ readonly packages=(
 
     # X/Wayland
     acpilight
+    adobe-source-code-pro-fonts
     alacritty
     rofi-wayland
     xdg-desktop-portal-gtk
