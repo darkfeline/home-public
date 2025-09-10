@@ -5,6 +5,7 @@
   "modules-left": [
     // "dwl/tags",
     // "dwl/window",
+    "niri/workspaces",
     "hyprland/workspaces",
     "hyprland/window"
   ],
