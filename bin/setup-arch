@@ -45,6 +45,7 @@ readonly packages=(
 
     # Wayland
     dunst
+    fuzzel
     gammastep
     grim
     hyprland
