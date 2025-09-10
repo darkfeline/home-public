@@ -17,6 +17,7 @@
 !/kanshi/
 !/logrotate/
 !/mpd/
+!/niri/
 !/redshift/
 !/swaylock/
 !/systemd/
