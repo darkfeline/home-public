@@ -23,7 +23,7 @@ readonly packages=(
     acpilight
     adobe-source-code-pro-fonts
     alacritty
-    rofi-wayland
+    rofi
     xdg-desktop-portal-gtk
 
     # X
