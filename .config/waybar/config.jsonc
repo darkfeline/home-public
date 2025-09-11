@@ -3,8 +3,6 @@
   "spacing": 0, // Gaps between modules (px)
   // Choose the order of the modules
   "modules-left": [
-    // "dwl/tags",
-    // "dwl/window",
     "niri/workspaces",
     "hyprland/workspaces",
     "hyprland/window"
@@ -19,11 +17,6 @@
     "clock"
   ],
   // Modules configuration
-  "dwl/window": {
-    "format": "{title}",
-    "icon": true,
-    "tooltip": false
-  },
   "hyprland/workspaces": {
     "format": "{icon}{windows}",
     "format-icons": {
