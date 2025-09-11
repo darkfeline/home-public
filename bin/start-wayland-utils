@@ -8,4 +8,6 @@ kanshi &
 
 gammastep-indicator &
 
+/usr/libexec/ibus-ui-gtk3 --enable-wayland-im --exec-daemon --daemon-args "--xim --panel disable"
+
 start-mympd
