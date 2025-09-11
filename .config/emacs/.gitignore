@@ -1,5 +1,6 @@
 /eln-cache/
 /eshell/
+/tree-sitter/
 
 /elgrep-data.el
 /package-quickstart.el
