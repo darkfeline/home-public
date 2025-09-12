@@ -11,7 +11,7 @@
 
 #battery, #clock, #cpu, #load, #memory, #mpd, #network, #temperature, #tray {
   padding: 0px 4px;
-  border-radius: 5px;
+  border-radius: 10px;
   background: #666666;
   margin: 0px 2px;
 }
@@ -22,9 +22,14 @@
 
 /* Hyprland */
 #workspaces {
-  border-radius: 5px;
+  border-radius: 10px;
   background: #dddddd;
   color: #000000;
+}
+
+#workspaces button {
+  padding: 5px 5px;
+  border-radius: 10px;
 }
 
 #workspaces button.active {
@@ -37,5 +42,5 @@
 
 #window {
   padding: 0 10px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
