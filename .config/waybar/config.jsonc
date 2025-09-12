@@ -3,7 +3,6 @@
   "spacing": 0, // Gaps between modules (px)
   // Choose the order of the modules
   "modules-left": [
-    "niri/workspaces",
     "hyprland/workspaces",
     "hyprland/window"
   ],
