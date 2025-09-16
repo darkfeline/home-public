@@ -344,6 +344,13 @@ window-rule {
         open-on-workspace "local"
 }
 
+workspace "obsidian"
+
+window-rule {
+        match app-id="obsidian"
+        open-on-workspace "obsidian"
+}
+
 workspace "music"
 
 window-rule {
