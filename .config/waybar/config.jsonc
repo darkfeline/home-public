@@ -110,16 +110,6 @@
   "network": {
     "format": "↑{bandwidthUpBits} ↓{bandwidthDownBits}"
   },
-  "niri/workspaces": {
-    "format": "{index}{icon}",
-    "format-icons": {
-      "browser": ":B",
-      "local": ":L",
-      "music": ":M",
-      "obsidian": ":O",
-      "default": ""
-    }
-  },
   "group/sys": {
     "orientation": "horizontal",
     "modules": [

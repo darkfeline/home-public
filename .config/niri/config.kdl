@@ -330,39 +330,6 @@ animations {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 
-workspace "browser"
-
-window-rule {
-        match app-id="google-chrome"
-        open-on-workspace "browser"
-}
-
-workspace "local"
-
-window-rule {
-        match app-id="emacs"
-        open-on-workspace "local"
-}
-
-workspace "obsidian"
-
-window-rule {
-        match app-id="obsidian"
-        open-on-workspace "obsidian"
-}
-
-workspace "music"
-
-window-rule {
-        match app-id="org.rncbc.qpwgraph"
-        open-on-workspace "music"
-}
-
-window-rule {
-        match app-id="com.github.wwmm.easyeffects"
-        open-on-workspace "music"
-}
-
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
 window-rule {
@@ -491,17 +458,14 @@ binds {
     Mod+Shift+K     { focus-monitor-up; }
     Mod+Shift+L     { focus-monitor-right; }
 
-    Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
-    Mod+Shift+Ctrl+Down  { move-workspace-to-monitor-down; }
-    Mod+Shift+Ctrl+Up    { move-workspace-to-monitor-up; }
-    Mod+Shift+Ctrl+Right { move-workspace-to-monitor-right; }
-    Mod+Shift+Ctrl+H     { move-workspace-to-monitor-left; }
-    Mod+Shift+Ctrl+J     { move-workspace-to-monitor-down; }
-    Mod+Shift+Ctrl+K     { move-workspace-to-monitor-up; }
-    Mod+Shift+Ctrl+L     { move-workspace-to-monitor-right; }
-
-    // Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
-    // ...
+    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
