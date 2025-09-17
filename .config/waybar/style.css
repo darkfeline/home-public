@@ -20,7 +20,6 @@
   background: #ffaaaa;
 }
 
-/* Hyprland */
 #workspaces {
   border-radius: 10px;
   background: #dddddd;
@@ -32,12 +31,18 @@
   border-radius: 10px;
 }
 
-#workspaces button.active {
-  background: #aa88ff;
-}
-
 #workspaces button.urgent {
   background: #ffaaaa;
+}
+
+#workspaces button.empty {
+  background: #666666;
+  color: #cccccc;
+}
+
+#workspaces button.active {
+  background: #aa88ff;
+  color: #000000;
 }
 
 #window {
