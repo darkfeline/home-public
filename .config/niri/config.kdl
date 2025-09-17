@@ -359,12 +359,7 @@ window-rule {
 }
 
 window-rule {
-        match app-id="calfjackhost"
-        open-on-workspace "music"
-}
-
-window-rule {
-        match app-id="Calfjackhost"
+        match app-id="com.github.wwmm.easyeffects"
         open-on-workspace "music"
 }
 
