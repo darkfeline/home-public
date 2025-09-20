@@ -3,6 +3,7 @@
 set -eu
 
 readonly packages=(
+    acpilight
     base-devel
     ed
     emacs-wayland
@@ -19,31 +20,9 @@ readonly packages=(
     texinfo
     vi
 
-    # X/Wayland
-    acpilight
+    # Wayland
     adobe-source-code-pro-fonts
     alacritty
-    rofi
-    xdg-desktop-portal-gtk
-
-    # X
-    arandr
-    autorandr
-    awesome
-    redshift
-    scrot
-    x11-ssh-askpass
-    xbindkeys
-    xdm-archlinux
-    xorg-server
-    xorg-xinput
-    xorg-xkbcomp
-    xorg-xrdb
-    xorg-xset
-    xsecurelock
-    xss-lock
-
-    # Wayland
     dunst
     gammastep
     grim
@@ -51,6 +30,7 @@ readonly packages=(
     kanshi
     niri
     polkit-kde-agent
+    rofi
     slurp
     swaybg
     swayidle
