@@ -49,6 +49,7 @@ readonly packages=(
     grim
     hyprland
     kanshi
+    niri
     polkit-kde-agent
     slurp
     swaybg
