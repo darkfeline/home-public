@@ -45,7 +45,7 @@ readonly packages=(
 )
 
 readonly laptop=(
-    dialog  # for wifi-menu
+    iwd
     tlp
     wpa_supplicant
 )
