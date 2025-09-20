@@ -3,6 +3,8 @@
 set -eu
 
 readonly packages=(
+    acpi
+    acpid
     acpilight
     base-devel
     ed
@@ -43,8 +45,6 @@ readonly packages=(
 )
 
 readonly laptop=(
-    acpi
-    acpid
     dialog  # for wifi-menu
     tlp
     wpa_supplicant
@@ -52,7 +52,6 @@ readonly laptop=(
 
 main() {
     sudo pacman -S --noconfirm "${packages[@]}"
-    sudo systemctl enable xdm-archlinux.service
 
     sudo pacman -S --noconfirm "${laptop[@]}"
     sudo systemctl enable tlp.service
@@ -60,7 +59,6 @@ main() {
 }
 
 # TODO: install aurutils:
-# inputplug
 # repoctl
 
 main "$@"
