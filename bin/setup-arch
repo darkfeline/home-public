@@ -12,6 +12,7 @@ readonly packages=(
     github-cli
     gtk2 # for graphical pinentry
     go
+    kmonad
     ibus
     inetutils
     netctl
@@ -60,7 +61,6 @@ main() {
 
 # TODO: install aurutils:
 # inputplug
-# kmonad-bin
 # repoctl
 
 main "$@"
