@@ -7,6 +7,7 @@ readonly packages=(
     base-devel
     ed
     emacs-wayland
+    flatpak
     git
     github-cli
     gtk2 # for graphical pinentry
