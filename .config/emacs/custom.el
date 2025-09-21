@@ -394,7 +394,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "gray20" :foreground "white smoke" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "ADBO" :family "Source Code Pro"))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "gray20" :foreground "white smoke" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 94 :width normal :foundry "ADBO" :family "Source Code Pro"))))
  '(Info-quoted ((t (:inherit default :foreground "sandy brown"))))
  '(comint-highlight-prompt ((t (:inherit nil))))
  '(diary ((t (:foreground "orange"))))
