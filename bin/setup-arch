@@ -51,7 +51,6 @@ readonly laptop=(
     iwd
     netctl
     tlp
-    wpa_supplicant
 )
 
 main() {
