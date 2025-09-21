@@ -1,4 +1,7 @@
 /*
 
+!/.gitignore
+
+!/aur
 !/bash-preexec
 !/yt-dlp
