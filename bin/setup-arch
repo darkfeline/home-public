@@ -62,7 +62,4 @@ main() {
     systemctl --user enable --now check-battery.timer
 }
 
-# TODO: install aurutils:
-# repoctl
-
 main "$@"
