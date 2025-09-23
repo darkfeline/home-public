@@ -46,8 +46,8 @@
 }
 
 #workspaces button.empty {
-  background: #bbbbbb;
-  color: #666666;
+  background: #aaaaaa;
+  color: #444444;
 }
 
 #workspaces button.active {
