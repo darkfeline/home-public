@@ -415,4 +415,5 @@
  '(mode-line ((t (:background "grey60" :foreground "black"))))
  '(org-habit-clear-future-face ((t (:background "dark slate blue"))))
  '(org-headline-done ((t (:foreground "rosy brown" :strike-through t))))
+ '(ruler-mode-default ((t (:inherit default :background "grey76" :foreground "grey50" :box (:line-width (1 . 1) :color "grey76" :style released-button)))))
  '(secondary-selection ((t (:background "dark slate gray")))))
