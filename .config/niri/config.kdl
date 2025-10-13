@@ -635,7 +635,7 @@ binds {
     // Mod+Shift+Space { switch-layout "prev"; }
 
     Mod+Print { screenshot; }
-    // Ctrl+Print { screenshot-screen; }
+    Mod+Ctrl+Print { screenshot-screen; }
     // Alt+Print { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
