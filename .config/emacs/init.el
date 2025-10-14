@@ -5,6 +5,7 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'mir-init)
 
+;; `jakuri-vc-packages' is defined in early-init.el
 (mir-init-bootstrap-package-vc jakuri-vc-packages)
 
 ;; lilypond-mode is packaged with lilypond.
