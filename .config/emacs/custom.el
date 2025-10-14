@@ -283,7 +283,7 @@
      (bash-completion . "nongnu") (async . "gnu")
      (aggressive-indent . "gnu") (orderless . "gnu")
      (marginalia . "gnu") (bind-key . "gnu") (use-package . "gnu")
-     (faceup . "gnu") (which-key . "gnu")))
+     (faceup . "gnu") (which-key . "gnu") (cond-let . "nongnu")))
  '(package-quickstart t)
  '(package-selected-packages
    '(aggressive-indent async bash-completion bazel bluetooth consult
