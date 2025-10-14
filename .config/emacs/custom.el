@@ -286,8 +286,8 @@
      (faceup . "gnu") (which-key . "gnu") (cond-let . "nongnu")))
  '(package-quickstart t)
  '(package-selected-packages
-   '(aggressive-indent async bash-completion bazel bluetooth consult
-                       csv-mode ddskk diff-hl dockerfile-mode
+   '(aggressive-indent async bash-completion bazel bluetooth cond-let
+                       consult csv-mode ddskk diff-hl dockerfile-mode
                        dumb-jump easydraw editorconfig eglot
                        emmet-mode erc expand-region flymake
                        flymake-shellcheck ghub git-timemachine
