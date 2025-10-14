@@ -5,12 +5,6 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'mir-init)
 
-(defvar jakuri-vc-packages '(easydraw
-                             go-mode
-                             magit
-                             reintegrate
-                             jakuri)
-  "List of packages to be called with `mir-init-bootstrap-package-vc'.")
 (mir-init-bootstrap-package-vc jakuri-vc-packages)
 
 ;; lilypond-mode is packaged with lilypond.
