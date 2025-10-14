@@ -332,6 +332,12 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
                ("\\.gni\\'" . gn-mode)))
     (add-to-list 'auto-mode-alist v)))
 
+(when (locate-library "gptel")
+  (setq gptel-backend
+        (gptel-make-gemini "Gemini"
+          :key #'gptel-api-key-from-auth-source
+          :stream t)))
+
 (when (locate-library "org")
   (require 'org-protocol))
 
