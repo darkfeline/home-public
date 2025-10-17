@@ -58,6 +58,8 @@ ${TOOLBOX_PATH+⬢}\
 \[${GREEN}\]\u\[${RESET}\]\
 @\[${GREEN}\]\h\[${RESET}\]\
 :\[${GREEN}\]\w\[${RESET}\] \$ "
+    # Clear time so subsequent empty prompts don't print again
+    unset __mir_start_time
     # Update terminal window title.
     case "${TERM:-dumb}" in
         xterm*|alacritty) printf '\e]0;%s@%s\7' "$USER" "$HOSTNAME" ;;
