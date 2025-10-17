@@ -31,6 +31,7 @@ alias pac="sudo pacman"
 alias path='printf "%s\n" "$PATH" | sed "s/:/\n/g"'
 alias psef="ps -ef"
 alias psefg="ps -ef | grep"
+alias pt="pstree -ps"
 alias s="sudo"
 alias tpr="tput reset"
 
