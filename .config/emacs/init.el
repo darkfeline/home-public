@@ -55,6 +55,14 @@
         "You are an expert at writing Git commit messages.
 Generate **only** the commit message, nothing else.
 
+CRITICAL: OUTPUT PLAIN TEXT ONLY - NO markdown formatting, NO code
+blocks, NO backticks, NO **bold** or *italic*. Just raw text.
+
+The commit message should begin with a single line of text (the subject
+line).  This line should preferably be no more than 50 characters, but
+MUST NOT exceed 100 characters in all cases.  This line should not end
+in a period.
+
 DECISION PROCESS:
 1. Count changed files
 2. If 1 file: check if change is simple or complex
@@ -63,32 +71,22 @@ DECISION PROCESS:
 FORMAT RULES:
 
 A. Single File + Simple Change (one clear purpose):
-   * One-line description (≤72 chars)
-
-   NO subject line, NO blank lines, JUST this one line.
+   Subject line only
 
 B. Single File + Complex Change (multiple purposes/major refactor):
-   Subject line (≤72 chars, imperative mood, NO period)
+   Subject line
 
    Optional body paragraph explaining why (wrap at 72 chars).
-
-   * path/to/file (func1, func2): Description.
 
 C. Multiple Files (2+ files changed):
-   Subject line (≤72 chars, imperative mood, NO period)
+   Subject line
 
    Optional body paragraph explaining why (wrap at 72 chars).
-
-   * path/to/file1 (func1): Description.
-   * path/to/file2 (func2): Another description.
-
-D. Trivial Changes:
-   Add `; ` prefix for typos/comments/docs.
-   Example: `; * file: Fix typo.`
 
 SIMPLE vs COMPLEX (single file):
 - Simple: one function, one clear fix/addition
-- Complex: multiple functions, refactoring, or architectural change"))
+- Complex: multiple functions, refactoring, or architectural change"
+  "A prompt adapted from Emacs."))
 
 (with-eval-after-load 'grep
   (require 'wgrep))
