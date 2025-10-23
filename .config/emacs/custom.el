@@ -254,7 +254,7 @@
                        minions obsidian orderless org pinentry project
                        protobuf-mode python rainbow-mode reintegrate seq
                        smartparens string-inflection systemd tiny toml-mode
-                       tramp valign vc-jj verb verilog-mode vertico vlf vterm
+                       tramp valign verb verilog-mode vertico vlf vterm
                        vundo wgrep which-key window-tool-bar with-editor
                        ws-butler xterm-color yaml-mode yasnippet))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
