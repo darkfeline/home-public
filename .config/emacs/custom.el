@@ -26,14 +26,10 @@
      (format "%2d"
              (car
               (calendar-iso-from-absolute
-               (calendar-absolute-from-gregorian
-                (list month day year)))))
+               (calendar-absolute-from-gregorian (list month day year)))))
      'font-lock-face 'font-lock-function-name-face))
  '(calendar-time-display-form
-   '(24-hours ":" minutes
-              (if time-zone " (")
-              time-zone
-              (if time-zone ")")))
+   '(24-hours ":" minutes (if time-zone " (") time-zone (if time-zone ")")))
  '(calendar-week-start-day 1)
  '(checkdoc-verb-check-experimental-flag nil)
  '(comint-input-ring-size 20000)
@@ -53,12 +49,11 @@
  '(dired-create-destination-dirs 'ask)
  '(dired-dwim-target t)
  '(dired-guess-shell-alist-user
-   '(("\\.ipynb\\'" "jupyter-notebook")
-     ("\\.\\(png\\|jpg\\|bmp\\)\\'" "sxiv")
+   '(("\\.ipynb\\'" "jupyter-notebook") ("\\.\\(png\\|jpg\\|bmp\\)\\'" "sxiv")
      ("\\.\\(7z\\|zip\\|rar\\)\\'" "7z x" "7z l"
-      (format "7z x -o\"%s\""
-              (file-name-sans-extension file)))
-     ("\\.\\(avi\\|flac\\|ogg\\|m4a\\|mkv\\|mp[34]\\|wav\\|webm\\|wmv\\)\\'" "mpv")))
+      (format "7z x -o\"%s\"" (file-name-sans-extension file)))
+     ("\\.\\(avi\\|flac\\|ogg\\|m4a\\|mkv\\|mp[34]\\|wav\\|webm\\|wmv\\)\\'"
+      "mpv")))
  '(dired-isearch-filenames 'dwim)
  '(dired-vc-rename-file t)
  '(display-battery-mode t)
@@ -88,9 +83,7 @@
  '(global-so-long-mode t)
  '(global-tree-sitter-mode t)
  '(glyphless-char-display-control
-   '((c1-control . acronym)
-     (format-control . acronym)
-     (no-font . acronym)))
+   '((c1-control . acronym) (format-control . acronym) (no-font . acronym)))
  '(gnutls-algorithm-priority
    "SECURE192:+SECURE128:-VERS-ALL:+VERS-TLS1.2:%PROFILE_MEDIUM")
  '(gnutls-min-prime-bits 2048)
@@ -99,46 +92,24 @@
  '(gptel-include-reasoning nil)
  '(history-length 4000)
  '(ibuffer-formats
-   '((mark modified read-only locked " "
-           (name 36 36 :left :elide)
-           " "
-           (size 9 -1 :right)
-           " "
-           (mode 16 16 :left :elide)
-           " " filename-and-process)
-     (mark " "
-           (name 32 -1)
-           " " filename-and-process)))
+   '((mark modified read-only locked " " (name 36 36 :left :elide) " "
+           (size 9 -1 :right) " " (mode 16 16 :left :elide) " "
+           filename-and-process)
+     (mark " " (name 32 -1) " " filename-and-process)))
  '(ibuffer-movement-cycle nil)
  '(ibuffer-saved-filter-groups
    '(("default"
-      ("Shell"
-       (or
-        (used-mode . shell-command-mode)
-        (used-mode . shell-mode))
+      ("Shell" (or (used-mode . shell-command-mode) (used-mode . shell-mode))
        (process))
       ("Dead Shell"
-       (or
-        (used-mode . shell-command-mode)
-        (used-mode . shell-mode)))
-      ("ERC"
-       (used-mode . erc-mode))
+       (or (used-mode . shell-command-mode) (used-mode . shell-mode)))
+      ("ERC" (used-mode . erc-mode))
       ("Tramp"
-       (or
-        (filename . "^/scp:")
-        (filename . "^/ssh:")
-        (filename . "^/sudo:")))
-      ("Emacs"
-       (not name . "^magit[:-]")
-       (filename . "/.emacs.d/"))
-      ("Src"
-       (not derived-mode . comint-mode)
-       (not derived-mode . special-mode)
+       (or (filename . "^/scp:") (filename . "^/ssh:") (filename . "^/sudo:")))
+      ("Emacs" (not name . "^magit[:-]") (filename . "/.emacs.d/"))
+      ("Src" (not derived-mode . comint-mode) (not derived-mode . special-mode)
        (filename . "/src/"))
-      ("Special"
-       (starred-name))
-      ("Magit"
-       (name . "^magit[:-]")))))
+      ("Special" (starred-name)) ("Magit" (name . "^magit[:-]")))))
  '(image-dired-dir "~/.cache/emacs/image-dired/")
  '(image-dired-thumb-size 200)
  '(image-use-external-converter t)
@@ -157,11 +128,8 @@
  '(magit-diff-refine-hunk 'all)
  '(magit-remote-add-set-remote.pushDefault nil)
  '(magit-repository-directories
-   '(("~" . 0)
-     ("~/.config/emacs" . 0)
-     ("~/.config/emacs/elpa" . 0)
-     ("~/.config/emacs/vc" . 1)
-     ("~/src" . 1)))
+   '(("~" . 0) ("~/.config/emacs" . 0) ("~/.config/emacs/elpa" . 0)
+     ("~/.config/emacs/vc" . 1) ("~/src" . 1)))
  '(magit-save-repository-buffers nil)
  '(magit-wip-mode nil)
  '(mailcap-download-directory "/tmp")
@@ -177,7 +145,8 @@
  '(minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
  '(minions-mode t)
  '(minions-prominent-modes
-   '(auto-revert-mode defining-kbd-macro dired-async--modeline-mode flymake-mode follow-mode view-mode clipmag-mode comint-reaper-mode))
+   '(auto-revert-mode defining-kbd-macro dired-async--modeline-mode flymake-mode
+                      follow-mode view-mode clipmag-mode comint-reaper-mode))
  '(mm-automatic-display '("text/plain"))
  '(mm-discouraged-alternatives '("text/html" "text/richtext" "text/enriched" "image/.*"))
  '(mm-enable-external 'ask)
@@ -206,8 +175,7 @@
  '(org-attach-use-inheritance t)
  '(org-babel-load-languages '((emacs-lisp . t) (python . t) (shell . t) (dot . t)))
  '(org-capture-templates
-   '(("Z" "org-protocol capture" entry
-      (file "notes.org")
+   '(("Z" "org-protocol capture" entry (file "notes.org")
       "* TODO %?org-protocol capture :capture:\12%(let ((x \"%:annotation\")) (if (string= x \"\") \"\" (concat x \"\\n\")))%(quote \"%i\")")))
  '(org-checkbox-hierarchical-statistics nil)
  '(org-columns-default-format "%60ITEM %TODO %Effort{:} %CLOCKSUM")
