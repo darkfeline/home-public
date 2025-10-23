@@ -191,7 +191,8 @@
  '(org-fast-tag-selection-single-key t)
  '(org-fold-catch-invisible-edits 'smart)
  '(org-format-latex-options
-   '(:foreground default :background default :scale 2.0 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
+   '(:foreground default :background default :scale 2.0 :html-foreground "Black"
+                 :html-background "Transparent" :html-scale 1.0 :matchers
                  ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-goto-interface 'outline-path-completion)
  '(org-habit-graph-column 50)
@@ -214,23 +215,12 @@
  '(org-special-ctrl-a/e t)
  '(org-special-ctrl-k t)
  '(org-structure-template-alist
-   '(("a" . "export ascii")
-     ("b" . "src bash")
-     ("c" . "center")
-     ("C" . "comment")
-     ("e" . "example")
-     ("E" . "export")
-     ("h" . "export html")
-     ("l" . "export latex")
-     ("p" . "src python")
-     ("q" . "quote")
-     ("s" . "src")
+   '(("a" . "export ascii") ("b" . "src bash") ("c" . "center") ("C" . "comment")
+     ("e" . "example") ("E" . "export") ("h" . "export html")
+     ("l" . "export latex") ("p" . "src python") ("q" . "quote") ("s" . "src")
      ("v" . "verse")))
  '(org-use-speed-commands
-   (lambda nil
-     (and
-      (looking-at org-outline-regexp)
-      (looking-back "^**"))))
+   (lambda nil (and (looking-at org-outline-regexp) (looking-back "^**"))))
  '(org-use-sub-superscripts '{})
  '(org-yank-folded-subtrees nil)
  '(package-archives
@@ -242,16 +232,15 @@
  '(package-install-upgrade-built-in t)
  '(package-pinned-packages
    '((markdown-mode . "nongnu") (dash . "gnu") (transient . "gnu")
-     (yasnippet . "gnu") (ws-butler . "nongnu")
-     (with-editor . "nongnu") (wgrep . "nongnu") (vlf . "nongnu")
-     (vertico . "gnu") (tiny . "gnu") (systemd . "nongnu")
-     (smartparens . "nongnu") (keycast . "nongnu")
+     (yasnippet . "gnu") (ws-butler . "nongnu") (with-editor . "nongnu")
+     (wgrep . "nongnu") (vlf . "nongnu") (vertico . "gnu") (tiny . "gnu")
+     (systemd . "nongnu") (smartparens . "nongnu") (keycast . "nongnu")
      (htmlize . "nongnu") (gptel . "nongnu") (expand-region . "gnu")
      (dockerfile-mode . "nongnu") (diff-hl . "gnu") (consult . "gnu")
-     (bash-completion . "nongnu") (async . "gnu")
-     (aggressive-indent . "gnu") (orderless . "gnu")
-     (marginalia . "gnu") (bind-key . "gnu") (use-package . "gnu")
-     (faceup . "gnu") (which-key . "gnu") (cond-let . "nongnu")))
+     (bash-completion . "nongnu") (async . "gnu") (aggressive-indent . "gnu")
+     (orderless . "gnu") (marginalia . "gnu") (bind-key . "gnu")
+     (use-package . "gnu") (faceup . "gnu") (which-key . "gnu")
+     (cond-let . "nongnu")))
  '(package-quickstart t)
  '(package-selected-packages
    '(aggressive-indent async bash-completion bazel bluetooth cond-let
@@ -274,17 +263,16 @@
  '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(project-list-file "~/.local/state/emacs/projects")
  '(project-switch-commands
-   '((project-find-file "Find file" nil)
-     (project-find-regexp "Find regexp" nil)
-     (project-dired "Dired" nil)
-     (project-vc-dir "VC-Dir" nil)
-     (project-eshell "Eshell" nil)
-     (project-shell "Shell" nil)))
+   '((project-find-file "Find file" nil) (project-find-regexp "Find regexp" nil)
+     (project-dired "Dired" nil) (project-vc-dir "VC-Dir" nil)
+     (project-eshell "Eshell" nil) (project-shell "Shell" nil)))
  '(project-vc-merge-submodules nil)
  '(python-fill-docstring-style 'pep-257-nn)
  '(recentf-auto-cleanup 'never)
  '(recentf-exclude
-   '("/\\(\\(\\(COMMIT\\|NOTES\\|PULLREQ\\|MERGEREQ\\|TAG\\)_EDIT\\|MERGE_\\|\\)MSG\\|\\(BRANCH\\|EDIT\\)_DESCRIPTION\\)\\'" "/\\.cache/emacs/filesets-cache\\.el\\'" "\\`/sudo:" "\\.\\(jpg\\|png\\)\\'" "/ionasal/src/home/"))
+   '("/\\(\\(\\(COMMIT\\|NOTES\\|PULLREQ\\|MERGEREQ\\|TAG\\)_EDIT\\|MERGE_\\|\\)MSG\\|\\(BRANCH\\|EDIT\\)_DESCRIPTION\\)\\'"
+     "/\\.cache/emacs/filesets-cache\\.el\\'" "\\`/sudo:"
+     "\\.\\(jpg\\|png\\)\\'" "/ionasal/src/home/"))
  '(recentf-max-saved-items 8000)
  '(recentf-mode t)
  '(recentf-save-file "~/.local/state/emacs/recentf")
@@ -293,10 +281,8 @@
  '(require-final-newline 'ask)
  '(rmail-file-name "~/.local/state/emacs/RMAIL")
  '(safe-local-variable-values
-   '((org-num-max-level . 2)
-     (make-backup-files)
-     (git-commit-major-mode . git-commit-elisp-text-mode)
-     (create-lockfiles)
+   '((org-num-max-level . 2) (make-backup-files)
+     (git-commit-major-mode . git-commit-elisp-text-mode) (create-lockfiles)
      (bug-reference-bug-regexp . "#\\(?2:[0-9]+\\)")))
  '(save-place-file "~/.local/state/emacs/places")
  '(save-place-mode t)
