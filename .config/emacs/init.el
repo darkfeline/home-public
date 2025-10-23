@@ -85,8 +85,7 @@ C. Multiple Files (2+ files changed):
 
 SIMPLE vs COMPLEX (single file):
 - Simple: one function, one clear fix/addition
-- Complex: multiple functions, refactoring, or architectural change"
-  "A prompt adapted from Emacs."))
+- Complex: multiple functions, refactoring, or architectural change"))
 
 (with-eval-after-load 'grep
   (require 'wgrep))
