@@ -90,6 +90,7 @@
  '(gnutls-verify-error t)
  '(gofmt-command "goimports")
  '(gptel-include-reasoning nil)
+ '(gptel-magit-model 'gemini-2.5-flash-lite)
  '(history-length 4000)
  '(ibuffer-formats
    '((mark modified read-only locked " " (name 36 36 :left :elide) " "
