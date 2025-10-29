@@ -29,7 +29,8 @@
                (calendar-absolute-from-gregorian (list month day year)))))
      'font-lock-face 'font-lock-function-name-face))
  '(calendar-time-display-form
-   '(24-hours ":" minutes (if time-zone " (") time-zone (if time-zone ")")))
+   '(24-hours ":" minutes (if time-zone " (") time-zone
+              (if time-zone ")")))
  '(calendar-week-start-day 1)
  '(checkdoc-verb-check-experimental-flag nil)
  '(comint-input-ring-size 20000)
@@ -49,7 +50,8 @@
  '(dired-create-destination-dirs 'ask)
  '(dired-dwim-target t)
  '(dired-guess-shell-alist-user
-   '(("\\.ipynb\\'" "jupyter-notebook") ("\\.\\(png\\|jpg\\|bmp\\)\\'" "sxiv")
+   '(("\\.ipynb\\'" "jupyter-notebook")
+     ("\\.\\(png\\|jpg\\|bmp\\)\\'" "sxiv")
      ("\\.\\(7z\\|zip\\|rar\\)\\'" "7z x" "7z l"
       (format "7z x -o\"%s\"" (file-name-sans-extension file)))
      ("\\.\\(avi\\|flac\\|ogg\\|m4a\\|mkv\\|mp[34]\\|wav\\|webm\\|wmv\\)\\'"
@@ -83,7 +85,8 @@
  '(global-so-long-mode t)
  '(global-tree-sitter-mode t)
  '(glyphless-char-display-control
-   '((c1-control . acronym) (format-control . acronym) (no-font . acronym)))
+   '((c1-control . acronym) (format-control . acronym)
+     (no-font . acronym)))
  '(gnutls-algorithm-priority
    "SECURE192:+SECURE128:-VERS-ALL:+VERS-TLS1.2:%PROFILE_MEDIUM")
  '(gnutls-min-prime-bits 2048)
@@ -100,16 +103,18 @@
  '(ibuffer-movement-cycle nil)
  '(ibuffer-saved-filter-groups
    '(("default"
-      ("Shell" (or (used-mode . shell-command-mode) (used-mode . shell-mode))
+      ("Shell"
+       (or (used-mode . shell-command-mode) (used-mode . shell-mode))
        (process))
       ("Dead Shell"
        (or (used-mode . shell-command-mode) (used-mode . shell-mode)))
       ("ERC" (used-mode . erc-mode))
       ("Tramp"
-       (or (filename . "^/scp:") (filename . "^/ssh:") (filename . "^/sudo:")))
+       (or (filename . "^/scp:") (filename . "^/ssh:")
+           (filename . "^/sudo:")))
       ("Emacs" (not name . "^magit[:-]") (filename . "/.emacs.d/"))
-      ("Src" (not derived-mode . comint-mode) (not derived-mode . special-mode)
-       (filename . "/src/"))
+      ("Src" (not derived-mode . comint-mode)
+       (not derived-mode . special-mode) (filename . "/src/"))
       ("Special" (starred-name)) ("Magit" (name . "^magit[:-]")))))
  '(image-dired-dir "~/.cache/emacs/image-dired/")
  '(image-dired-thumb-size 200)
@@ -146,8 +151,9 @@
  '(minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
  '(minions-mode t)
  '(minions-prominent-modes
-   '(auto-revert-mode defining-kbd-macro dired-async--modeline-mode flymake-mode
-                      follow-mode view-mode clipmag-mode comint-reaper-mode))
+   '(auto-revert-mode defining-kbd-macro dired-async--modeline-mode
+                      flymake-mode follow-mode view-mode clipmag-mode
+                      comint-reaper-mode))
  '(mm-automatic-display '("text/plain"))
  '(mm-discouraged-alternatives '("text/html" "text/richtext" "text/enriched" "image/.*"))
  '(mm-enable-external 'ask)
@@ -192,9 +198,9 @@
  '(org-fast-tag-selection-single-key t)
  '(org-fold-catch-invisible-edits 'smart)
  '(org-format-latex-options
-   '(:foreground default :background default :scale 2.0 :html-foreground "Black"
-                 :html-background "Transparent" :html-scale 1.0 :matchers
-                 ("begin" "$1" "$" "$$" "\\(" "\\[")))
+   '(:foreground default :background default :scale 2.0 :html-foreground
+                 "Black" :html-background "Transparent" :html-scale
+                 1.0 :matchers ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-goto-interface 'outline-path-completion)
  '(org-habit-graph-column 50)
  '(org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
@@ -216,10 +222,10 @@
  '(org-special-ctrl-a/e t)
  '(org-special-ctrl-k t)
  '(org-structure-template-alist
-   '(("a" . "export ascii") ("b" . "src bash") ("c" . "center") ("C" . "comment")
-     ("e" . "example") ("E" . "export") ("h" . "export html")
-     ("l" . "export latex") ("p" . "src python") ("q" . "quote") ("s" . "src")
-     ("v" . "verse")))
+   '(("a" . "export ascii") ("b" . "src bash") ("c" . "center")
+     ("C" . "comment") ("e" . "example") ("E" . "export")
+     ("h" . "export html") ("l" . "export latex") ("p" . "src python")
+     ("q" . "quote") ("s" . "src") ("v" . "verse")))
  '(org-use-speed-commands
    (lambda nil (and (looking-at org-outline-regexp) (looking-back "^**"))))
  '(org-use-sub-superscripts '{})
@@ -233,15 +239,16 @@
  '(package-install-upgrade-built-in t)
  '(package-pinned-packages
    '((markdown-mode . "nongnu") (dash . "gnu") (transient . "gnu")
-     (yasnippet . "gnu") (ws-butler . "nongnu") (with-editor . "nongnu")
-     (wgrep . "nongnu") (vlf . "nongnu") (vertico . "gnu") (tiny . "gnu")
-     (systemd . "nongnu") (smartparens . "nongnu") (keycast . "nongnu")
+     (yasnippet . "gnu") (ws-butler . "nongnu")
+     (with-editor . "nongnu") (wgrep . "nongnu") (vlf . "nongnu")
+     (vertico . "gnu") (tiny . "gnu") (systemd . "nongnu")
+     (smartparens . "nongnu") (keycast . "nongnu")
      (htmlize . "nongnu") (gptel . "nongnu") (expand-region . "gnu")
      (dockerfile-mode . "nongnu") (diff-hl . "gnu") (consult . "gnu")
-     (bash-completion . "nongnu") (async . "gnu") (aggressive-indent . "gnu")
-     (orderless . "gnu") (marginalia . "gnu") (bind-key . "gnu")
-     (use-package . "gnu") (faceup . "gnu") (which-key . "gnu")
-     (cond-let . "nongnu")))
+     (bash-completion . "nongnu") (async . "gnu")
+     (aggressive-indent . "gnu") (orderless . "gnu")
+     (marginalia . "gnu") (bind-key . "gnu") (use-package . "gnu")
+     (faceup . "gnu") (which-key . "gnu") (cond-let . "nongnu")))
  '(package-quickstart t)
  '(package-selected-packages
    '(aggressive-indent async bash-completion bazel bluetooth cond-let consult
@@ -261,7 +268,8 @@
  '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(project-list-file "~/.local/state/emacs/projects")
  '(project-switch-commands
-   '((project-find-file "Find file" nil) (project-find-regexp "Find regexp" nil)
+   '((project-find-file "Find file" nil)
+     (project-find-regexp "Find regexp" nil)
      (project-dired "Dired" nil) (project-vc-dir "VC-Dir" nil)
      (project-eshell "Eshell" nil) (project-shell "Shell" nil)))
  '(project-vc-merge-submodules nil)
@@ -280,7 +288,8 @@
  '(rmail-file-name "~/.local/state/emacs/RMAIL")
  '(safe-local-variable-values
    '((org-num-max-level . 2) (make-backup-files)
-     (git-commit-major-mode . git-commit-elisp-text-mode) (create-lockfiles)
+     (git-commit-major-mode . git-commit-elisp-text-mode)
+     (create-lockfiles)
      (bug-reference-bug-regexp . "#\\(?2:[0-9]+\\)")))
  '(save-place-file "~/.local/state/emacs/places")
  '(save-place-mode t)
