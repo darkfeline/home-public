@@ -95,7 +95,8 @@ SIMPLE vs COMPLEX (single file):
 
 (with-eval-after-load 'org
   (mir-init-bind-keys org-mode-map
-    ([?\C-c ?\M-,] #'org-insert-structure-template)))
+    ([?\C-c ?\M-,] #'org-insert-structure-template))
+  (mir-init-set-history-length org-tags-history 50))
 
 (with-eval-after-load 'protobuf-mode
   (mir-init-bind-keys protobuf-mode-map

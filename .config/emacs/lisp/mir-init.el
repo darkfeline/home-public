@@ -68,6 +68,10 @@
      (dolist (d (list ,@dirs))
        (dir-locals-set-directory-class d ',class))))
 
+(defmacro mir-init-set-history-length (symbol length)
+  (declare (indent 2) (debug (sexp form)))
+  `(put ',symbol 'history-length ,length))
+
 (defun mir-init-bootstrap-package-vc (packages)
   "Bootstrap package-vc packages.
 
