@@ -377,4 +377,5 @@
  '(org-habit-clear-future-face ((t (:background "dark slate blue"))))
  '(org-headline-done ((t (:foreground "rosy brown" :strike-through t))))
  '(ruler-mode-default ((t (:inherit default :background "grey76" :foreground "grey50" :box (:line-width (1 . 1) :color "grey76" :style released-button)))))
- '(secondary-selection ((t (:background "dark slate gray")))))
+ '(secondary-selection ((t (:background "dark slate gray"))))
+ '(whitespace-indentation ((t (:background "yellow4" :foreground "firebrick")))))
