@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+host=$1
+shift 1
+DBUS_SESSION_BUS_ADDRESS="unix:path=/tmp/ssh_${host}_dbus.sock" notify-send "$@"
