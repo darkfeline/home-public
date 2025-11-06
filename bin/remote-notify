@@ -1,4 +1,9 @@
 #!/bin/sh
+# Send notifications to remote host
+#
+# Needs this in ssh_config:
+#
+#     RemoteForward /tmp/ssh_%l_dbus.sock /run/user/%i/bus
 set -eu
 host=$1
 shift 1
