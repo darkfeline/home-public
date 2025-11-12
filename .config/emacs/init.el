@@ -362,7 +362,8 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
 ;; Add mode-line indicator when SSH.
 (when (getenv "SSH_TTY")
   (add-to-list 'mode-line-misc-info
-               '(:eval (propertize "SSH "
-                                   'face (if (mode-line-window-selected-p)
-                                             '(:foreground "aquamarine" :weight bold)
-                                           '(:foreground "aquamarine"))))))
+               '((:eval (propertize "SSH"
+                                    'face (if (mode-line-window-selected-p)
+                                              '(:foreground "gold" :background "gray40")
+                                            '(:foreground "gold"))))
+                 " ")))
