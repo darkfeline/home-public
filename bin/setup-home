@@ -32,8 +32,8 @@ main() {
 
 ensure_dirs() {
     mkdir -p ~/.local/state/logrotate
+    mkdir -p ~/.cache/mpd
     mkdir -p ~/.local/state/mir-flags
-    mkdir -p ~/.mpd
     mkdir -p ~/.ssh/ctrl
 }
 
