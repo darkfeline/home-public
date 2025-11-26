@@ -251,20 +251,23 @@
      (faceup . "gnu") (which-key . "gnu") (cond-let . "nongnu")))
  '(package-quickstart t)
  '(package-selected-packages
-   '(aggressive-indent async bash-completion bazel bluetooth cond-let consult
-                       csv-mode ddskk diff-hl dockerfile-mode dumb-jump easydraw
-                       editorconfig eglot emmet-mode erc expand-region flymake
+   '(aggressive-indent async bash-completion bazel bluetooth cond-let
+                       consult csv-mode ddskk diff-hl dockerfile-mode
+                       dumb-jump easydraw editorconfig eglot
+                       emmet-mode erc expand-region flymake
                        flymake-shellcheck ghub git-timemachine
-                       gnu-elpa-keyring-update go-mode gptel gptel-commit
-                       gptel-magit graphviz-dot-mode helpful htmlize ialign
-                       idlwave ipcalc jakuri jq-mode json-mode kdl-mode keycast
-                       lua-mode magit marginalia markdown-mode mcp
-                       minions obsidian orderless org pinentry project
-                       protobuf-mode python rainbow-mode reintegrate seq
-                       smartparens string-inflection systemd tiny toml-mode
-                       tramp valign verb verilog-mode vertico vlf vterm
-                       vundo wgrep which-key window-tool-bar with-editor
-                       ws-butler xterm-color yaml-mode yasnippet))
+                       gnu-elpa-keyring-update go-mode gptel
+                       gptel-commit gptel-magit graphviz-dot-mode
+                       helpful htmlize ialign idlwave ipcalc jakuri
+                       jq-mode json-mode kdl-mode keycast lua-mode
+                       magit marginalia markdown-mode mcp minions
+                       obsidian orderless org pinentry project
+                       protobuf-mode python rainbow-mode reintegrate
+                       seq smartparens string-inflection systemd tiny
+                       toml-mode tramp valign verb verilog-mode
+                       vertico vlf vterm vundo wgrep which-key
+                       window-tool-bar with-editor ws-butler
+                       xterm-color yaml-mode yasnippet))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(project-list-file "~/.local/state/emacs/projects")
  '(project-switch-commands
