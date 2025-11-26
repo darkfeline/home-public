@@ -48,6 +48,7 @@ setup_git_hooks() {
 
 setup_systemd() {
     systemctl --user enable waybar.service
+    systemctl --user enable dunst.service
 }
 
 copy_git_hooks() {
