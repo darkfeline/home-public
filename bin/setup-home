@@ -6,7 +6,6 @@ main() {
     cd "$HOME"
     ensure_dirs
     fix_perms
-    setup_systemd
     setup_git_hooks
 }
 
@@ -18,10 +17,6 @@ ensure_dirs() {
 
 fix_perms() {
     chmod 600 ~/.ssh/config ~/.ssh/config.d/*
-}
-
-setup_systemd() {
-    systemctl --user enable waybar.service
 }
 
 setup_git_hooks() {

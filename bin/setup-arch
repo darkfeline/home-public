@@ -55,7 +55,9 @@ readonly laptop=(
 
 main() {
     sudo pacman -S --noconfirm "${packages[@]}"
+    systemctl --user enable waybar.service
 
+    # TODO: make this optional for laptops
     sudo pacman -S --noconfirm "${laptop[@]}"
     sudo systemctl enable tlp.service
     systemctl --user enable --now check-battery.timer
