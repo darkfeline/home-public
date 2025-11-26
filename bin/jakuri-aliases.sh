@@ -3,14 +3,11 @@ at() (
     shift 1
     systemd-run --user --on-active="${x}" --timer-property=AccuracySec=100ms "${@}"
 )
-alias auc="autorandr -c"
 alias ec="emacsclient"
 alias ecnw="emacsclient -nw"
 alias engi="env | grep -i"
 alias g="git"
-alias gati="gapi-tokeninfo"
 alias gcli="gemini"
-alias bfs="sudo btrfs"
 alias gga="go generate ./..."
 alias ggua="go get -u ./..."
 alias gia="go install ./..."
