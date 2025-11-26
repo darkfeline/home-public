@@ -26,6 +26,7 @@ main() {
     ensure_dirs
     fix_perms
     setup_git_hooks
+    setup_systemd
     [[ -n $do_slow ]] && install_deps
     compile_terminfo
 }
@@ -43,6 +44,10 @@ fix_perms() {
 setup_git_hooks() {
     copy_git_hooks home
     copy_git_hooks elpa .config/emacs/elpa
+}
+
+setup_systemd() {
+    systemctl --user enable waybar.service
 }
 
 copy_git_hooks() {
