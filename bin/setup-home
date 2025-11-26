@@ -1,5 +1,5 @@
 #!/bin/bash
-# This script sets up the home environment repository.
+# This script does things that cannot be done by git cloning this repo.
 set -eu
 
 main() {
