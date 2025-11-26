@@ -3,31 +3,11 @@
 set -eu
 
 main() {
-    do_slow=
-    while getopts "ahs" opt; do
-        case "$opt" in
-            a)
-                do_slow=1
-                ;;
-            h)
-                printf "Usage: $0 [OPTIONS]
-
-	-a	Do all steps
-	-h	Print help
-	-s	Do slow steps
-"
-                exit 0
-                ;;
-            s) do_slow=1;;
-        esac
-    done
-
     cd "$HOME"
     ensure_dirs
     fix_perms
     setup_git_hooks
     setup_systemd
-    [[ -n $do_slow ]] && install_deps
     compile_terminfo
 }
 
@@ -66,11 +46,6 @@ copy_git_hooks() {
     for x in "${hookdir}/${src}"/*; do
         cp "${x}" "${dst}"
     done
-}
-
-install_deps() {
-    printf "Installing deps...\n" >&2
-    go install go.felesatra.moe/anaclock@latest
 }
 
 compile_terminfo() {
