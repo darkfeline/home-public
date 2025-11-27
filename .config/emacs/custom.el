@@ -57,6 +57,7 @@
      ("\\.\\(avi\\|flac\\|ogg\\|m4a\\|mkv\\|mp[34]\\|wav\\|webm\\|wmv\\)\\'"
       "mpv")))
  '(dired-isearch-filenames 'dwim)
+ '(dired-kill-when-opening-new-dired-buffer t)
  '(dired-vc-rename-file t)
  '(display-battery-mode t)
  '(display-time-24hr-format t)
