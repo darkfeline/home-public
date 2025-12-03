@@ -33,11 +33,11 @@ input {
     touchpad {
         // off
         // tap
-        // dwt
-        // dwtp
+        dwt  // disable when typing
+        dwtp  // disable when trackpointing
         // drag false
         // drag-lock
-        natural-scroll
+        // natural-scroll
         // accel-speed 0.2
         // accel-profile "flat"
         // scroll-method "two-finger"
@@ -60,7 +60,14 @@ input {
         // scroll-method "on-button-down"
         // scroll-button 273
         // scroll-button-lock
-        // middle-emulation
+        middle-emulation
+    }
+
+    tablet {
+        // off
+        map-to-output "DP-1"
+        // left-handed
+        // calibration-matrix 1.0 0.0 0.0 0.0 1.0 0.0
     }
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
@@ -124,6 +131,8 @@ layout {
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
     center-focused-column "never"
+
+    always-center-single-column
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -317,7 +326,7 @@ prefer-no-csd
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/Downloads/Screenshot-%FT%T.png"
+screenshot-path "~/Downloads/screenshot-niri-%FT%T.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
@@ -401,6 +410,7 @@ binds {
     Mod+P hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "run"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
+    Mod+Ctrl+R  { spawn-sh "pkill -x -USR1 gammastep"; }
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
@@ -589,7 +599,7 @@ binds {
     // Cycling through the presets in reverse order is also possible.
     // Mod+R { switch-preset-column-width-back; }
     Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
+    // Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
 
@@ -634,8 +644,8 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    // Print { screenshot; }
-    // Ctrl+Print { screenshot-screen; }
+    Mod+Print { screenshot; }
+    Mod+Ctrl+Print { screenshot-screen; }
     // Alt+Print { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may

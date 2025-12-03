@@ -1,5 +1,8 @@
 #!/bin/bash
 set -eu
+
+export PYRIGHT_PYTHON_FORCE_VERSION=latest
+
 . pyvenv-setup.bash
 pyvenv_setup_name=pyright
 pyvenv_setup

@@ -29,6 +29,7 @@
 #workspaces button {
   padding: 5px 5px;
   border-radius: 0px;
+  color: #000000;
 }
 
 #workspaces button:first-child {
@@ -46,8 +47,8 @@
 }
 
 #workspaces button.empty {
-  background: #bbbbbb;
-  color: #666666;
+  background: #aaaaaa;
+  color: #444444;
 }
 
 #workspaces button.active {

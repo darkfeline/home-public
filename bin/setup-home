@@ -1,39 +1,17 @@
 #!/bin/bash
-# This script sets up the home environment repository.
+# This script does things that cannot be done by git cloning this repo.
 set -eu
 
 main() {
-    do_slow=
-    while getopts "ahs" opt; do
-        case "$opt" in
-            a)
-                do_slow=1
-                ;;
-            h)
-                printf "Usage: $0 [OPTIONS]
-
-	-a	Do all steps
-	-h	Print help
-	-s	Do slow steps
-"
-                exit 0
-                ;;
-            s) do_slow=1;;
-        esac
-    done
-
     cd "$HOME"
     ensure_dirs
     fix_perms
     setup_git_hooks
-    [[ -n $do_slow ]] && install_deps
-    compile_terminfo
 }
 
 ensure_dirs() {
-    mkdir -p ~/.local/state/logrotate
+    mkdir -p ~/.cache/mpd
     mkdir -p ~/.local/state/mir-flags
-    mkdir -p ~/.mpd
     mkdir -p ~/.ssh/ctrl
 }
 
@@ -62,15 +40,6 @@ copy_git_hooks() {
     for x in "${hookdir}/${src}"/*; do
         cp "${x}" "${dst}"
     done
-}
-
-install_deps() {
-    printf "Installing deps...\n" >&2
-    go install go.felesatra.moe/anaclock@latest
-}
-
-compile_terminfo() {
-    find ~/.terminfo -type f -name "*.ti" -print0 | xargs -0 -n 1 tic -x
 }
 
 main "$@"

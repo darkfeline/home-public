@@ -52,12 +52,14 @@ __mir_prompt_command() {
     PS1="\[${RESET}\]\
 ${__mir_prompt_prefix}\
 ↪ ${exit_color}${exit}\[${RESET}\]\
-${__mir_start_time:+ $(( EPOCHSECONDS - __mir_start_time ))s} \
+${__mir_start_time:+ \[${YELLOW}\]$(( EPOCHSECONDS - __mir_start_time ))s\[${RESET}\]} \
 \D{%F %T %Z} \
 ${TOOLBOX_PATH+⬢}\
 \[${GREEN}\]\u\[${RESET}\]\
 @\[${GREEN}\]\h\[${RESET}\]\
 :\[${GREEN}\]\w\[${RESET}\] \$ "
+    # Clear time so subsequent empty prompts don't print again
+    unset __mir_start_time
     # Update terminal window title.
     case "${TERM:-dumb}" in
         xterm*|alacritty) printf '\e]0;%s@%s\7' "$USER" "$HOSTNAME" ;;

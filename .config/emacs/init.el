@@ -5,12 +5,7 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'mir-init)
 
-(defvar jakuri-vc-packages '(easydraw
-                             go-mode
-                             magit
-                             reintegrate
-                             jakuri)
-  "List of packages to be called with `mir-init-bootstrap-package-vc'.")
+;; `jakuri-vc-packages' is defined in early-init.el
 (mir-init-bootstrap-package-vc jakuri-vc-packages)
 
 ;; lilypond-mode is packaged with lilypond.
@@ -60,6 +55,14 @@
         "You are an expert at writing Git commit messages.
 Generate **only** the commit message, nothing else.
 
+CRITICAL: OUTPUT PLAIN TEXT ONLY - NO markdown formatting, NO code
+blocks, NO backticks, NO **bold** or *italic*. Just raw text.
+
+The commit message should begin with a single line of text (the subject
+line).  This line should preferably be no more than 50 characters, but
+MUST NOT exceed 100 characters in all cases.  This line should not end
+in a period.
+
 DECISION PROCESS:
 1. Count changed files
 2. If 1 file: check if change is simple or complex
@@ -68,39 +71,32 @@ DECISION PROCESS:
 FORMAT RULES:
 
 A. Single File + Simple Change (one clear purpose):
-   * One-line description (≤72 chars)
-
-   NO subject line, NO blank lines, JUST this one line.
+   Subject line only
 
 B. Single File + Complex Change (multiple purposes/major refactor):
-   Subject line (≤72 chars, imperative mood, NO period)
+   Subject line
 
    Optional body paragraph explaining why (wrap at 72 chars).
-
-   * path/to/file (func1, func2): Description.
 
 C. Multiple Files (2+ files changed):
-   Subject line (≤72 chars, imperative mood, NO period)
+   Subject line
 
    Optional body paragraph explaining why (wrap at 72 chars).
-
-   * path/to/file1 (func1): Description.
-   * path/to/file2 (func2): Another description.
-
-D. Trivial Changes:
-   Add `; ` prefix for typos/comments/docs.
-   Example: `; * file: Fix typo.`
 
 SIMPLE vs COMPLEX (single file):
 - Simple: one function, one clear fix/addition
 - Complex: multiple functions, refactoring, or architectural change"))
+
+(with-eval-after-load 'gptel-magit
+  (setq gptel-magit-commit-prompt gptel-magit-prompt-zed))
 
 (with-eval-after-load 'grep
   (require 'wgrep))
 
 (with-eval-after-load 'org
   (mir-init-bind-keys org-mode-map
-    ([?\C-c ?\M-,] #'org-insert-structure-template)))
+    ([?\C-c ?\M-,] #'org-insert-structure-template))
+  (mir-init-set-history-length org-tags-history 50))
 
 (with-eval-after-load 'protobuf-mode
   (mir-init-bind-keys protobuf-mode-map
@@ -332,6 +328,15 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
                ("\\.gni\\'" . gn-mode)))
     (add-to-list 'auto-mode-alist v)))
 
+(when (locate-library "gptel")
+  (setq gptel-backend
+        (gptel-make-gemini "Gemini"
+          :key #'gptel-api-key-from-auth-source
+          :stream t)))
+
+(when (locate-library "gptel-magit")
+  (gptel-magit-install))
+
 (when (locate-library "org")
   (require 'org-protocol))
 
@@ -357,7 +362,8 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
 ;; Add mode-line indicator when SSH.
 (when (getenv "SSH_TTY")
   (add-to-list 'mode-line-misc-info
-               '(:eval (propertize "SSH "
-                                   'face (if (mode-line-window-selected-p)
-                                             '(:foreground "aquamarine" :weight bold)
-                                           '(:foreground "aquamarine"))))))
+               '((:eval (propertize "SSH"
+                                    'face (if (mode-line-window-selected-p)
+                                              '(:foreground "gold" :background "gray40")
+                                            '(:foreground "gold"))))
+                 " ")))

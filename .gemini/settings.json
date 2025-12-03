@@ -1,0 +1,16 @@
+{
+  "privacy": {
+    "usageStatisticsEnabled": false
+  },
+  "security": {
+    "auth": {
+      "selectedType": "gemini-api-key"
+    }
+  },
+  "ui": {
+    "accessibility": {
+      "disableLoadingPhrases": true
+    },
+    "theme": "Default"
+  }
+}

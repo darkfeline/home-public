@@ -22,3 +22,6 @@
 [submodule "src/yt-dlp"]
 	path = src/yt-dlp
 	url = https://github.com/yt-dlp/yt-dlp.git
+[submodule "src/aur/aurutils"]
+	path = src/aur/aurutils
+	url = https://aur.archlinux.org/aurutils.git

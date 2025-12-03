@@ -1,0 +1,4 @@
+*.cache
+*.list
+
+chrome-*.desktop

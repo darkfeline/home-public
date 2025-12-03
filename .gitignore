@@ -4,8 +4,10 @@
 !/src/
 
 !/.config/
+!/.gemini/
 !/.gnupg/
 !/.icons/
+!/.local/
 !/.ssh/
 
 !/.bash_profile

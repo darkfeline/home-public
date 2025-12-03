@@ -8,6 +8,8 @@
 	a = add
 	ap = add --patch
 	b = branch
+	bb = bisect bad
+	bg = bisect good
 	bm = branch --merged
 	branch-age = for-each-ref --sort=-committerdate --format='%(committerdate:relative) %(refname:short)' refs/heads/
 	c = commit
