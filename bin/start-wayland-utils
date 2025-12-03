@@ -6,6 +6,5 @@ swayidle -w before-sleep swaylock &
 kanshi &
 
 gammastep-indicator &
-ibus start
 
 start-mympd
