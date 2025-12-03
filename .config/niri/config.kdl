@@ -63,6 +63,13 @@ input {
         middle-emulation
     }
 
+    tablet {
+        // off
+        map-to-output "DP-1"
+        // left-handed
+        // calibration-matrix 1.0 0.0 0.0 0.0 1.0 0.0
+    }
+
     // Uncomment this to make the mouse warp to the center of newly focused windows.
     // warp-mouse-to-focus
 
