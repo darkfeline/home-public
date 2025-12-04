@@ -361,6 +361,8 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :extend nil :stipple nil :background "gray20" :foreground "white smoke" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "ADBO" :family "Source Code Pro"))))
  '(Info-quoted ((t (:inherit default :foreground "sandy brown"))))
+ '(breadcrumb-face ((t (:foreground "gray10"))))
+ '(breadcrumb-imenu-leaf-face ((t (:inherit breadcrumb-imenu-crumbs-face :foreground "brightgreen"))))
  '(comint-highlight-prompt ((t (:inherit nil))))
  '(diary ((t (:foreground "orange"))))
  '(diff-hl-change ((t (:background "royal blue" :foreground "deep sky blue"))))
@@ -373,6 +375,7 @@
  '(ediff-odd-diff-C ((t (:background "gray20"))))
  '(erc-input-face ((t (:foreground "light coral"))))
  '(erc-my-nick-face ((t (:foreground "light coral" :weight bold))))
+ '(header-line ((t (:inherit mode-line :inverse-video nil))))
  '(hi-black-b ((t (:background "dark goldenrod" :foreground "black"))))
  '(hi-black-hb ((t (:foreground "goldenrod" :weight bold))))
  '(hi-blue-b ((t (:foreground "deep sky blue" :weight bold))))
