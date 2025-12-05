@@ -20,6 +20,7 @@
  '(battery-load-low 40)
  '(bookmark-default-file "~/.local/state/emacs/bookmarks")
  '(bookmark-save-flag 1)
+ '(breadcrumb-mode t)
  '(calendar-date-style 'iso)
  '(calendar-intermonth-text
    '(propertize
