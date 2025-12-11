@@ -45,13 +45,13 @@ __mir_set_start_time() {
 
 __mir_prompt_command() {
     local -r exit=$?
-    local exit_color="\[${CYAN}\]"
+    local exit_color="${CYAN}"
     if [ "$exit" != 0 ]; then
-        exit_color="\[${RED}\]"
+        exit_color="${RED}"
     fi
     PS1="\[${RESET}\]\
 ${__mir_prompt_prefix}\
-↪ ${exit_color}${exit}\[${RESET}\]\
+↪ \[${exit_color}\]${exit}\[${RESET}\]\
 ${__mir_start_time:+ \[${YELLOW}\]$(( EPOCHSECONDS - __mir_start_time ))s\[${RESET}\]} \
 \D{%F %T %Z} \
 ${TOOLBOX_PATH+⬢}\
