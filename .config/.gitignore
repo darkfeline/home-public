@@ -18,7 +18,6 @@
 !/logrotate/
 !/mpd/
 !/niri/
-!/redshift/
 !/swaylock/
 !/systemd/
 !/waybar/
