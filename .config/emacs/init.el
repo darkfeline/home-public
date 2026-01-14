@@ -316,7 +316,7 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
   (add-to-list 'auto-mode-alist '("\\.star\\'" . bazel-starlark-mode)))
 
 (when (locate-library "dumb-jump")
-  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate 95))
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate 90))
 
 (when (locate-library "emmet-mode")
   (mir-init-enable-for-modes emmet-mode
