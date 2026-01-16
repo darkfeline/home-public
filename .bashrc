@@ -21,17 +21,6 @@ HISTCONTROL=
 
 __mir_prompt_prefix=
 if [[ -n ${bash_preexec_imported:-${__bp_imported:-}} ]]; then
-    __mir_atuin_args=("--disable-up-arrow")
-    if command -v atuin &>/dev/null; then
-        if [[ ! :$SHELLOPTS: =~ :(vi|emacs): ]]; then
-            # Disable bind warnings when line editing is not available
-            __mir_atuin_args+=("--disable-ctrl-r")
-        fi
-        eval "$(atuin init bash "${__mir_atuin_args[@]}")"
-        __mir_prompt_prefix="\[${BOLD}${GREEN}\]A\[${RESET}\]${__mir_prompt_prefix:- }"
-    fi
-    unset __mir_atuin_args
-
     preexec_functions+=(__mir_set_start_time)
     precmd_functions+=(__mir_prompt_command)
 else
