@@ -4,12 +4,12 @@ mkdir -p ~/{.local/state,.cache}/mympd
 GID=$(id -g)
 "${DOCKER}" start mympd || "${DOCKER}" run -d \
        --name=mympd \
-       --net=host \
+       -p 8080:8080 \
        -u $UID:$GID \
        -e UMASK_SET=022 \
        -e MYMPD_SSL=false \
        -e MYMPD_HTTP_PORT=8080 \
-       -v ~/.mpd/socket:/run/mpd/socket \
+       -v $XDG_RUNTIME_DIR/mpd/socket:/run/mpd/socket \
        -v ~/.local/state/mympd:/var/lib/mympd \
        -v ~/.cache/mympd:/var/cache/mympd \
        --restart unless-stopped \
