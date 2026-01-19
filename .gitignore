@@ -2,6 +2,7 @@
 
 !/bin/
 !/src/
+!/share/
 
 !/.config/
 !/.gemini/
