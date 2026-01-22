@@ -21,12 +21,6 @@ case "$TERM" in
         # recent-ish xterm.
         [ -n "${XTERM_VERSION:-}" ] && TERM=xterm-256color
         ;;
-    ''|dumb*)
-        # Disable pagers
-        export PAGER=cat
-        export GIT_PAGER=cat
-        export SYSTEMD_PAGER=cat
-        ;;
 esac
 
 if command -v dircolors >/dev/null 2>&1; then
