@@ -7,8 +7,7 @@ inpath() {
 }
 
 if [[ ${TERM:-dumb} = *dumb* ]]; then
-    inpath more && exec more "$@"
-    inpath ed && printf "Using ed as pager\n" && exec ed "$@"
+    inpath ed && printf "%s: Using ed as pager\n" "$0" >&2 && exec ed "$@"
 fi
 
 inpath less && exec less -FRX "$@"
