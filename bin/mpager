@@ -7,9 +7,9 @@ inpath() {
 }
 
 if [[ ${TERM:-dumb} = *dumb* ]]; then
-    inpath ed && printf "%s: Using ed as pager\n" "$0" >&2 && exec ed "$@"
+    printf "%s: not paging for dumb term\n" "$0" >&2 && exec cat "$@"
 fi
 
-inpath less && exec less -FRX "$@"
+inpath less && exec less -dFRX "$@"
 printf '%s: No pager available\n' "$0" >&2
 exit 1

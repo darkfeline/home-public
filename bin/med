@@ -14,7 +14,7 @@ if [[ -n ${INSIDE_EMACS:-} ]]; then
     exec emacsclient "$@"
 fi
 if [[ ${TERM:-dumb} = *dumb* ]]; then
-    inpath ed && printf "Using ed as editor\n" && exec ed "$@"
+    inpath ed && printf "%s: Using ed as editor\n" "$0" >&2 && exec ed "$@"
 fi
 if inpath emacsclient && server_running; then
     exec emacsclient -nw "$@"
