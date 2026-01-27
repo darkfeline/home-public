@@ -1,8 +1,3 @@
-at() (
-    x=$1
-    shift 1
-    systemd-run --user --on-active="${x}" --timer-property=AccuracySec=100ms "${@}"
-)
 alias ec="emacsclient"
 alias ecnw="emacsclient -nw"
 alias engi="env | grep -i"
