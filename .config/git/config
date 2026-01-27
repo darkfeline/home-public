@@ -27,8 +27,7 @@
 	fa = fetch --all
 	first = rev-list --max-parents=0 HEAD
 	l = log
-	l1 = log -1
-	l1r = log -1 --pretty=raw
+	l1 = log -n 1
 	la = log --all --graph --decorate --stat
 	lg = log --graph
 	lo = log --pretty=oneline
