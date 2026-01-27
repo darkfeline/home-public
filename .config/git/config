@@ -30,8 +30,8 @@
 	l1 = log -n 1
 	la = log --all --graph --decorate --stat
 	lg = log --graph
-	lo = log --pretty=oneline
-	lr = log --pretty=raw
+	lo = log --format=oneline
+	lr = log --format=raw
 	m = merge
 	ra = rebase --abort
 	rb = rebase
