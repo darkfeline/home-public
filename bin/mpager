@@ -10,6 +10,8 @@ if [[ ${TERM:-dumb} = *dumb* ]]; then
     printf "%s: not paging for dumb term\n" "$0" >&2 && exec cat "$@"
 fi
 
+# Note that only less supports secure/restricted mode
+# This may be problematic when paging from a sudo command
 inpath less && exec less -dFRX "$@"
 inpath more && exec more "$@"
 
