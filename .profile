@@ -26,3 +26,4 @@ export PAGER=$HOME/bin/mpager
 
 export GIT_PAGER=$PAGER
 export SYSTEMD_PAGER=$PAGER
+export SYSTEMD_PAGERSECURE=1
