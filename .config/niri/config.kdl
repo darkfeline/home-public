@@ -445,6 +445,8 @@ binds {
     XF86AudioPrev  allow-when-locked=true { spawn-sh "mpc prev; mpd-notify"; }
     XF86AudioPlay  allow-when-locked=true { spawn-sh "mpc toggle; mpd-notify"; }
     XF86AudioStop  allow-when-locked=true { spawn-sh "mpc stop; mpd-notify"; }
+    Shift+XF86AudioPlay  allow-when-locked=true { spawn-sh "mpc repeat; mpd-notify"; }
+    Shift+XF86AudioPrev  allow-when-locked=true { spawn-sh "mpc seek 0%; mpd-notify"; }
 
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
