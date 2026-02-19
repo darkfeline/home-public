@@ -12,5 +12,8 @@
       "disableLoadingPhrases": true
     },
     "theme": "Default"
+  },
+  "tools": {
+    "sandbox": "true"
   }
 }
