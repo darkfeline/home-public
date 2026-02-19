@@ -52,6 +52,7 @@
 	smi = submodule init
 	sms = submodule sync
 	smu = submodule update
+	smui = submodule update --init
 	smun = submodule update --no-fetch
 	smur = submodule-update-reset
 	st = subtree
