@@ -12,7 +12,8 @@
       "disableLoadingPhrases": true,
       "enableLoadingPhrases": false
     },
-    "theme": "Default"
+    "theme": "Default",
+    "loadingPhrases": "off"
   },
   "tools": {
     "sandbox": "true"
