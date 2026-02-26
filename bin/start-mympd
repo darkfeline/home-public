@@ -1,6 +1,7 @@
 #!/bin/bash
 DOCKER=podman
-mkdir -p ~/{.local/state,.cache}/mympd
+mkdir -p ~/.cache/mympd
+mkdir -p ~/.local/state/mympd/config
 GID=$(id -g)
 "${DOCKER}" start mympd || "${DOCKER}" run -d \
        --name=mympd \
