@@ -17,5 +17,12 @@
   },
   "tools": {
     "sandbox": "true"
+  },
+  "general": {
+    "sessionRetention": {
+      "enabled": true,
+      "maxAge": "30d",
+      "warningAcknowledged": true
+    }
   }
 }
