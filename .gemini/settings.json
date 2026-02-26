@@ -15,6 +15,9 @@
     "theme": "Default",
     "loadingPhrases": "off"
   },
+  "context": {
+    "fileName": ["GEMINI.md", "AGENTS.md"]
+  },
   "tools": {
     "sandbox": "true"
   },
