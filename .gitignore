@@ -19,6 +19,7 @@
 !/.gitmodules
 !/.gtkrc-2.0
 !/.inputrc
+!/.npmrc
 !/.profile
 !/.shrc
 !/.xbindkeysrc.scm
