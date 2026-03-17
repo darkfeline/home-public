@@ -25,3 +25,6 @@
 [submodule "src/aur/aurutils"]
 	path = src/aur/aurutils
 	url = https://aur.archlinux.org/aurutils.git
+[submodule ".config/emacs/vc/majutsu"]
+	path = .config/emacs/vc/majutsu
+	url = https://github.com/0WD0/majutsu.git
