@@ -222,6 +222,7 @@
  '(org-refile-use-outline-path 'file)
  '(org-special-ctrl-a/e t)
  '(org-special-ctrl-k t)
+ '(org-src-content-indentation 0)
  '(org-structure-template-alist
    '(("a" . "export ascii") ("b" . "src bash") ("c" . "center")
      ("C" . "comment") ("e" . "example") ("E" . "export")
@@ -254,9 +255,9 @@
  '(package-selected-packages
    '(aggressive-indent async bash-completion bazel bluetooth breadcrumb
                        cond-let consult csv-mode ddskk diff-hl
-                       dockerfile-mode dumb-jump easydraw editorconfig
-                       eglot emmet-mode erc expand-region flymake
-                       flymake-shellcheck ghub git-timemachine
+                       dockerfile-mode dumb-jump easydraw eat
+                       editorconfig eglot emmet-mode erc expand-region
+                       flymake flymake-shellcheck ghub git-timemachine
                        gnu-elpa-keyring-update go-mode gptel
                        gptel-commit gptel-magit graphviz-dot-mode
                        helpful htmlize ialign idlwave ipcalc jakuri
