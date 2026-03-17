@@ -1,3 +1,6 @@
+[ui]
+pager = "mpager"
+
 [user]
 name = "Allen Li"
 email = "darkfeline@feleatra.moe"
