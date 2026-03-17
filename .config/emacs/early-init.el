@@ -31,6 +31,7 @@
 (defvar jakuri-vc-packages '(easydraw
                              go-mode
                              magit
+                             majutsu
                              reintegrate
                              jakuri)
   "List of packages to be called with `mir-init-bootstrap-package-vc'.")

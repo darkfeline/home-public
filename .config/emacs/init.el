@@ -270,6 +270,12 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
                 (call-interactively #'magit-status)))
   ([?\C-c ?G] #'magit-list-repositories)
 
+  ([?\C-c ?j] (lambda ()
+                (interactive)
+                (let ((p (project-current)))
+                  (when p (project-remember-project p)))
+                (call-interactively #'majutsu)))
+
   ([?\C-c ?t] #'gptel-send)
   ([?\C-c ?T] #'gptel)
 
