@@ -25,6 +25,7 @@ alias psef="ps -ef"
 alias psefg="ps -ef | grep"
 alias pt="pstree -ps"
 alias s="sudo"
+alias sc="scmode"
 alias sshoe="ssh -O exit"
 alias tpr="tput reset"
 
