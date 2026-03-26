@@ -32,3 +32,6 @@ ProtectKernelTunables=true
 ProtectSystem=full
 RestrictNamespaces=true
 RestrictRealtime=true
+
+# Create and allow writing for the state file
+StateDirectory=logrotate
