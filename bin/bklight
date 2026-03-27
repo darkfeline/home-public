@@ -1,0 +1,9 @@
+#!/bin/bash
+
+readonly path=/sys/class/backlight/intel_backlight
+
+case "$1" in
+    get) cat "${path}/brightness" ;;
+    set) echo "$2" >"${path}/brightness" ;;
+    max) cat "${path}/max_brightness" ;;
+esac
