@@ -3,10 +3,6 @@
 (xbindkey '(mod4 Return) "alacritty")
 (xbindkey '(mod4 p) "rofi -show run")
 
-;; Keyboard functions
-(xbindkey 'XF86MonBrightnessUp "xbacklight -inc 8")
-(xbindkey 'XF86MonBrightnessDown "xbacklight -dec 8")
-
 ;; Media keys
 (xbindkey 'XF86AudioLowerVolume "volman -d")
 (xbindkey 'XF86AudioRaiseVolume "volman -u")
@@ -22,4 +18,3 @@
 ;; Extra
 (xbindkey '(release mod4 Print) "cd ~/Downloads && scrot -z -s")
 (xbindkey '(mod4 r) "pkill -x -USR1 redshift")
-(xbindkey '(mod4 i) "backlight-toggle")
