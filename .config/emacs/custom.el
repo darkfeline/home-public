@@ -190,7 +190,6 @@
  '(org-confirm-babel-evaluate nil)
  '(org-ctags-open-link-functions nil)
  '(org-ctrl-k-protect-subtree 'error)
- '(org-edit-src-content-indentation 0)
  '(org-ellipsis "...")
  '(org-enforce-todo-dependencies t)
  '(org-export-backends '(ascii html md texinfo))
@@ -222,6 +221,7 @@
  '(org-refile-use-outline-path 'file)
  '(org-special-ctrl-a/e t)
  '(org-special-ctrl-k t)
+ '(org-src-content-indentation 0)
  '(org-structure-template-alist
    '(("a" . "export ascii") ("b" . "src bash") ("c" . "center")
      ("C" . "comment") ("e" . "example") ("E" . "export")
