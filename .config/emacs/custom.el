@@ -222,7 +222,6 @@
  '(org-refile-use-outline-path 'file)
  '(org-special-ctrl-a/e t)
  '(org-special-ctrl-k t)
- '(org-src-content-indentation 0)
  '(org-structure-template-alist
    '(("a" . "export ascii") ("b" . "src bash") ("c" . "center")
      ("C" . "comment") ("e" . "example") ("E" . "export")
