@@ -6,6 +6,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(abbrev-file-name "~/.local/state/emacs/abbrev_defs")
+ '(agent-shell-preferred-agent-config 'gemini-cli)
  '(ansi-color-for-comint-mode nil)
  '(async-bytecomp-package-mode t)
  '(async-shell-command-buffer 'new-buffer)
