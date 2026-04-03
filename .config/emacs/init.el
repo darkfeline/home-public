@@ -335,7 +335,8 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
     (add-to-list 'auto-mode-alist v)))
 
 (when (locate-library "gptel")
-  (setq gptel-backend
+  (setq gptel-model 'gemini-flash-lite-latest
+        gptel-backend
         (gptel-make-gemini "Gemini"
           :key #'gptel-api-key-from-auth-source
           :stream t)))
