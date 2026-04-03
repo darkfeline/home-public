@@ -50,6 +50,15 @@
   (mir-init-bind-keys go-mode-map
     ([?\C-c ?i] #'consult-imenu)))
 
+(with-eval-after-load 'gptel-request
+  ;; Ideally should be set with customize
+  ;; but the gptel-backend value check is broken.
+  (setq gptel-model 'gemini-flash-lite-latest
+        gptel-backend
+        (gptel-make-gemini "Gemini"
+          :key #'gptel-api-key-from-auth-source
+          :stream t)))
+
 (with-eval-after-load 'gptel-commit
   (setq gptel-commit-prompt
         "You are an expert at writing Git commit messages.
@@ -333,13 +342,6 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
   (dolist (v '(("\\.gn\\'" . gn-mode)
                ("\\.gni\\'" . gn-mode)))
     (add-to-list 'auto-mode-alist v)))
-
-(when (locate-library "gptel")
-  (setq gptel-model 'gemini-flash-lite-latest
-        gptel-backend
-        (gptel-make-gemini "Gemini"
-          :key #'gptel-api-key-from-auth-source
-          :stream t)))
 
 (when (locate-library "gptel-magit")
   (gptel-magit-install))
