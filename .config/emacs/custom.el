@@ -252,23 +252,22 @@
      (faceup . "gnu") (which-key . "gnu") (cond-let . "nongnu")))
  '(package-quickstart t)
  '(package-selected-packages
-   '(aggressive-indent async bash-completion bazel bluetooth breadcrumb
-                       cond-let consult csv-mode ddskk diff-hl
-                       dockerfile-mode dumb-jump easydraw eat
-                       editorconfig eglot emmet-mode erc expand-region
-                       flymake flymake-shellcheck ghub git-timemachine
-                       gnu-elpa-keyring-update go-mode gptel
-                       gptel-commit gptel-magit graphviz-dot-mode
-                       helpful htmlize ialign idlwave ipcalc jakuri
-                       jq-mode json-mode kdl-mode keycast lua-mode
-                       magit marginalia markdown-mode mcp minions
-                       obsidian orderless org peg pinentry project
-                       protobuf-mode python rainbow-mode reintegrate
-                       seq smartparens string-inflection systemd tiny
-                       toml-mode track-changes tramp valign verb
-                       verilog-mode vertico vlf vterm vundo wgrep
-                       which-key window-tool-bar with-editor ws-butler
-                       xterm-color yaml-mode yasnippet))
+   '(agent-shell aggressive-indent async bash-completion bazel bluetooth
+                 breadcrumb cond-let consult csv-mode ddskk diff-hl
+                 dockerfile-mode dumb-jump easydraw editorconfig eglot
+                 emmet-mode erc expand-region flymake
+                 flymake-shellcheck ghub git-timemachine
+                 gnu-elpa-keyring-update go-mode gptel gptel-commit
+                 gptel-magit graphviz-dot-mode helpful htmlize ialign
+                 idlwave ipcalc jakuri jq-mode json-mode kdl-mode
+                 keycast lua-mode magit marginalia markdown-mode mcp
+                 michitaka minions obsidian orderless org peg pinentry
+                 project protobuf-mode python rainbow-mode reintegrate
+                 seq smartparens string-inflection systemd tiny
+                 toml-mode track-changes tramp valign verb
+                 verilog-mode vertico vlf vterm vundo wgrep which-key
+                 window-tool-bar with-editor ws-butler xterm-color
+                 yaml-mode yasnippet))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(project-list-file "~/.local/state/emacs/projects")
  '(project-switch-commands
