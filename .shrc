@@ -6,11 +6,13 @@ PS1="${RESET}${GREEN}$USER${RESET}@${GREEN}$(uname -n)${RESET} ! $ "
 
 [ -n "${INSIDE_EMACS:-}" ] && PS2=
 
-if tty >/dev/null 2>&1; then
+if tty=$(tty); then
     stty tostop
+
     # This is used by gpg-agent to pass ttyname to pinentry.
-    export GPG_TTY=$(tty)
+    export GPG_TTY=$tty
 fi
+unset -v tty
 
 case "$TERM" in
     'xterm')
