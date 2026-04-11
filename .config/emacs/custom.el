@@ -255,8 +255,8 @@
  '(package-selected-packages
    '(agent-shell aggressive-indent async bash-completion bazel bluetooth
                  breadcrumb cond-let consult csv-mode ddskk diff-hl
-                 dockerfile-mode dumb-jump easydraw editorconfig eglot
-                 emmet-mode erc expand-region flymake
+                 dockerfile-mode dumb-jump easydraw eat eca editorconfig
+                 eglot emmet-mode erc expand-region flymake
                  flymake-shellcheck ghub git-timemachine
                  gnu-elpa-keyring-update go-mode gptel gptel-commit
                  gptel-magit graphviz-dot-mode helpful htmlize ialign
