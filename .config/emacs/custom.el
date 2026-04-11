@@ -258,7 +258,7 @@
                  dockerfile-mode dumb-jump easydraw eat eca editorconfig
                  eglot emmet-mode erc expand-region flymake
                  flymake-shellcheck ghub git-timemachine
-                 gnu-elpa-keyring-update go-mode gptel gptel-commit
+                 gnu-elpa-keyring-update go-mode gptel gptel-agent gptel-commit
                  gptel-magit graphviz-dot-mode helpful htmlize ialign
                  idlwave ipcalc jakuri jq-mode json-mode kdl-mode
                  keycast lua-mode magit marginalia markdown-mode mcp
