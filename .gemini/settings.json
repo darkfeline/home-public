@@ -21,7 +21,7 @@
     ]
   },
   "tools": {
-    "sandbox": "true"
+    "sandbox": "false"
   },
   "general": {
     "sessionRetention": {
