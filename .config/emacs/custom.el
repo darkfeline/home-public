@@ -90,10 +90,6 @@
  '(glyphless-char-display-control
    '((c1-control . acronym) (format-control . acronym)
      (no-font . acronym)))
- '(gnutls-algorithm-priority
-   "SECURE192:+SECURE128:-VERS-ALL:+VERS-TLS1.2:%PROFILE_MEDIUM")
- '(gnutls-min-prime-bits 2048)
- '(gnutls-verify-error t)
  '(gofmt-command "goimports")
  '(gptel-directives
    '((default
@@ -337,7 +333,6 @@
  '(tab-bar-new-tab-choice nil)
  '(tab-bar-tab-hints t)
  '(text-scale-mode-step 1.1)
- '(tls-checktrust t)
  '(tool-bar-mode nil)
  '(tooltip-mode nil)
  '(tooltip-resize-echo-area t)
