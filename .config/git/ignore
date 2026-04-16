@@ -5,6 +5,7 @@
 # Emacs backup files
 *~
 
+.agent-shell/
 *.elc
 .dir-locals.el
 TAGS
