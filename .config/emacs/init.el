@@ -50,6 +50,10 @@
   (mir-init-bind-keys go-mode-map
     ([?\C-c ?i] #'consult-imenu)))
 
+(with-eval-after-load 'gptel
+  (when (package-installed-p 'mcp)
+    (require 'gptel-integrations)))
+
 (with-eval-after-load 'gptel-request
   ;; Ideally should be set with customize
   ;; but the gptel-backend value check is broken.
