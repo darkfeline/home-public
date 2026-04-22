@@ -20,6 +20,14 @@
 
 
 ;;; Eval after load
+(with-eval-after-load 'agent-shell
+  (setopt
+   agent-shell-dot-subdir-function
+   (lambda (subdir)
+     (let* ((cwd (string-remove-suffix "/" (agent-shell-cwd)))
+            (sanitized (replace-regexp-in-string "/" "-" (string-remove-prefix "/" cwd))))
+       (expand-file-name subdir (concat "~/.local/state/agent-shell/" sanitized))))))
+
 (with-eval-after-load 'cc-styles
   ;; Linux uses tabs for indent, but this is omitted from the linux
   ;; style shipped with Emacs.
