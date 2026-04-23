@@ -267,6 +267,8 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
   ([?\C-c ?t] #'gptel-send)
   ([?\C-c ?T] #'gptel)
 
+  ([?\C-c ?A] #'gptel-agent)
+
   ([?\C-c ?y] #'tiny-expand)
 
   ([remap async-shell-command] 'with-editor-async-shell-command)
