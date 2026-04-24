@@ -4,6 +4,7 @@
 !/src/
 !/share/
 
+!/.agents/
 !/.config/
 !/.gemini/
 !/.gnupg/
