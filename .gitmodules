@@ -28,3 +28,6 @@
 [submodule ".config/emacs/vc/majutsu"]
 	path = .config/emacs/vc/majutsu
 	url = https://github.com/0WD0/majutsu.git
+[submodule "src/obsidian-skills"]
+	path = src/obsidian-skills
+	url = https://github.com/kepano/obsidian-skills.git
