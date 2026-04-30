@@ -62,6 +62,13 @@
   (when (package-installed-p 'mcp)
     (require 'gptel-integrations)))
 
+(with-eval-after-load 'gptel-agent-tools
+  ;; Remove the Agent tool because it causes an undefined variable
+  ;; error on `gptel-send--transitions'.  MELPA gptel-agent depends on
+  ;; a newer version of gptel than ELPA right now.
+  (dolist (category gptel--known-tools)
+    (setcdr category (assoc-delete-all "Agent" (cdr category)))))
+
 (with-eval-after-load 'gptel-request
   ;; Ideally should be set with customize
   ;; but the gptel-backend value check is broken.
