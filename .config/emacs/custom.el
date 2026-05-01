@@ -251,18 +251,7 @@
      ("melpa-stable" . "https://stable.melpa.org/packages/")))
  '(package-check-signature t)
  '(package-install-upgrade-built-in t)
- '(package-pinned-packages
-   '((markdown-mode . "nongnu") (dash . "gnu") (transient . "gnu")
-     (yasnippet . "gnu") (ws-butler . "nongnu")
-     (with-editor . "nongnu") (wgrep . "nongnu") (vlf . "nongnu")
-     (vertico . "gnu") (tiny . "gnu") (systemd . "nongnu")
-     (smartparens . "nongnu") (keycast . "nongnu")
-     (htmlize . "nongnu") (gptel . "nongnu") (expand-region . "gnu")
-     (dockerfile-mode . "nongnu") (diff-hl . "gnu") (consult . "gnu")
-     (bash-completion . "nongnu") (async . "gnu")
-     (aggressive-indent . "gnu") (orderless . "gnu")
-     (marginalia . "gnu") (bind-key . "gnu") (use-package . "gnu")
-     (faceup . "gnu") (which-key . "gnu") (cond-let . "nongnu")))
+ '(package-pinned-packages nil)
  '(package-quickstart t)
  '(package-selected-packages
    '(agent-shell aggressive-indent async bash-completion bazel bluetooth
