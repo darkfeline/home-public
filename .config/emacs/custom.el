@@ -242,6 +242,7 @@
    (lambda nil (and (looking-at org-outline-regexp) (looking-back "^**"))))
  '(org-use-sub-superscripts '{})
  '(org-yank-folded-subtrees nil)
+ '(package-archive-priorities '(("nongnu" . 1) ("gnu" . 1)))
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
