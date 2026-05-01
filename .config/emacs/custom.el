@@ -245,6 +245,7 @@
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+     ("nongnu-devel" . "https://elpa.nongnu.org/nongnu-devel/")
      ("melpa" . "https://melpa.org/packages/")
      ("melpa-stable" . "https://stable.melpa.org/packages/")))
  '(package-check-signature t)
