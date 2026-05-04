@@ -251,6 +251,8 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
   ([remap describe-key] #'helpful-key)
   ([remap describe-command] #'helpful-command)
 
+  ([?\C-c ?a ?s] #'agent-shell)
+
   ([?\C-c ?g] (lambda ()
                 (interactive)
                 (let ((p (project-current)))
@@ -267,7 +269,7 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
   ([?\C-c ?t] #'gptel-send)
   ([?\C-c ?T] #'gptel)
 
-  ([?\C-c ?A] #'gptel-agent)
+  ([?\C-c ?a ?g] #'gptel-agent)
 
   ([?\C-c ?y] #'tiny-expand)
 
