@@ -26,7 +26,7 @@ alias psefg="ps -ef | grep"
 alias pt="pstree -ps"
 alias s="ssh"
 alias sc="scmode"
-alias sshoe="ssh -O exit"
+alias soe="ssh -O exit"
 alias tpr="tput reset"
 
 # systemctl aliases
