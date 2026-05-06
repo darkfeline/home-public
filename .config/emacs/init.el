@@ -69,7 +69,10 @@
         gptel-backend
         (gptel-make-gemini "Gemini"
           :key #'gptel-api-key-from-auth-source
-          :stream t)))
+          :stream t))
+  ;; Ensure tools are loaded.
+  (when (package-installed-p 'gptel-agent)
+    (require 'gptel-agent-tools)))
 
 (with-eval-after-load 'gptel-commit
   (when (require 'gptel-magit nil :noerror)
