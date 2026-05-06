@@ -103,7 +103,7 @@
      (shell
       . "You are a large language model and an expert software engineer.  Respond only with valid shell commands and without any markup.")))
  '(gptel-include-reasoning nil)
- '(gptel-magit-model 'gemini-2.5-flash-lite)
+ '(gptel-magit-model 'gemini-flash-lite-latest)
  '(history-length 4000)
  '(ibuffer-formats
    '((mark modified read-only locked " " (name 36 36 :left :elide) " "
