@@ -133,7 +133,11 @@
 
 
 ;;; Advice
-(define-advice shell-mode (:around (old))
+(define-advice agent-shell--ensure-gitignore (:around (orig-fun &rest args))
+  "Stop agent-shell from vomiting in gitignore."
+  nil)
+
+(define-advice shell-mode (:around (old &rest args))
   "Stop `shell-mode' reusing the buffer from defontifying.
 See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
   (if (eq major-mode 'shell-mode)
