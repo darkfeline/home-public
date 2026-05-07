@@ -59,6 +59,7 @@
     ([?\C-c ?i] #'consult-imenu)))
 
 (with-eval-after-load 'gptel
+  ;; Load MCP support
   (when (package-installed-p 'mcp)
     (require 'gptel-integrations)))
 
@@ -72,7 +73,9 @@
           :stream t))
   ;; Ensure tools are loaded.
   (when (package-installed-p 'gptel-agent)
-    (require 'gptel-agent-tools)))
+    (require 'gptel-agent-tools))
+  (when (locate-library "jakuri-gptel")
+    (require 'jakuri-gptel)))
 
 (with-eval-after-load 'gptel-commit
   (when (require 'gptel-magit nil :noerror)
