@@ -66,8 +66,7 @@
 (with-eval-after-load 'gptel-request
   ;; Ideally should be set with customize
   ;; but the gptel-backend value check is broken.
-  (setq gptel-model 'gemini-flash-latest
-        gptel-backend
+  (setq gptel-backend
         (gptel-make-gemini "Gemini"
           :key #'gptel-api-key-from-auth-source
           :stream t))
