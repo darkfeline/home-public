@@ -510,6 +510,15 @@ binds {
     Mod+Shift+Ctrl+K     { move-workspace-to-monitor-up; }
     Mod+Shift+Ctrl+L     { move-workspace-to-monitor-right; }
 
+    Mod+Shift+Alt+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Alt+Down  { move-column-to-monitor-down; }
+    Mod+Shift+Alt+Up    { move-column-to-monitor-up; }
+    Mod+Shift+Alt+Right { move-column-to-monitor-right; }
+    Mod+Shift+Alt+H     { move-column-to-monitor-left; }
+    Mod+Shift+Alt+J     { move-column-to-monitor-down; }
+    Mod+Shift+Alt+K     { move-column-to-monitor-up; }
+    Mod+Shift+Alt+L     { move-column-to-monitor-right; }
+
     // Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     // ...
 
