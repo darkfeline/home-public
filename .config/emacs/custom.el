@@ -120,9 +120,10 @@
        (process))
       ("Dead Shell"
        (or (used-mode . shell-command-mode) (used-mode . shell-mode)))
+      ("Term"
+       (used-mode . vterm-mode))
       ("Agents"
        (or (used-mode . agent-shell-mode) (name . "^\\*gptel-agent:")))
-      ("ERC" (used-mode . erc-mode))
       ("Tramp"
        (or (filename . "^/scp:") (filename . "^/ssh:")
            (filename . "^/sudo:")))
