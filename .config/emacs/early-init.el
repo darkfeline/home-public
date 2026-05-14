@@ -28,8 +28,7 @@
  '(default ((t (:inherit nil :extend nil :stipple nil :background "gray20" :foreground "white smoke" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "ADBO" :family "Source Code Pro")))))
 
 ;; Define add-on packages early so they can be modified by later early-init steps.
-(defvar jakuri-vc-packages '(easydraw
-                             go-mode
+(defvar jakuri-vc-packages '(go-mode
                              magit
                              majutsu
                              reintegrate
