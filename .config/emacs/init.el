@@ -76,10 +76,6 @@
   (when (locate-library "jakuri-gptel")
     (require 'jakuri-gptel)))
 
-(with-eval-after-load 'gptel-commit
-  (when (require 'gptel-magit nil :noerror)
-    (setq gptel-commit-prompt gptel-magit-prompt-zed)))
-
 (with-eval-after-load 'gptel-magit
   (setq gptel-magit-commit-prompt gptel-magit-prompt-zed))
 
