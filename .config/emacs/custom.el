@@ -65,6 +65,8 @@
  '(display-time-24hr-format t)
  '(display-time-day-and-date t)
  '(display-time-use-mail-icon t)
+ '(eat-eshell-mode t)
+ '(eat-eshell-visual-command-mode t)
  '(echo-keystrokes 0.001)
  '(ediff-window-setup-function 'ediff-setup-windows-plain)
  '(eglot-menu-string "egl")
