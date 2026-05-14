@@ -263,15 +263,14 @@
                  flymake-shellcheck git-timemachine
                  gnu-elpa-keyring-update go-mode gptel gptel-agent
                  gptel-commit gptel-magit graphviz-dot-mode helpful
-                 htmlize ialign idlwave ipcalc jakuri json-mode
-                 kdl-mode keycast lua-mode magit marginalia
-                 markdown-mode mcp minions obsidian orderless org peg
-                 pinentry project protobuf-mode python rainbow-mode
-                 reintegrate seq smartparens string-inflection systemd
-                 tiny toml-mode track-changes tramp valign verb
-                 verilog-mode vertico vlf vterm vundo wgrep which-key
-                 window-tool-bar with-editor ws-butler xterm-color
-                 yaml-mode yasnippet))
+                 htmlize ialign jakuri json-mode kdl-mode keycast
+                 lua-mode magit marginalia markdown-mode mcp minions
+                 obsidian orderless org peg pinentry project
+                 protobuf-mode python rainbow-mode reintegrate seq
+                 smartparens string-inflection systemd tiny toml-mode
+                 track-changes tramp valign verb vertico vlf vterm
+                 vundo wgrep which-key window-tool-bar with-editor
+                 ws-butler xterm-color yaml-mode yasnippet))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(project-list-file "~/.local/state/emacs/projects")
  '(project-switch-commands
