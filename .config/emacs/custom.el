@@ -266,10 +266,10 @@
                  kdl-mode keycast lua-mode magit marginalia
                  markdown-mode mcp minions obsidian orderless org
                  pinentry project protobuf-mode python rainbow-mode
-                 reintegrate smartparens string-inflection systemd
-                 toml-mode track-changes tramp valign verb vertico vlf
-                 vterm vundo wgrep which-key window-tool-bar
-                 with-editor ws-butler xterm-color yaml-mode yasnippet))
+                 reintegrate smartparens systemd toml-mode
+                 track-changes tramp valign vertico vlf vterm vundo
+                 wgrep which-key window-tool-bar with-editor ws-butler
+                 xterm-color yaml-mode yasnippet))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(project-list-file "~/.local/state/emacs/projects")
  '(project-switch-commands
