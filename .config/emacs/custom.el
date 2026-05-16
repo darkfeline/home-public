@@ -104,7 +104,6 @@
       . "You are a large language model and a conversation partner. Respond concisely.")
      (shell
       . "You are a large language model and an expert software engineer.  Respond only with valid shell commands and without any markup.")))
- '(gptel-magit-model 'gemini-flash-lite-latest)
  '(gptel-model 'gemini-flash-latest)
  '(history-length 4000)
  '(ibuffer-formats
@@ -263,15 +262,15 @@
                  eglot emmet-mode erc expand-region flymake
                  flymake-shellcheck git-timemachine
                  gnu-elpa-keyring-update go-mode gptel gptel-agent
-                 gptel-magit graphviz-dot-mode helpful htmlize ialign
-                 jakuri json-mode kdl-mode keycast lua-mode magit
-                 marginalia markdown-mode mcp minions obsidian
-                 orderless org peg pinentry project protobuf-mode
-                 python rainbow-mode reintegrate seq smartparens
-                 string-inflection systemd tiny toml-mode
-                 track-changes tramp valign verb vertico vlf vterm
-                 vundo wgrep which-key window-tool-bar with-editor
-                 ws-butler xterm-color yaml-mode yasnippet))
+                 graphviz-dot-mode helpful htmlize ialign jakuri
+                 json-mode kdl-mode keycast lua-mode magit marginalia
+                 markdown-mode mcp minions obsidian orderless org peg
+                 pinentry project protobuf-mode python rainbow-mode
+                 reintegrate seq smartparens string-inflection systemd
+                 tiny toml-mode track-changes tramp valign verb
+                 vertico vlf vterm vundo wgrep which-key
+                 window-tool-bar with-editor ws-butler xterm-color
+                 yaml-mode yasnippet))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(project-list-file "~/.local/state/emacs/projects")
  '(project-switch-commands

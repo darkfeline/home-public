@@ -76,9 +76,6 @@
   (when (locate-library "jakuri-gptel")
     (require 'jakuri-gptel)))
 
-(with-eval-after-load 'gptel-magit
-  (setq gptel-magit-commit-prompt gptel-magit-prompt-zed))
-
 (with-eval-after-load 'grep
   (require 'wgrep))
 
@@ -328,9 +325,6 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
   (dolist (v '(("\\.gn\\'" . gn-mode)
                ("\\.gni\\'" . gn-mode)))
     (add-to-list 'auto-mode-alist v)))
-
-(when (locate-library "gptel-magit")
-  (gptel-magit-install))
 
 (when (locate-library "org")
   (require 'org-protocol))
