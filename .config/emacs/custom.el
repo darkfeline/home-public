@@ -119,8 +119,7 @@
        (process))
       ("Dead Shell"
        (or (used-mode . shell-command-mode) (used-mode . shell-mode)))
-      ("Term"
-       (used-mode . vterm-mode))
+      ("Term" (used-mode . vterm-mode))
       ("Agents"
        (or (used-mode . agent-shell-mode) (name . "^\\*gptel-agent:")))
       ("Tramp"
@@ -256,20 +255,21 @@
  '(package-pinned-packages nil)
  '(package-quickstart t)
  '(package-selected-packages
-   '(agent-shell aggressive-indent async bash-completion bazel breadcrumb
-                 cond-let consult csv-mode ddskk diff-hl
-                 dockerfile-mode dumb-jump easydraw eat editorconfig
-                 eglot emmet-mode erc expand-region flymake
-                 flymake-shellcheck git-timemachine
-                 gnu-elpa-keyring-update go-mode gptel gptel-agent
-                 graphviz-dot-mode helpful htmlize jakuri json-mode
-                 kdl-mode keycast lua-mode magit marginalia
-                 markdown-mode mcp minions obsidian orderless org
-                 pinentry project protobuf-mode python rainbow-mode
-                 reintegrate smartparens systemd toml-mode
-                 track-changes tramp valign vertico vlf vterm vundo
-                 wgrep which-key window-tool-bar with-editor ws-butler
-                 xterm-color yaml-mode yasnippet))
+   '(aggressive-indent async bash-completion bazel breadcrumb cond-let
+                       consult csv-mode ddskk diff-hl dockerfile-mode
+                       dumb-jump easydraw eat editorconfig eglot
+                       emmet-mode expand-region flymake
+                       flymake-shellcheck git-timemachine
+                       gnu-elpa-keyring-update go-mode gptel
+                       gptel-agent graphviz-dot-mode helpful htmlize
+                       jakuri json-mode kdl-mode keycast lua-mode
+                       magit marginalia markdown-mode mcp minions
+                       obsidian orderless org pinentry project
+                       protobuf-mode python rainbow-mode reintegrate
+                       smartparens systemd toml-mode track-changes
+                       tramp valign vertico vlf vterm vundo wgrep
+                       which-key window-tool-bar with-editor ws-butler
+                       xterm-color yaml-mode yasnippet))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(project-list-file "~/.local/state/emacs/projects")
  '(project-switch-commands
