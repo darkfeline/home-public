@@ -20,14 +20,6 @@
 
 
 ;;; Eval after load
-(with-eval-after-load 'agent-shell
-  (setopt
-   agent-shell-dot-subdir-function
-   (lambda (subdir)
-     (let* ((cwd (string-remove-suffix "/" (agent-shell-cwd)))
-            (sanitized (replace-regexp-in-string "/" "-" (string-remove-prefix "/" cwd))))
-       (expand-file-name subdir (concat "~/.local/state/agent-shell/" sanitized))))))
-
 (with-eval-after-load 'cc-styles
   ;; Linux uses tabs for indent, but this is omitted from the linux
   ;; style shipped with Emacs.
@@ -131,10 +123,6 @@
 
 
 ;;; Advice
-(define-advice agent-shell--ensure-gitignore (:around (orig-fun &rest args))
-  "Stop agent-shell from vomiting in gitignore."
-  nil)
-
 (define-advice shell-mode (:around (old &rest args))
   "Stop `shell-mode' reusing the buffer from defontifying.
 See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."

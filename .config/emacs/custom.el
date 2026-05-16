@@ -6,8 +6,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(abbrev-file-name "~/.local/state/emacs/abbrev_defs")
- '(agent-shell-header-style 'text)
- '(agent-shell-preferred-agent-config 'gemini-cli)
  '(ansi-color-for-comint-mode nil)
  '(async-bytecomp-package-mode t)
  '(async-shell-command-buffer 'new-buffer)
@@ -121,7 +119,7 @@
        (or (used-mode . shell-command-mode) (used-mode . shell-mode)))
       ("Term" (used-mode . vterm-mode))
       ("Agents"
-       (or (used-mode . agent-shell-mode) (name . "^\\*gptel-agent:")))
+       (or (name . "^\\*gptel-agent:")))
       ("Tramp"
        (or (filename . "^/scp:") (filename . "^/ssh:")
            (filename . "^/sudo:")))
