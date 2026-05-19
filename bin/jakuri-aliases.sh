@@ -26,6 +26,8 @@ alias psefg="ps -ef | grep"
 alias pt="pstree -ps"
 alias s="ssh"
 alias sc="scmode"
+alias shpl="shpool list"
+alias shpa="shpool attach -d ."
 alias soe="ssh -O exit"
 alias tpr="tput reset"
 
