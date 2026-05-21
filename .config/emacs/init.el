@@ -53,7 +53,16 @@
 (with-eval-after-load 'gptel
   ;; Load MCP support
   (when (package-installed-p 'mcp)
-    (require 'gptel-integrations)))
+    (require 'gptel-integrations))
+
+  ;; Prompt for confirmation for MCP tools
+  (add-hook 'gptel-pre-tool-call-functions
+            (lambda (tool-info)
+              (let* ((name (plist-get tool-info :name))
+                     (tool-spec (seq-find (lambda (ts) (equal (gptel-tool-name ts) name))
+                                          gptel-tools)))
+                (when (and tool-spec (string-prefix-p "mcp-" (gptel-tool-category tool-spec)))
+                  '(:confirm t))))))
 
 (with-eval-after-load 'gptel-request
   ;; Ideally should be set with customize
