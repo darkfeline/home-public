@@ -256,6 +256,7 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
 
   ([?\C-c ?t] #'gptel-send)
   ([?\C-c ?T] #'gptel)
+  ([?\C-c ?A] #'gptel-abort)
 
   ([?\C-c ?a] #'gptel-agent)
 
