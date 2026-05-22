@@ -28,9 +28,18 @@
  '(default ((t (:inherit nil :extend nil :stipple nil :background "gray20" :foreground "white smoke" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "ADBO" :family "Source Code Pro")))))
 
 ;; Define add-on packages early so they can be modified by later early-init steps.
+;; This var gets formally re-defined in `jakuri.el'.
 (defvar jakuri-vc-packages '(go-mode
                              magit
                              majutsu
                              reintegrate
                              jakuri)
   "List of packages to be called with `mir-init-bootstrap-package-vc'.")
+
+;; This is needed so `package-vc' can find the right file to parse the
+;; version number from.
+;;
+;; Ordinarily it will try to fetch specs from archives, but because
+;; magit is weird, not all archives will specify the lisp dir for
+;; magit, resulting in it failing to parse the version.
+(setq package-vc-selected-packages '((magit :lisp-dir "lisp")))
