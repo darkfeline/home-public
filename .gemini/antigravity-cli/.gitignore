@@ -1,0 +1,16 @@
+/bin/
+/brain/
+/cache/
+/conversations/
+/knowledge/
+/log/
+/scratch/
+/updater/
+
+/antigravity-oauth-token
+/history.jsonl
+/installation_id
+/settings.json
+
+*.log
+*.timestamp
