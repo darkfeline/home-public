@@ -15,10 +15,6 @@ PATH=$HOME/.cargo/bin:$PATH
 PATH=$HOME/.local/bin:$PATH
 PATH=$HOME/bin:$PATH
 
-# XDG
-export XDG_MUSIC_DIR=$HOME/library/music
-export XDG_PROJECTS_DIR=$HOME/src
-
 # Application environment
 export ALTERNATE_EDITOR=
 export AUR_PAGER=$HOME/bin/dired

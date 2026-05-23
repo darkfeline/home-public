@@ -21,3 +21,5 @@
 !/systemd/
 !/waybar/
 !/xdg-desktop-portal/
+
+!/user-dirs.dirs
