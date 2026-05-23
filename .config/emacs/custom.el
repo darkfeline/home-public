@@ -91,7 +91,7 @@
    '((c1-control . acronym) (format-control . acronym)
      (no-font . acronym)))
  '(gofmt-command "goimports")
- '(gptel-agent-skill-dirs '(".agents/skills" "~/.config/emacs/gptel/skills"))
+ '(gptel-agent-skill-dirs '(".agents/skills" "~/.config/emacs/gptel-agent/skills"))
  '(gptel-directives
    '((default
       . "You are a large language model living in Emacs and a helpful assistant. Respond concisely.")
