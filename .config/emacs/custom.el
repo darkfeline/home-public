@@ -327,6 +327,7 @@
  '(tool-bar-mode nil)
  '(tooltip-mode nil)
  '(tooltip-resize-echo-area t)
+ '(tramp-histfile-override "~/.local/state/emacs/tramp_history")
  '(tramp-persistency-file-name "~/.local/state/emacs/tramp")
  '(transient-history-file "~/.local/state/emacs/transient/history.el")
  '(transient-levels-file "~/.local/state/emacs/transient/levels.el")
