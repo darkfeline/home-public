@@ -55,6 +55,8 @@ ${TOOLBOX_PATH+⬢}\
     esac
     # Update history file.
     history -a
+    # Support for emacs-libvterm
+    PS1=$PS1'\[$(vterm_prompt_end)\]'
 }
 
 if shopt -q progcomp; then
@@ -90,4 +92,7 @@ vterm_printf() {
     else
         printf "\e]%s\e\\" "$1"
     fi
+}
+vterm_prompt_end(){
+    vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
 }
