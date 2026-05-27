@@ -117,7 +117,16 @@
   (mir-init-bind-keys vterm-mode-map
     ([?\C-c ?\C-d] #'vterm--self-insert)
     ([?\C-c ?\C-e] #'vterm-send-escape)
-    ([?\C-c ?\C-q] #'vterm-send-next-key)))
+    ([?\C-c ?\C-q] #'vterm-send-next-key))
+
+  ;; Set up directory in buffer listing
+  ;; https://github.com/akermu/emacs-libvterm/pull/804
+  (add-hook 'vterm-mode-hook
+            (lambda ()
+              (setq list-buffers-directory default-directory)))
+  (advice-add 'vterm--set-directory :after
+              (lambda (&rest _)
+                (setq list-buffers-directory default-directory))))
 
 (with-eval-after-load 'wdired
   (mir-init-bind-keys wdired-mode-map
