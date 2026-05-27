@@ -343,6 +343,7 @@
  '(user-mail-address "darkfeline@felesatra.moe")
  '(vertico-mode t)
  '(visible-bell t)
+ '(vterm-max-scrollback 5000)
  '(wdired-allow-to-change-permissions t)
  '(wgrep-auto-save-buffer t)
  '(window-combination-limit 'display-buffer)
