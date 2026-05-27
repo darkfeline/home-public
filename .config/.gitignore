@@ -17,6 +17,7 @@
 !/logrotate/
 !/mpd/
 !/niri/
+!/shpool/
 !/swaylock/
 !/systemd/
 !/waybar/
