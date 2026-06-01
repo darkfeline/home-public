@@ -40,6 +40,7 @@ NUM_COLOR="${FG_BRIGHT_WHITE}${B}"
   read -r ARTIFACTS
   read -r SUBAGENTS
   read -r BG_TASKS
+  read -r CWD
   read -r MODEL
   read -r COLS
 } <<< "$(
@@ -52,9 +53,10 @@ NUM_COLOR="${FG_BRIGHT_WHITE}${B}"
     (.artifact_count // 0),
     (if .subagents | type == "array" then (.subagents | length) else 0 end),
     (.task_count // 0),
+    (.cwd // ""),
     (.model.display_name // ""),
     (.terminal_width // 80)
-  ' 2>/dev/null || printf "idle\n0\n\nfalse\nfalse\n0\n0\n0\n\n80\n"
+  ' 2>/dev/null || printf "idle\n0\n\nfalse\nfalse\n0\n0\n0\n\n\n80\n"
 )"
 
 # ─── Computed Values ─────────────────────────────────────────────────────────
@@ -85,6 +87,12 @@ fi
 M=""
 if [ -n "$MODEL" ]; then
   M="${FG_GRAY} ╱ ${FG_BRIGHT_MAGENTA}${I}${MODEL}${R}"
+fi
+
+# ─── CWD ─────────────────────────────────────────────────────────────────────
+C=""
+if [ -n "$CWD" ]; then
+  C="${FG_GRAY} ╱ ${FG_BRIGHT_CYAN}${CWD}${R}"
 fi
 
 # ─── Sandbox Badge ───────────────────────────────────────────────────────────
@@ -138,7 +146,7 @@ BG_FMT="${FG_GRAY}tasks ${NUM_COLOR}${BG_TASKS}${R}"
 DOT="${FG_GRAY} · ${R}"
 
 # ─── Output ──────────────────────────────────────────────────────────────────
-LINE1="${S}${M}${V}"
+LINE1="${S}${M}${V}${C}"
 LINE2=" ${CTX}${DOT}${ART_FMT}${DOT}${SUB_FMT}${DOT}${BG_FMT}${DOT}${SB}"
 
 if [ "$COLS" -ge 120 ]; then
