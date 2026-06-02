@@ -4,3 +4,11 @@ pager = "mpager"
 [user]
 name = "Allen Li"
 email = "darkfeline@feleatra.moe"
+
+[aliases]
+d = ["diff"]
+dno = ["diff", "--name-only"]
+ds = ["describe"]
+g = ["git"]
+n = ["new"]
+sq = ["squash"]
