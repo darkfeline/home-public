@@ -114,10 +114,20 @@
     ([?\M-a] #'marginalia-cycle)))
 
 (with-eval-after-load 'vterm
+  (defun vterm-send-shift-return ()
+    "Send Shift-Return to the libvterm via CSI u escape sequence.
+
+See URL `https://github.com/akermu/emacs-libvterm/issues/805'"
+    (interactive)
+    (deactivate-mark)
+    (when vterm--term
+      (process-send-string vterm--process "\e[13;2u")))
+
   (mir-init-bind-keys vterm-mode-map
     ([?\C-c ?\C-d] #'vterm--self-insert)
     ([?\C-c ?\C-e] #'vterm-send-escape)
-    ([?\C-c ?\C-q] #'vterm-send-next-key))
+    ([?\C-c ?\C-q] #'vterm-send-next-key)
+    ([S-return] #'vterm-send-shift-return))
 
   ;; Set up directory in buffer listing
   ;; https://github.com/akermu/emacs-libvterm/pull/804
