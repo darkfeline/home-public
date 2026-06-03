@@ -1,4 +1,5 @@
 alias ec="emacsclient"
+alias en="emacsclient -nw"
 alias ecnw="emacsclient -nw"
 alias engi="env | grep -i"
 alias g="git"
