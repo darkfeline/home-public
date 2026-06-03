@@ -5,11 +5,14 @@ pager = "mpager"
 name = "Allen Li"
 email = "darkfeline@feleatra.moe"
 
+[revsets]
+log = "present(@) | ancestors(immutable_heads().., 2) | trunk()"
+
 [aliases]
 d = ["diff"]
 dno = ["diff", "--name-only"]
 ds = ["describe"]
 g = ["git"]
-lh = ["log", "-r", "fork_point(heads(all()))::"]
+lm = ["log", "-r", "present(master):: | present(main)::"]
 n = ["new"]
 sq = ["squash"]
