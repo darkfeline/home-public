@@ -33,3 +33,9 @@ family = "Source Code Pro"
 
 [window]
 dynamic_title = true
+
+[keyboard]
+bindings = [
+  # Send the CSI u escape sequence for Shift+Return
+  { key = "Return", mods = "Shift", chars = "\u001b[13;2u" }
+]
