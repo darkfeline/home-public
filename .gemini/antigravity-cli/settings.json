@@ -1,4 +1,8 @@
 {
   "colorScheme": "dark",
-  "enableTelemetry": false
+  "enableTelemetry": false,
+  "statusLine": {
+    "type": "command",
+    "command": "~/.gemini/antigravity-cli/statusline.sh"
+  }
 }
