@@ -80,6 +80,12 @@
 (with-eval-after-load 'grep
   (require 'wgrep))
 
+(with-eval-after-load 'mcp-hub
+  (let ((file (expand-file-name "~/.config/emacs/gptel-agent/mcp.json")))
+    (when (file-exists-p file)
+      (setq mcp-hub-servers
+            (jakuri-gptel-load-mcp-json file)))))
+
 (with-eval-after-load 'org
   (mir-init-bind-keys org-mode-map
     ([?\C-c ?\M-,] #'org-insert-structure-template))
