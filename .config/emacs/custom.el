@@ -34,6 +34,7 @@
               (if time-zone ")")))
  '(calendar-week-start-day 1)
  '(checkdoc-verb-check-experimental-flag nil)
+ '(comint-buffer-maximum-size 4096)
  '(comint-input-ring-size 20000)
  '(comint-terminfo-terminal "dumb-emacs-ansi")
  '(comment-empty-lines 'eol)
