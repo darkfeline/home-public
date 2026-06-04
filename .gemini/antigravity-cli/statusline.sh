@@ -29,6 +29,24 @@ FG_BRIGHT_WHITE="\033[97m"
 # Number Highlight Color
 NUM_COLOR="${FG_BRIGHT_WHITE}${B}"
 
+# ─── Path Shortening Helper ──────────────────────────────────────────────────
+shorten_path() {
+  local p="$1"
+  if [ -n "${HOME:-}" ]; then
+    if [[ "$p" == file://* ]]; then
+      local path_part="${p#file://}"
+      if [[ "$path_part" == "$HOME"* ]]; then
+        p="file://~${path_part#$HOME}"
+      fi
+    else
+      if [[ "$p" == "$HOME"* ]]; then
+        p="~${p#$HOME}"
+      fi
+    fi
+  fi
+  echo "$p"
+}
+
 # ─── Parse JSON from stdin (Single jq pass for performance) ──────────────────
 # Extract all fields in one pass to prevent spawning jq 8 times.
 {
@@ -41,6 +59,8 @@ NUM_COLOR="${FG_BRIGHT_WHITE}${B}"
   read -r SUBAGENTS
   read -r BG_TASKS
   read -r CWD
+  read -r WS_CURRENT_DIR
+  read -r WS_PROJECT_DIR
   read -r MODEL
   read -r COLS
 } <<< "$(
@@ -54,10 +74,16 @@ NUM_COLOR="${FG_BRIGHT_WHITE}${B}"
     (if .subagents | type == "array" then (.subagents | length) else 0 end),
     (.task_count // 0),
     (.cwd // ""),
+    (.workspace.current_dir // ""),
+    (.workspace.project_dir // ""),
     (.model.display_name // ""),
     (.terminal_width // 80)
-  ' 2>/dev/null || printf "idle\n0\n\nfalse\nfalse\n0\n0\n0\n\n\n80\n"
+  ' 2>/dev/null || printf "idle\n0\n\nfalse\nfalse\n0\n0\n0\n\n\n\n\n80\n"
 )"
+
+CWD=$(shorten_path "$CWD")
+WS_CURRENT_DIR=$(shorten_path "$WS_CURRENT_DIR")
+WS_PROJECT_DIR=$(shorten_path "$WS_PROJECT_DIR")
 
 # ─── Computed Values ─────────────────────────────────────────────────────────
 # Use LC_NUMERIC=C to prevent bash printf errors in locales that use commas for decimals
@@ -89,10 +115,24 @@ if [ -n "$MODEL" ]; then
   M="${FG_GRAY} ╱ ${FG_BRIGHT_MAGENTA}${I}${MODEL}${R}"
 fi
 
-# ─── CWD ─────────────────────────────────────────────────────────────────────
+# ─── CWD & Workspace Current Dir ─────────────────────────────────────────────
 C=""
-if [ -n "$CWD" ]; then
+if [ -n "$CWD" ] && [ -n "$WS_CURRENT_DIR" ]; then
+  if [ "$CWD" = "$WS_CURRENT_DIR" ]; then
+    C="${FG_GRAY} ╱ ${FG_BRIGHT_CYAN}${CWD}${R}"
+  else
+    C="${FG_GRAY} ╱ ${FG_BRIGHT_CYAN}${CWD}${FG_GRAY} (${FG_BRIGHT_GREEN}${WS_CURRENT_DIR}${FG_GRAY})${R}"
+  fi
+elif [ -n "$CWD" ]; then
   C="${FG_GRAY} ╱ ${FG_BRIGHT_CYAN}${CWD}${R}"
+elif [ -n "$WS_CURRENT_DIR" ]; then
+  C="${FG_GRAY} ╱ ${FG_BRIGHT_CYAN}${WS_CURRENT_DIR}${R}"
+fi
+
+# ─── Workspace Project ───────────────────────────────────────────────────────
+WS_PROJ=""
+if [ -n "$WS_PROJECT_DIR" ]; then
+  WS_PROJ="${FG_GRAY} ╱ ${FG_BRIGHT_YELLOW}${WS_PROJECT_DIR}${R}"
 fi
 
 # ─── Sandbox Badge ───────────────────────────────────────────────────────────
@@ -146,7 +186,7 @@ BG_FMT="${FG_GRAY}tasks ${NUM_COLOR}${BG_TASKS}${R}"
 DOT="${FG_GRAY} · ${R}"
 
 # ─── Output ──────────────────────────────────────────────────────────────────
-LINE1="${S}${M}${V}${C}"
+LINE1="${S}${M}${V}${C}${WS_PROJ}"
 LINE2=" ${CTX}${DOT}${ART_FMT}${DOT}${SUB_FMT}${DOT}${BG_FMT}${DOT}${SB}"
 
 if [ "$COLS" -ge 120 ]; then
