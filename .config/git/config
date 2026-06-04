@@ -83,3 +83,7 @@
 [credential "https://gist.github.com"]
 	helper =
 	helper = !/usr/bin/gh auth git-credential
+
+[filter "clean-agy"]
+	clean = jq 'del(.trustedWorkspaces)'
+	smudge = cat
