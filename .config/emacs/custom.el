@@ -142,7 +142,7 @@
  '(kill-read-only-ok t)
  '(magit-clone-set-remote.pushDefault nil)
  '(magit-define-global-key-bindings t)
- '(magit-diff-refine-hunk 'all)
+ '(magit-diff-refine-hunk t)
  '(magit-remote-add-set-remote.pushDefault nil)
  '(magit-repository-directories
    '(("~" . 0) ("~/.config/emacs" . 0) ("~/.config/emacs/elpa" . 0)
