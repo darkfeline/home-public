@@ -177,10 +177,10 @@ for ((i = 0; i < BAR_LEN; i++)); do
 done
 
 # ─── Stats ───────────────────────────────────────────────────────────────────
-CTX="${FG_GRAY}ctx ${BAR_COLOR}${BAR} ${NUM_COLOR}${PCT_FMT}%${R}"
-ART_FMT="${FG_GRAY}artifacts ${NUM_COLOR}${ARTIFACTS}${R}"
-SUB_FMT="${FG_GRAY}subagents ${NUM_COLOR}${SUBAGENTS}${R}"
-BG_FMT="${FG_GRAY}tasks ${NUM_COLOR}${BG_TASKS}${R}"
+CTX="${FG_WHITE}ctx ${BAR_COLOR}${BAR} ${NUM_COLOR}${PCT_FMT}%${R}"
+ART_FMT="${FG_WHITE}artifacts ${NUM_COLOR}${ARTIFACTS}${R}"
+SUB_FMT="${FG_WHITE}subagents ${NUM_COLOR}${SUBAGENTS}${R}"
+BG_FMT="${FG_WHITE}tasks ${NUM_COLOR}${BG_TASKS}${R}"
 
 # ─── Separators ──────────────────────────────────────────────────────────────
 DOT="${FG_GRAY} · ${R}"
