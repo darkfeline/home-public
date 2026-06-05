@@ -43,7 +43,6 @@ ${__mir_prompt_prefix}\
 ↪ \[${exit_color}\]${exit}\[${RESET}\]\
 ${__mir_start_time:+ \[${YELLOW}\]$(( EPOCHSECONDS - __mir_start_time ))s\[${RESET}\]} \
 \D{%F %T %Z} \
-${TOOLBOX_PATH+⬢}\
 \[${GREEN}\]\u\[${RESET}\]\
 @\[${GREEN}\]\h\[${RESET}\]\
 :\[${GREEN}\]\w\[${RESET}\] \$ "
