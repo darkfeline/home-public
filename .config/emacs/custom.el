@@ -53,7 +53,7 @@
  '(dired-dwim-target t)
  '(dired-guess-shell-alist-user
    '(("\\.ipynb\\'" "jupyter-notebook")
-     ("\\.\\(png\\|jpg\\|bmp\\)\\'" "sxiv")
+     ("\\.\\(png\\|jpg\\|bmp\\)\\'" "nsxiv")
      ("\\.\\(7z\\|zip\\|rar\\)\\'" "7z x" "7z l"
       (format "7z x -o\"%s\"" (file-name-sans-extension file)))
      ("\\.\\(avi\\|flac\\|ogg\\|m4a\\|mkv\\|mp[34]\\|wav\\|webm\\|wmv\\)\\'"
