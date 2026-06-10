@@ -131,7 +131,7 @@ fi
 
 # ─── Workspace Project ───────────────────────────────────────────────────────
 WS_PROJ=""
-if [ -n "$WS_PROJECT_DIR" ]; then
+if [ -n "$WS_PROJECT_DIR" ] && [ "${WS_PROJECT_DIR#file://}" != "${CWD#file://}" ]; then
   WS_PROJ="${FG_GRAY} ╱ ${FG_BRIGHT_YELLOW}${WS_PROJECT_DIR}${R}"
 fi
 
