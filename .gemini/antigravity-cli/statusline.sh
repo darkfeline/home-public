@@ -187,15 +187,15 @@ DOT="${FG_GRAY} · ${R}"
 
 # ─── Output ──────────────────────────────────────────────────────────────────
 LINE1="${S}${M}${V}${C}${WS_PROJ}"
-LINE2=" ${CTX}${DOT}${ART_FMT}${DOT}${SUB_FMT}${DOT}${BG_FMT}${DOT}${SB}"
+LINE2="${CTX}${DOT}${ART_FMT}${DOT}${SUB_FMT}${DOT}${BG_FMT}${DOT}${SB}"
 
 if [ "$COLS" -ge 120 ]; then
   # Wide: single line
-  echo -e "${LINE1}${FG_GRAY}  │  ${R}${LINE2}"
+  echo -e "${LINE1}${FG_GRAY} │ ${R}${LINE2}"
 elif [ "$COLS" -ge 80 ]; then
   # Medium: two-line layout with border
   echo -e "${FG_GRAY}╭─${R} ${LINE1}"
-  echo -e "${FG_GRAY}╰─${R}${LINE2}"
+  echo -e "${FG_GRAY}╰─${R} ${LINE2}"
 else
   # Narrow: compact two-line, minimal chrome
   echo -e "${S}${M}"
