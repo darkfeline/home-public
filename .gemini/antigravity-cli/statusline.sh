@@ -142,8 +142,8 @@ else
   SB="${FG_GRAY}sandbox off${R}"
 fi
 
-# ─── Context Bar (15 segments, fine-grain Unicode) ────────────────────────────
-BAR_LEN=15
+# ─── Context Bar (10 segments, fine-grain Unicode) ────────────────────────────
+BAR_LEN=10
 FILLED=$((PCT_INT * BAR_LEN / 100))
 REMAINDER=$(( (PCT_INT * BAR_LEN) % 100 ))
 
