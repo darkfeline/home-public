@@ -68,8 +68,8 @@
   (setq gptel-expert-commands t)
 
   (gptel-make-gemini "Gemini"
-          :key #'gptel-api-key-from-auth-source
-          :stream t)
+    :key #'gptel-api-key-from-auth-source
+    :stream t)
 
   ;; Ensure tools are loaded.
   (when (package-installed-p 'gptel-agent)
