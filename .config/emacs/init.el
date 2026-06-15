@@ -65,13 +65,12 @@
                   '(:confirm t))))))
 
 (with-eval-after-load 'gptel-request
-  (setq gptel-expert-commands t
-        ;; Ideally should be set with customize
-        ;; but the gptel-backend value check is broken.
-        gptel-backend
-        (gptel-make-gemini "Gemini"
+  (setq gptel-expert-commands t)
+
+  (gptel-make-gemini "Gemini"
           :key #'gptel-api-key-from-auth-source
-          :stream t))
+          :stream t)
+
   ;; Ensure tools are loaded.
   (when (package-installed-p 'gptel-agent)
     (require 'gptel-agent-tools))

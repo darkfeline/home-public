@@ -104,7 +104,6 @@
       . "You are a large language model and a conversation partner. Respond concisely.")
      (shell
       . "You are a large language model and an expert software engineer.  Respond only with valid shell commands and without any markup.")))
- '(gptel-model 'gemini-flash-latest)
  '(history-length 4000)
  '(ibuffer-formats
    '((mark modified read-only locked " " (name 36 36 :left :elide) " "
