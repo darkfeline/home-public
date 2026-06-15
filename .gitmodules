@@ -19,9 +19,6 @@
 [submodule "src/yt-dlp"]
 	path = src/yt-dlp
 	url = https://github.com/yt-dlp/yt-dlp.git
-[submodule "src/aur/aurutils"]
-	path = src/aur/aurutils
-	url = https://aur.archlinux.org/aurutils.git
 [submodule ".config/emacs/vc/majutsu"]
 	path = .config/emacs/vc/majutsu
 	url = https://github.com/0WD0/majutsu.git
