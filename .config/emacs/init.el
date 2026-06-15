@@ -67,6 +67,10 @@
 (with-eval-after-load 'gptel-request
   (setq gptel-expert-commands t)
 
+  (gptel-make-ollama "Ollama"
+    :host "localhost:11434"
+    :stream t
+    :models '(gemma4:e2b))
   (gptel-make-gemini "Gemini"
     :key #'gptel-api-key-from-auth-source
     :stream t)
