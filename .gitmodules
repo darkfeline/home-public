@@ -25,3 +25,6 @@
 [submodule "src/obsidian-skills"]
 	path = src/obsidian-skills
 	url = https://github.com/kepano/obsidian-skills.git
+[submodule "src/aur/pi-coding-agent"]
+	path = src/aur/pi-coding-agent
+	url = https://aur.archlinux.org/pi-coding-agent.git
