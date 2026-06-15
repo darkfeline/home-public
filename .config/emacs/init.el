@@ -288,7 +288,7 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
                   (when p (project-remember-project p)))
                 (call-interactively #'majutsu)))
 
-  ([?\C-c ?t] #'gptel-send)
+  ([?\C-c ?t] #'gptel-menu)
   ([?\C-c ?T] #'gptel)
   ([?\C-c ?A] #'gptel-abort)
 
