@@ -259,13 +259,12 @@
    '(aggressive-indent async bash-completion bazel breadcrumb cond-let
                        consult csv-mode ddskk diff-hl dockerfile-mode
                        dumb-jump easydraw eat editorconfig eglot
-                       emmet-mode expand-region flymake
-                       flymake-shellcheck git-timemachine
-                       gnu-elpa-keyring-update go-mode gptel
-                       gptel-agent graphviz-dot-mode helpful htmlize
-                       jakuri json-mode kdl-mode keycast lua-mode
-                       magit marginalia markdown-mode mcp minions
-                       obsidian orderless org pinentry project
+                       expand-region flymake flymake-shellcheck
+                       git-timemachine gnu-elpa-keyring-update go-mode
+                       gptel gptel-agent graphviz-dot-mode helpful
+                       htmlize jakuri json-mode kdl-mode keycast
+                       lua-mode magit marginalia markdown-mode mcp
+                       minions obsidian orderless org pinentry project
                        protobuf-mode python rainbow-mode reintegrate
                        smartparens systemd toml-mode track-changes
                        tramp valign vertico vertico-prescient vlf
