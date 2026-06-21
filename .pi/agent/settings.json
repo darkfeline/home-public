@@ -1,5 +1,4 @@
 {
-  "lastChangelogVersion": "0.79.8",
   "defaultProvider": "ollama",
   "defaultModel": "gemma4:e2b",
   "enableInstallTelemetry": false,

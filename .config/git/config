@@ -87,3 +87,6 @@
 [filter "clean-agy"]
 	clean = jq 'del(.trustedWorkspaces)'
 	smudge = cat
+[filter "clean-pi"]
+	clean = jq 'del(.lastChangelogVersion)'
+	smudge = cat
