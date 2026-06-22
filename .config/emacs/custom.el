@@ -387,6 +387,8 @@
  '(hi-black-hb ((t (:foreground "goldenrod" :weight bold))))
  '(hi-blue-b ((t (:foreground "deep sky blue" :weight bold))))
  '(line-number-current-line ((t (:inherit line-number :background "dark gray" :foreground "black"))))
+ '(majutsu-interactive-selected-hunk ((t (:background "dark violet"))))
+ '(majutsu-interactive-selected-region ((t (:background "dark violet"))))
  '(mode-line ((t (:background "grey60" :foreground "black"))))
  '(org-habit-clear-future-face ((t (:background "dark slate blue"))))
  '(org-headline-done ((t (:foreground "rosy brown" :strike-through t))))
