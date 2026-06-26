@@ -248,16 +248,15 @@
                        dumb-jump easydraw eat editorconfig eglot
                        expand-region flymake flymake-shellcheck
                        git-timemachine gnu-elpa-keyring-update go-mode
-                       gptel gptel-agent graphviz-dot-mode helpful
-                       htmlize jakuri json-mode kdl-mode keycast
-                       lua-mode magit marginalia markdown-mode minions
-                       obsidian orderless org pinentry project
-                       protobuf-mode python rainbow-mode reintegrate
-                       smartparens systemd toml-mode track-changes
-                       tramp valign vertico vertico-prescient vlf
-                       vterm vundo wgrep which-key window-tool-bar
-                       with-editor ws-butler xterm-color yaml-mode
-                       yasnippet))
+                       graphviz-dot-mode helpful htmlize jakuri
+                       json-mode kdl-mode keycast lua-mode magit
+                       marginalia markdown-mode minions obsidian
+                       orderless org pinentry project protobuf-mode
+                       python rainbow-mode reintegrate smartparens
+                       systemd toml-mode track-changes tramp valign
+                       vertico vertico-prescient vlf vterm vundo wgrep
+                       which-key window-tool-bar with-editor ws-butler
+                       xterm-color yaml-mode yasnippet))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(prescient-save-file "~/.local/state/emacs/prescient/save.el")
  '(project-list-file "~/.local/state/emacs/projects")
