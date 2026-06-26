@@ -92,18 +92,6 @@
    '((c1-control . acronym) (format-control . acronym)
      (no-font . acronym)))
  '(gofmt-command "goimports")
- '(gptel-agent-skill-dirs '(".agents/skills" "~/.config/emacs/gptel-agent/skills"))
- '(gptel-directives
-   '((default
-      . "You are a large language model living in Emacs and a helpful assistant. Respond concisely.")
-     (programming
-      . "You are a large language model and a careful programmer. Provide code and only code as output without any additional text, prompt or note.")
-     (writing
-      . "You are a large language model and a writing assistant. Respond concisely.")
-     (chat
-      . "You are a large language model and a conversation partner. Respond concisely.")
-     (shell
-      . "You are a large language model and an expert software engineer.  Respond only with valid shell commands and without any markup.")))
  '(history-length 4000)
  '(ibuffer-formats
    '((mark modified read-only locked " " (name 36 36 :left :elide) " "
@@ -119,7 +107,6 @@
       ("Dead Shell"
        (or (used-mode . shell-command-mode) (used-mode . shell-mode)))
       ("Term" (used-mode . vterm-mode))
-      ("Agents" (or (name . "^\\*gptel-agent:")))
       ("Tramp"
        (or (filename . "^/scp:") (filename . "^/ssh:")
            (filename . "^/sudo:")))

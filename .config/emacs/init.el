@@ -50,23 +50,6 @@
   (mir-init-bind-keys go-mode-map
     ([?\C-c ?i] #'consult-imenu)))
 
-(with-eval-after-load 'gptel-request
-  (setq gptel-expert-commands t)
-
-  (gptel-make-ollama "Ollama"
-    :host "localhost:11434"
-    :stream t
-    :models '(gemma4:e2b))
-  (gptel-make-gemini "Gemini"
-    :key #'gptel-api-key-from-auth-source
-    :stream t)
-
-  ;; Ensure tools are loaded.
-  (when (package-installed-p 'gptel-agent)
-    (require 'gptel-agent-tools))
-  (when (locate-library "jakuri-gptel")
-    (require 'jakuri-gptel)))
-
 (with-eval-after-load 'grep
   (require 'wgrep))
 
@@ -271,12 +254,6 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
                 (let ((p (project-current)))
                   (when p (project-remember-project p)))
                 (call-interactively #'majutsu)))
-
-  ([?\C-c ?t] #'gptel-menu)
-  ([?\C-c ?T] #'gptel)
-  ([?\C-c ?A] #'gptel-abort)
-
-  ([?\C-c ?a] #'gptel-agent)
 
   ([remap async-shell-command] 'with-editor-async-shell-command)
   ([remap shell-command] 'with-editor-shell-command)
