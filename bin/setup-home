@@ -10,11 +10,12 @@ main() {
 }
 
 ensure_dirs() {
-    mkdir -p ~/.cache/mpd
-    mkdir -p ~/.local/state/emacs/prescient
-    mkdir -p ~/.local/state/mir-flags
-    mkdir -p ~/.local/state/mpd
-    mkdir -p ~/.ssh/ctrl
+    mkdir -p \
+          ~/.cache/mpd \
+          ~/.local/state/emacs/prescient \
+          ~/.local/state/mir-flags \
+          ~/.local/state/mpd \
+          ~/.ssh/ctrl
 }
 
 fix_perms() {
