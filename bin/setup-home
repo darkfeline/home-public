@@ -11,6 +11,7 @@ main() {
 
 ensure_dirs() {
     mkdir -p ~/.cache/mpd
+    mkdir -p ~/.local/state/emacs/prescient
     mkdir -p ~/.local/state/mir-flags
     mkdir -p ~/.local/state/mpd
     mkdir -p ~/.ssh/ctrl
