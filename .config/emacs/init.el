@@ -50,20 +50,6 @@
   (mir-init-bind-keys go-mode-map
     ([?\C-c ?i] #'consult-imenu)))
 
-(with-eval-after-load 'gptel
-  ;; Load MCP support
-  (when (package-installed-p 'mcp)
-    (require 'gptel-integrations))
-
-  ;; Prompt for confirmation for MCP tools
-  (add-hook 'gptel-pre-tool-call-functions
-            (lambda (tool-info)
-              (let* ((name (plist-get tool-info :name))
-                     (tool-spec (seq-find (lambda (ts) (equal (gptel-tool-name ts) name))
-                                          gptel-tools)))
-                (when (and tool-spec (string-prefix-p "mcp-" (gptel-tool-category tool-spec)))
-                  '(:confirm t))))))
-
 (with-eval-after-load 'gptel-request
   (setq gptel-expert-commands t)
 
@@ -83,12 +69,6 @@
 
 (with-eval-after-load 'grep
   (require 'wgrep))
-
-(with-eval-after-load 'mcp-hub
-  (let ((file (expand-file-name "~/.config/emacs/gptel-agent/mcp.json")))
-    (when (file-exists-p file)
-      (setq mcp-hub-servers
-            (jakuri-gptel-load-mcp-json file)))))
 
 (with-eval-after-load 'org
   (mir-init-bind-keys org-mode-map
