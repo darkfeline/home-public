@@ -253,10 +253,10 @@
                        marginalia markdown-mode minions obsidian
                        orderless org pinentry project protobuf-mode
                        python rainbow-mode reintegrate smartparens
-                       systemd toml-mode track-changes tramp valign
-                       vertico vertico-prescient vlf vterm vundo wgrep
-                       which-key window-tool-bar with-editor ws-butler
-                       xterm-color yaml-mode yasnippet))
+                       systemd toml-mode tramp valign vertico
+                       vertico-prescient vlf vterm vundo wgrep
+                       which-key with-editor ws-butler xterm-color
+                       yaml-mode yasnippet))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(prescient-save-file "~/.local/state/emacs/prescient/save.el")
  '(project-list-file "~/.local/state/emacs/projects")
