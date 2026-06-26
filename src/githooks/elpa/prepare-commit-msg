@@ -9,10 +9,6 @@ print_staged() {
     git diff --name-only --staged --no-renames
 }
 
-print_summary() {
-    git diff --summary --staged --no-renames
-}
-
 lines=( $(print_staged | sed 's/\/.*$//' | sed 's/\.signed$//' | uniq) )
 pkg=$(echo "${lines[0]}" | sed 's/-[^-]*$//')
 ver1=$(echo "${lines[0]}" | sed 's/^.*-//')
@@ -29,7 +25,7 @@ then
         sed -i "1iUpdate ${pkg} ${ver1} -> ${ver2}" "$COMMIT_MSG_FILE"
     else
         action="Add"
-        if print_summary | head -n 1 | grep -q "delete mode"; then
+        if git diff --name-status --staged --no-renames | grep -q "^D"; then
             action="Delete"
         fi
         sed -i "1i${action} ${pkg} ${ver1}" "$COMMIT_MSG_FILE"
