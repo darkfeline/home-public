@@ -189,6 +189,8 @@ DOT="${FG_GRAY} · ${R}"
 LINE1="${S}${M}${V}${C}${WS_PROJ}"
 LINE2="${CTX}${DOT}${ART_FMT}${DOT}${SUB_FMT}${DOT}${BG_FMT}${DOT}${SB}"
 
+[ "${INSIDE_EMACS:-}" = vterm ] && COLS=80
+
 if [ "$COLS" -ge 120 ]; then
   # Wide: single line
   echo -e "${LINE1}${FG_GRAY} │ ${R}${LINE2}"
