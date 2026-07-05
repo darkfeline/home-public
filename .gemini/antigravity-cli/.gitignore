@@ -13,5 +13,7 @@
 /history.jsonl
 /installation_id
 
+*.db
 *.log
+*.pbtxt
 *.timestamp
