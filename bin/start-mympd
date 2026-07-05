@@ -5,7 +5,7 @@ mkdir -p ~/.local/state/mympd/config
 GID=$(id -g)
 "${DOCKER}" start mympd || "${DOCKER}" run -d \
        --name=mympd \
-       -p 8080:8080 \
+       -p 8889:8080 \
        -u $UID:$GID \
        -e UMASK_SET=022 \
        -e MYMPD_SSL=false \
