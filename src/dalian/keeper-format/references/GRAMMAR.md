@@ -55,6 +55,11 @@ Asserts that the cumulative balance of an account on a given date equals the spe
   <DECIMAL> <USYMBOL>
   <DECIMAL> <USYMBOL>
   end
+
+  treebal <DATE> <ACCTNAME>
+  <DECIMAL> <USYMBOL>
+  <DECIMAL> <USYMBOL>
+  end
   ```
 - **Difference between `balance` and `treebal`**: `balance` checks only the direct balance posted to `<ACCTNAME>`. `treebal` checks the aggregate balance of `<ACCTNAME>` plus all of its hierarchical sub-accounts (e.g., `Assets` includes `Assets:Cash`).
 

@@ -20,7 +20,8 @@ Keeper files use strict mathematical double-entry accounting backed by arbitrary
 - **Multi-line statements** **MUST** terminate with `end` on its own line:
   - Transactions: `tx <DATE> "<DESCRIPTION>"` ... `end`
   - Account metadata: `account <ACCOUNT>` ... `end`
-  - Multi-currency balance assertions: `balance <DATE> <ACCOUNT>` ... `end`
+  - Multi-currency balance assertions: `balance <DATE> <ACCOUNT>` ... `end` or `treebal <DATE> <ACCOUNT>` ... `end`
+
 
 ## 2. Critical Gotchas & Common Pitfalls
 
