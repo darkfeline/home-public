@@ -11,6 +11,7 @@ log = "present(@) | ancestors(immutable_heads().., 2) | trunk()"
 [aliases]
 bm = ["bookmark", "move"]
 d = ["diff"]
+e = ["edit"]
 dno = ["diff", "--name-only"]
 ds = ["describe"]
 el = ["evolog"]
