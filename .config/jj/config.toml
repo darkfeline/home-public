@@ -9,7 +9,7 @@ email = "darkfeline@feleatra.moe"
 log = "present(@) | ancestors(immutable_heads().., 2) | trunk()"
 
 [aliases]
-bm = ["bookmark"]
+bm = ["bookmark", "move"]
 d = ["diff"]
 dno = ["diff", "--name-only"]
 ds = ["describe"]
