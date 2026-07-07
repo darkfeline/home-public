@@ -86,6 +86,7 @@
  '(garbage-collection-messages t)
  '(git-commit-cd-to-toplevel t)
  '(global-diff-hl-mode t)
+ '(global-obsidian-mode t)
  '(global-so-long-mode t)
  '(global-tree-sitter-mode t)
  '(glyphless-char-display-control
