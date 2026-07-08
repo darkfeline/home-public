@@ -113,9 +113,9 @@
   "group/sys": {
     "orientation": "horizontal",
     "modules": [
+      "memory",
       "load",
       "cpu",
-      "memory",
       "temperature",
       "network"
     ],
