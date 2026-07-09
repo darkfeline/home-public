@@ -317,6 +317,10 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
   (when (getenv "SSH_TTY")
     (reintegrate)))
 
+(when (locate-library "ssh-lighter")
+  (require 'ssh-lighter)
+  (add-to-list 'mode-line-misc-info 'ssh-lighter))
+
 (when (locate-library "systemd")
   (add-to-list 'auto-mode-alist '("/systemd/.+.path\\'" . systemd-mode)))
 
@@ -331,12 +335,3 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
     "Wrap `shell' with `with-editor'."
     (with-editor
       (apply old args))))
-
-;; Add mode-line indicator when SSH.
-(when (getenv "SSH_TTY")
-  (add-to-list 'mode-line-misc-info
-               '((:eval (propertize "SSH"
-                                    'face (if (mode-line-window-selected-p)
-                                              '(:foreground "gold" :background "gray40")
-                                            '(:foreground "gold"))))
-                 " ")))
