@@ -35,6 +35,7 @@ emacsclient -e "(define-fun my-test x (x * 2))"
 ### Agent Guidance
 
 When an agent requires Elisp evaluation:
-*   **Context:** Always check if the context implies a remote Emacs interaction. If not, this skill should not be invoked, as it relies on external server connectivity.
+*   **Stateless vs. Live Session Evaluation (CRITICAL):** For performing tasks that do not involve or mutate the user's running session—such as looking up documentation, searching Emacs/Elisp Info manuals, or testing stateless Elisp expressions—prefer using headless Emacs directly via `emacs -Q --batch --eval "<expression>"` rather than `emacsclient`. Using `emacsclient` connects to the user's live session and can cause unintended visual side effects (e.g., popping up windows, changing buffers, or mutating running state).
+*   **Context:** Always check if the context implies a remote Emacs interaction with the running server. If not, this skill should not be invoked; use `emacs -Q --batch --eval` instead.
 *   **Input:** The agent must provide the exact Elisp expression to be evaluated.
 *   **Error Handling:** Be prepared for potential errors related to network communication or syntax errors within the Emacs Lisp itself. Errors returned by `emacsclient` (or the underlying Emacs process) should be carefully analyzed.
