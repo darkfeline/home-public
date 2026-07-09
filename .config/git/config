@@ -88,7 +88,7 @@
 	clean = jq 'del(.trustedWorkspaces, .permissions, .model)'
 	smudge = cat
 [filter "clean-gemini"]
-	clean = jq 'del(.userSettings.remoteControlHostname)'
+	clean = "jq 'del(.userSettings[\"remoteControlHostname\", \"globalPermissionGrants\"])'"
 	smudge = cat
 [filter "clean-pi"]
 	clean = jq 'del(.lastChangelogVersion)'
