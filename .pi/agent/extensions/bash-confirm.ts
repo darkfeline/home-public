@@ -7,10 +7,7 @@ export default function (pi: ExtensionAPI) {
       const { command } = event.input;
 
       // Ask for confirmation using the TUI confirm dialog
-      const confirmed = await ctx.ui.confirm(
-	"Execute Bash Command?",
-	`The agent wants to run the following command:\n\n${command}\n\nDo you want to allow this?`
-      );
+      const confirmed = await ctx.ui.confirm("Execute Bash Command?", command);
 
       if (!confirmed) {
 	// Block the tool execution and provide a reason
