@@ -2,6 +2,7 @@
 
 !/.gitignore
 
+!/agent-workspaces
 !/aur
 !/bash-preexec
 !/dalian
