@@ -324,6 +324,10 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
 (when (locate-library "systemd")
   (add-to-list 'auto-mode-alist '("/systemd/.+.path\\'" . systemd-mode)))
 
+(when (locate-library "treesit-auto")
+  (require 'treesit-auto)
+  (treesit-auto-add-to-auto-mode-alist 'all))
+
 (when (locate-library "vimml")
   (vimml-add-rule "python" #'python-mode))
 

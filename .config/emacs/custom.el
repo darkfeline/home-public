@@ -89,6 +89,7 @@
  '(global-obsidian-mode t)
  '(global-so-long-mode t)
  '(global-tree-sitter-mode t)
+ '(global-treesit-auto-mode t)
  '(glyphless-char-display-control
    '((c1-control . acronym) (format-control . acronym)
      (no-font . acronym)))
@@ -322,6 +323,7 @@
  '(transient-history-file "~/.local/state/emacs/transient/history.el")
  '(transient-levels-file "~/.local/state/emacs/transient/levels.el")
  '(transient-values-file "~/.local/state/emacs/transient/values.el")
+ '(treesit-auto-install 'prompt)
  '(underline-minimum-offset 15)
  '(undo-limit 1600000)
  '(undo-outer-limit 240000000)
