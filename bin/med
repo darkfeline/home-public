@@ -6,10 +6,6 @@ inpath() {
     command -v "$1" >/dev/null 2>&1
 }
 
-if inpath emacsclient && [[ -e /tmp/emacs$UID/server ]]; then
-    exec emacsclient "$@"
-fi
-
 if inpath ed; then
     printf "%s: Using ed as editor\n" "$0" >&2
     exec ed "$@"
