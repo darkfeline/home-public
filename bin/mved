@@ -14,7 +14,7 @@ inpath() {
     command -v "$1" >/dev/null 2>&1
 }
 
-if inpath emacsclient && [[ -e /tmp/emacs$UID/server ]]; then
+if inpath emacsclient && emacsclient -a false -e t >/dev/null; then
     exec emacsclient -nw "$@"
 fi
 # http://emacshorrors.com/posts/come-in-and-find-out.html
