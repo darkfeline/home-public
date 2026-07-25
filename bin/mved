@@ -2,13 +2,9 @@
 # VISUAL dispatch script
 set -u
 
-if [[ -n ${INSIDE_EMACS:-} ]]; then
-    exec emacsclient "$@"
-fi
+[[ -n ${INSIDE_EMACS:-} ]] && exec emacsclient "$@"
 
-if [[ ${TERM:-dumb} = *dumb* ]]; then
-    exec "$EDITOR" "$@"
-fi
+[[ ${TERM:-dumb} = *dumb* ]] && exec "$EDITOR" "$@"
 
 inpath() {
     command -v "$1" >/dev/null 2>&1
