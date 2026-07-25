@@ -24,10 +24,5 @@ for e in vi nvi vim; do
     inpath $e && exec $e "$@"
 done
 
-if inpath ed; then
-    printf "%s: Using ed as editor\n" "$0" >&2
-    exec ed "$@"
-fi
-
-printf '%s: No editor available\n' "$0" >&2
-exit 1
+eval "${EDITOR:-med}" "$@"
+exit
