@@ -88,8 +88,6 @@
  '(global-diff-hl-mode t)
  '(global-obsidian-mode t)
  '(global-so-long-mode t)
- '(global-tree-sitter-mode t)
- '(global-treesit-auto-mode t)
  '(glyphless-char-display-control
    '((c1-control . acronym) (format-control . acronym)
      (no-font . acronym)))
