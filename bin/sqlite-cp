@@ -1,0 +1,126 @@
+#!/usr/bin/env bash
+#
+# sqlite-cp - Safely copy a SQLite database file.
+
+set -euo pipefail
+
+PROGNAME="sqlite-cp"
+
+err() {
+    echo "$PROGNAME: $*" >&2
+}
+
+usage() {
+    cat << EOF >&2
+Usage: $PROGNAME [-f] [-v] source_db target_db_or_dir
+
+Options:
+  -f, --force   Overwrite destination if it already exists.
+  -v, --vacuum  Use 'VACUUM INTO' to copy and compact the database.
+  -h, --help    Display this help message.
+EOF
+}
+
+force=0
+vacuum=0
+tmpfile=""
+
+cleanup() {
+    if [[ -n "$tmpfile" && -f "$tmpfile" ]]; then
+        rm -f "$tmpfile"
+    fi
+}
+trap cleanup EXIT INT TERM
+
+positional=()
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -f|--force)
+            force=1
+            shift
+            ;;
+        -v|--vacuum)
+            vacuum=1
+            shift
+            ;;
+        -h|--help)
+            usage
+            exit 0
+            ;;
+        -*)
+            err "invalid option '$1'"
+            usage
+            exit 1
+            ;;
+        *)
+            positional+=("$1")
+            shift
+            ;;
+    esac
+done
+
+if [[ ${#positional[@]} -ne 2 ]]; then
+    err "missing operand"
+    usage
+    exit 1
+fi
+
+source="${positional[0]}"
+dest_input="${positional[1]}"
+
+if ! command -v sqlite3 &>/dev/null; then
+    err "sqlite3 command not found"
+    exit 1
+fi
+
+if [[ ! -f "$source" ]]; then
+    err "cannot stat '$source': No such file or directory"
+    exit 1
+fi
+
+if [[ "$dest_input" == */ ]] || [[ -d "$dest_input" ]]; then
+    target_dir="${dest_input%/}"
+    [[ -z "$target_dir" ]] && target_dir="/"
+    target_file="${target_dir}/$(basename "$source")"
+else
+    target_file="$dest_input"
+    target_dir="$(dirname "$target_file")"
+fi
+
+if [[ ! -d "$target_dir" ]]; then
+    mkdir -p "$target_dir"
+fi
+
+if [[ -f "$target_file" && "$force" -eq 0 ]]; then
+    err "cannot create file '$target_file': File exists"
+    exit 1
+fi
+
+tmpfile=$(mktemp "${target_dir}/.sqlite-cp.XXXXXX")
+
+if [[ "$vacuum" -eq 1 ]]; then
+    sql_safe_tmp="${tmpfile//\'/\'\'}"
+    if ! sqlite3 "$source" "VACUUM INTO '$sql_safe_tmp';"; then
+        err "failed to copy '$source' using VACUUM INTO"
+        exit 1
+    fi
+else
+    if ! sqlite3 "$source" ".backup '$tmpfile'"; then
+        err "failed to copy '$source'"
+        exit 1
+    fi
+fi
+
+if [[ ! -f "$tmpfile" ]]; then
+    err "failed to create temporary backup file"
+    exit 1
+fi
+
+check=$(sqlite3 "$tmpfile" "PRAGMA integrity_check;" 2>&1 || true)
+if [[ "$check" != "ok" ]]; then
+    err "integrity check failed on copied database: $check"
+    exit 1
+fi
+
+mv -f "$tmpfile" "$target_file"
+tmpfile=""
