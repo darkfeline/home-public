@@ -2,7 +2,11 @@
 # VISUAL dispatch script
 set -u
 
-[[ ${TERM:-dumb} = *dumb* ]] && exec "$EDITOR" "$@"
+if [[ ${TERM:-dumb} = *dumb* ]]; then
+    # This may look kinda sketchy, but this is how Bash handles it.
+    eval "$EDITOR" "$@"
+    exit
+fi
 
 [[ -n ${INSIDE_EMACS:-} ]] && exec emacsclient "$@"
 
