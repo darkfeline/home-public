@@ -255,7 +255,7 @@
                        orderless org pinentry project protobuf-mode
                        python rainbow-mode reintegrate smartparens
                        systemd toml-mode tramp valign vertico
-                       vertico-prescient vlf vterm vundo wgrep
+                       vlf vterm vundo wgrep
                        which-key with-editor ws-butler xterm-color
                        yaml-mode yasnippet))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
