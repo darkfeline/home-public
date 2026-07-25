@@ -4,7 +4,7 @@ set -u
 
 if [[ ${TERM:-dumb} = *dumb* ]]; then
     # This may look kinda sketchy, but this is how Bash handles it.
-    eval "$EDITOR" "$@"
+    eval "${EDITOR:-med}" "$@"
     exit
 fi
 
