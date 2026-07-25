@@ -259,7 +259,6 @@
                        which-key with-editor ws-butler xterm-color
                        yaml-mode yasnippet))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
- '(prescient-save-file "~/.local/state/emacs/prescient/save.el")
  '(project-list-file "~/.local/state/emacs/projects")
  '(project-switch-commands
    '((project-find-file "Find file" nil)
@@ -333,7 +332,6 @@
  '(user-full-name "Allen Li")
  '(user-mail-address "darkfeline@felesatra.moe")
  '(vertico-mode t)
- '(vertico-prescient-mode t)
  '(visible-bell t)
  '(vterm-enable-manipulate-selection-data-by-osc52 t)
  '(vterm-max-scrollback 5000)
