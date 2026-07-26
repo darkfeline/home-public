@@ -14,15 +14,22 @@ export ALTERNATE_EDITOR=
 export EDITOR="ed -p 'ed> '"
 export VISUAL=$HOME/bin/mved
 
-if inpath less; then
-    export PAGER="less -dFRX"
-    # Only less supports secure/restricted mode
-    export SYSTEMD_PAGERSECURE=1
-elif inpath more; then
-    export PAGER=more
-else
-    export PAGER=cat
-fi
+case "${TERM:-dumb}" in
+    *dumb*)
+        export PAGER=cat
+        ;;
+    *)
+        # Assume non-dumb terminals can support pagers.
+        if inpath less; then
+            export PAGER="less -dFRX"
+            # Only less supports secure/restricted mode
+            export SYSTEMD_PAGERSECURE=1
+        elif inpath more; then
+            export PAGER=more
+        fi
+        ;;
+esac
+export JJ_PAGER=$PAGER
 
 if tty=$(tty); then
     stty tostop
@@ -41,13 +48,8 @@ case "$TERM" in
         # recent-ish xterm.
         [ -n "${XTERM_VERSION:-}" ] && TERM=xterm-256color
         ;;
-    *dumb*)
-        export PAGER=cat
-        unset -v SYSTEMD_PAGERSECURE
-        ;;
 esac
 
-export JJ_PAGER=$PAGER
 
 if inpath dircolors; then
     eval "$(dircolors -b ~/.dircolors)"
