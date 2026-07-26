@@ -2,6 +2,11 @@
 # (assuming ENV is set to this file).
 
 . color.sh
+
+inpath() {
+    command -v "$1" >/dev/null 2>&1
+}
+
 PS1="${RESET}${GREEN}$USER${RESET}@${GREEN}$(uname -n)${RESET} ! $ "
 [ -n "${INSIDE_EMACS:-}" ] && PS2=
 
@@ -34,7 +39,7 @@ case "$TERM" in
         ;;
 esac
 
-if command -v dircolors >/dev/null 2>&1; then
+if inpath dircolors; then
     eval "$(dircolors -b ~/.dircolors)"
     # If dircolors exists, then we likely have the GNU versions of ls
     # and grep that support color.
@@ -50,6 +55,8 @@ fi
 
 # Set up SSH_AUTH_SOCK unless it's already set.
 [ -z "${SSH_AUTH_SOCK}" ] && export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+
+unset -f inpath
 
 . jakuri-aliases.sh
 
