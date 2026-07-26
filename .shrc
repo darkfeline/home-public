@@ -12,13 +12,17 @@ PS1="${RESET}${GREEN}$USER${RESET}@${GREEN}$(uname -n)${RESET} ! $ "
 
 export ALTERNATE_EDITOR=
 export EDITOR=$HOME/bin/med
-export PAGER=$HOME/bin/mpager
 export VISUAL=$HOME/bin/mved
 
-export GIT_PAGER=$PAGER
-export JJ_PAGER=$PAGER
-export SYSTEMD_PAGER=$PAGER
-export SYSTEMD_PAGERSECURE=1
+if inpath less; then
+    export PAGER="less -dFRX"
+    # Only less supports secure/restricted mode
+    export SYSTEMD_PAGERSECURE=1
+elif inpath more; then
+    export PAGER=more
+else
+    export PAGER=cat
+fi
 
 if tty=$(tty); then
     stty tostop
@@ -37,7 +41,13 @@ case "$TERM" in
         # recent-ish xterm.
         [ -n "${XTERM_VERSION:-}" ] && TERM=xterm-256color
         ;;
+    *dumb*)
+        export PAGER=cat
+        unset -v SYSTEMD_PAGERSECURE
+        ;;
 esac
+
+export JJ_PAGER=$PAGER
 
 if inpath dircolors; then
     eval "$(dircolors -b ~/.dircolors)"
