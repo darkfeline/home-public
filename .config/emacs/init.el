@@ -331,9 +331,3 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
 
 (when (locate-library "vlf")
   (require 'vlf-setup))
-
-(when (locate-library "with-editor")
-  (define-advice shell (:around (old &rest args))
-    "Wrap `shell' with `with-editor'."
-    (with-editor* "VISUAL"
-      (apply old args))))

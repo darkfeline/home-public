@@ -37,6 +37,8 @@ case "${TERM:-dumb}" in
 esac
 export JJ_PAGER=$PAGER
 
+[ -n "${INSIDE_EMACS:-}" ] && export EDITOR=emacsclient VISUAL=emacsclient
+
 if tty=$(tty); then
     stty tostop
 
