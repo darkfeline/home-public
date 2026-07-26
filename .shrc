@@ -10,16 +10,24 @@ inpath() {
 PS1="${RESET}${GREEN}$USER${RESET}@${GREEN}$(uname -n)${RESET} ! $ "
 [ -n "${INSIDE_EMACS:-}" ] && PS2=
 
-export ALTERNATE_EDITOR=
 export EDITOR="ed -p 'ed> '"
-export VISUAL=$HOME/bin/mved
-
 case "${TERM:-dumb}" in
     *dumb*)
         export PAGER=cat
         ;;
     *)
-        # Assume non-dumb terminals can support pagers.
+        # Assume non-dumb terminals can support these
+        if inpath emacsclient; then
+            export VISUAL="emacsclient -a '' -nw"
+        else
+            for e in vi nvi vim; do
+                if inpath $e; then
+                    export VISUAL=$e
+                    break
+                fi
+            done
+        fi
+
         if inpath less; then
             export PAGER="less -dFRX"
             # Only less supports secure/restricted mode

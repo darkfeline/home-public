@@ -255,9 +255,6 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
                   (when p (project-remember-project p)))
                 (call-interactively #'majutsu)))
 
-  ([remap async-shell-command] 'with-editor-async-shell-command)
-  ([remap shell-command] 'with-editor-shell-command)
-
   ([?\C-c ?v] #'jakuri-vterm)
 
   ;; Personal
@@ -338,5 +335,5 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
 (when (locate-library "with-editor")
   (define-advice shell (:around (old &rest args))
     "Wrap `shell' with `with-editor'."
-    (with-editor
+    (with-editor* "VISUAL"
       (apply old args))))
