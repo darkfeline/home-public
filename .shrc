@@ -3,8 +3,17 @@
 
 . color.sh
 PS1="${RESET}${GREEN}$USER${RESET}@${GREEN}$(uname -n)${RESET} ! $ "
-
 [ -n "${INSIDE_EMACS:-}" ] && PS2=
+
+export ALTERNATE_EDITOR=
+export AUR_PAGER=$HOME/bin/dired
+export EDITOR=$HOME/bin/med
+export PAGER=$HOME/bin/mpager
+export VISUAL=$HOME/bin/mved
+
+export GIT_PAGER=$PAGER
+export SYSTEMD_PAGER=$PAGER
+export SYSTEMD_PAGERSECURE=1
 
 if tty=$(tty); then
     stty tostop

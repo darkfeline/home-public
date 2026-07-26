@@ -16,15 +16,6 @@ PATH=$HOME/.local/bin:$PATH
 PATH=$HOME/bin:$PATH
 
 # Application environment
-export ALTERNATE_EDITOR=
-export AUR_PAGER=$HOME/bin/dired
 export DCONF_PROFILE=$HOME/.config/dconf/profile
-export EDITOR=$HOME/bin/med
 export GOPROXY=https://proxy.golang.org
 export LESSHISTFILE=$HOME/.local/state/lesshst
-export PAGER=$HOME/bin/mpager
-export VISUAL=$HOME/bin/mved
-
-export GIT_PAGER=$PAGER
-export SYSTEMD_PAGER=$PAGER
-export SYSTEMD_PAGERSECURE=1
