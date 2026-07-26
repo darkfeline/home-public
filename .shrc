@@ -11,7 +11,7 @@ PS1="${RESET}${GREEN}$USER${RESET}@${GREEN}$(uname -n)${RESET} ! $ "
 [ -n "${INSIDE_EMACS:-}" ] && PS2=
 
 export ALTERNATE_EDITOR=
-export EDITOR=$HOME/bin/med
+export EDITOR="ed -p 'ed> '"
 export VISUAL=$HOME/bin/mved
 
 if inpath less; then
