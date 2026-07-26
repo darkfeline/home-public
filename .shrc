@@ -29,9 +29,7 @@ case "${TERM:-dumb}" in
         fi
 
         if inpath less; then
-            export PAGER="less -dFRX"
-            # Only less supports secure/restricted mode
-            export SYSTEMD_PAGERSECURE=1
+            export PAGER="less -dFRX" SYSTEMD_PAGERSECURE=1
         elif inpath more; then
             export PAGER=more
         fi
