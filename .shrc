@@ -23,7 +23,7 @@ fi
 unset -v tty
 
 case "$TERM" in
-    'xterm')
+    xterm)
         # xterm always sets TERM=xterm even if it was compiled with
         # 256 color support.
         # Most xterms are compiled with 256 color, so check
