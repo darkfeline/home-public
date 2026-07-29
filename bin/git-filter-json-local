@@ -1,0 +1,318 @@
+#!/usr/bin/env python3
+"""Git filter for JSON config files with .local variant persistence."""
+
+import io
+import json
+import os
+import sys
+import tempfile
+import unittest
+
+
+def parse_path(path_str: str) -> list[str]:
+    """Parse a dot-separated JSON key path into list of path segments."""
+    if path_str.startswith('.'):
+        path_str = path_str[1:]
+    return [p for p in path_str.split('.') if p]
+
+
+def get_local_filepath(filepath: str) -> str:
+    """Return the corresponding .local variant file path for a JSON file."""
+    root, ext = os.path.splitext(filepath)
+    return root + '.local' + ext
+
+
+def copy_path_value(
+    source: dict, target: dict, path_parts: list[str]
+) -> bool:
+    """Copy a nested key path from source dict to target dict if present."""
+    curr_s: dict = source
+    for p in path_parts[:-1]:
+        if p not in curr_s or not isinstance(curr_s[p], dict):
+            return False
+        curr_s = curr_s[p]
+    last_p = path_parts[-1]
+    if last_p in curr_s:
+        curr_t = target
+        for p in path_parts[:-1]:
+            if p not in curr_t or not isinstance(curr_t[p], dict):
+                curr_t[p] = {}
+            curr_t = curr_t[p]
+        curr_t[last_p] = curr_s[last_p]
+        return True
+    return False
+
+
+def delete_path_value(data: dict, path_parts: list[str]) -> None:
+    """Delete a nested key path from a dictionary if present."""
+    curr: dict = data
+    for p in path_parts[:-1]:
+        if p not in curr or not isinstance(curr[p], dict):
+            return
+        curr = curr[p]
+    last_p = path_parts[-1]
+    if last_p in curr:
+        del curr[last_p]
+
+
+def clean_empty_dicts(d: dict) -> dict:
+    """Recursively remove empty nested dictionaries from a dict."""
+    cleaned: dict = {}
+    for k, v in d.items():
+        if isinstance(v, dict):
+            v_cleaned = clean_empty_dicts(v)
+            if v_cleaned:
+                cleaned[k] = v_cleaned
+        else:
+            cleaned[k] = v
+    return cleaned
+
+
+def deep_merge(base: dict, override: dict) -> dict:
+    """Recursively merge override dictionary into base dictionary."""
+    merged = base.copy()
+    for key, val in override.items():
+        if (
+            key in merged
+            and isinstance(merged[key], dict)
+            and isinstance(val, dict)
+        ):
+            merged[key] = deep_merge(merged[key], val)
+        else:
+            merged[key] = val
+    return merged
+
+
+def cmd_clean(filepath: str, paths: list[str]) -> None:
+    """Git clean filter: extract local fields to .local file and strip from JSON."""
+    try:
+        data = json.load(sys.stdin)
+    except Exception:
+        sys.stdout.write(sys.stdin.read())
+        return
+
+    local_filepath = get_local_filepath(filepath)
+    local_data: dict = {}
+    if os.path.exists(local_filepath):
+        try:
+            with open(local_filepath, 'r', encoding='utf-8') as f:
+                local_data = json.load(f)
+                assert isinstance(local_data, dict)
+        except Exception:
+            pass
+
+    for path_str in paths:
+        parts = parse_path(path_str)
+        copied = copy_path_value(data, local_data, parts)
+        if not copied:
+            delete_path_value(local_data, parts)
+        delete_path_value(data, parts)
+
+    local_data = clean_empty_dicts(local_data)
+
+    if local_data:
+        parent_dir = os.path.dirname(local_filepath)
+        if parent_dir:
+            os.makedirs(parent_dir, exist_ok=True)
+        with open(local_filepath, 'w', encoding='utf-8') as f:
+            f.write(
+                json.dumps(local_data, indent=2, ensure_ascii=False) + '\n'
+            )
+    elif os.path.exists(local_filepath):
+        try:
+            os.remove(local_filepath)
+        except Exception:
+            pass
+
+    sys.stdout.write(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
+
+
+def cmd_smudge(filepath: str) -> None:
+    """Git smudge filter: merge .local fields into checked-out clean JSON."""
+    try:
+        data = json.load(sys.stdin)
+    except Exception:
+        sys.stdout.write(sys.stdin.read())
+        return
+
+    local_filepath = get_local_filepath(filepath)
+    if os.path.exists(local_filepath):
+        try:
+            with open(local_filepath, 'r', encoding='utf-8') as f:
+                local_data = json.load(f)
+                assert isinstance(local_data, dict)
+                data = deep_merge(data, local_data)
+        except Exception:
+            pass
+
+    sys.stdout.write(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
+
+
+class TestGitFilterJsonLocal(unittest.TestCase):
+    """Unit test suite for git-filter-json-local clean and smudge modes."""
+
+    def setUp(self) -> None:
+        """Create a temporary working directory for test files."""
+        self.test_dir = tempfile.TemporaryDirectory()
+        self.orig_dir = os.getcwd()
+        os.chdir(self.test_dir.name)
+
+    def tearDown(self) -> None:
+        """Restore original working directory and remove test files."""
+        os.chdir(self.orig_dir)
+        self.test_dir.cleanup()
+
+    def test_clean_and_smudge_basic(self) -> None:
+        """Verify basic top-level keys are extracted to .local and merged back."""
+        settings_path = 'settings.json'
+        local_path = 'settings.local.json'
+        data_in = {
+            'colorScheme': 'dark',
+            'permissions': {'allow': ['command(git status)']},
+            'model': 'test-model',
+        }
+        old_stdin, old_stdout = sys.stdin, sys.stdout
+        sys.stdin = io.StringIO(json.dumps(data_in))
+        sys.stdout = io.StringIO()
+        try:
+            cmd_clean(settings_path, ['.permissions', '.model'])
+            clean_out = json.loads(sys.stdout.getvalue())
+        finally:
+            sys.stdin, sys.stdout = old_stdin, old_stdout
+
+        self.assertEqual(clean_out, {'colorScheme': 'dark'})
+        self.assertTrue(os.path.exists(local_path))
+        with open(local_path, 'r', encoding='utf-8') as f:
+            local_data = json.load(f)
+        self.assertEqual(
+            local_data,
+            {
+                'permissions': {'allow': ['command(git status)']},
+                'model': 'test-model',
+            },
+        )
+
+        old_stdin, old_stdout = sys.stdin, sys.stdout
+        sys.stdin = io.StringIO(json.dumps(clean_out))
+        sys.stdout = io.StringIO()
+        try:
+            cmd_smudge(settings_path)
+            smudge_out = json.loads(sys.stdout.getvalue())
+        finally:
+            sys.stdin, sys.stdout = old_stdin, old_stdout
+
+        self.assertEqual(smudge_out, data_in)
+
+    def test_clean_and_smudge_nested(self) -> None:
+        """Verify nested dot-path keys are extracted to .local and merged back."""
+        config_path = 'config.json'
+        local_path = 'config.local.json'
+        data_in = {
+            'services': {'service_a': {'enabled': True}},
+            'user_settings': {
+                'custom_hostname': 'my-host',
+                'other': 'val',
+            },
+        }
+        old_stdin, old_stdout = sys.stdin, sys.stdout
+        sys.stdin = io.StringIO(json.dumps(data_in))
+        sys.stdout = io.StringIO()
+        try:
+            cmd_clean(
+                config_path,
+                [
+                    '.user_settings.custom_hostname',
+                    '.user_settings.permissions',
+                ],
+            )
+            clean_out = json.loads(sys.stdout.getvalue())
+        finally:
+            sys.stdin, sys.stdout = old_stdin, old_stdout
+
+        self.assertEqual(
+            clean_out,
+            {
+                'services': {'service_a': {'enabled': True}},
+                'user_settings': {'other': 'val'},
+            },
+        )
+        with open(local_path, 'r', encoding='utf-8') as f:
+            local_data = json.load(f)
+        self.assertEqual(
+            local_data,
+            {'user_settings': {'custom_hostname': 'my-host'}},
+        )
+
+        old_stdin, old_stdout = sys.stdin, sys.stdout
+        sys.stdin = io.StringIO(json.dumps(clean_out))
+        sys.stdout = io.StringIO()
+        try:
+            cmd_smudge(config_path)
+            smudge_out = json.loads(sys.stdout.getvalue())
+        finally:
+            sys.stdin, sys.stdout = old_stdin, old_stdout
+
+        self.assertEqual(smudge_out, data_in)
+
+    def test_empty_local_removed(self) -> None:
+        """Verify .local file is removed when all filtered keys are removed."""
+        config_path = 'config.json'
+        local_path = 'config.local.json'
+        with open(local_path, 'w', encoding='utf-8') as f:
+            f.write(
+                '{"user_settings": {"custom_hostname": "host"}}\n'
+            )
+
+        data_in = {'services': {}}
+        old_stdin, old_stdout = sys.stdin, sys.stdout
+        sys.stdin = io.StringIO(json.dumps(data_in))
+        sys.stdout = io.StringIO()
+        try:
+            cmd_clean(config_path, ['.user_settings.custom_hostname'])
+        finally:
+            sys.stdin, sys.stdout = old_stdin, old_stdout
+
+        self.assertFalse(os.path.exists(local_path))
+
+
+def cmd_test() -> None:
+    """Run the embedded unittest suite."""
+    suite = unittest.TestLoader().loadTestsFromTestCase(TestGitFilterJsonLocal)
+    result = unittest.TextTestRunner(verbosity=2).run(suite)
+    sys.exit(0 if result.wasSuccessful() else 1)
+
+
+def main() -> None:
+    """CLI entrypoint for clean, smudge, and test commands."""
+    if len(sys.argv) < 2:
+        sys.stderr.write(
+            'Usage: git-filter-json-local <clean|smudge|test> <filepath> [paths...]\n'
+        )
+        sys.exit(1)
+
+    mode = sys.argv[1]
+
+    if mode == 'test':
+        cmd_test()
+        return
+
+    if len(sys.argv) < 3:
+        sys.stderr.write(
+            'Usage: git-filter-json-local <clean|smudge> <filepath> [paths...]\n'
+        )
+        sys.exit(1)
+
+    filepath = sys.argv[2]
+    paths = sys.argv[3:]
+
+    if mode == 'clean':
+        cmd_clean(filepath, paths)
+    elif mode == 'smudge':
+        cmd_smudge(filepath)
+    else:
+        sys.stderr.write(f'Unknown mode: {mode}\n')
+        sys.exit(1)
+
+
+if __name__ == '__main__':
+    main()

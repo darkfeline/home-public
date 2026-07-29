@@ -85,8 +85,11 @@
 	helper = !/usr/bin/gh auth git-credential
 
 [filter "clean-agy"]
-	clean = jq 'del(.trustedWorkspaces, .permissions, .model)'
+	clean = git-filter-json-local clean %f .trustedWorkspaces .permissions .model
+	smudge = git-filter-json-local smudge %f
 [filter "clean-gemini"]
-	clean = "jq 'del(.userSettings[\"remoteControlHostname\", \"globalPermissionGrants\"])'"
+	clean = git-filter-json-local clean %f .userSettings.remoteControlHostname .userSettings.globalPermissionGrants
+	smudge = git-filter-json-local smudge %f
 [filter "clean-pi"]
-	clean = jq 'del(.lastChangelogVersion, .defaultProvider, .defaultModel, .defaultThinkingLevel)'
+	clean = git-filter-json-local clean %f .lastChangelogVersion .defaultProvider .defaultModel .defaultThinkingLevel
+	smudge = git-filter-json-local smudge %f
