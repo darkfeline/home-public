@@ -73,9 +73,6 @@ if inpath dircolors; then
     alias egrep='egrep --color=auto'
 fi
 
-# Set up SSH_AUTH_SOCK unless it's already set.
-[ -z "${SSH_AUTH_SOCK}" ] && export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
-
 unset -f inpath
 
 . jakuri-aliases.sh
