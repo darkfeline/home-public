@@ -22,3 +22,10 @@ export GOPROXY=https://proxy.golang.org
 if [ -z "${SSH_AUTH_SOCK:-}" ] && [ -n "${XDG_RUNTIME_DIR:-}" ]; then
     export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 fi
+
+# Set remote dbus socket for notifications, etc.
+# We need an intermediate variable because sometimes PAM is setup to
+# override DBUS_SESSION_BUS_ADDRESS.
+if [ -n "${SSH_CONNECTION:-}" ] && [ -n "${REMOTE_DBUS_SESSION_BUS_ADDRESS:-}" ]; then
+    export DBUS_SESSION_BUS_ADDRESS=$REMOTE_DBUS_SESSION_BUS_ADDRESS
+fi
