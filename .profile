@@ -18,7 +18,6 @@ PATH=$HOME/bin:$PATH
 # Application environment
 export DCONF_PROFILE=$HOME/.config/dconf/profile
 export GOPROXY=https://proxy.golang.org
-export LESSHISTFILE=$HOME/.local/state/lesshst
 
 if [ -z "${SSH_AUTH_SOCK:-}" ] && [ -n "${XDG_RUNTIME_DIR:-}" ]; then
     export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
