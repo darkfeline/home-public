@@ -107,12 +107,10 @@
       ("Dead Shell"
        (or (used-mode . shell-command-mode) (used-mode . shell-mode)))
       ("Term" (used-mode . vterm-mode))
-      ("Tramp"
-       (or (filename . "^/scp:") (filename . "^/ssh:")
-           (filename . "^/sudo:")))
+      ("Tramp" (filename . "^/\\(scp\\|ssh\\|sudo\\):"))
       ("Emacs" (not name . "^magit[:-]") (filename . "/.emacs.d/"))
       ("Src" (not derived-mode . comint-mode)
-       (not derived-mode . special-mode) (filename . "/src/"))
+       (not derived-mode . special-mode) (filename . "/\\(bin\\|src\\)/"))
       ("Special" (starred-name)) ("Magit" (name . "^magit[:-]")))))
  '(image-dired-dir "~/.cache/emacs/image-dired/")
  '(image-dired-thumb-size 200)
