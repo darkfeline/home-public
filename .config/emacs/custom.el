@@ -110,7 +110,8 @@
       ("Tramp" (filename . "^/\\(scp\\|ssh\\|sudo\\):"))
       ("Emacs" (not name . "^magit[:-]") (filename . "/.emacs.d/"))
       ("Src" (not derived-mode . comint-mode)
-       (not derived-mode . special-mode) (filename . "/\\(bin\\|src\\)/"))
+       (not derived-mode . special-mode)
+       (filename . "/\\(bin\\|src\\)/"))
       ("Special" (starred-name)) ("Magit" (name . "^magit[:-]")))))
  '(image-dired-dir "~/.cache/emacs/image-dired/")
  '(image-dired-thumb-size 200)
@@ -248,13 +249,12 @@
                        git-timemachine gnu-elpa-keyring-update go-mode
                        graphviz-dot-mode helpful htmlize jakuri
                        json-mode kdl-mode keycast lua-mode magit
-                       marginalia markdown-mode minions obsidian
-                       orderless org pinentry project protobuf-mode
-                       python rainbow-mode reintegrate smartparens
-                       systemd toml-mode tramp treesit-auto valign
-                       vertico vlf vterm vundo wgrep which-key
-                       with-editor ws-butler xterm-color yaml-mode
-                       yasnippet))
+                       marginalia markdown-mode minions orderless org
+                       pinentry project protobuf-mode python
+                       rainbow-mode reintegrate smartparens systemd
+                       toml-mode tramp treesit-auto valign vertico vlf
+                       vterm vundo wgrep which-key with-editor
+                       ws-butler xterm-color yaml-mode yasnippet))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(project-list-file "~/.local/state/emacs/projects")
  '(project-switch-commands
