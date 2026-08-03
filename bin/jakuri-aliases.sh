@@ -1,6 +1,5 @@
-alias ec="emacsclient"
-alias en="emacsclient -nw"
-alias ecnw="emacsclient -nw"
+alias ec="emacsclient -a ''"
+alias en="emacsclient -a '' -nw"
 alias engi="env | grep -i"
 alias g="git"
 alias gga="go generate ./..."
