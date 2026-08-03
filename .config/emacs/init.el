@@ -316,7 +316,7 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
 
 (when (locate-library "ssh-lighter")
   (require 'ssh-lighter)
-  (add-to-list 'mode-line-misc-info 'ssh-lighter))
+  (add-to-list 'mode-line-misc-info 'ssh-lighter t))
 
 (when (locate-library "systemd")
   (add-to-list 'auto-mode-alist '("/systemd/.+.path\\'" . systemd-mode)))
