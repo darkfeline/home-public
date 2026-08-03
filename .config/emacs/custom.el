@@ -275,6 +275,10 @@
  '(register-preview-delay 0.3)
  '(repeat-mode t)
  '(require-final-newline 'ask)
+ '(ring-bell-function
+   '(lambda nil
+      (if (display-graphic-p) (start-process "bell" nil "bell")
+        (ding))))
  '(rmail-file-name "~/.local/state/emacs/RMAIL")
  '(safe-local-variable-values
    '((org-num-max-level . 2) (make-backup-files)
@@ -330,7 +334,6 @@
  '(user-full-name "Allen Li")
  '(user-mail-address "darkfeline@felesatra.moe")
  '(vertico-mode t)
- '(visible-bell t)
  '(vterm-enable-manipulate-selection-data-by-osc52 t)
  '(vterm-max-scrollback 5000)
  '(vterm-module-cmake-args "-DUSE_SYSTEM_LIBVTERM=no")
