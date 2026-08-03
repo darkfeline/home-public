@@ -34,6 +34,12 @@ family = "Source Code Pro"
 [window]
 dynamic_title = true
 
+[bell]
+animation = "EaseOut"      # Animation style (e.g., Linear, Ease, EaseOut)
+duration = 200             # Flash duration in milliseconds (0 to disable)
+color = "#ffffff"          # Hex color code for the flash
+command = { program = "bell", args = [] }
+
 [keyboard]
 bindings = [
   # Send the CSI u escape sequence for Shift+Return

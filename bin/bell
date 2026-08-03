@@ -1,0 +1,18 @@
+#!/bin/sh
+# Play bell sound (for terminals)
+
+inpath() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+if inpath paplay; then
+    player=paplay
+elif inpath mpv; then
+    player="mpv --vo=null"
+fi
+
+[ -z "$player:-" ] && exit 1
+
+file=/usr/share/sounds/freedesktop/stereo/bell.oga
+
+$player "$file"
