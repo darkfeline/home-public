@@ -5,13 +5,15 @@ inpath() {
     command -v "$1" >/dev/null 2>&1
 }
 
-if inpath paplay; then
-    player=paplay
+if inpath pw-play; then
+    player=pw-play
 elif inpath mpv; then
     player="mpv --vo=null"
+elif inpath paplay; then
+    player=paplay
+else
+    exit 1
 fi
-
-[ -z "$player:-" ] && exit 1
 
 file=/usr/share/sounds/freedesktop/stereo/bell.oga
 
