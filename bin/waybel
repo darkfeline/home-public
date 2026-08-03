@@ -1,5 +1,5 @@
 #!/bin/sh
-# Play bell sound (for terminals)
+# Play bell sound in Wayland (e.g., for terminals).
 
 inpath() {
     command -v "$1" >/dev/null 2>&1

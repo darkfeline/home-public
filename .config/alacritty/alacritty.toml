@@ -35,7 +35,7 @@ family = "Source Code Pro"
 dynamic_title = true
 
 [bell]
-command = { program = "bell", args = [] }
+command = { program = "waybel", args = [] }
 
 [keyboard]
 bindings = [

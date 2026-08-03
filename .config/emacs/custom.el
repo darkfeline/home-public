@@ -277,7 +277,7 @@
  '(require-final-newline 'ask)
  '(ring-bell-function
    '(lambda nil
-      (if (display-graphic-p) (start-process "bell" nil "bell")
+      (if (display-graphic-p) (start-process "waybel" nil "waybel")
         (ding))))
  '(rmail-file-name "~/.local/state/emacs/RMAIL")
  '(safe-local-variable-values
