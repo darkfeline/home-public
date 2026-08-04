@@ -255,6 +255,8 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
                   (when p (project-remember-project p)))
                 (call-interactively #'majutsu)))
 
+  ([?\C-c ?t] (lambda () (interactive) (ghostel '(4))))
+
   ([?\C-c ?v] #'jakuri-vterm)
 
   ;; Personal
