@@ -10,6 +10,7 @@ export ENV=$HOME/.shrc
 export LANG=en_US.UTF-8
 export PATH
 PATH=$PATH:$HOME/src/google-cloud-sdk/bin
+PATH=$HOME/.nix-profile/bin:$PATH
 PATH=$HOME/go/bin:$PATH
 PATH=$HOME/.cargo/bin:$PATH
 PATH=$HOME/.local/bin:$PATH
