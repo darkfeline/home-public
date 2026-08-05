@@ -29,3 +29,7 @@ fi
 if [ -n "${SSH_CONNECTION:-}" ] && [ -n "${REMOTE_DBUS_SESSION_BUS_ADDRESS:-}" ]; then
     export DBUS_SESSION_BUS_ADDRESS=$REMOTE_DBUS_SESSION_BUS_ADDRESS
 fi
+
+if [ -f ~/.nix-profile/etc/profile.d/hm-session-vars.sh ]; then
+    . ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+fi

@@ -1,3 +1,5 @@
 /*.wants/
 
 /git-maintenance@*
+# Nix Home Manager
+/tray.target
