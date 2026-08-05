@@ -10,6 +10,7 @@
 !/environment.d/
 !/fontconfig/
 !/gammastep/
+!/ghostty/
 !/git/
 !/home-manager/
 !/hypr/

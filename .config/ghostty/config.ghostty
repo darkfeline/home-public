@@ -1,0 +1,25 @@
+# Font configuration
+font-family = Source Code Pro
+font-size = 10
+
+# Primary colors
+background = #222222
+foreground = #bbbbbb
+
+# Palette (Normal 0-7, Bright 8-15)
+palette = 0=#000000
+palette = 1=#dd5555
+palette = 2=#55dd55
+palette = 3=#dddd55
+palette = 4=#5555dd
+palette = 5=#dd55dd
+palette = 6=#55dddd
+palette = 7=#dddddd
+palette = 8=#444444
+palette = 9=#ff0000
+palette = 10=#00ff00
+palette = 11=#ffff00
+palette = 12=#0000ff
+palette = 13=#ff00ff
+palette = 14=#00ffff
+palette = 15=#ffffff
