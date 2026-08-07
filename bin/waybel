@@ -1,20 +1,3 @@
 #!/bin/sh
 # Play bell sound in Wayland (e.g., for terminals).
-
-inpath() {
-    command -v "$1" >/dev/null 2>&1
-}
-
-if inpath pw-play; then
-    player=pw-play
-elif inpath mpv; then
-    player="mpv --vo=null"
-elif inpath paplay; then
-    player=paplay
-else
-    exit 1
-fi
-
-file=/usr/share/sounds/freedesktop/stereo/bell.oga
-
-$player "$file"
+aplay ~/share/beep.wav

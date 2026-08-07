@@ -27,7 +27,7 @@ palette = 15=#ffffff
 cursor-style = block
 
 bell-features = audio, attention, border, title
-bell-audio-path = /usr/share/sounds/freedesktop/stereo/bell.oga
+bell-audio-path = ~/share/beep.wav
 bell-audio-volume = 1.0
 
 shell-integration = none
