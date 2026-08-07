@@ -9,7 +9,6 @@ set colored-completion-prefix on
 set colored-stats on
 set completion-display-width 80
 set mark-modified-lines on
-set prefer-visible-bell on
 set show-all-if-ambiguous on
 set skip-completed-text on
 set visible-stats on
