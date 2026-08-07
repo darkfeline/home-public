@@ -24,6 +24,9 @@ palette = 13=#ff00ff
 palette = 14=#00ffff
 palette = 15=#ffffff
 
+cursor-style = block
+shell-integration-features = no-cursor
+
 bell-features = audio, attention, border, title
 bell-audio-path = /usr/share/sounds/freedesktop/stereo/bell.oga
 bell-audio-volume = 1.0
