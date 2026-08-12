@@ -106,7 +106,7 @@
        (process))
       ("Dead Shell"
        (or (used-mode . shell-command-mode) (used-mode . shell-mode)))
-      ("Term" (or  (used-mode . ghostel-mode) (used-mode . vterm-mode)))
+      ("Term" (or (used-mode . ghostel-mode) (used-mode . vterm-mode)))
       ("Tramp" (filename . "^/\\(scp\\|ssh\\|sudo\\):"))
       ("Emacs" (not name . "^magit[:-]") (filename . "/.emacs.d/"))
       ("Src" (not derived-mode . comint-mode)
