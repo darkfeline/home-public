@@ -253,9 +253,8 @@
                        orderless org pinentry project protobuf-mode
                        python rainbow-mode reintegrate smartparens
                        systemd toml-mode tramp treesit-auto valign
-                       vertico vlf vterm vundo wgrep which-key
-                       with-editor ws-butler xterm-color yaml-mode
-                       yasnippet))
+                       vertico vlf vundo wgrep which-key with-editor
+                       ws-butler xterm-color yaml-mode yasnippet))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(project-list-file "~/.local/state/emacs/projects")
  '(project-switch-commands
