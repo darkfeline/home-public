@@ -246,10 +246,15 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
                 (interactive)
                 (let ((p (project-current)))
                   (when p (project-remember-project p)))
-                (if (locate-dominating-file default-directory ".jj")
-                    (call-interactively #'majutsu)
-                  (call-interactively #'magit-status))))
-  ([?\C-c ?G] #'magit-list-repositories)
+                (let ((root (locate-dominating-file
+                             default-directory
+                             (lambda (dir)
+                               (or (file-exists-p (expand-file-name ".jj" dir))
+                                   (file-exists-p (expand-file-name ".git" dir)))))))
+                  (if (and root (file-exists-p (expand-file-name ".jj" root)))
+                      (call-interactively #'majutsu)
+                    (call-interactively #'magit-status)))))
+   ([?\C-c ?G] #'magit-list-repositories)
 
   ([?\C-c ?t] (lambda () (interactive) (ghostel '(4))))
 
