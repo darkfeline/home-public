@@ -3,6 +3,7 @@
 !/.gitignore
 
 !/agent-workspaces
+!/aitelier
 !/aur
 !/bash-preexec
 !/dalian
