@@ -262,6 +262,19 @@ layout {
         color "#0007"
     }
 
+    tab-indicator {
+        place-within-column
+        gap 3
+        width 4
+        length total-proportion=0.75
+        position "left"
+        gaps-between-tabs 2
+        corner-radius 8
+        active-gradient from="#80c8ff" to="#bbddff" angle=45
+        inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+        urgent-gradient from="#800" to="#a33" angle=45
+    }
+
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
     // You can think of them as a kind of outer gaps. They are set in logical pixels.
     // Left and right struts will cause the next window to the side to always be visible.
