@@ -17,6 +17,7 @@ PATH=$HOME/.local/bin:$PATH
 PATH=$HOME/bin:$PATH
 
 # Application environment
+# (Interactive configuration should go into .shrc et al)
 export DCONF_PROFILE=$HOME/.config/dconf/profile
 export GOPROXY=https://proxy.golang.org
 
