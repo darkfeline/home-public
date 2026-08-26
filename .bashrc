@@ -54,8 +54,6 @@ ${__mir_start_time:+ \[${YELLOW}\]$(( EPOCHSECONDS - __mir_start_time ))s\[${RES
     esac
     # Update history file.
     history -a
-    # Support for emacs-libvterm
-    PS1=$PS1'\[$(vterm_prompt_end)\]'
 }
 
 if shopt -q progcomp; then
