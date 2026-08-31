@@ -60,7 +60,7 @@ input {
         // scroll-method "on-button-down"
         // scroll-button 273
         // scroll-button-lock
-        middle-emulation
+        // middle-emulation
     }
 
     tablet {
