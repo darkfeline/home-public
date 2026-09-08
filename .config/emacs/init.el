@@ -99,14 +99,14 @@
 
 
 ;;; Advice
-(define-advice shell-mode (:around (old &rest args))
+(define-advice shell-mode (:around (old &rest args) keep-fontify)
   "Stop `shell-mode' reusing the buffer from defontifying.
 See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
   (if (eq major-mode 'shell-mode)
       (remove-hook 'change-major-mode-hook 'font-lock-defontify t))
   (funcall old))
 
-(define-advice battery-update (:around (old))
+(define-advice battery-update (:around (old) hide-on-desktop)
   "Hide battery status on workstations."
   (let* ((data (and battery-status-function (funcall battery-status-function)))
          (percentage (car (read-from-string (cdr (assq ?p data))))))
@@ -118,7 +118,7 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
           (force-mode-line-update t))
       (funcall old))))
 
-(define-advice protobuf-mode (:after (&rest _args))
+(define-advice protobuf-mode (:after (&rest _args) shorten-name)
   "Shorten mode name."
   (setq mode-name "Proto")
   (c-update-modeline))
