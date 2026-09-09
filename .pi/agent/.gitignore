@@ -1,7 +1,0 @@
-/bin/
-/sessions/
-
-/auth.json
-/trust.json
-
-*.local.json

@@ -6,11 +6,9 @@
 
 !/.agents/
 !/.config/
-!/.gemini/
 !/.gnupg/
 !/.icons/
 !/.local/
-!/.pi/
 !/.ssh/
 
 !/.bash_profile

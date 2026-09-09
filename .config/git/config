@@ -83,13 +83,3 @@
 [credential "https://gist.github.com"]
 	helper =
 	helper = !/usr/bin/gh auth git-credential
-
-[filter "clean-agy"]
-	clean = git-filter-json-local clean %f .trustedWorkspaces .permissions .model
-	smudge = git-filter-json-local smudge %f
-[filter "clean-gemini"]
-	clean = git-filter-json-local clean %f .userSettings.remoteControlHostname .userSettings.globalPermissionGrants
-	smudge = git-filter-json-local smudge %f
-[filter "clean-pi"]
-	clean = git-filter-json-local clean %f .lastChangelogVersion .defaultProvider .defaultModel .defaultThinkingLevel
-	smudge = git-filter-json-local smudge %f
