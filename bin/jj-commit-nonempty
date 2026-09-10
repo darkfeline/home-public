@@ -1,0 +1,25 @@
+#!/bin/bash
+set -euo pipefail
+
+repo_args=()
+commit_args=()
+
+while getopts "R:m:" opt; do
+    case "$opt" in
+        R)
+            repo_args=(-R "$OPTARG")
+            ;;
+        m)
+            commit_args+=(-m "$OPTARG")
+            ;;
+        *)
+            exit 1
+            ;;
+    esac
+done
+shift $((OPTIND - 1))
+
+changes=$(jj "${repo_args[@]}" diff --name-only "$@")
+if [[ -n "$changes" ]]; then
+    jj "${repo_args[@]}" commit "${commit_args[@]}" "$@"
+fi
