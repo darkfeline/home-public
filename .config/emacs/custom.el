@@ -132,7 +132,7 @@
  '(magit-remote-add-set-remote.pushDefault nil)
  '(magit-repository-directories
    '(("~" . 0) ("~/.config/emacs" . 0) ("~/.config/emacs/elpa" . 0)
-     ("~/.config/emacs/vc" . 1) ("~/src" . 1)))
+     ("~/.config/emacs/vc" . 1) ("~/src" . 1) ("~/src/aitelier" . 1)))
  '(magit-save-repository-buffers nil)
  '(magit-wip-mode nil)
  '(mailcap-download-directory "/tmp")
