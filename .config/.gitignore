@@ -19,6 +19,7 @@
 !/logrotate/
 !/mpd/
 !/niri/
+!/noctalia/
 !/shpool/
 !/swaylock/
 !/systemd/
