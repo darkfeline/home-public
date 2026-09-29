@@ -2,9 +2,10 @@
 
 !/bin/
 !/src/
+!/share/
 
+!/.agents/
 !/.config/
-!/.gemini/
 !/.gnupg/
 !/.icons/
 !/.local/
@@ -18,6 +19,8 @@
 !/.gitmodules
 !/.gtkrc-2.0
 !/.inputrc
+!/.nix-channels
+!/.npmrc
 !/.profile
 !/.shrc
 !/.xbindkeysrc.scm

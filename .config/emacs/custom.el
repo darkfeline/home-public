@@ -20,6 +20,7 @@
  '(battery-load-low 40)
  '(bookmark-default-file "~/.local/state/emacs/bookmarks")
  '(bookmark-save-flag 1)
+ '(breadcrumb-mode t)
  '(calendar-date-style 'iso)
  '(calendar-intermonth-text
    '(propertize
@@ -33,6 +34,7 @@
               (if time-zone ")")))
  '(calendar-week-start-day 1)
  '(checkdoc-verb-check-experimental-flag nil)
+ '(comint-buffer-maximum-size 4096)
  '(comint-input-ring-size 20000)
  '(comint-terminfo-terminal "dumb-emacs-ansi")
  '(comment-empty-lines 'eol)
@@ -51,18 +53,19 @@
  '(dired-dwim-target t)
  '(dired-guess-shell-alist-user
    '(("\\.ipynb\\'" "jupyter-notebook")
-     ("\\.\\(png\\|jpg\\|bmp\\)\\'" "sxiv")
+     ("\\.\\(png\\|jpg\\|bmp\\)\\'" "nsxiv")
      ("\\.\\(7z\\|zip\\|rar\\)\\'" "7z x" "7z l"
       (format "7z x -o\"%s\"" (file-name-sans-extension file)))
      ("\\.\\(avi\\|flac\\|ogg\\|m4a\\|mkv\\|mp[34]\\|wav\\|webm\\|wmv\\)\\'"
       "mpv")))
  '(dired-isearch-filenames 'dwim)
- '(dired-kill-when-opening-new-dired-buffer t)
  '(dired-vc-rename-file t)
  '(display-battery-mode t)
  '(display-time-24hr-format t)
  '(display-time-day-and-date t)
  '(display-time-use-mail-icon t)
+ '(eat-eshell-mode t)
+ '(eat-eshell-visual-command-mode t)
  '(echo-keystrokes 0.001)
  '(ediff-window-setup-function 'ediff-setup-windows-plain)
  '(eglot-menu-string "egl")
@@ -83,18 +86,12 @@
  '(garbage-collection-messages t)
  '(git-commit-cd-to-toplevel t)
  '(global-diff-hl-mode t)
+ '(global-obsidian-mode t)
  '(global-so-long-mode t)
- '(global-tree-sitter-mode t)
  '(glyphless-char-display-control
    '((c1-control . acronym) (format-control . acronym)
      (no-font . acronym)))
- '(gnutls-algorithm-priority
-   "SECURE192:+SECURE128:-VERS-ALL:+VERS-TLS1.2:%PROFILE_MEDIUM")
- '(gnutls-min-prime-bits 2048)
- '(gnutls-verify-error t)
  '(gofmt-command "goimports")
- '(gptel-include-reasoning nil)
- '(gptel-magit-model 'gemini-2.5-flash-lite)
  '(history-length 4000)
  '(ibuffer-formats
    '((mark modified read-only locked " " (name 36 36 :left :elide) " "
@@ -109,13 +106,12 @@
        (process))
       ("Dead Shell"
        (or (used-mode . shell-command-mode) (used-mode . shell-mode)))
-      ("ERC" (used-mode . erc-mode))
-      ("Tramp"
-       (or (filename . "^/scp:") (filename . "^/ssh:")
-           (filename . "^/sudo:")))
+      ("Term" (or (used-mode . ghostel-mode) (used-mode . vterm-mode)))
+      ("Tramp" (filename . "^/\\(scp\\|ssh\\|sudo\\):"))
       ("Emacs" (not name . "^magit[:-]") (filename . "/.emacs.d/"))
       ("Src" (not derived-mode . comint-mode)
-       (not derived-mode . special-mode) (filename . "/src/"))
+       (not derived-mode . special-mode)
+       (filename . "/\\(bin\\|src\\)/"))
       ("Special" (starred-name)) ("Magit" (name . "^magit[:-]")))))
  '(image-dired-dir "~/.cache/emacs/image-dired/")
  '(image-dired-thumb-size 200)
@@ -132,11 +128,11 @@
  '(kill-read-only-ok t)
  '(magit-clone-set-remote.pushDefault nil)
  '(magit-define-global-key-bindings t)
- '(magit-diff-refine-hunk 'all)
+ '(magit-diff-refine-hunk t)
  '(magit-remote-add-set-remote.pushDefault nil)
  '(magit-repository-directories
    '(("~" . 0) ("~/.config/emacs" . 0) ("~/.config/emacs/elpa" . 0)
-     ("~/.config/emacs/vc" . 1) ("~/src" . 1)))
+     ("~/.config/emacs/vc" . 1) ("~/src" . 1) ("~/src/aitelier" . 1)))
  '(magit-save-repository-buffers nil)
  '(magit-wip-mode nil)
  '(mailcap-download-directory "/tmp")
@@ -166,6 +162,9 @@
  '(mouse-wheel-progressive-speed nil)
  '(network-security-level 'high)
  '(nsm-settings-file "~/.local/state/emacs/network-security.data")
+ '(obsidian-daily-note-template "Daily template.md")
+ '(obsidian-daily-notes-directory "daily")
+ '(obsidian-templates-directory "templates")
  '(org-adapt-indentation nil)
  '(org-agenda-include-diary t)
  '(org-agenda-persistent-filter t)
@@ -190,7 +189,6 @@
  '(org-confirm-babel-evaluate nil)
  '(org-ctags-open-link-functions nil)
  '(org-ctrl-k-protect-subtree 'error)
- '(org-edit-src-content-indentation 0)
  '(org-ellipsis "...")
  '(org-enforce-todo-dependencies t)
  '(org-export-backends '(ascii html md texinfo))
@@ -222,6 +220,7 @@
  '(org-refile-use-outline-path 'file)
  '(org-special-ctrl-a/e t)
  '(org-special-ctrl-k t)
+ '(org-src-content-indentation 0)
  '(org-structure-template-alist
    '(("a" . "export ascii") ("b" . "src bash") ("c" . "center")
      ("C" . "comment") ("e" . "example") ("E" . "export")
@@ -231,44 +230,31 @@
    (lambda nil (and (looking-at org-outline-regexp) (looking-back "^**"))))
  '(org-use-sub-superscripts '{})
  '(org-yank-folded-subtrees nil)
+ '(package-archive-priorities '(("nongnu" . 2) ("gnu" . 2) ("nongnu-devel" . 1)))
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+     ("nongnu-devel" . "https://elpa.nongnu.org/nongnu-devel/")
      ("melpa" . "https://melpa.org/packages/")
      ("melpa-stable" . "https://stable.melpa.org/packages/")))
  '(package-check-signature t)
  '(package-install-upgrade-built-in t)
- '(package-pinned-packages
-   '((markdown-mode . "nongnu") (dash . "gnu") (transient . "gnu")
-     (yasnippet . "gnu") (ws-butler . "nongnu")
-     (with-editor . "nongnu") (wgrep . "nongnu") (vlf . "nongnu")
-     (vertico . "gnu") (tiny . "gnu") (systemd . "nongnu")
-     (smartparens . "nongnu") (keycast . "nongnu")
-     (htmlize . "nongnu") (gptel . "nongnu") (expand-region . "gnu")
-     (dockerfile-mode . "nongnu") (diff-hl . "gnu") (consult . "gnu")
-     (bash-completion . "nongnu") (async . "gnu")
-     (aggressive-indent . "gnu") (orderless . "gnu")
-     (marginalia . "gnu") (bind-key . "gnu") (use-package . "gnu")
-     (faceup . "gnu") (which-key . "gnu") (cond-let . "nongnu")))
+ '(package-pinned-packages nil)
  '(package-quickstart t)
  '(package-selected-packages
-   '(aggressive-indent async bash-completion bazel bluetooth cond-let
+   '(aggressive-indent async bash-completion bazel breadcrumb cond-let
                        consult csv-mode ddskk diff-hl dockerfile-mode
-                       dumb-jump easydraw editorconfig eglot
-                       emmet-mode erc expand-region flymake
-                       flymake-shellcheck ghub git-timemachine
-                       gnu-elpa-keyring-update go-mode gptel
-                       gptel-commit gptel-magit graphviz-dot-mode
-                       helpful htmlize ialign idlwave ipcalc jakuri
-                       jq-mode json-mode kdl-mode keycast lua-mode
-                       magit marginalia markdown-mode mcp minions
-                       obsidian orderless org pinentry project
-                       protobuf-mode python rainbow-mode reintegrate
-                       seq smartparens string-inflection systemd tiny
-                       toml-mode tramp valign verb verilog-mode
-                       vertico vlf vterm vundo wgrep which-key
-                       window-tool-bar with-editor ws-butler
-                       xterm-color yaml-mode yasnippet))
+                       dumb-jump easydraw eat editorconfig eglot
+                       expand-region flymake flymake-shellcheck
+                       ghostel git-timemachine gnu-elpa-keyring-update
+                       go-mode graphviz-dot-mode helpful htmlize
+                       jakuri json-mode kdl-mode keycast lua-mode
+                       magit marginalia markdown-mode minions
+                       orderless org pinentry project protobuf-mode
+                       python rainbow-mode reintegrate smartparens
+                       systemd toml-mode tramp treesit-auto valign
+                       vertico vlf vundo wgrep which-key with-editor
+                       ws-butler xterm-color yaml-mode yasnippet))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(project-list-file "~/.local/state/emacs/projects")
  '(project-switch-commands
@@ -289,6 +275,10 @@
  '(register-preview-delay 0.3)
  '(repeat-mode t)
  '(require-final-newline 'ask)
+ '(ring-bell-function
+   '(lambda nil
+      (if (display-graphic-p) (start-process "waybel" nil "waybel")
+        (ding))))
  '(rmail-file-name "~/.local/state/emacs/RMAIL")
  '(safe-local-variable-values
    '((org-num-max-level . 2) (make-backup-files)
@@ -325,12 +315,15 @@
  '(tab-bar-new-tab-choice nil)
  '(tab-bar-tab-hints t)
  '(text-scale-mode-step 1.1)
- '(tls-checktrust t)
  '(tool-bar-mode nil)
  '(tooltip-mode nil)
  '(tooltip-resize-echo-area t)
+ '(tramp-histfile-override "~/.local/state/emacs/tramp_history")
  '(tramp-persistency-file-name "~/.local/state/emacs/tramp")
  '(transient-history-file "~/.local/state/emacs/transient/history.el")
+ '(transient-levels-file "~/.local/state/emacs/transient/levels.el")
+ '(transient-values-file "~/.local/state/emacs/transient/values.el")
+ '(treesit-auto-install 'prompt)
  '(underline-minimum-offset 15)
  '(undo-limit 1600000)
  '(undo-outer-limit 240000000)
@@ -341,7 +334,9 @@
  '(user-full-name "Allen Li")
  '(user-mail-address "darkfeline@felesatra.moe")
  '(vertico-mode t)
- '(visible-bell t)
+ '(vterm-enable-manipulate-selection-data-by-osc52 t)
+ '(vterm-max-scrollback 5000)
+ '(vterm-module-cmake-args "-DUSE_SYSTEM_LIBVTERM=no")
  '(wdired-allow-to-change-permissions t)
  '(wgrep-auto-save-buffer t)
  '(window-combination-limit 'display-buffer)
@@ -361,6 +356,8 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :extend nil :stipple nil :background "gray20" :foreground "white smoke" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 94 :width normal :foundry "ADBO" :family "Source Code Pro"))))
  '(Info-quoted ((t (:inherit default :foreground "sandy brown"))))
+ '(breadcrumb-face ((t (:foreground "gray10"))))
+ '(breadcrumb-imenu-leaf-face ((t (:inherit breadcrumb-imenu-crumbs-face :foreground "brightgreen"))))
  '(comint-highlight-prompt ((t (:inherit nil))))
  '(diary ((t (:foreground "orange"))))
  '(diff-hl-change ((t (:background "royal blue" :foreground "deep sky blue"))))
@@ -373,10 +370,13 @@
  '(ediff-odd-diff-C ((t (:background "gray20"))))
  '(erc-input-face ((t (:foreground "light coral"))))
  '(erc-my-nick-face ((t (:foreground "light coral" :weight bold))))
+ '(header-line ((t (:inherit mode-line :inverse-video nil))))
  '(hi-black-b ((t (:background "dark goldenrod" :foreground "black"))))
  '(hi-black-hb ((t (:foreground "goldenrod" :weight bold))))
  '(hi-blue-b ((t (:foreground "deep sky blue" :weight bold))))
  '(line-number-current-line ((t (:inherit line-number :background "dark gray" :foreground "black"))))
+ '(majutsu-interactive-selected-hunk ((t (:background "dark violet"))))
+ '(majutsu-interactive-selected-region ((t (:background "dark violet"))))
  '(mode-line ((t (:background "grey60" :foreground "black"))))
  '(org-habit-clear-future-face ((t (:background "dark slate blue"))))
  '(org-headline-done ((t (:foreground "rosy brown" :strike-through t))))

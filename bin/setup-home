@@ -10,9 +10,11 @@ main() {
 }
 
 ensure_dirs() {
-    mkdir -p ~/.cache/mpd
-    mkdir -p ~/.local/state/mir-flags
-    mkdir -p ~/.ssh/ctrl
+    mkdir -p \
+          ~/.cache/mpd \
+          ~/.local/state/mir-flags \
+          ~/.local/state/mpd \
+          ~/.ssh/ctrl
 }
 
 fix_perms() {
@@ -28,7 +30,7 @@ copy_git_hooks() {
     local src=$1
     shift 1
     local dst=
-    local hookdir=share/githooks
+    local hookdir=src/githooks
     for m in $@; do
         dst="${dst}/modules/${m}"
     done

@@ -33,3 +33,12 @@ family = "Source Code Pro"
 
 [window]
 dynamic_title = true
+
+[bell]
+command = { program = "waybel", args = [] }
+
+[keyboard]
+bindings = [
+  # Send the CSI u escape sequence for Shift+Return
+  { key = "Return", mods = "Shift", chars = "\u001b[13;2u" }
+]

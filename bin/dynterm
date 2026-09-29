@@ -1,0 +1,10 @@
+#!/bin/sh
+
+inpath() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+inpath ghostty && exec ghostty "$@"
+inpath alacritty && exec alacritty "$@"
+echo "$0: no terminal found" >&2
+exit 1

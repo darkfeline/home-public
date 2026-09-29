@@ -1,19 +1,15 @@
-at() (
-    x=$1
-    shift 1
-    systemd-run --user --on-active="${x}" --timer-property=AccuracySec=100ms "${@}"
-)
-alias ec="emacsclient"
-alias ecnw="emacsclient -nw"
+alias ec="emacsclient -a ''"
+alias en="emacsclient -a '' -nw"
 alias engi="env | grep -i"
 alias g="git"
-alias gcli="gemini"
 alias gga="go generate ./..."
 alias ggua="go get -u ./..."
 alias gia="go install ./..."
 alias gmt="go mod tidy"
 alias gta="go test ./..."
-alias jjg="jj git"
+alias hn="head -n"
+alias j="jj"
+alias jg="jj git"
 alias jrn="journalctl"
 alias jrnu="journalctl --user"
 alias la="ls -A"
@@ -29,7 +25,13 @@ alias path='printf "%s\n" "$PATH" | sed "s/:/\n/g"'
 alias psef="ps -ef"
 alias psefg="ps -ef | grep"
 alias pt="pstree -ps"
-alias s="sudo"
+alias s="ssh"
+alias sc="scmode"
+alias shpa="shpool attach -d ."
+alias shpd="shpool detach"
+alias shpl="shpool list"
+alias soe="ssh -O exit"
+alias tn="tail -n"
 alias tpr="tput reset"
 
 # systemctl aliases

@@ -1,0 +1,48 @@
+# Sample keeper-go bookkeeping file (.kpr)
+
+# 1. Unit Declarations
+# Units must consist only of uppercase letters and must be declared before use.
+# The number specifies the lowest division scale as an integer power of ten (100 = 1/100th).
+unit USD 100
+unit BTC 100000000
+
+# 2. Account Declarations and Metadata
+# Multi-line entry terminating in 'end'. Metadata keys and values are double-quoted strings.
+account Assets:Cash
+meta "description" "Primary operating checking account"
+meta "institution" "Example Bank"
+end
+
+account Expenses:Food
+meta "category" "Living Expenses"
+end
+
+# 3. Transactions
+# Multi-line entry starting with 'tx <DATE> <DESCRIPTION>' and terminating in 'end'.
+# Account names must start with an uppercase letter and cannot be only uppercase letters.
+tx 2024-01-01 "Initial capital deposit"
+Assets:Cash 10,000.00 USD
+Equity:Capital -10000.00 USD
+end
+
+tx 2024-01-05 "Grocery shopping with automatic split balancing"
+Expenses:Food 85.50 USD
+Assets:Cash
+end
+
+# 4. Balance Assertions
+# Single-line balance assertion for single-currency accounts:
+balance 2024-01-05 Assets:Cash 9914.50 USD
+
+# Multi-line balance assertion for multi-currency accounts:
+balance 2024-01-05 Assets:Crypto
+1.50000000 BTC
+0.00 USD
+end
+
+# Tree balance assertion (asserts balance of account plus all sub-accounts):
+treebal 2024-01-05 Assets 9914.50 USD
+
+# 5. Disable Account
+# Prevents further transactions in the specified account as of the given date.
+disable 2024-12-31 Expenses:OldCategory

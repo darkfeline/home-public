@@ -50,46 +50,6 @@
   (mir-init-bind-keys go-mode-map
     ([?\C-c ?i] #'consult-imenu)))
 
-(with-eval-after-load 'gptel-commit
-  (setq gptel-commit-prompt
-        "You are an expert at writing Git commit messages.
-Generate **only** the commit message, nothing else.
-
-CRITICAL: OUTPUT PLAIN TEXT ONLY - NO markdown formatting, NO code
-blocks, NO backticks, NO **bold** or *italic*. Just raw text.
-
-The commit message should begin with a single line of text (the subject
-line).  This line should preferably be no more than 50 characters, but
-MUST NOT exceed 100 characters in all cases.  This line should not end
-in a period.
-
-DECISION PROCESS:
-1. Count changed files
-2. If 1 file: check if change is simple or complex
-3. Apply the appropriate format
-
-FORMAT RULES:
-
-A. Single File + Simple Change (one clear purpose):
-   Subject line only
-
-B. Single File + Complex Change (multiple purposes/major refactor):
-   Subject line
-
-   Optional body paragraph explaining why (wrap at 72 chars).
-
-C. Multiple Files (2+ files changed):
-   Subject line
-
-   Optional body paragraph explaining why (wrap at 72 chars).
-
-SIMPLE vs COMPLEX (single file):
-- Simple: one function, one clear fix/addition
-- Complex: multiple functions, refactoring, or architectural change"))
-
-(with-eval-after-load 'gptel-magit
-  (setq gptel-magit-commit-prompt gptel-magit-prompt-zed))
-
 (with-eval-after-load 'grep
   (require 'wgrep))
 
@@ -126,12 +86,6 @@ SIMPLE vs COMPLEX (single file):
   (mir-init-bind-keys vertico-map
     ([?\M-a] #'marginalia-cycle)))
 
-(with-eval-after-load 'vterm
-  (mir-init-bind-keys vterm-mode-map
-    ([?\C-c ?\C-d] #'vterm--self-insert)
-    ([?\C-c ?\C-e] #'vterm-send-escape)
-    ([?\C-c ?\C-q] #'vterm-send-next-key)))
-
 (with-eval-after-load 'wdired
   (mir-init-bind-keys wdired-mode-map
     ([?\C-a] (lambda ()
@@ -145,14 +99,14 @@ SIMPLE vs COMPLEX (single file):
 
 
 ;;; Advice
-(define-advice shell-mode (:around (old))
+(define-advice shell-mode (:around (old &rest args) keep-fontify)
   "Stop `shell-mode' reusing the buffer from defontifying.
 See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
   (if (eq major-mode 'shell-mode)
       (remove-hook 'change-major-mode-hook 'font-lock-defontify t))
   (funcall old))
 
-(define-advice battery-update (:around (old))
+(define-advice battery-update (:around (old) hide-on-desktop)
   "Hide battery status on workstations."
   (let* ((data (and battery-status-function (funcall battery-status-function)))
          (percentage (car (read-from-string (cdr (assq ?p data))))))
@@ -164,7 +118,7 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
           (force-mode-line-update t))
       (funcall old))))
 
-(define-advice protobuf-mode (:after (&rest _args))
+(define-advice protobuf-mode (:after (&rest _args) shorten-name)
   "Shorten mode name."
   (setq mode-name "Proto")
   (c-update-modeline))
@@ -267,16 +221,19 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
                 (interactive)
                 (let ((p (project-current)))
                   (when p (project-remember-project p)))
-                (call-interactively #'magit-status)))
-  ([?\C-c ?G] #'magit-list-repositories)
+                (let ((root (locate-dominating-file
+                             default-directory
+                             (lambda (dir)
+                               (or (file-exists-p (expand-file-name ".jj" dir))
+                                   (file-exists-p (expand-file-name ".git" dir)))))))
+                  (if (and root (file-exists-p (expand-file-name ".jj" root)))
+                      (call-interactively #'majutsu)
+                    (call-interactively #'magit-status)))))
+   ([?\C-c ?G] #'magit-list-repositories)
 
-  ([?\C-c ?t] #'gptel-send)
-  ([?\C-c ?T] #'gptel)
+  ([?\C-c ?t] (lambda () (interactive) (ghostel '(4))))
 
-  ([?\C-c ?y] #'tiny-expand)
-
-  ([remap async-shell-command] 'with-editor-async-shell-command)
-  ([remap shell-command] 'with-editor-shell-command)
+  ([?\C-c ?v] #'jakuri-vterm)
 
   ;; Personal
   ([?\C-c ?s] #'jakuri-shell)
@@ -328,15 +285,6 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
                ("\\.gni\\'" . gn-mode)))
     (add-to-list 'auto-mode-alist v)))
 
-(when (locate-library "gptel")
-  (setq gptel-backend
-        (gptel-make-gemini "Gemini"
-          :key #'gptel-api-key-from-auth-source
-          :stream t)))
-
-(when (locate-library "gptel-magit")
-  (gptel-magit-install))
-
 (when (locate-library "org")
   (require 'org-protocol))
 
@@ -344,26 +292,20 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
   (when (getenv "SSH_TTY")
     (reintegrate)))
 
+(when (locate-library "ssh-lighter")
+  (require 'ssh-lighter)
+  (add-to-list 'mode-line-misc-info 'ssh-lighter t))
+
 (when (locate-library "systemd")
   (add-to-list 'auto-mode-alist '("/systemd/.+.path\\'" . systemd-mode)))
+
+(when (locate-library "treesit-auto")
+  (require 'treesit-auto)
+  (treesit-auto-add-to-auto-mode-alist 'all)
+  (global-treesit-auto-mode))
 
 (when (locate-library "vimml")
   (vimml-add-rule "python" #'python-mode))
 
 (when (locate-library "vlf")
   (require 'vlf-setup))
-
-(when (locate-library "with-editor")
-  (define-advice shell (:around (old &rest args))
-    "Wrap `shell' with `with-editor'."
-    (with-editor
-      (apply old args))))
-
-;; Add mode-line indicator when SSH.
-(when (getenv "SSH_TTY")
-  (add-to-list 'mode-line-misc-info
-               '((:eval (propertize "SSH"
-                                    'face (if (mode-line-window-selected-p)
-                                              '(:foreground "gold" :background "gray40")
-                                            '(:foreground "gold"))))
-                 " ")))

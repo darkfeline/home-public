@@ -1,0 +1,7 @@
+#!/bin/bash
+readonly command=$1
+while read -Er -p "${command}> " input; do
+    eval "${command} ${input}"
+done
+# Print extra line after EOF
+echo

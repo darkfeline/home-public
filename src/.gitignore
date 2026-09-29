@@ -2,6 +2,11 @@
 
 !/.gitignore
 
+!/agent-workspaces
+!/aitelier
 !/aur
 !/bash-preexec
+!/dalian
+!/githooks
+!/obsidian-skills
 !/yt-dlp

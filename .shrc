@@ -2,18 +2,53 @@
 # (assuming ENV is set to this file).
 
 . color.sh
-PS1="${RESET}${GREEN}$USER${RESET}@${GREEN}$(uname -n)${RESET} ! $ "
 
+inpath() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+PS1="${RESET}${GREEN}$USER${RESET}@${GREEN}$(uname -n)${RESET} ! $ "
 [ -n "${INSIDE_EMACS:-}" ] && PS2=
 
-if tty >/dev/null 2>&1; then
+export EDITOR="ed -p 'ed> '"
+case "${TERM:-dumb}" in
+    *dumb*)
+        export PAGER=cat
+        ;;
+    *)
+        # Assume non-dumb terminals can support these
+        if inpath emacsclient; then
+            export VISUAL="emacsclient -a '' -nw"
+        else
+            for e in vi nvi vim; do
+                if inpath $e; then
+                    export VISUAL=$e
+                    break
+                fi
+            done
+        fi
+
+        if inpath less; then
+            export PAGER="less -dFRX"
+        elif inpath more; then
+            export PAGER=more
+        fi
+        ;;
+esac
+export JJ_PAGER=$PAGER
+
+[ -n "${INSIDE_EMACS:-}" ] && export EDITOR=emacsclient VISUAL=emacsclient
+
+if tty=$(tty); then
     stty tostop
+
     # This is used by gpg-agent to pass ttyname to pinentry.
-    export GPG_TTY=$(tty)
+    export GPG_TTY=$tty
 fi
+unset -v tty
 
 case "$TERM" in
-    'xterm')
+    xterm)
         # xterm always sets TERM=xterm even if it was compiled with
         # 256 color support.
         # Most xterms are compiled with 256 color, so check
@@ -21,15 +56,10 @@ case "$TERM" in
         # recent-ish xterm.
         [ -n "${XTERM_VERSION:-}" ] && TERM=xterm-256color
         ;;
-    ''|dumb*)
-        # Disable pagers
-        export PAGER=cat
-        export GIT_PAGER=cat
-        export SYSTEMD_PAGER=cat
-        ;;
 esac
 
-if command -v dircolors >/dev/null 2>&1; then
+
+if inpath dircolors; then
     eval "$(dircolors -b ~/.dircolors)"
     # If dircolors exists, then we likely have the GNU versions of ls
     # and grep that support color.
@@ -43,8 +73,7 @@ if command -v dircolors >/dev/null 2>&1; then
     alias egrep='egrep --color=auto'
 fi
 
-# Set up SSH_AUTH_SOCK unless it's already set.
-[ -z "${SSH_AUTH_SOCK}" ] && export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+unset -f inpath
 
 . jakuri-aliases.sh
 

@@ -1,7 +1,6 @@
 /*
 
 !/alacritty/
-!/atuin/
 !/awesome/
 !/cava/
 !/containers/
@@ -11,15 +10,21 @@
 !/environment.d/
 !/fontconfig/
 !/gammastep/
+!/ghostty/
 !/git/
+!/home-manager/
 !/hypr/
 !/jj/
 !/kanshi/
 !/logrotate/
 !/mpd/
 !/niri/
-!/redshift/
+!/noctalia/
+!/shpool/
 !/swaylock/
 !/systemd/
 !/waybar/
 !/xdg-desktop-portal/
+
+!/mpv
+!/user-dirs.dirs

@@ -1,3 +1,32 @@
 [user]
 name = "Allen Li"
 email = "darkfeline@feleatra.moe"
+
+[revsets]
+log = "present(@) | ancestors(immutable_heads().., 2) | trunk()"
+
+[aliases]
+bm = ["bookmark", "move"]
+d = ["diff"]
+e = ["edit"]
+dno = ["diff", "--name-only"]
+ds = ["describe"]
+el = ["evolog"]
+fu = ["file", "untrack"]
+g = ["git"]
+ge = ["git", "export"]
+gf = ["git", "fetch"]
+gi = ["git", "init"]
+gp = ["git", "push"]
+gr = ["git", "remote"]
+lh = ["log", "-r", "fork_point(visible_heads())::visible_heads()"]
+lm = ["log", "-r", "present(master):: | present(main)::"]
+lo = ["log", "-r", "remote_bookmarks(remote=origin)::"]
+n = ["new"]
+rb = ["rebase"]
+sh = ["squash"]
+sp = ["split"]
+wa = ["workspace", "add"]
+wl = ["workspace", "list"]
+ws = ["workspace"]
+wus = ["workspace", "update-stale"]

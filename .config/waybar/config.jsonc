@@ -70,7 +70,7 @@
       "playing": "⏵"
     },
     "max-length": 50,
-    "artist-len": 20
+    "artist-len": 15
   },
   "tray": {
     "icon-size": 22,
@@ -113,9 +113,9 @@
   "group/sys": {
     "orientation": "horizontal",
     "modules": [
+      "memory",
       "load",
       "cpu",
-      "memory",
       "temperature",
       "network"
     ],
