@@ -10,9 +10,9 @@ high_contrast         = false
 
 [shell]
 corner_radius_scale   = 1.0          # 0 = square, 1 = default, 2 = extra rounded
-font_family           = "sans-serif"
-time_format           = "{:%H:%M}"  # default shell UI time format
-date_format           = "%A, %x"    # default shell UI date format
+font_family           = "Source Code Pro"
+time_format           = "{:%T}"      # default shell UI time format
+date_format           = "{:%a %F}"   # default shell UI date format
 offline_mode          = false        # block all outgoing HTTP when true
 # panel_anchor_bar   = "main"        # bar panels attach to without a source bar; omit = first enabled bar
 telemetry_enabled     = false        # send an anonymous startup ping
@@ -25,7 +25,7 @@ settings_expand_all_groups = false   # expand every group on Settings pages by d
 show_location         = true         # hide weather location text in shell UI when false
 # app_icon_colorize   = false        # recolor application icons across the shell
 # app_icon_color      = "on_surface" # ColorSpec role or #hex when colorize is enabled
-clipboard_enabled     = true         # false disables clipboard panel, history, and compositor clipboard hooks
+clipboard_enabled     = false        # false disables clipboard panel, history, and compositor clipboard hooks
 clipboard_history_max_entries = 100 # unpinned history cap (10–10000); pinned entries are extra
 # A Wayland selection is served by the app that owns it, so it dies when that app exits.
 # With this on, the shell claims it back so the item stays pasteable. Caveat: a password
@@ -121,7 +121,7 @@ show_app_icon = true                # show application icons over window preview
 
 [wallpaper]
 enabled             = true
-fill_mode           = "crop"        # center | crop | fit | stretch | repeat | span
+fill_mode           = "center"        # center | crop | fit | stretch | repeat | span
 fill_color          = ""            # optional fallback/fill color: prefer a color role token; fixed hex also works
 transition          = ["fade", "wipe", "disc", "stripes", "zoom", "honeycomb"]
 transition_duration = 1500          # milliseconds
@@ -132,7 +132,7 @@ directory_light     = ""            # optional day-mode directory
 directory_dark      = ""            # optional night-mode directory
 
 [wallpaper.default]
-path = ""                            # optional initial/default wallpaper path
+path = "~/share/exa-pico3.png"      # optional initial/default wallpaper path
 
 [wallpaper.automation]
 enabled                    = false
@@ -262,7 +262,7 @@ disk_poll_seconds = 10.0            # disk usage and swap usage; graph widgets u
 [calendar]
 enabled                     = false
 refresh_minutes             = 15
-event_date_format           = "%A %e %B"    # date format used for events
+event_date_format           = "%A %b %e"    # date format used for events
 event_time_format           = "%H:%M"       # time format used for events
 
 # Notifications for upcoming events.
@@ -277,7 +277,7 @@ all_day_digest_time  = "09:00"  # one notification listing today's all-day event
 
 [control_center.calendar]
 show_events_card            = true
-show_week_numbers           = false         # ISO 8601 week numbers in the month grid
+show_week_numbers           = true         # ISO 8601 week numbers in the month grid
 
 # ── Weather ───────────────────────────────────────────────────────────────────
 
@@ -370,10 +370,10 @@ position           = "top"          # top | bottom | left | right
 thickness          = 34
 background_opacity = 1.0
 radius             = 12
-margin_ends        = 180
+margin_ends        = 10
 margin_edge        = 10
-padding            = 14
-widget_spacing     = 6
+padding            = 10
+widget_spacing     = 4
 scale              = 1.0
 font_scale         = 1.0            # text-only scale multiplier across widgets
 shadow             = true
@@ -381,16 +381,17 @@ auto_hide          = false
 # smart_auto_hide    = false       # show when the active workspace is empty; hide when it has windows
 # show_on_workspace_switch = true   # with auto_hide: briefly reveal when the active workspace changes
 reserve_space      = true
-capsule            = false
-# capsule_fill     = "surface_variant"
+capsule            = true
+capsule_fill       = "#444444"
+capsule_padding    = 10
 # capsule_radius   = 8.0            # omit/blank in Settings for automatic pill radius; 0.0 = square
 # capsule_opacity  = 1.0
 # capsule_border   = "outline"      # uncomment for a border on all widgets
 # capsule_border_width = 1.0        # outline thickness in pixels (0-8); needs capsule_border
 
-start  = ["launcher", "wallpaper", "workspaces"]
-center = ["clock"]
-end    = ["media", "tray", "notifications", "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session"]
+start  = ["launcher", "workspaces", "active_window"]
+center = []
+end    = ["media", "tray", "notifications", "volume", "bluetooth", "network", "sysmon", "brightness", "battery", "clock", "control-center"]
 
 # Commands for the bar margin outside widget sections (dead zone):
 # [bar.main.dead_zone.actions]
@@ -531,8 +532,8 @@ enabled = false
 # custom_image = "/path/to/image.png"
 # custom_image_colorize = false
 
-# [widget.notifications]
-# hide_when_no_unread = true
+[widget.notifications]
+hide_when_no_unread = true
 
 # [widget.network_rx]
 # network_speed_unit = "mb"          # auto | kb | mb
@@ -570,11 +571,21 @@ enabled = false
 # scroll_up_command   = ""
 # scroll_down_command = ""
 #
-# [widget.clock]
-# format = "{:%H:%M}\n{:%d/%m}"
+[widget.clock]
+format = "{:%a %F %T}"
 # vertical_format = "{:%H\n%M}"
 # tooltip_format = "{:%A, %B %d, %Y}"
 # scale = 1.0                         # multiplies the bar scale for this widget only
 # font_scale = 1.0                    # multiplies text size for this widget only
 # font_weight = 700
 # interactive = false                 # pass clicks/scrolls through to the bar and disable hover/tooltips
+
+[widget.active_window]
+max_length = 600
+
+[widget.media]
+artist_first = true
+max_length = 400
+
+[widget.sysmon]
+stat = "ram_used"
