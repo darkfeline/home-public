@@ -111,7 +111,7 @@ prefix = "win"
 blacklist = []                      # ignore MPRIS players by bus/identity/desktop entry token
 
 [shell.window_switcher]
-style = "carousel"                    # "carousel" (depth layout) or "compact" (boxed strip)
+style = "carousel"                  # "carousel" (depth layout) or "compact" (boxed strip)
 mru = false                         # order windows by most recently used (Alt+Tab) instead of workspace layout
 show_caption = true                 # show window titles and application names below previews
 show_count = true                   # show the current and total window count above the previews
@@ -122,7 +122,7 @@ show_app_icon = true                # show application icons over window preview
 [wallpaper]
 enabled             = true
 fill_mode           = "center"        # center | crop | fit | stretch | repeat | span
-fill_color          = ""            # optional fallback/fill color: prefer a color role token; fixed hex also works
+fill_color          = "#000000"       # optional fallback/fill color: prefer a color role token; fixed hex also works
 transition          = ["fade", "wipe", "disc", "stripes", "zoom", "honeycomb"]
 transition_duration = 1500          # milliseconds
 edge_smoothness     = 0.3
@@ -238,7 +238,7 @@ privacy = true                      # microphone/camera/screen-share capture cha
 enabled                 = true
 blurred_desktop         = false       # use a desktop snapshot as the lock screen background (requires wlr-screencopy)
 transition              = ["fade", "wipe", "disc", "stripes", "zoom", "honeycomb"] # empty disables lock/unlock animation
-transition_duration     = 1500        # lock/unlock animation length in milliseconds
+transition_duration     = 500         # lock/unlock animation length in milliseconds
 edge_smoothness         = 0.3         # transition edge feathering (0.0 = sharp, 1.0 = soft)
 blur_intensity          = 0.5         # lock screen background blur (0.0 = none, 1.0 = maximum)
 tint_intensity          = 0.3         # surface-color tint over the lock screen background
