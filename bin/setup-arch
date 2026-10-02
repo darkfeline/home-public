@@ -30,16 +30,15 @@ readonly packages=(
     dunst
     gammastep
     grim
-    hyprland
     kanshi
     niri
+    noctalia
     polkit-kde-agent
     rofi
     slurp
     swaybg
     swayidle
     swaylock
-    waybar
     wl-clipboard
     xdg-desktop-portal-hyprland
     xdg-desktop-portal-wlr
