@@ -1,7 +1,10 @@
 #!/bin/sh
 # Start running crucial Wayland utilities.
-systemctl --user start dunst.service
-swaybg -m center -i ~/share/exa-pico3.png -c "#000000" &
+
+#systemctl --user start dunst.service
+#swaybg -m center -i ~/share/exa-pico3.png -c "#000000" &
+noctalia &
+
 swayidle -w before-sleep swaylock &
 kanshi &
 

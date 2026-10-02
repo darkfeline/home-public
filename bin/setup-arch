@@ -55,7 +55,6 @@ readonly laptop=(
 
 main() {
     sudo pacman -S --noconfirm "${packages[@]}"
-    systemctl --user enable waybar.service
 
     # Setup TLP
     # TODO: make this optional for laptops
