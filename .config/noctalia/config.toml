@@ -369,11 +369,11 @@ delete   = ["del"]
 position           = "top"          # top | bottom | left | right
 thickness          = 34
 background_opacity = 1.0
-radius             = 12
-margin_ends        = 10
-margin_edge        = 10
-padding            = 10
-widget_spacing     = 4
+radius             = 8
+margin_ends        = 0
+margin_edge        = 4
+padding            = 4
+widget_spacing     = 2
 scale              = 1.0
 font_scale         = 1.0            # text-only scale multiplier across widgets
 shadow             = true
@@ -391,7 +391,7 @@ capsule_padding    = 10
 
 start  = ["launcher", "workspaces", "active_window"]
 center = []
-end    = ["media", "tray", "notifications", "volume", "bluetooth", "network", "sysmon", "brightness", "battery", "clock", "control-center"]
+end    = ["media", "tray", "notifications", "volume", "network", "sysmon", "battery", "clock", "control-center"]
 
 # Commands for the bar margin outside widget sections (dead zone):
 # [bar.main.dead_zone.actions]
@@ -581,11 +581,13 @@ format = "{:%a %F %T}"
 # interactive = false                 # pass clicks/scrolls through to the bar and disable hover/tooltips
 
 [widget.active_window]
-max_length = 600
+max_length = 500
 
 [widget.media]
 artist_first = true
-max_length = 400
+max_length = 300
+title_scroll = "always"
+hide_when_no_media = true
 
 [widget.sysmon]
 stat = "ram_used"
