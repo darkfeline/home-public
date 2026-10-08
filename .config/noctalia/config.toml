@@ -315,8 +315,8 @@ enable_ddcutil = false
 # ── Night Light ───────────────────────────────────────────────────────────────
 
 [nightlight]
-enabled              = true
-force                = false
+enabled              = false
+force                = true
 temperature_day      = 5000         # Kelvin
 temperature_night    = 3500         # Kelvin
 
