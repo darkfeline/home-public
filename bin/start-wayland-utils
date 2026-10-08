@@ -8,6 +8,6 @@ noctalia &
 swayidle -w before-sleep swaylock &
 kanshi &
 
-gammastep-indicator &
+#gammastep-indicator &
 
 start-mympd

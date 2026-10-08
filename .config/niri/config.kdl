@@ -440,7 +440,7 @@ binds {
     Mod+P hotkey-overlay-title="Run an Application" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "swaylock"; }
 
-    Mod+Ctrl+R  { spawn-sh "pkill -x -USR1 gammastep"; }
+    Mod+Ctrl+R  { spawn "noctalia" "msg" "nightlight-force-toggle"; }
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).

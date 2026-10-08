@@ -315,10 +315,10 @@ enable_ddcutil = false
 # ── Night Light ───────────────────────────────────────────────────────────────
 
 [nightlight]
-enabled              = false
+enabled              = true
 force                = false
-temperature_day      = 6500         # Kelvin
-temperature_night    = 4000         # Kelvin
+temperature_day      = 5000         # Kelvin
+temperature_night    = 3500         # Kelvin
 
 # ── Location ──────────────────────────────────────────────────────────────────
 # Single source of "where am I"; feeds Weather, Night Light, and Theme auto mode.
