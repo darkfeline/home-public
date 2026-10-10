@@ -247,14 +247,14 @@
                        dumb-jump easydraw eat editorconfig eglot
                        expand-region flymake flymake-shellcheck
                        ghostel git-timemachine gnu-elpa-keyring-update
-                       go-mode graphviz-dot-mode helpful htmlize
-                       jakuri json-mode kdl-mode keycast lua-mode
-                       magit marginalia markdown-mode minions
-                       orderless org pinentry project protobuf-mode
-                       python rainbow-mode reintegrate smartparens
-                       systemd toml-mode tramp treesit-auto valign
-                       vertico vlf vundo wgrep which-key with-editor
-                       ws-butler xterm-color yaml-mode yasnippet))
+                       go-mode helpful htmlize jakuri json-mode
+                       kdl-mode keycast lua-mode magit marginalia
+                       markdown-mode minions orderless org pinentry
+                       project protobuf-mode python rainbow-mode
+                       reintegrate smartparens systemd toml-mode tramp
+                       treesit-auto valign vertico vlf vundo wgrep
+                       which-key with-editor ws-butler xterm-color
+                       yaml-mode yasnippet))
  '(package-unsigned-archives '("melpa" "melpa-stable"))
  '(project-list-file "~/.local/state/emacs/projects")
  '(project-switch-commands
