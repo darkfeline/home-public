@@ -26,21 +26,15 @@ readonly packages=(
 
     # Wayland
     adobe-source-code-pro-fonts
-    alacritty
-    dunst
-    gammastep
-    grim
+    ghostty
     kanshi
     niri
     noctalia
     polkit-kde-agent
-    rofi
-    slurp
-    swaybg
     swayidle
     swaylock
     wl-clipboard
-    xdg-desktop-portal-hyprland
+    xdg-desktop-portal-gtk
     xdg-desktop-portal-wlr
     xwayland-satellite
 )
