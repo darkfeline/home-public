@@ -181,9 +181,6 @@
  '(org-attach-store-link-p 'attached)
  '(org-attach-use-inheritance t)
  '(org-babel-load-languages '((emacs-lisp . t) (python . t) (shell . t) (dot . t)))
- '(org-capture-templates
-   '(("Z" "org-protocol capture" entry (file "notes.org")
-      "* TODO %?org-protocol capture :capture:\12%(let ((x \"%:annotation\")) (if (string= x \"\") \"\" (concat x \"\\n\")))%(quote \"%i\")")))
  '(org-checkbox-hierarchical-statistics nil)
  '(org-columns-default-format "%60ITEM %TODO %Effort{:} %CLOCKSUM")
  '(org-confirm-babel-evaluate nil)
