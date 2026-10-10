@@ -1,5 +1,4 @@
-*.cache
-*.list
+/*.cache
+/*.list
 
-chrome-*.desktop
-com.google.Chrome.flextop.chrome-*.desktop
+/*.desktop
