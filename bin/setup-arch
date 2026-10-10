@@ -40,9 +40,7 @@ readonly packages=(
 )
 
 readonly laptop=(
-    dialog # for netctl wifi-menu
     iwd
-    netctl
     tlp
 )
 
