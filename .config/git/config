@@ -22,6 +22,7 @@
 	cp = cherry-pick
 	cue = config user.email
 	d = diff
+	d1 = diff HEAD^ HEAD
 	dc = diff --cached
 	f = fetch
 	fa = fetch --all
@@ -45,6 +46,7 @@
 	ru = rebase-update
 	rmc = rm --cached
 	s = status
+	sh = show
 	sm = submodule
 	smagd = submodule absorbgitdirs
 	smfe = submodule foreach
