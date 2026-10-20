@@ -10,6 +10,14 @@ inpath() {
 PS1="${RESET}${GREEN}$USER${RESET}@${GREEN}$(uname -n)${RESET} ! $ "
 [ -n "${INSIDE_EMACS:-}" ] && PS2=
 
+# This is not standardized, but EDITOR SHOULD be eval'ed
+#
+# https://github.com/magit/with-editor/issues/121#issuecomment-5078021665
+#
+# However, there are many places where this is not done properly, such
+# as systemctl.
+#
+# https://github.com/magit/with-editor/issues/40#issuecomment-338285226
 export EDITOR="ed -p 'ed> '"
 case "${TERM:-dumb}" in
     *dumb*)
