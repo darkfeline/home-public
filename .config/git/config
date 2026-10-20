@@ -29,8 +29,11 @@
 	first = rev-list --max-parents=0 HEAD
 	l = log
 	l1 = log -n 1
+	l2 = log -n 2
+	l3 = log -n 3
 	la = log --all --graph --decorate --stat
 	lg = log --graph
+	ln = log -n
 	lo = log --format=oneline
 	lr = log --format=raw
 	m = merge
