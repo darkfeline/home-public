@@ -10,7 +10,7 @@ inpath() {
 PS1="${RESET}${GREEN}$USER${RESET}@${GREEN}$(uname -n)${RESET} ! $ "
 [ -n "${INSIDE_EMACS:-}" ] && PS2=
 
-# This is not standardized, but EDITOR SHOULD be eval'ed
+# This is not standardized, but EDITOR SHOULD be eval'ed.  See environ(7)
 #
 # https://github.com/magit/with-editor/issues/121#issuecomment-5078021665
 #
