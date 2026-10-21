@@ -119,7 +119,8 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
       (funcall old))))
 
 (define-advice markdown-export (:around (old &rest args) no-auto-insert)
-  "Disable `auto-insert' when exporting Markdown."
+  "Disable `auto-insert' when exporting Markdown.
+See `https://github.com/jrblevin/markdown-mode/pull/959'."
   (dlet ((auto-insert nil))
     (apply old args)))
 
