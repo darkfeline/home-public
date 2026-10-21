@@ -118,6 +118,11 @@ See `https://debbugs.gnu.org/cgi/bugreport.cgi?bug=33092'."
           (force-mode-line-update t))
       (funcall old))))
 
+(define-advice markdown-export (:around (old &rest args) no-auto-insert)
+  "Disable `auto-insert' when exporting Markdown."
+  (dlet ((auto-insert nil))
+    (apply old args)))
+
 (define-advice protobuf-mode (:after (&rest _args) shorten-name)
   "Shorten mode name."
   (setq mode-name "Proto")
