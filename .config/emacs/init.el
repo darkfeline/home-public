@@ -307,7 +307,18 @@ See `https://github.com/jrblevin/markdown-mode/pull/959'."
 
 (when (locate-library "treesit-auto")
   (require 'treesit-auto)
-  (treesit-auto-add-to-auto-mode-alist 'all)
+  ;; Only add `-ts-mode' entries to `auto-mode-alist' when no fallback
+  ;; `:remap' mode is available.  Some built-in modes (e.g.,
+  ;; `html-ts-mode') signal an error inside `delay-mode-hooks' when
+  ;; the grammar is missing, aborting before
+  ;; `after-change-major-mode-hook' can trigger
+  ;; `global-treesit-auto-mode' to prompt for installation.
+  (treesit-auto-add-to-auto-mode-alist
+   (seq-map #'treesit-auto-recipe-lang
+            (seq-remove (lambda (r)
+                          (seq-some #'fboundp
+                                    (ensure-list (treesit-auto-recipe-remap r))))
+                        treesit-auto-recipe-list)))
   (global-treesit-auto-mode))
 
 (when (locate-library "vimml")
