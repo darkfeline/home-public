@@ -27,6 +27,8 @@
 	f = fetch
 	fa = fetch --all
 	first = rev-list --max-parents=0 HEAD
+	h = history
+	hw = history reword
 	l = log
 	l1 = log -n 1
 	l2 = log -n 2
