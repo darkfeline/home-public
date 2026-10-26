@@ -313,6 +313,7 @@ See `https://github.com/jrblevin/markdown-mode/pull/959'."
   ;; the grammar is missing, aborting before
   ;; `after-change-major-mode-hook' can trigger
   ;; `global-treesit-auto-mode' to prompt for installation.
+  ;; https://github.com/renzmann/treesit-auto/issues/154
   (treesit-auto-add-to-auto-mode-alist
    (seq-map #'treesit-auto-recipe-lang
             (seq-remove (lambda (r)
