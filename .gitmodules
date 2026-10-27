@@ -23,7 +23,7 @@
 	path = .config/emacs/vc/majutsu
 	url = https://github.com/darkfeline/majutsu.git
 [submodule "src/obsidian-skills"]
-	path = src/obsidian-skills
+	path = src/dalian/obsidian-skills
 	url = https://github.com/kepano/obsidian-skills.git
 [submodule "src/aur/pi-coding-agent"]
 	path = src/aur/pi-coding-agent
