@@ -32,6 +32,7 @@ alias shpd="shpool detach"
 alias shpl="shpool list"
 alias soe="ssh -O exit"
 alias tn="tail -n"
+alias tp="type"
 alias tpr="tput reset"
 
 # systemctl aliases
