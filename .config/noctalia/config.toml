@@ -235,7 +235,7 @@ privacy = true                      # microphone/camera/screen-share capture cha
 # ── Lock Screen ───────────────────────────────────────────────────────────────
 
 [lockscreen]
-enabled                 = true
+enabled                 = false
 blurred_desktop         = false       # use a desktop snapshot as the lock screen background (requires wlr-screencopy)
 transition              = ["fade", "wipe", "disc", "stripes", "zoom", "honeycomb"] # empty disables lock/unlock animation
 transition_duration     = 500         # lock/unlock animation length in milliseconds
