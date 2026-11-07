@@ -1,3 +1,7 @@
 #!/bin/sh
 # Play bell sound in Wayland (e.g., for terminals).
-exec aplay -q ~/share/beep-tri.wav
+if command -v pw-play >/dev/null 2>&1; then
+    exec pw-play ~/share/beep-tri.wav
+else
+    exec aplay -q ~/share/beep-tri.wav
+fi
