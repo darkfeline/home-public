@@ -1,5 +1,5 @@
 ---
-name: create-agent-skill
+name: skill-creator
 description: Assist agents in designing, writing, organizing, and validating Agent Skills. Use this skill when asked to create a new agent skill, edit an existing one, optimize skill descriptions, or set up evaluation loops.
 ---
 
