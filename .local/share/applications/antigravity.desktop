@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Antigravity
+Exec=~/src/Antigravity-x64/antigravity
+Terminal=false
+Type=Application
+Categories=Development;
+StartupNotify=true
+StartupWMClass=Antigravity
+MimeType=x-scheme-handler/antigravity;
+Icon=~/share/antigravity.png

@@ -1,4 +1,5 @@
 /*.cache
+/*.desktop
 /*.list
 
-/*.desktop
+!/antigravity.desktop
