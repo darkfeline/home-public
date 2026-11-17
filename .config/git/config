@@ -54,6 +54,7 @@
 	sh = show
 	sm = submodule
 	smagd = submodule absorbgitdirs
+	smd = submodule deinit
 	smfe = submodule foreach
 	smfer = submodule foreach --recursive
 	smi = submodule init
