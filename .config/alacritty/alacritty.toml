@@ -1,6 +1,6 @@
 [colors.bright]
 black = "#444444"
-blue = "#0000ff"
+blue = "#5555ff"
 cyan = "#00ffff"
 green = "#00ff00"
 magenta = "#ff00ff"
@@ -10,7 +10,7 @@ yellow = "#ffff00"
 
 [colors.normal]
 black = "#000000"
-blue = "#5555dd"
+blue = "#9999ee"
 cyan = "#55dddd"
 green = "#55dd55"
 magenta = "#dd55dd"
@@ -19,7 +19,7 @@ white = "#dddddd"
 yellow = "#dddd55"
 
 [colors.primary]
-background = "#222222"
+background = "#111111"
 foreground = "#bbbbbb"
 
 [env]
