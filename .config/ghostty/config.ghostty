@@ -31,3 +31,6 @@ bell-audio-path = ~/share/beep-tri.wav
 bell-audio-volume = 1.0
 
 shell-integration = none
+
+clipboard-read = allow
+clipboard-write = allow
